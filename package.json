@@ -1,0 +1,44 @@
+{
+  "name": "welcomebook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "build": "node esbuild.config.mjs",
+    "dev:server": "nodemon --config nodemon.server.json index.mjs",
+    "dev:react": "nodemon --config nodemon.react.json esbuild.config.mjs",
+    "asbuild:debug": "asc assembly/index.ts --target debug",
+    "asbuild:release": "asc assembly/index.ts --target release",
+    "asbuild": "npm run asbuild:debug && npm run asbuild:release",
+    "test": "node tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "assemblyscript": "^0.27.1",
+    "autoprefixer": "^10.4.14",
+    "dotenv": "^16.0.3",
+    "esbuild": "^0.16.17",
+    "esbuild-copy-static-files": "^0.1.0",
+    "esbuild-css-modules-plugin": "^2.7.1",
+    "esbuild-plugin-path-alias": "^1.0.7",
+    "esbuild-plugin-polyfill-node": "^0.1.4",
+    "esbuild-sass-plugin": "^2.5.0",
+    "nodemon": "^2.0.22",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-enqueue": "^1.0.0",
+    "express-http-proxy": "^1.6.3",
+    "jira-client": "^8.2.2"
+  }
+}

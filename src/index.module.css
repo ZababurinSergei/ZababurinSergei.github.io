@@ -1,0 +1,13 @@
+.test {
+    background: #0a870e;
+}
+
+@media only all and (max-width: 767px) {
+
+}
+
+@media all and (min-width: 768px) and (max-width: 1368px) {
+
+}
+
+@media all and (min-width: 1025px) { }
