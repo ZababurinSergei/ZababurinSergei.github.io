@@ -1,0 +1,21 @@
+/*https://codepen.io/sarazond/pen/LYGbwj*/
+.dialog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(99, 174, 200, 0.1);
+}
+
+.dialog > pre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 1.4vw;
+    color: #f7eded;
+    line-height: 1.3vw;
+    letter-spacing: 0.2vw;
+}

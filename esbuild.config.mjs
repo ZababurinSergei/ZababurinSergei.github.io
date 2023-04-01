@@ -59,7 +59,7 @@ try {
                      * [hash] - a hash of the full file path
                      * [local] - the original class name
                      */
-                    pattern: `[name]_[local]_[hash]`
+                    pattern: `[name]_[local]__[hash]`
                 }
             })
         ]
