@@ -1,14 +1,11 @@
-import esbuild from "esbuild";
+import * as esbuild from 'esbuild'
+import * as fs from "fs-extra";
 import cssModulesPlugin from "esbuild-css-modules-plugin";
 import { polyfillNode } from "esbuild-plugin-polyfill-node";
-import aliasPlugin from 'esbuild-plugin-path-alias';
-import autoprefixer from "autoprefixer";
-import sass from "esbuild-sass-plugin";
 import path from 'path';
 import * as dotenv from 'dotenv'
-import copyStaticFiles from "esbuild-copy-static-files";
-
 dotenv.config()
+
 const __dirname = path.join(path.dirname(process.argv[1]), './');
 
 const isWatch = process.argv.includes("--watch");
@@ -36,10 +33,65 @@ for (const k in process.env) {
     }
 }
 
-/**
- * ESBuild Params
- * @link https://esbuild.github.io/api/#build-api
- */
+const entryPoints = [path.resolve(__dirname, 'src/index.tsx')]
+const outdir = path.resolve(__dirname, 'public/_this/virualDom')
+const outfile = path.resolve(__dirname, 'public/_this/virualDom/index.mjs')
+
+
+fs.emptyDirSync(outdir);
+
+console.time("⚡ [esbuild] Done");
+try {
+    const buildParams = {
+        entryPoints: entryPoints,
+        bundle: true,
+        metafile: true,
+        outfile: outfile,
+        format: "esm",
+        plugins: [
+            cssModulesPlugin({
+                v2: false,
+                localsConvention: "dashes",
+                inject: (cssContent, digest, ...args) => {
+
+                    // console.log('========== digest ==============',args, cssContent)
+                    // `console.log("${cssContent}", "${digest}")`
+                },
+                generateScopedName: (name, filename, css) => {
+                    // console.log('sssssssssssssssssssssss', {
+                    //     name, filename, css
+                    // })
+
+                    let prefix = path.dirname(filename).split('/')
+                    prefix = prefix[prefix.length - 1]
+                    return `${prefix}_${name}__${cyrb53(css, 2)}`
+                },
+                generateTsFile: true
+            })
+        ]
+    }
+
+    let result = await esbuild.build(buildParams)
+    console.timeEnd("⚡ [esbuild] Done")
+    // console.log(result)
+} catch (e) {
+    console.timeEnd("⚡ [esbuild] Done")
+    console.log(e)
+    process.exit(1)
+}
+
+
+/*
+import esbuild from "esbuild";
+import cssModulesPlugin from "esbuild-css-modules-plugin";
+import { polyfillNode } from "esbuild-plugin-polyfill-node";
+import aliasPlugin from 'esbuild-plugin-path-alias';
+import autoprefixer from "autoprefixer";
+import sass from "esbuild-sass-plugin";
+import path from 'path';
+import * as dotenv from 'dotenv'
+import copyStaticFiles from "esbuild-copy-static-files";
+
 const buildParams = {
     color: true,
     entryPoints: ['src/index.tsx'],
@@ -85,4 +137,5 @@ esbuild.build(buildParams).catch((e) => {
     console.error('ERROR ESBUILD', e)
     process.exit(1)
 });
-console.timeEnd("⚡ [esbuild] Done")
+
+ */
