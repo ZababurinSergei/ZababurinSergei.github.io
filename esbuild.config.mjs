@@ -47,7 +47,7 @@ const buildParams = {
     minify: !isWatch,
     format: "esm",
     bundle: true,
-    outfile: './build/index.mjs',
+    outfile: './public/_this/virualDom/index.mjs',
     sourcemap: true,
     mainFields : [ 'module' , 'main' ],
     define,

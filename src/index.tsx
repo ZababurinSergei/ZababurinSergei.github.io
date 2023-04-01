@@ -1,20 +1,21 @@
 import * as React from 'react'
 import ReactDOM from 'react-dom/client';
-import App from './App'
-export default (symbol, mountPoint) => {
+import App from './App';
+
+export default (symbol: symbol, mountPoint: any) => {
     return new Promise((resolve, reject) => {
-        const root = ReactDOM.createRoot(mountPoint.querySelector('#root'));
+        // let root:ReactDOM.Root = ReactDOM.createRoot(mountPoint.querySelector('#root'));
+        let root:any = ReactDOM.createRoot(mountPoint.querySelector('#root'));
 
-        let styles = document.head.querySelectorAll('style')
-
-        for (const style of styles) {
-            mountPoint.appendChild(style)
-        }
+        // let styles:NodeListOf<HTMLStyleElement> = document.head.querySelectorAll('style')
+        // for (const style of styles) {
+        //     mountPoint.appendChild(style)
+        // }
 
         root[symbol] = {
             'app': <App />,
             'mount': mountPoint
-        }
+        };
 
         resolve(root)
     })

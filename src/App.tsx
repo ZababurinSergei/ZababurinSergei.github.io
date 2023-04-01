@@ -1,5 +1,6 @@
 import * as React from "react";
 import style from './index.module.css'
+
 const Panel = () => <h2>I'm a Panel</h2>
 export const App = () => {
     return (
@@ -10,5 +11,4 @@ export const App = () => {
         </div>
     )
 }
-
 export default App

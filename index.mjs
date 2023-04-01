@@ -65,8 +65,6 @@ app.use(proxy('localhost:8080', {
     }
 }));
 
-
-app.use(express.static(`${__dirname}/build`));
 app.use(express.static(`${__dirname}/public`));
 
 app.get(`/*`, async (req, res) => {
