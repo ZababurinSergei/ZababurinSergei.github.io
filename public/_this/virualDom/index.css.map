@@ -1,7 +1,7 @@
 {
   "version": 3,
-  "sources": ["src/index.module.css", "src/test.module.css"],
-  "sourcesContent": [".test {\n    background: #0a870e;\n}\n\n.data {\n    color: red;\n}\n\n@media only all and (max-width: 767px) {\n\n}\n\n@media all and (min-width: 768px) and (max-width: 1368px) {\n\n}\n\n@media all and (min-width: 1025px) { }\n", ".test2 {\n    background: #0a870e;\n}\n\n.data2 {\n    color: red;\n}\n\n@media only all and (max-width: 767px) {\n\n}\n\n@media all and (min-width: 768px) and (max-width: 1368px) {\n\n}\n\n@media all and (min-width: 1025px) { }\n"],
-  "mappings": "AAAA,6CAIA,oCCJA,6CAIA",
+  "sources": ["src/index.module.css"],
+  "sourcesContent": [".test {\n    background: #0a870e;\n}\n\n.data {\n    color: red;\n}\n\n@media only all and (max-width: 767px) {\n\n}\n\n@media all and (min-width: 768px) and (max-width: 1368px) {\n\n}\n\n@media all and (min-width: 1025px) { }\n"],
+  "mappings": "AAAA,6CAIA",
   "names": []
 }

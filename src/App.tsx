@@ -1,6 +1,6 @@
-import * as React from "react";
+import React, {StrictMode} from 'react';
 import style from './index.module.css'
-import test from './test.module.css'
+import MainRouting from './_this/MainRouting';
 const Panel = () => <h2>I'm a Panel</h2>
 export const App = () => {
     return (
