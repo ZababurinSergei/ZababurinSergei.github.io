@@ -26,9 +26,6 @@
 </body>
 <script type="module">
     import { virtualDOM } from './_this/index.mjs'
-    import { add } from "/_this/wasm/welcomeBook/index.js"
-    console.log('WASM', add(1, 2))
-    console.log('WASM', virtualDOM)
     const shadow = document.body.attachShadow({mode: "open"});
     let root = document.createElement('div')
     root.id = 'root'

@@ -52,11 +52,7 @@ try {
             cssModulesPlugin({
                 v2: false,
                 localsConvention: "dashes",
-                inject: (cssContent, digest, ...args) => {
-
-                    // console.log('========== digest ==============',args, cssContent)
-                    // `console.log("${cssContent}", "${digest}")`
-                },
+                inject: '#body',
                 generateScopedName: (name, filename, css) => {
                     // console.log('sssssssssssssssssssssss', {
                     //     name, filename, css

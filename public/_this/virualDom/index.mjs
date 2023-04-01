@@ -10465,9 +10465,9 @@ var require_react_dom_development = __commonJS({
         }
         function getSuspenseInstanceFallbackErrorDetails(instance) {
           var dataset = instance.nextSibling && instance.nextSibling.dataset;
-          var digest, message, stack;
+          var digest2, message, stack;
           if (dataset) {
-            digest = dataset.dgst;
+            digest2 = dataset.dgst;
             {
               message = dataset.msg;
               stack = dataset.stck;
@@ -10476,7 +10476,7 @@ var require_react_dom_development = __commonJS({
           {
             return {
               message,
-              digest,
+              digest: digest2,
               stack
             };
           }
@@ -15899,12 +15899,12 @@ var require_react_dom_development = __commonJS({
             digest: null
           };
         }
-        function createCapturedValue(value, digest, stack) {
+        function createCapturedValue(value, digest2, stack) {
           return {
             value,
             source: null,
             stack: stack != null ? stack : null,
-            digest: digest != null ? digest : null
+            digest: digest2 != null ? digest2 : null
           };
         }
         function showErrorDialog(boundary, errorInfo) {
@@ -17205,10 +17205,10 @@ var require_react_dom_development = __commonJS({
               );
             }
             if (isSuspenseInstanceFallback(suspenseInstance)) {
-              var digest, message, stack;
+              var digest2, message, stack;
               {
                 var _getSuspenseInstanceF = getSuspenseInstanceFallbackErrorDetails(suspenseInstance);
-                digest = _getSuspenseInstanceF.digest;
+                digest2 = _getSuspenseInstanceF.digest;
                 message = _getSuspenseInstanceF.message;
                 stack = _getSuspenseInstanceF.stack;
               }
@@ -17218,7 +17218,7 @@ var require_react_dom_development = __commonJS({
               } else {
                 error2 = new Error("The server could not finish this Suspense boundary, likely due to an error during server rendering. Switched to client rendering.");
               }
-              var capturedValue = createCapturedValue(error2, digest, stack);
+              var capturedValue = createCapturedValue(error2, digest2, stack);
               return retrySuspenseComponentWithoutHydrating(current2, workInProgress2, renderLanes2, capturedValue);
             }
             var hasContextChanged2 = includesSomeLane(renderLanes2, current2.childLanes);
@@ -21299,10 +21299,10 @@ var require_react_dom_development = __commonJS({
             for (var i = 0; i < recoverableErrors.length; i++) {
               var recoverableError = recoverableErrors[i];
               var componentStack = recoverableError.stack;
-              var digest = recoverableError.digest;
+              var digest2 = recoverableError.digest;
               onRecoverableError(recoverableError.value, {
                 componentStack,
-                digest
+                digest: digest2
               });
             }
           }
@@ -23513,7 +23513,37 @@ var import_client = __toESM(require_client(), 1);
 // src/App.tsx
 var React = __toESM(require_react(), 1);
 
-// esbuild-css-modules-plugin-namespace:/tmp/tmp-42894-Qwo6yIcgd3el/Welcomebook/src/index.module.css.js
+// esbuild-css-modules-plugin-namespace:/tmp/tmp-44343-W8pKBKnX5Z7E/Welcomebook/src/index.module.css.js
+var digest = "6271be9119ab0d51bb0a00752aeba8d07c12decefb5d03ce3e454a40ef95da08";
+var css = `.src_test__437423917236787 {
+    background: #0a870e;
+}
+
+.src_data__437423917236787 {
+    color: red;
+}
+
+@media only all and (max-width: 767px) {
+
+}
+
+@media all and (min-width: 768px) and (max-width: 1368px) {
+
+}
+
+@media all and (min-width: 1025px) { }
+`;
+(function() {
+  if (typeof document === "undefined") {
+    return;
+  }
+  if (!document.getElementById(digest)) {
+    var el = document.createElement("style");
+    el.id = digest;
+    el.textContent = css;
+    document.head.appendChild(el);
+  }
+})();
 var index_module_css_default = { "test": "src_test__437423917236787", "data": "src_data__437423917236787" };
 
 // src/App.tsx
