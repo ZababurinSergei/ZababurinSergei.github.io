@@ -2,6 +2,7 @@ import * as esbuild from 'esbuild'
 import * as fs from "fs-extra";
 import cssModulesPlugin from "esbuild-css-modules-plugin";
 import { polyfillNode } from "esbuild-plugin-polyfill-node";
+import aliasPlugin from 'esbuild-plugin-path-alias';
 import path from 'path';
 import * as dotenv from 'dotenv'
 dotenv.config()
@@ -11,21 +12,6 @@ const __dirname = path.join(path.dirname(process.argv[1]), './');
 const isWatch = process.argv.includes("--watch");
 
 let define = {}
-const cyrb53 = (str, seed = 0) => {
-    let h1 = 0xdeadbeef ^ seed,
-        h2 = 0x41c6ce57 ^ seed;
-    for (let i = 0, ch; i < str.length; i++) {
-        ch = str.charCodeAt(i);
-        h1 = Math.imul(h1 ^ ch, 2654435761);
-        h2 = Math.imul(h2 ^ ch, 1597334677);
-    }
-
-    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
-    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
-
-    return 4294967296 * (2097151 & h2) + (h1 >>> 0);
-};
-
 
 for (const k in process.env) {
     if (k.startsWith('REACT_APP_') || k.startsWith('PUBLIC_URL') || k.startsWith('PORT')) {
@@ -48,28 +34,40 @@ try {
         metafile: true,
         outfile: outfile,
         format: "esm",
+        define,
+        loader: { ".js": "jsx", ".json": "json", ".png": "file", ".jpeg": "file", ".jpg": "file", ".svg": "file", ".woff": "file" },
+        color: true,
+        minify: true,
+        sourcemap: true,
+        mainFields : [ 'module' , 'main' ],
         plugins: [
+            aliasPlugin({
+                '@src': path.resolve(__dirname, './src')
+            }),
+            polyfillNode({
+                process: true,
+                buffer: true,
+                define
+            }),
             cssModulesPlugin({
-                v2: false,
-                localsConvention: "dashes",
-                inject: '#body',
-                generateScopedName: (name, filename, css) => {
-                    // console.log('sssssssssssssssssssssss', {
-                    //     name, filename, css
-                    // })
-
-                    let prefix = path.dirname(filename).split('/')
-                    prefix = prefix[prefix.length - 1]
-                    return `${prefix}_${name}__${cyrb53(css, 2)}`
-                },
-                generateTsFile: true
+                v2: true,
+                v2CssModulesOption: {
+                    dashedIndents: true,
+                    /**
+                     * Optional. The currently supported segments are:
+                     * [name] - the base name of the CSS file, without the extension
+                     * [hash] - a hash of the full file path
+                     * [local] - the original class name
+                     */
+                    pattern: `[name]_[local]_[hash]`
+                }
             })
         ]
     }
 
     let result = await esbuild.build(buildParams)
+    console.log(result)
     console.timeEnd("⚡ [esbuild] Done")
-    // console.log(result)
 } catch (e) {
     console.timeEnd("⚡ [esbuild] Done")
     console.log(e)

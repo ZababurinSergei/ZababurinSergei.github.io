@@ -25,11 +25,12 @@
 
 </body>
 <script type="module">
-    import { virtualDOM } from './_this/index.mjs'
+    import { virtualDOM, virtualCSS } from './_this/index.mjs'
     const shadow = document.body.attachShadow({mode: "open"});
     let root = document.createElement('div')
     root.id = 'root'
     shadow.appendChild(root)
+    shadow.adoptedStyleSheets = [...shadow.adoptedStyleSheets, virtualCSS];
     const virtual = Symbol("virtual");
     const shadowRoot = await virtualDOM(virtual, document.body.shadowRoot)
     shadowRoot.render(shadowRoot[virtual].app);
