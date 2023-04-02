@@ -1,0 +1,25 @@
+.markdown__string_menu {
+    width: 100%;
+}
+
+.markdown__string_menu_json_code {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5vw;
+}
+
+.markdown__jasonelle_android_query {
+    width: 44.3vw;
+}
+
+.markdown__jasonelle_android_run {
+    width: 20vw;
+}
+
+.body_after {
+    height: 0;
+    background: transparent;
+    margin-top: 0.5vw;
+    border-radius: 0.2vw;
+}

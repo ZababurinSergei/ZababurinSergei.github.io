@@ -1,0 +1,12 @@
+api-footer {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    gap: 2vw;
+    text-align: center;
+    align-items: center;
+}
+
+[slot="footer_substrate"] {
+    margin-left: 13vw;
+}

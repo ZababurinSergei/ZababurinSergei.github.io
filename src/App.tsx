@@ -4,7 +4,7 @@ import { Panel } from './Panel'
 import MainRouting from './_this/MainRouting';
 export const Context = React.createContext({});
 
-export const App = ({ actionContext }) => {
+export const App = ({ actionContext }: any) => {
     return (
         <Context.Provider value={actionContext}>
             <div className={style.root}>

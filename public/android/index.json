@@ -1,0 +1,80 @@
+{
+  "$jason": {
+    "head": {
+      "title": "Orgs",
+      "styles": {
+        "bold": {
+          "font": "HelveticaNeue-CondensedBold",
+          "padding": "10",
+          "color": "#fd9040",
+          "size": "45"
+        },
+        "normal": {
+          "font": "HelveticaNeue",
+          "size": "12",
+          "color": "#ebebeb"
+        }
+      },
+      "actions": {
+        "$foreground": {
+          "type": "$reload"
+        },
+        "send": {
+          "type": "$util.alert",
+          "options": {
+            "title": "Message",
+            "description": "{{$get.message}}"
+          }
+        }
+      }
+    },
+    "body": {
+      "header": {
+        "title": "ORG",
+        "menu": {
+          "text": "Documentation",
+          "href": {
+            "url": "https://zababurinsv.github.io/markdown/",
+            "view": "web"
+          }
+        }
+      },
+      "background": {
+        "type": "html",
+        "url": "https://zababurinsv.github.io/android/",
+        "style": {
+          "width": "100%",
+          "height": "100%"
+        },
+        "action": {
+          "trigger": "displayBanner"
+        }
+      },
+      "footer": {
+        "tabs": {
+          "style": {
+            "background": "#ffffff"
+          },
+          "items": [
+            {
+              "image": "https://raw.githubusercontent.com/zababurinsv/android/main/docs/apps/footer-demo/anonymous-mask.png",
+              "text": "Top Secret",
+              "url": "https://jasonette.github.io/Jasonpedia/view/footer/tabs.json"
+            },
+            {
+              "image": "https://raw.githubusercontent.com/zababurinsv/android/main/docs/apps/footer-demo/info.png",
+              "text": "Info",
+              "badge": "2",
+              "url": "https://jasonette.github.io/Jasonpedia/view/footer/tabs.json"
+            },
+            {
+              "image": "https://raw.githubusercontent.com/zababurinsv/android/main/docs/apps/footer-demo/apps.png",
+              "text": "Collection",
+              "url": "https://jasonette.github.io/Jasonpedia/view/footer/tabs.json"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
