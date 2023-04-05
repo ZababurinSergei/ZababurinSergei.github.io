@@ -6,7 +6,7 @@ import cors from "cors";
 import Enqueue from "express-enqueue";
 import compression from "compression";
 import proxy from "express-http-proxy";
-import * as dotenv from 'dotenv' 
+import * as dotenv from 'dotenv'
 import JiraApi from 'jira-client';
 dotenv.config()
 
@@ -22,7 +22,7 @@ const jira = new JiraApi({
     password: process.env.JIRA_password,
     apiVersion: process.env.JIRA_apiVersion,
     strictSSL: process.env.JIRA_strictSSL
-  });
+});
 
 const queue = new Enqueue({
     concurrentWorkers: 4,
@@ -65,14 +65,16 @@ app.use(proxy('localhost:8080', {
     }
 }));
 
-if(process.env.SANDBOX) {
+if(process.env.SANDBOX === 'true') {
     app.use('/', express.static(`${__dirname}/_sandbox/welcomebook/src`));
     app.use('/rules', express.static(`${__dirname}/_sandbox/rules/src`));
+} else {
+    app.use('/rules', express.static(`${__dirname}/services/rules/src`));
+    app.use('/welcomebook', express.static(`${__dirname}/services/welcomebook/src`));
 }
 
 app.use(express.static(`${__dirname}/public`));
 app.use(express.static(`${__dirname}/services`));
-
 app.get(`/*`, async (req, res) => {
     res.status(200).sendFile(path.join(__dirname, '/public/index.html'));
 })
@@ -87,7 +89,7 @@ app.post(`/project`, async (req, res) => {
         console.log('========= JIRA =========', project)
         res.status(200).send(project);
     } catch (err) {
-        console.error(err);    
+        console.error(err);
         res.status(400).send(err);
     }
 })
