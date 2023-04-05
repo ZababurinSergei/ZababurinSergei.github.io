@@ -1,0 +1,65 @@
+.form {
+	border: 0.10834vw solid gray;
+	display: flex;
+	flex-direction: column;
+	padding: 0.32503vw;
+	width: 13.5428vw;
+	margin-top: 0.5vw;
+}
+
+.form__title {
+	font-size: 0.86674vw;
+	font-weight: bold;
+	border-bottom: 0.21668vw solid rgba(0, 0, 0, 0.3);
+	margin-bottom: 0.54171vw;
+}
+
+.form__input {
+	margin-bottom: 0.54171vw;
+}
+
+.form__input-label {
+	font-size: 0.7584vw;
+	font-weight: bold;
+	display: block;
+}
+
+.form__input-input {
+}
+
+.form__textarea {
+	margin-bottom: 0.54171vw;
+}
+
+.form__textarea-label {
+	font-size: 0.7584vw;
+	font-weight: bold;
+	display: block;
+}
+
+.form__textarea-textarea {
+	resize: vertical;
+}
+
+.form__buttons {
+	margin-bottom: 0.54171vw;
+	display: flex;
+	gap: 1vw;
+	text-align: center;
+}
+
+.buttons__cancellation {
+	background-color: white;
+	color: blue;
+	border-color: blue;
+	border-radius: 0.21668vw;
+	outline: none;
+}
+
+.buttons__save {
+	background-color: blue;
+	border-color: blue;
+	color: white;
+	border-radius: 0.21668vw;
+	outline: none;
+}

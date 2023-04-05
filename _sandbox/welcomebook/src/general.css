@@ -1,0 +1,110 @@
+.general__body {
+    display: flex;
+    position: absolute;
+    top: -510vh;
+    width: 1658px;
+    height: 888px;
+    border-radius: 30px;
+    left: calc(50% - 829px);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 8px 18px -6px rgba(24, 39, 75, 0.12);
+    backdrop-filter: blur(20px);
+    z-index: 100;
+    justify-content: flex-end;
+    background-image: url("./this/img/general/general.png");
+    background-repeat: no-repeat;
+    background-position: right 48px  bottom;
+}
+
+.general__preview {
+    width: 675px;
+    height: 799px;
+    align-self: self-end;
+    margin-right: 48px;
+}
+
+.general_close {
+    position: absolute;
+    top: 49px;
+    left: 55px;
+    width: 37px;
+    height: 37px;
+    cursor: pointer;
+}
+
+.general_info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: end;
+}
+
+.general_info_description {
+    position: absolute;
+    left: 10.68%;
+    right: 31%;
+    top: 16.22%;
+    bottom: 56.08%;
+    width: 967px;
+    align-self: center;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+
+.general_info_wrapper {
+    align-self: center;
+    text-align: end;
+    margin-right: 10%;
+}
+
+.general_info_name {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFFFFF;
+}
+
+.general_info_status {
+    font-family: 'Lora';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #FFFFFF;
+}
+
+
+.selected {
+    animation: slide-in 1.6s forwards;
+    -webkit-animation: slide-in 1.6s forwards;
+}
+
+.dismiss {
+    animation: slide-out 1.6s forwards;
+    -webkit-animation: slide-out 1.6s forwards;
+}
+
+
+@keyframes slide-in {
+    0% {
+        top: -110vh;
+    }
+    100% {
+        top: 2vh;
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        top: 2vh;
+    }
+    100% {
+        top: -110vh;
+    }
+}

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
+    <meta property="og:site_name" content="markdown"/>
+    <meta property="og:locale" content="ru_RU"/>
+    <meta property="og:type" content="contract"/>
+    <meta property="og:title" content="markdown"/>
+    <meta property="og:description" content="markdown"/>
+    <meta property="og:url" content="https://zababurinsv.github.io/design/"/>
+    <meta property="og:image" content="https://i.imgur.com/pSrPUkJ.jpg"/>
+    <meta property="og:image:width" content="537"/>
+    <meta property="og:image:height" content="240"/>
+    <link rel="shortcut icon"
+          href="data:image/png;base64, AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbbv+DGW3/mRlt/5kZbf+ZGq6/hIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGa3/ohkt/7/Zbj//2S3/v9lt/6WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGm5/iRlt/74Zbj//2W4//9luP//Zbf++mi4/i4gIPciGhr24hsb9uwbG/bsGhr24CEh9xoAAAAAAAAAAAAAAABnuP5mZLf+/2W4//9luP//Zbj//2S3/v9muP5yGBj2rhMT9v8TE/b/ExP2/xMT9f8YGPWkAAAAAAAAAAAAAAAAb7z/BGW3/tZluP//Zbj//2W4//9lt/7gJzH3ShMT9f8TE/b/ExP2/xMT9v8TE/b/ExP1/CAg9joAAAAAAAAAAAAAAABmuP5GZLf+6GS3/uhkt/7oZbf+UhgY9YQSEvX/ExP2/xMT9v8TE/b/ExP2/xIS9f8aGvZ8AAAAAD4++gQgIPZ6IiL2hiIi9oYgIPZ8KCj5BAAAAAAtLfgUFBT17BMT9v8TE/b/ExP2/xMT9v8VFfXoLCz4DgAAAAAaGvZqEhL1/xMT9v8TE/b/EhL1/xsb9nIAAAAAAAAAABwc9m4SEvX/ExP2/xMT9v8SEvX/HR32ZAAAAAAnJ/gSFRX16hMT9v8TE/b/ExP2/xMT9v8UFPXuJyf4Fp2xlAKNnqUYLC/mfhYW83ATE/VuFxf1aDc3+gIAAAAAGBj1fhIS9f8TE/b/ExP2/xMT9v8TE/b/ExP1/xkZ9YaGn3yIhZ57/4Wee/+Gn3yKAAAAAAAAAAAAAAAAAAAAACMj9zYTE/X8ExP2/xMT9v8TE/b/ExP2/xMT9f9JUshihZ57+IaffP+Gn3z/hZ579oigfiYAAAAAAAAAAAAAAAAAAAAAGBj1oBIS9f8TE/b/ExP2/xMT9f8YGPWmiKB+PIWee/+Gn3z/hp98/4Wee/+HoH06AAAAAAAAAAAAAAAAAAAAACUl9xgVFfXOExP11BMT9dQUFPXQJib3HgAAAACGn3ymhp98/4affP+Gn3ymAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiKB+EIihf0CIoX9AiKB+EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AADg/wAA4MMAAOCBAADggQAA8QEAAOeBAADDwwAAgf8AAIAPAACBDwAAgQ8AAMMPAAD//wAA//8AAA=="
+          type="image/png">
+</head>
+<body>
+<div class="welcome__book">
+    <slot name="general"></slot>
+    <slot name="welcome-menu"></slot>
+    <slot name="welcome-header"></slot>
+    <div class="body">
+        <section class='animation parallax-container-on' data-id="0" >
+            <slot name="welcome-section-0"></slot>
+        </section>
+        <section class='animation parallax-container-off' data-id="1">
+            <slot name="welcome-section-1"></slot>
+        </section>
+        <section class='animation parallax-container-off' data-id="2">
+            <slot name="welcome-section-2"></slot>
+        </section>
+        <section class='animation parallax-container-off' data-id="3">
+            <slot name="welcome-section-3"></slot>
+        </section>
+        <section class='animation parallax-container-off' data-id="4">
+            <slot name="welcome-section-4"></slot>
+        </section>
+        <section class='animation parallax-container-off' data-id="5">
+            <slot name="welcome-section-5"></slot>
+        </section>
+        <section class='animation parallax-container-off' data-id="6">
+            <slot name="welcome-section-6"></slot>
+        </section>
+        <section class='animation parallax-container-off' data-id="7">
+            <slot name="welcome-section-7"></slot>
+        </section>
+        <section class='animation parallax-container-off' data-id="8">
+            <slot name="welcome-section-8"></slot>
+        </section>
+        <section class='animation parallax-container-off' data-id="9">
+            <slot name="welcome-section-9"></slot>
+        </section>
+        <section class='animation parallax-container-off' data-id="10">
+            <slot name="welcome-section-10"></slot>
+        </section>
+        <section class='animation parallax-container-off' data-id="11">
+            <slot name="welcome-section-11"></slot>
+        </section>
+        <section class='animation parallax-container-off' data-id="12">
+            <slot name="welcome-section-12"></slot>
+        </section>
+    </div>
+</div>
+<welcome-header slot="welcome-header">
+    <img class='welcome__logo' src="./this/icons/logo.svg"/>
+    <div class="welcome__wrapper">
+        <div class="welcome__link">
+            <slot name="company-site"></slot>
+        </div>
+        <div class="welcome__link">
+            <slot name="company-struct"></slot>
+        </div>
+    </div>
+
+    <fer-button
+            slot="company-struct"
+            class="fer-link"
+            data-type="welcome_button_company"
+            data-id="company"
+            data-type="welcomebook"
+            data-css-shadow="welcomebook"
+    >
+        <div class="word">
+            <div class="word__item word__item--left">Структура сайта</div>
+            <div class="word__item word__item--right">Структура сайта</div>
+        </div>
+    </fer-button>
+
+    <fer-button
+            slot="company-site"
+            class="fer-link"
+            data-type="welcome_button_company"
+            data-id="structure"
+            data-type="welcomebook"
+            data-css-shadow="welcomebook"
+    >
+        <div class="word">
+            <div class=" word__item word__item--left">Сайт Компании</div>
+            <div class=" word__item word__item--right">Сайт Компании</div>
+        </div>
+    </fer-button>
+</welcome-header>
+<welcome-section slot="welcome-section-0">
+    <img class='parallax' src='./this/img/pg1.png?0'/>
+    <div class='teaser'>
+        <div class='content'>
+            <div class="cifromed">
+                <p>Привет! Мы рады приветствовать тебя в команде</p>
+                <h1>&laquo;Цифромед&raquo;!</h1>
+                <p>Если ты это читаешь, значит ты успешно преодолел все этапы интервью и пришел к нам в
+                    компанию. Мы рады, что сегодня нас стало на одного замечательного человека больше. А этот
+                    Welcome book поможет тебе быстрее адаптироваться и ответит на основные вопросы.</p>
+            </div>
+
+            <slot name="fer-scroll"></slot>
+        </div>
+    </div>
+
+    <fer-scroll slot="fer-scroll">
+        <div class="welcome__scroll">
+            <div class="scroll">
+                <div class="scroll__up-block">
+                    <div class="scroll__left"></div>
+                    <div class="scroll__right"></div>
+                </div>
+                <p class="scroll__title">scroll</p>
+            </div>
+        </div>
+    </fer-scroll>
+</welcome-section>
+
+<welcome-section slot="welcome-section-1">
+    <img
+            class='parallax'
+            src='./this/img/pg2.png'
+    />
+    <div class='teaser'>
+        <div class='content'>
+            <p>Важное о компании</p>
+            <hr style="text-align: left; margin-left: 0;  width: 36px; ">
+            <h1>Кто мы и куда мы идем?</h1>
+        </div>
+    </div>
+    <div class='teaser'>
+        <div class='content'>
+            <div class="knowledge">Узнать больше</div>
+        </div>
+    </div>
+</welcome-section>
+
+<welcome-section slot="welcome-section-2">
+    <img
+            class='parallax'
+            src='./this/img/pg3.png?0'
+    />
+    <div class='teaser'>
+        <div class='content'>
+            <p>Взаимодействие в коллективе, дресс-код</p>
+            <hr style="text-align: left; margin-left: 0; width: 36px;">
+            <h1>Корпоративная культура</h1>
+        </div>
+    </div>
+    <div class='teaser'>
+        <div class='content'>
+            <div class="knowledge">Узнать больше</div>
+        </div>
+    </div>
+</welcome-section>
+
+<welcome-section slot="welcome-section-3">
+    <img class='parallax' src='./this/img/pg4.png?0'/>
+    <div class='teaser'>
+        <div class='content'>
+            <p>Наши продукты</p>
+            <hr style="text-align: left; margin-left: 0; width: 36px;">
+            <h1>Разработка, эксплуатация и развитие подсистем и компонентов</h1>
+        </div>
+    </div>
+    <div class='teaser'>
+        <div class='content'>
+            <div class="knowledge">Узнать больше</div>
+        </div>
+    </div>
+</welcome-section>
+
+<welcome-section slot="welcome-section-4">
+    <img class='parallax' src='./this/img/pg5.png?0'/>
+    <div class='teaser'>
+        <div class='content'>
+            <p>Рабочее место и переговорные комнаты</p>
+            <hr width="36px" style="text-align: left; margin-left: 0">
+            <h1>правильно организованное рабочее место уменьшает время, необходимое для выполнения работы</h1>
+        </div>
+    </div>
+    <div class='teaser'>
+        <div class='content'>
+            <div class="knowledge">Узнать больше</div>
+        </div>
+    </div>
+</welcome-section>
+
+<welcome-section slot="welcome-section-5">
+    <img class='parallax' src='./this/img/pg6.png?0'/>
+    <div class='teaser'>
+        <div class='content'>
+            <p>Рабочий график</p>
+            <hr style="text-align: left; margin-left: 0; width: 36px;">
+            <h1>Правила, по которым мы работаем</h1>
+        </div>
+    </div>
+    <div class='teaser'>
+        <div class='content'>
+            <div class="knowledge">Узнать больше</div>
+        </div>
+    </div>
+</welcome-section>
+
+<welcome-section slot="welcome-section-6">
+    <img class='parallax' src='./this/img/pg7.png?0'/>
+    <div class='teaser'>
+        <div class='content'>
+            <p>Зарплата и отпуск</p>
+            <hr style="text-align: left; margin-left: 0; width: 36px;">
+            <h1>всякий труд должен быть вознагражден</h1>
+        </div>
+    </div>
+    <div class='teaser'>
+        <div class='content'>
+            <div class="knowledge">Узнать больше</div>
+        </div>
+    </div>
+</welcome-section>
+
+<welcome-section slot="welcome-section-7">
+    <img class='parallax' src='./this/img/pg8.png?0'/>
+    <div class='teaser'>
+        <div class='content'>
+            <p>Прочие радости</p>
+            <hr style="text-align: left; margin-left: 0; width: 36px;">
+            <h1>ДМС, премия и корпоративные услуги</h1>
+        </div>
+    </div>
+    <div class='teaser'>
+        <div class='content'>
+            <div class="knowledge">Узнать больше</div>
+        </div>
+    </div>
+</welcome-section>
+
+<welcome-section slot="welcome-section-8">
+    <img class='parallax' src='./this/img/pg9.png?0'/>
+    <div class='teaser'>
+        <div class='content'>
+            <p>Информация о ресурсах и документах</p>
+            <hr style="text-align: left; margin-left: 0; width: 36px;">
+            <h1>Бюрократия есть и у нас. В хорошем смысле этого слова</h1>
+        </div>
+    </div>
+    <div class='teaser'>
+        <div class='content'>
+            <div class="knowledge">Узнать больше</div>
+        </div>
+    </div>
+</welcome-section>
+
+<welcome-section slot="welcome-section-9">
+    <img class='parallax' src='./this/img/pg10.png?0'/>
+    <div class='teaser'>
+        <div class='content'>
+            <p>Обед</p>
+            <hr style="text-align: left; margin-left: 0; width: 36px;">
+            <h1>С разговора сыт не будешь</h1>
+        </div>
+    </div>
+    <div class='teaser'>
+        <div class='content'>
+            <div class="knowledge">Узнать больше</div>
+        </div>
+    </div>
+</welcome-section>
+
+<welcome-section slot="welcome-section-10">
+    <img class='parallax' src='./this/img/pg11.png'/>
+    <div class='teaser'>
+        <div class='content'>
+            <p>Exit-интервью</p>
+            <hr style="text-align: left; margin-left: 0; width: 36px;">
+            <h1>Ваше мнение очень важно для нас</h1>
+        </div>
+    </div>
+    <div class='teaser'>
+        <div class='content'>
+            <div class="knowledge">Узнать больше</div>
+        </div>
+    </div>
+</welcome-section>
+
+<welcome-section slot="welcome-section-11">
+    <img class='parallax' src='./this/img/contact_content.png'/>
+    <div class='teaser-finale'>
+        <div class="content-final">
+            <h2 class="final-h2">Спасибо, что прочел наш welcome book!</h2>
+            <div class="final-p">Нам важно твое мнение о нем. Помоги нам сделать его лучше и полезнее
+                для новых коллег. Ты можешь предложить новые разделы, ссылки или порекомендовать, что
+                можно доработать или изменить. О своих предложениях ты можешь сообщить HR отдел :)
+            </div>
+        </div>
+        <div class="final-footer">
+            <div class="footer-left">
+                <svg width="160" height="29" viewBox="0 0 160 29" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M48.6763 19.3907V22.4795H47.0175V20.4775H35.5205V6.97852H37.2365V19.3907H45.2444V6.97852H47.0175V19.3907H48.6763Z"
+                          fill="white"/>
+                    <path d="M61.8323 6.97852H63.6054V20.4775H61.8323V8.4085L53.8816 20.4775H52.1084V6.97852H53.8816V18.876L61.8323 6.97852Z"
+                          fill="white"/>
+                    <path d="M75.1598 6.97852V8.46569H75.8462C76.7614 8.46569 77.5622 8.63729 78.3058 8.92329C78.9922 9.20929 79.6214 9.60968 80.0789 10.1245C80.5365 10.6393 80.9369 11.1541 81.1657 11.7833C81.3945 12.4124 81.5661 13.0416 81.5661 13.6708C81.5661 14.1856 81.4517 14.7004 81.2801 15.3296C81.1085 15.9016 80.7653 16.4736 80.2505 16.9884C79.793 17.5032 79.1638 17.9036 78.363 18.304C77.5622 18.6472 76.647 18.8188 75.4458 18.8188H75.1598V20.4775H73.3866V18.8188H73.1578C72.0139 18.8188 71.0415 18.6472 70.2407 18.304C69.4399 17.9608 68.8107 17.5032 68.3531 16.9884C67.8955 16.4736 67.5523 15.9016 67.3807 15.3296C67.2091 14.7576 67.0947 14.1856 67.0947 13.6708C67.0947 13.0416 67.2091 12.3552 67.4379 11.7833C67.6667 11.1541 68.0671 10.6393 68.5247 10.1245C68.9823 9.60968 69.6115 9.26649 70.2979 8.92329C70.9843 8.63729 71.8423 8.46569 72.7574 8.46569H73.3866V6.97852H75.1598ZM73.4438 9.26648H73.215C72.4715 9.26648 71.7851 9.38089 71.2703 9.66688C70.7555 9.95288 70.2979 10.2389 69.9547 10.6965C69.6115 11.0969 69.3827 11.5545 69.2111 12.1264C69.0395 12.6412 68.9823 13.156 68.9823 13.6708C68.9823 14.3 69.0967 14.872 69.3255 15.3868C69.5543 15.9016 69.8403 16.3592 70.2407 16.7596C70.6411 17.16 71.0987 17.446 71.6135 17.6748C72.1283 17.9036 72.7574 18.018 73.3866 18.018H73.501V9.26648H73.4438ZM75.3314 18.018C75.9606 18.018 76.5898 17.9036 77.1046 17.6748C77.6194 17.446 78.077 17.16 78.4774 16.7596C78.8778 16.3592 79.1638 15.9016 79.3926 15.3868C79.6214 14.872 79.7357 14.3 79.7357 13.6708C79.7357 13.156 79.6786 12.6412 79.507 12.1264C79.3354 11.6117 79.1066 11.1541 78.7634 10.6965C78.4202 10.2961 77.9626 9.95288 77.4478 9.66688C76.933 9.38089 76.2466 9.26648 75.503 9.26648H75.217V17.9608H75.3314V18.018Z"
+                          fill="white"/>
+                    <path d="M86.7712 20.4775H84.998V6.97852H89.5168C90.2604 6.97852 90.8896 7.09292 91.4616 7.32171C92.0336 7.55051 92.4912 7.8365 92.8343 8.1797C93.1775 8.52289 93.4635 8.98049 93.6351 9.49528C93.8067 10.0101 93.9211 10.5249 93.9211 11.0397C93.9211 11.6117 93.8067 12.1264 93.6351 12.6412C93.4063 13.156 93.1203 13.5564 92.7199 13.9568C92.3195 14.3572 91.8048 14.6432 91.2328 14.872C90.6036 15.1008 89.9172 15.2152 89.1736 15.2152C88.716 15.2152 88.3156 15.158 87.9152 15.1008C87.5148 15.0436 87.1716 14.9864 86.8284 14.872V20.4775H86.7712ZM86.7712 14.0712C87.0572 14.1856 87.3432 14.2428 87.6864 14.3C88.0296 14.3572 88.3728 14.3572 88.7732 14.3572C89.3452 14.3572 89.86 14.2428 90.2604 14.0712C90.6608 13.8996 91.004 13.6136 91.29 13.3276C91.576 13.0416 91.7476 12.6984 91.862 12.298C91.9764 11.8976 92.0336 11.5545 92.0336 11.1541C92.0336 10.7537 91.9764 10.3533 91.8048 10.0101C91.6904 9.60968 91.4616 9.26649 91.1756 8.92329C90.8896 8.63729 90.5464 8.3513 90.146 8.1797C89.7456 8.0081 89.288 7.8937 88.716 7.8937H86.7712V14.0712Z"
+                          fill="white"/>
+                    <path d="M96.4375 11.3827C96.7235 10.5819 97.1239 9.78114 97.7531 9.09475C98.3251 8.40836 99.0687 7.83637 99.9839 7.37877C100.899 6.92118 101.986 6.69238 103.244 6.69238C104.503 6.69238 105.647 6.92118 106.562 7.37877C107.477 7.83637 108.278 8.40836 108.907 9.09475C109.536 9.78114 109.994 10.5247 110.28 11.3827C110.566 12.1835 110.737 12.9843 110.737 13.6707C110.737 14.1283 110.68 14.6431 110.509 15.1579C110.394 15.6727 110.165 16.1875 109.937 16.7022C109.651 17.217 109.365 17.7318 108.907 18.1894C108.449 18.647 107.992 19.0474 107.477 19.4478C106.905 19.791 106.276 20.077 105.589 20.3058C104.903 20.5346 104.102 20.649 103.244 20.649C101.986 20.649 100.899 20.4202 99.9839 19.9626C99.0687 19.505 98.3251 18.933 97.7531 18.2466C97.1811 17.5602 96.7235 16.8166 96.4375 15.9587C96.1515 15.1579 96.0371 14.3571 96.0371 13.6707C96.0371 12.9843 96.1515 12.1835 96.4375 11.3827ZM98.3251 16.1875C98.6111 16.931 98.9543 17.5602 99.4691 18.1322C99.9267 18.647 100.499 19.1046 101.185 19.3906C101.814 19.6766 102.558 19.8482 103.301 19.8482C104.045 19.8482 104.789 19.6766 105.475 19.3906C106.161 19.1046 106.733 18.647 107.248 18.1322C107.763 17.6174 108.163 16.931 108.449 16.1875C108.735 15.4439 108.907 14.5859 108.907 13.7279C108.907 12.8127 108.735 12.0119 108.449 11.2683C108.163 10.5247 107.763 9.89554 107.248 9.32355C106.733 8.80875 106.161 8.35116 105.475 8.06516C104.789 7.77917 104.102 7.60757 103.301 7.60757C102.558 7.60757 101.814 7.77917 101.185 8.06516C100.556 8.35116 99.9839 8.80875 99.4691 9.32355C99.0115 9.83834 98.6111 10.5247 98.3251 11.2683C98.0391 12.0119 97.9247 12.8699 97.9247 13.7279C97.9247 14.6431 98.0391 15.4439 98.3251 16.1875Z"
+                          fill="white"/>
+                    <path d="M121.834 18.5328H121.948L128.183 6.97852H129.499V20.4775H127.725V9.55248H127.668L121.605 20.7063H121.262L115.313 9.49528H115.199V20.4775H114.341V6.97852H115.656L121.834 18.5328Z"
+                          fill="white"/>
+                    <path d="M142.826 6.97852V8.0653H135.848V12.87H141.854V13.7852H135.848V19.3907H142.826V20.4775H134.132V6.97852H142.826Z"
+                          fill="white"/>
+                    <path d="M157.469 19.5623H159.357V22.4795H157.698V20.4775H145.915V22.4795H144.256V19.5623H146.087L150.891 6.97852H152.093L157.469 19.5623ZM151.12 9.09489H151.063L147.002 19.5623H155.582L151.12 9.09489Z"
+                          fill="white"/>
+                    <path d="M22.8795 6.12012H6.12012V22.8795H22.8795V6.12012Z" fill="white"/>
+                    <path d="M28.9428 29H0V0H28.9428V29ZM1.37278 27.57H27.5128V1.42998H1.37278V27.57Z"
+                          fill="white"/>
+                </svg>
+            </div>
+            <div class="footer-right">Вся необходимая информация</div>
+        </div>
+    </div>
+</welcome-section>
+
+<welcome-section slot="welcome-section-12">
+    <img class='parallax' src='./this/img/216e64cb-07b4-4595-8bfa-53cf8cd27f14.jpg'/>
+    <div class='teaser'>
+        <div class='content'>
+            <div class="cifromed">
+                <p>Привет! Мы рады приветствовать тебя</p>
+                <h1>&laquo;Виноградник&raquo;</h1>
+            </div>
+
+            <slot name="scroll"></slot>
+        </div>
+    </div>
+</welcome-section>
+
+<welcome-menu slot="welcome-menu">
+    <div class="container">
+        <slot name="button-0"></slot>
+        <slot name="button-1"></slot>
+        <slot name="button-2"></slot>
+        <slot name="button-3"></slot>
+        <slot name="button-4"></slot>
+        <slot name="button-5"></slot>
+        <slot name="button-6"></slot>
+        <slot name="button-7"></slot>
+        <slot name="button-8"></slot>
+        <slot name="button-9"></slot>
+        <slot name="button-10"></slot>
+        <slot name="button-11"></slot>
+        <slot name="button-12"></slot>
+    </div>
+    <fer-button
+            slot="button-0"
+            data-id="0"
+            data-type="welcome-menu"
+    >
+        <p>Start</p>
+    </fer-button>
+    <fer-button
+            slot="button-1"
+            data-id="1"
+            data-type="welcome-menu"
+    >
+        <p>ANIMATION 1</p>
+
+    </fer-button>
+    <fer-button
+            slot="button-2"
+            data-id="2"
+            data-type="welcome-menu"
+    >
+        <p>ANIMATION 2</p>
+    </fer-button>
+    <fer-button
+            slot="button-3"
+            data-id="3"
+            data-type="welcome-menu"
+    >
+        <p>ANIMATION 3</p>
+    </fer-button>
+    <fer-button
+            slot="button-4"
+            data-id="4"
+            data-type="welcome-menu"
+    >
+        <p>ANIMATION 4</p>
+    </fer-button>
+    <fer-button
+            slot="button-5"
+            data-id="5"
+            data-type="welcome-menu"
+    >
+        <p>ANIMATION 5</p>
+    </fer-button>
+    <fer-button
+            slot="button-6"
+            data-id="6"
+            data-type="welcome-menu"
+    >
+        <p>ANIMATION 6</p>
+    </fer-button>
+    <fer-button
+            slot="button-7"
+            data-id="7"
+            data-type="welcome-menu"
+    >
+        <p>ANIMATION 7</p>
+    </fer-button>
+    <fer-button
+            slot="button-8"
+            data-id="8"
+            data-type="welcome-menu"
+    >
+        <p>ANIMATION 8</p>
+    </fer-button>
+    <fer-button
+            slot="button-9"
+            data-id="9"
+            data-type="welcome-menu"
+    >
+        <p>ANIMATION 9</p>
+    </fer-button>
+    <fer-button
+            slot="button-10"
+            data-id="10"
+            data-type="welcome-menu"
+    >
+        <p>ANIMATION 10</p>
+    </fer-button>
+    <fer-button
+            slot="button-11"
+            data-id="11"
+            data-type="welcome-menu"
+    >
+        <p>ANIMATION 11</p>
+    </fer-button>
+    <fer-button
+            slot="button-12"
+            data-id="12"
+            data-type="welcome-menu"
+    >
+        <p>Виноградник</p>
+    </fer-button>
+</welcome-menu>
+
+<div slot="general" class="general">
+    <div class="general__body">
+        <div class="general_close">
+            <img src="./this/icons/close.svg">
+        </div>
+        <div class="general_info">
+            <div class="general_info_description">
+                Наша компания разделена на Бизнес-единицы, самостоятельные подразделения, которые полностью отвечают за
+                реализацию проектов в своей зоне ответственности.
+                Также в структуре Группы компаний есть несколько продуктовых компаний (мы их называем ДЗО – дочернее
+                зависимое общество)
+                Информация о продуктах ДЗО в разделе Наши продукты
+                Подробно со структурой компании и топ-менеджерами ты можешь познакомиться на корпоративном портале.
+            </div>
+            <div class="general_info_wrapper">
+                <p class="general_info_name">
+                    Владимир Пасынков
+                </p>
+                <p class="general_info_status">
+                    Генеральный директор
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="module">
+    import {events, activeClass} from './this/index.mjs'
+    import ferLink from './component/fer-link/index.mjs'
+    import ferHash from './component/fer-hash/index.mjs'
+    import ferButton from './component/fer-button/index.mjs'
+    import ferScroll from './component/fer-scroll/index.mjs'
+    import welcomeMenu from './component/welcome-menu/index.mjs'
+    import welcomeSection from './component/welcome-section/index.mjs'
+    import welcomeHeader from './component/welcome-header/index.mjs'
+
+    console.log('HELP:', { ferButton, ferLink, ferHash, ferScroll, welcomeMenu, welcomeSection, welcomeHeader })
+
+    const config = {
+        page: {
+            first: {
+                isDynamic: true
+            }
+        }
+    }
+
+    const shadow = document.body.attachShadow({mode: "open"});
+    shadow.appendChild(document.querySelector('.welcome__book'))
+
+    const parallaxCss = document.createElement('style')
+    parallaxCss.innerText = `@import "./parallax.css";`
+    shadow.appendChild(parallaxCss)
+
+    const scrollCss = document.createElement('style')
+    scrollCss.innerText = `@import "./scroll.css";`
+    shadow.appendChild(scrollCss)
+
+    const pageStyle = document.createElement('style')
+    pageStyle.innerText = `@import "./page.css";`
+    shadow.appendChild(pageStyle)
+
+    const generalStyle = document.createElement('style')
+    generalStyle.innerText = `@import "./general.css";`
+    document.body.appendChild(generalStyle)
+
+    let sections = document.body.shadowRoot.querySelectorAll('.animation')
+    let menu = document.body.querySelector('welcome-menu')
+    let buttons = menu.querySelectorAll('fer-button')
+
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    const current = () => {
+        for (let item of buttons) {
+            if (item.classList.contains(activeClass)) {
+                return parseInt(item.dataset.id, 10)
+            }
+        }
+        return 0
+    };
+
+    sections.forEach(el => {
+        el.addEventListener('animationend', async (event) => {
+            const currentId = current()
+            const id = parseInt(event.currentTarget.dataset.id, 10)
+
+            if (event.animationName === 'inPage') {
+                sections[id].classList.remove('animation')
+                sections[id].classList.remove('parallax-container-off')
+                sections[id].classList.replace('scrollIn', 'parallax-container-on')
+
+                if (id >= currentId) {
+                    events('fer-button-in', {
+                        type: 'welcome-menu',
+                        action: 'enable'
+                    })
+                }
+            } else if (event.animationName === 'outPage') {
+                sections[id].classList.remove('animation')
+                sections[id].classList.replace('parallax-container-on', 'parallax-container-off')
+                sections[id].classList.remove('scrollOut')
+
+                const previous = currentId + 1
+
+                if (id <= previous) {
+                    if(config.page.first.isDynamic) {
+                        sections[currentId].classList.remove('animation')
+                        sections[currentId].classList.remove('scrollTopDown')
+                    }
+
+                    events('fer-button-in', {
+                        type: 'welcome-menu',
+                        action: 'enable'
+                    })
+                }
+            }
+        });
+    })
+
+    window.addEventListener('fer-button', async (event) => {
+        events('fer-button-in', {
+            type: 'welcome-menu',
+            action: 'disable'
+        })
+        const currentId = current()
+        const id = parseInt(event.detail.id, 10)
+
+        if (id !== currentId) {
+            const isNext = (id - 1) === currentId || (id + 1) === currentId
+            const isBack = currentId >= id
+            if (!isBack) {
+                for (let i = 0; i < sections.length; ++i) {
+                    const itemId = parseInt(sections[i].dataset.id, 10)
+
+                    if (itemId === id) {
+                        sections[itemId].classList.add('animation')
+                        sections[itemId].classList.add('scrollIn')
+                    } else if (itemId < id) {
+                        if (!sections[i].classList.contains('scrollIn') && !sections[i].classList.contains('parallax-container-on')) {
+                            sections[itemId].classList.add('animation')
+                            sections[itemId].classList.add('scrollIn')
+                            isNext ? '' : await delay(100)
+                        } else {
+                            if(config.page.first.isDynamic) {
+                                sections[itemId].classList.add('animation')
+                                sections[itemId].classList.add('scrollIn')
+                            }
+                        }
+                    }
+                }
+            } else {
+                for (let i = (sections.length - 1); i >= 1; --i) {
+                    const itemId = parseInt(sections[i].dataset.id, 10)
+                    if (id < itemId) {
+                        if (sections[i].classList.contains('parallax-container-on')) {
+                            if(id + 1 === itemId) {
+                                if(config.page.first.isDynamic) {
+                                    sections[i - 1].classList.add('animation')
+                                    sections[i - 1].classList.add('scrollTopDown')
+                                }
+                            }
+                            sections[i].classList.add('animation')
+                            sections[i].classList.add('scrollOut')
+                            isNext ? '' : await delay(200)
+                        }
+                    } else {
+
+                    }
+                }
+            }
+        }
+    })
+
+    window.addEventListener('fer-button', (events) => {
+        if (events.detail.action === 'welcome_button_company__company') {
+            const general = document.body.querySelector('.general__body')
+            general.classList.add('selected')
+            general.classList.remove('dismiss')
+        }
+    })
+
+    window.document.body.querySelector('.general_close').addEventListener('click', (events) => {
+        const general = document.body.querySelector('.general__body')
+        general.classList.add('dismiss')
+        general.classList.remove('selected')
+    })
+
+
+
+    // buttons.forEach(item => {
+    //     item.addEventListener('click', async (events) => {
+    //         buttons.forEach(item => {
+    //             item.disabled = true
+    //         })
+    //
+    //         const id = parseInt(events.currentTarget.dataset.id, 10)
+    //         if (id !== current) {
+    //             const isNext = (id - 1) === current || (id + 1) === current
+    //             const isBack = current >= id
+    //             current = id
+    //             if (!isBack) {
+    //                 for (let i = 1; i < sections.length; ++i) {
+    //                     const itemId = parseInt(sections[i].dataset.id, 10)
+    //                     if (itemId === id) {
+    //                         sections[itemId].classList.add('scrollIn')
+    //                     } else if (itemId < id) {
+    //                         if (!sections[i].classList.contains('scrollIn')) {
+    //                             sections[itemId].classList.add('scrollIn')
+    //                             isNext ? '' : await delay(100)
+    //                         }
+    //                     }
+    //                 }
+    //             } else {
+    //                 current = id
+    //                 for (let i = (sections.length - 1); i >= 1; --i) {
+    //                     const itemId = parseInt(sections[i].dataset.id, 10)
+    //                     if (id < itemId) {
+    //                         if (sections[i].classList.contains('parallax-container-on')) {
+    //                             sections[i].classList.add('animation')
+    //                             sections[i].classList.add('scrollOut')
+    //                             isNext ? '' : await delay(200)
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         } else {
+    //             buttons.forEach(item => {
+    //                 item.disabled = false
+    //             })
+    //         }
+    //     })
+    // })
+
+    // const generalStyle = document.createElement('style')
+    // generalStyle.innerText = `@import "./general.css";`
+    // document.body.appendChild(generalStyle)
+
+    // new NormalParallax(shadow.querySelectorAll('.parallax'), {
+    //     speed: -0.3,
+    //     isRound: true
+    // })
+
+    // const containersScrollTop = []
+    // let offset = 0
+    // let filter = 0
+
+    // const scrollInto = (event) => {
+    //     const id = parseInt(event.currentTarget.closest('.parallax-container').dataset.id, 10)
+    //     const section = sections[id + 1]
+    //     if (section) {
+    //         section.scrollIntoView({
+    //             alignToTop: true,
+    //             block: "center",
+    //             behavior: "smooth"
+    //         });
+    //     }
+    // }
+    //
+    // sections.forEach(item => {
+    //     let rect = item.getBoundingClientRect()
+    //     const bottom = Math.round(offset + rect.height)
+    //     containersScrollTop.push(bottom)
+    //     offset = bottom
+    //     let knowledge = item.querySelector('.knowledge')
+    //     if (knowledge !== null) {
+    //         knowledge.addEventListener('click', scrollInto)
+    //     }
+    // })
+    //
+    //
+    // const currentSection = () => {
+    //     const topDistance = window.scrollY;
+    //     for (let i = 0; i < containersScrollTop.length; ++i) {
+    //         if (i !== 0) {
+    //             const position = topDistance + containersScrollTop[0]
+    //             const intensive = containersScrollTop[i] - position
+    //
+    //             if (intensive > 0 && filter < 1) {
+    //                 const height = sections[i].getBoundingClientRect().height
+    //                 const percent = Math.round((100 * intensive) / height)
+    //                 const reversePercent = 100 - percent
+    //                 filter = filter + 1
+    //                 console.log('===================================', percent)
+    //                 return {
+    //                     self: sections[i],
+    //                     props: {
+    //                         percent: percent,
+    //                         reversePercent: reversePercent
+    //                     }
+    //                 }
+    //             }
+    //
+    //             if (i === containersScrollTop.length - 1) {
+    //                 filter = 0
+    //             }
+    //         } else {
+    //
+    //         }
+    //     }
+
+    // return undefined
+    // }
+
+    //
+    // function paralaxEye(event) {
+    //     const el = document.body.shadowRoot.querySelector(".parallax-container");
+    //     const d = el.getBoundingClientRect();
+    //     let x = event.clientX - (d.left + Math.floor(d.width / 2));
+    //     let y = event.clientY - (d.top + Math.floor(d.height / 2));
+    //     x = x - x * 2;
+    //     y = y - y * 2;
+    //     document.documentElement.style.setProperty("--scale", 1.6);
+    //     document.documentElement.style.setProperty("--x", x / 2 + "px");
+    //
+    //     document.documentElement.style.setProperty("--y", y / 2 + "px");
+    // }
+
+    // let isFiring = false;
+
+    // function throttleEvent(event) {
+    //     if (isFiring === false) {
+    //         setTimeout(() => {
+    //             paralaxEye(event);
+    //             isFiring = false;
+    //         }, 200);
+    //     }
+    //     isFiring = true;
+    // }
+
+    // document.body.addEventListener("mousemove", throttleEvent, false);
+
+
+    // window.addEventListener('scroll', (event) => {
+    //     const object = currentSection()
+
+    // if (object) {
+    //     object.self.style.opacity = object.props.reversePercent / 100
+    // }
+    //       // movement = topDistance * 2;
+    //
+    //     // fadeOut(scrollIndicator[0], topDistance, 150);
+    //   // tweenHeight(scrollIndicatorLine[0], topDistance, 100, 25);
+    //   //
+    //   // elements.forEach(function (element) {
+    //   //     movement = -(topDistance * element.dataset.speed);
+    //   //     move(element, movement);
+    //   //     fadeOut(element, topDistance, tweenDistance);
+    //   // });
+    // });
+
+    // window.addEventListener('fer-button', (events) => {
+    //     if (events.detail.action === 'welcome_button_company__company') {
+    //         const general = document.body.querySelector('.general__body')
+    //         general.classList.add('selected')
+    //         general.classList.remove('dismiss')
+    //     }
+    // })
+
+    // window.document.body.querySelector('.general_close').addEventListener('click', (events) => {
+    //     const general = document.body.querySelector('.general__body')
+    //     general.classList.add('dismiss')
+    //     general.classList.remove('selected')
+    // })
+
+    // document.body.shadowRoot.querySelector('.welcome-finale').addEventListener('click', () => {
+    //     window.scrollTo({top: 0, behavior: 'smooth'});
+    // })
+</script>
+</body>
+
+</html>
