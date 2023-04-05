@@ -1,8 +1,10 @@
 import React, {StrictMode} from 'react';
 import style from './index.module.css'
 import { Panel } from './Panel'
-import MainRouting from './_this/MainRouting';
+import MainRouting from './this/MainRouting';
+
 export const Context = React.createContext({});
+
 export const App = ({ actionContext }: any) => {
     return (
         <Context.Provider value={actionContext}>
