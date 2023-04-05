@@ -3,8 +3,24 @@
     height: max-content;
     align-self: center;
     width: -moz-fit-content;
-    width: 100%;
-    margin: 0
+    width: auto;
+    margin: 0;
+    --main-bg-color: blue;
+    --font-family: 'Rubik';
+    --text-color: #FFFFFF;
+    --font-size: 14px;
+    --font-weight: 500;
+    --line-height: 17px;
+    --stroke-width: 0;
+    --stroke-color: black;
+    --speed: 1s;
+    --easing: ease-in-out;
+    --animation-direction: normal;
+    --padding: .25em;
+    --margin: 1vh;
+    --letter-spacing: 0em;
+    --opacity: 0;
+    --count: 1;
 }
 
 p {
@@ -55,8 +71,4 @@ p.welcome__header_link {
     box-sizing: border-box;
     padding: 0.3vw;
     cursor: pointer;
-}
-
-p.welcome__header_link.active {
-
 }

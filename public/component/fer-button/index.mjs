@@ -1,8 +1,11 @@
-import { init, onload } from '../../_this/_init/index.mjs'
+import { init, onload } from '../../this/index.mjs'
 import addEventListener from './controller/addEventListener/index.mjs'
 import actions from './actions/index.mjs'
 const COMPONENT = 'fer-button'
 const INDEX =  class extends HTMLElement {
+  static get observedAttributes() {
+    return ['disabled', 'open'];
+  }
   _doRender() {
     if(this._state.tree) {
       console.log('     🔵 RENDER')
@@ -12,7 +15,6 @@ const INDEX =  class extends HTMLElement {
   getState(path) {
     return this._state[path];
   }
-
   setState(path, value) {
     if(!this._state.hasOwnProperty(path)) {
       alert(`надо определить свойство ${path} в стейте`)
@@ -60,7 +62,11 @@ const INDEX =  class extends HTMLElement {
     this._isOnload = false;
     this._state = { };
     this._doRender = this._doRender.bind(this);
-    init(this).then(self => (self._isOnload = true)).catch(error => console.warn('error', error))
+    init(this, {
+      css: {
+        shadow: this.dataset.cssShadow ? [this.dataset.cssShadow]: undefined
+      }
+    }).then(self => (self._isOnload = true)).catch(error => console.warn('error', error))
   }
   connectedCallback() {
     onload(this)
@@ -74,6 +80,16 @@ const INDEX =  class extends HTMLElement {
     this.controller.addEventListener.terminate()
     console.log(`     🔴 COMPONENTS ${this.tagName} disconnected`)
   }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (this.disabled) {
+      this.setAttribute('tabindex', '-1');
+      this.setAttribute('aria-disabled', 'true');
+    } else {
+      this.setAttribute('tabindex', '0');
+      this.setAttribute('aria-disabled', 'false');
+    }
+  }
 }
 
 try {
@@ -84,5 +100,14 @@ try {
 
 export default {
   component: COMPONENT,
-  description: 'Шаблон компонента в котором сделанно подключение css темплейта'
+  description: 'Шаблон компонента в котором сделанно подключение css темплейта',
+  "data-": {
+    id: 'Указывается уникальный id который используется для определения конкретной кнопки',
+    type: "Устанавливается, что бы определить группу кнопок к которым она относится",
+    switchoff: "Устанавливается если требуется чтобы active класс удалялся после нажатия на кнопку",
+    "css-shadow": "Показывает откуда будет загружаться css для компонента путь получается следующим образом `./component/${self.tagName.toLowerCase()}/views/css/${self.dataset.cssShadow}.shadow.css``"
+  },
+  actions: {
+    "fer-button-in": "событие которое прослушивает коммпанды которые приходят в кнопку. Значения disable/enable Выключает все кнопки определенной группы или включают все кнопки кроме активной"
+  }
 }

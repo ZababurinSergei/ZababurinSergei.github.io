@@ -1,4 +1,4 @@
-import { init, onload, slotRouter } from '../../_this/_init/index.mjs'
+import { init, onload } from '../../this/init/index.mjs'
 import addEventListener from './controller/addEventListener/index.mjs'
 import actions from './actions/index.mjs'
 import template from './views/index.mjs'

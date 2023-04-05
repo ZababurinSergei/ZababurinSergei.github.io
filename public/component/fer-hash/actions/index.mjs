@@ -1,4 +1,4 @@
-import { activeClass } from '../../../_this/index.mjs'
+import { activeClass } from '../../../this/index.mjs'
 export default (self) => {
     return new Promise(async (resolve, reject) => {
 
@@ -19,7 +19,7 @@ export default (self) => {
                 }
 
                 self.disabled = true
-                self.shadowRoot.querySelector('p').classList.add(activeClass)
+                self.classList.add(activeClass)
                 let url = new URL(window.location.href)
                 url.hash = self.dataset.hash;
                 self.disabled = false

@@ -1,33 +1,26 @@
-import { activeClass, normalizePathName } from '../../../../_this/index.mjs'
+import { activeClass, normalizePathName } from '../../../../this/index.mjs'
 export default async (self, actions) => {
     let component = self.shadowRoot === null
         ? self
         : self.shadowRoot
 
-    const link = component.querySelector('p')
-    // const events = (action) => {
-    //     return (events) => {
-    //         action({
-    //             parent: self,
-    //             events: events
-    //         })
-    //     }
-    // }
-    // const queue = [{
-    //     type: 'click',
-    //     action: events(actions.push)
-    // }, {
-    //     type: 'popstate',
-    //     action: events(actions.events)
-    // }]
+    const link = self
 
     return {
         init: () => {
+            window.addEventListener('fer-button-in', actions['fer-button-in'])
+            window.addEventListener('fer-button', actions['fer-button'])
+            link.addEventListener('mouseover', actions.mouseover)
+            link.addEventListener('mouseout', actions.mouseout)
             window.addEventListener('hashchange', actions.hashchange );
             link.addEventListener('click', actions.click)
             window.addEventListener('popstate', actions.popstate);
         },
         termminate: () => {
+            window.removeEventListener('fer-button-in', actions['fer-button-in'])
+            window.removeEventListener('fer-button', actions['fer-button'])
+            link.removeEventListener('mouseover', actions.mouseover)
+            link.addEventListener('mouseout', actions.mouseout)
             window.removeEventListener('hashchange', actions.hashchange);
             link.removeEventListener('click', actions.click)
             window.removeEventListener('popstate', actions.popstate);

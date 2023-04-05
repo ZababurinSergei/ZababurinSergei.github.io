@@ -1,5 +1,4 @@
-import init from '../../_this/_init/init/index.mjs'
-import onload from '../../_this/_init/onload/index.mjs'
+import { init, onload } from '../../this/index.mjs'
 import addEventListener from './controller/addEventListener/index.mjs'
 import actions from './actions/index.mjs'
 

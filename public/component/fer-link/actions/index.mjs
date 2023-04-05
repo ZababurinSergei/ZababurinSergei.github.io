@@ -1,4 +1,4 @@
-import { activeClass } from '../../../_this/index.mjs'
+import { activeClass } from '../../../this/index.mjs'
 export default (self) => {
     return new Promise(async (resolve, reject) => {
 

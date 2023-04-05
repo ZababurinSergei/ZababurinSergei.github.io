@@ -1,49 +1,88 @@
-import { activeClass } from '../../../_this/index.mjs'
+import { activeClass } from '../../../this/index.mjs'
+
 export default (self) => {
     return new Promise(async (resolve, reject) => {
-
         resolve({
+            'fer-button-in': (events) => {
+                if (events.detail.type === self.dataset.type && events.detail.action === 'disable') {
+                    self.disabled = true
+                } else if (events.detail.type === self.dataset.type && events.detail.action === 'enable') {
+                    if (!self.classList.contains(activeClass)) {
+                        self.disabled = false
+                    }
+                }
+            },
+            'fer-button': (events) => {
+                if (events.detail.id === self.dataset.id) {
+                    self.classList.add(activeClass)
+                } else {
+                    self.classList.remove(activeClass)
+                }
+            },
+            mouseover: (events) => {
+                if (self.dataset.cssShadow === 'welcomebook') {
+                    self.shadowRoot.querySelectorAll('.word__item').forEach(item => {
+                        if (item.classList.contains('word__item--left')) {
+                            item.classList.remove('word__item_active-right')
+                            item.classList.add('word__item_active-left')
+                        } else {
+                            item.classList.remove('word__item_active-left')
+                            item.classList.add('word__item_active-right')
+                        }
+                    })
+                }
+            },
+            mouseout: (events) => {
+                if (self.dataset.cssShadow === 'welcomebook') {
+                    self.shadowRoot.querySelectorAll('.word__item').forEach(item => {
+                        if (item.classList.contains('word__item--left')) {
+                            item.classList.remove('word__item_active-left')
+                            item.classList.add('word__item_active-right')
+                        } else {
+                            item.classList.remove('word__item_active-right')
+                            item.classList.add('word__item_active-left')
+                        }
+                    })
+                }
+            },
             click: (events) => {
                 if (self.disabled) {
                     return;
+                } else {
+                    self.disabled = true
                 }
-                if(!self.dataset.type) {
+
+                if (!self.dataset.type) {
                     console.error('Требуется указать в атрибутах компонента data-type', self)
                     return;
                 }
-                if(!self.dataset.id) {
+
+                if (!self.dataset.id) {
                     console.error('Требуется указать в атрибутах компонента data-id', self)
                     return;
                 }
 
-                self.disabled = true
-
                 console.log('  🥎 EVENT BUTTON', {
                     type: self.dataset.type,
                     id: self.dataset.id,
-                    class: `${self.dataset.type}__${self.dataset.id}`
+                    action: `${self.dataset.type}__${self.dataset.id}`
                 })
 
-                self.shadowRoot.querySelector('p').classList.add(activeClass)
+                window.dispatchEvent(new CustomEvent('fer-button', {
+                    bubbles: true,
+                    composed: true,
+                    detail: {
+                        type: self.dataset.type,
+                        id: self.dataset.id,
+                        action: `${self.dataset.type}__${self.dataset.id}`
+                    }
+                }));
 
-                // console.log(`  🥎 EVENT ${self.dataset.event} BUTTON ${this.dataset.type} PUSH`, {
-                //     ...element.dataset,
-                //     pathname: window.location.pathname,
-                //     hash: window.location.hash
-                // })
-
-                // let url = new URL(window.location.href)
-                // url.searchParams.set(`button_${element.dataset.id}`,  element.dataset.key);
-
-                // window.history.pushState({}, self.dataset.event, `${url}`);
-
-                // task.set(true, '','red', {
-                //     events: [{...element.dataset, pathname: normalizePathName(window.location.pathname), hash: window.location.hash}]
-                // }, element.dataset.event).catch(e => {console.log('error devtool', e)})
                 const timeId = setTimeout(() => {
-                clearTimeout(timeId)
-                    self.shadowRoot.querySelector('p').classList.remove(activeClass)
-                    self.disabled = false
+                    clearTimeout(timeId)
+                    if (self.dataset.switchoff !== undefined) {
+                        self.classList.remove(activeClass)
+                    }
                 }, 300)
             },
             popstate: (events) => {

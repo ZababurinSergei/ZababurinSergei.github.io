@@ -1,4 +1,4 @@
-import { activeClass, normalizePathName } from '../../../../_this/index.mjs'
+import { activeClass, normalizePathName } from '../../../../this/index.mjs'
 export default async (self, actions) => {
     let component = self.shadowRoot === null
         ? self

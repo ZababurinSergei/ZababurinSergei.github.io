@@ -1,6 +1,5 @@
 //https://itnext.io/adding-state-to-custom-html-elements-639961c7c529
-import init from '../../_this/_init/init/index.mjs'
-import onload from '../../_this/_init/onload/index.mjs'
+import { init, onload } from '../../this/index.mjs'
 import TreeView from './views/mjs/treeView/index.mjs'
 import { unflatten } from './views/mjs/treeView/utils/index.mjs'
 
