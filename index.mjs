@@ -66,6 +66,9 @@ app.use(proxy('localhost:8080', {
 }));
 
 app.use(express.static(`${__dirname}/public`));
+app.use(express.static(`${__dirname}/services`));
+app.use('/welcomebook', express.static(`${__dirname}/services/welcomebook/src`));
+app.use('/rules', express.static(`${__dirname}/_sandbox/rules/public`));
 
 app.get(`/*`, async (req, res) => {
     res.status(200).sendFile(path.join(__dirname, '/public/index.html'));

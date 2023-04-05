@@ -1,5 +1,5 @@
-import init from '../../_this/init/index.mjs'
-import onload from '../../_this/onload/index.mjs'
+import init from '../../_this/_init/init/index.mjs'
+import onload from '../../_this/_init/onload/index.mjs'
 import addEventListener from './controller/addEventListener/index.mjs'
 import actions from './actions/index.mjs'
 // const COMPONENT = path.dirname(import.meta.url).split(path.sep).pop()

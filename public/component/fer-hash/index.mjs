@@ -1,6 +1,4 @@
-import init from '../../_this/init/index.mjs'
-import onload from '../../_this/onload/index.mjs'
-import slotRouter from '../../_this/router/slot/index.mjs'
+import { init, onload, slotRouter } from '../../_this/_init/index.mjs'
 import addEventListener from './controller/addEventListener/index.mjs'
 import actions from './actions/index.mjs'
 const COMPONENT = 'fer-hash'

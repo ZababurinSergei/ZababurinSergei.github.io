@@ -72,7 +72,6 @@
 
 Скажу про все, что видел в этой чаще.
         </pre>
-
     </div>
 </body>
 <script type="module" src="/static/html/components/api-substrate/api-substrate.mjs"></script>
@@ -80,8 +79,10 @@
 <script type="module" src="/static/html/components/api-processor/api-processor.mjs"></script>
 <script type="module" src="/static/html/components/api-button/api-button.mjs"></script>
 <script type="module">
- import main from '/main.mjs'
+ import mkb from '/mkb/build/index.mjs'
+ import main from './main.mjs'
 
+ console.log('ddddddddddddddd', mkb)
  let Context = {
      test: (setName) => {
 
@@ -91,7 +92,7 @@
      }
  }
 
- main(document.body, Context).then(react => {
+ main(document.body).then(react => {
 
      console.log('🟣 NODE 🟣')
 

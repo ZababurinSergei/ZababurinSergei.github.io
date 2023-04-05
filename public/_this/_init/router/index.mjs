@@ -1,6 +1,6 @@
-import routeSlot from './slot/index.mjs'
+import slotRouter from './slot/index.mjs'
 
-export { routeSlot }
+export { slotRouter }
 
 export default {
     desciptions: 'all routers'
