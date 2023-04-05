@@ -1,20 +1,19 @@
 import * as React from 'react'
 import ReactDOM from 'react-dom/client';
-import App from './App'
-export default (symbol, mountPoint) => {
+import App from './App';
+
+export default (symbol: symbol, mountPoint: any, Context: any) => {
     return new Promise((resolve, reject) => {
-        const root = ReactDOM.createRoot(mountPoint.querySelector('#root'));
+        let root: any = ReactDOM.createRoot(mountPoint);
 
-        let styles = document.head.querySelectorAll('style')
-
-        for (const style of styles) {
-            mountPoint.appendChild(style)
+        let virtual: { app: JSX.Element, context: any } = {
+            'app': <App actionContext={Context}/>,
+            'context': (context: any) => {
+                virtual.context =  context
+            }
         }
 
-        root[symbol] = {
-            'app': <App />,
-            'mount': mountPoint
-        }
+        root[symbol] = virtual;
 
         resolve(root)
     })

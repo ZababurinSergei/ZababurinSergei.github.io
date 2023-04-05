@@ -65,9 +65,13 @@ app.use(proxy('localhost:8080', {
     }
 }));
 
+if(process.env.SANDBOX) {
+    app.use('/', express.static(`${__dirname}/_sandbox/welcomebook/src`));
+    app.use('/rules', express.static(`${__dirname}/_sandbox/rules/src`));
+}
 
-app.use(express.static(`${__dirname}/build`));
 app.use(express.static(`${__dirname}/public`));
+app.use(express.static(`${__dirname}/services`));
 
 app.get(`/*`, async (req, res) => {
     res.status(200).sendFile(path.join(__dirname, '/public/index.html'));

@@ -1,14 +1,18 @@
-import * as React from "react";
+import React, {StrictMode} from 'react';
 import style from './index.module.css'
-const Panel = () => <h2>I'm a Panel</h2>
-export const App = () => {
+import { Panel } from './Panel'
+import MainRouting from './this/MainRouting';
+
+export const Context = React.createContext({});
+
+export const App = ({ actionContext }: any) => {
     return (
-        <div className={style.test}>
-            <h1>Hello, Welcome Book!</h1>
-            <Panel />
-            <Panel />
-        </div>
+        <Context.Provider value={actionContext}>
+            <div className={style.root}>
+                <slot name={'dialog'}></slot>
+                <Panel/>
+            </div>
+        </Context.Provider>
     )
 }
-
 export default App

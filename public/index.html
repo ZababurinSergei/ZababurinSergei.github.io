@@ -20,17 +20,84 @@
         href="data:image/png;base64, AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbbv+DGW3/mRlt/5kZbf+ZGq6/hIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGa3/ohkt/7/Zbj//2S3/v9lt/6WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGm5/iRlt/74Zbj//2W4//9luP//Zbf++mi4/i4gIPciGhr24hsb9uwbG/bsGhr24CEh9xoAAAAAAAAAAAAAAABnuP5mZLf+/2W4//9luP//Zbj//2S3/v9muP5yGBj2rhMT9v8TE/b/ExP2/xMT9f8YGPWkAAAAAAAAAAAAAAAAb7z/BGW3/tZluP//Zbj//2W4//9lt/7gJzH3ShMT9f8TE/b/ExP2/xMT9v8TE/b/ExP1/CAg9joAAAAAAAAAAAAAAABmuP5GZLf+6GS3/uhkt/7oZbf+UhgY9YQSEvX/ExP2/xMT9v8TE/b/ExP2/xIS9f8aGvZ8AAAAAD4++gQgIPZ6IiL2hiIi9oYgIPZ8KCj5BAAAAAAtLfgUFBT17BMT9v8TE/b/ExP2/xMT9v8VFfXoLCz4DgAAAAAaGvZqEhL1/xMT9v8TE/b/EhL1/xsb9nIAAAAAAAAAABwc9m4SEvX/ExP2/xMT9v8SEvX/HR32ZAAAAAAnJ/gSFRX16hMT9v8TE/b/ExP2/xMT9v8UFPXuJyf4Fp2xlAKNnqUYLC/mfhYW83ATE/VuFxf1aDc3+gIAAAAAGBj1fhIS9f8TE/b/ExP2/xMT9v8TE/b/ExP1/xkZ9YaGn3yIhZ57/4Wee/+Gn3yKAAAAAAAAAAAAAAAAAAAAACMj9zYTE/X8ExP2/xMT9v8TE/b/ExP2/xMT9f9JUshihZ57+IaffP+Gn3z/hZ579oigfiYAAAAAAAAAAAAAAAAAAAAAGBj1oBIS9f8TE/b/ExP2/xMT9f8YGPWmiKB+PIWee/+Gn3z/hp98/4Wee/+HoH06AAAAAAAAAAAAAAAAAAAAACUl9xgVFfXOExP11BMT9dQUFPXQJib3HgAAAACGn3ymhp98/4affP+Gn3ymAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiKB+EIihf0CIoX9AiKB+EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AADg/wAA4MMAAOCBAADggQAA8QEAAOeBAADDwwAAgf8AAIAPAACBDwAAgQ8AAMMPAAD//wAA//8AAA=="
       type="image/png">
 </head>
+<template id="system">
+    <api-substrate slot="system" class="system">
+        <api-header data-template slot="header_relation">Relation</api-header>
+        <api-header data-template slot="header_substrate">Link</api-header>
+        <api-header data-template slot="header_property">Property</api-header>
+        <api-relation slot="body_relation">Relation</api-relation>
+        <api-main data-swap slot="body_substrate"></api-main>
+        <api-property slot="body_property">Property</api-property>
+        <api-footer
+                slot="footer_relation"
+        >
+            <div class="footer-time">
+                <slot name="footer_relation_time"></slot>
+            </div>
+            <div data-exclusion slot="footer_relation_time">
+                <slot name="footer_relation_time"></slot>
+            </div>
+        </api-footer>
+        <api-footer data-template slot="footer_substrate">Substrate</api-footer>
+        <api-footer
+                slot="footer_property"
+        >
+            <div class="footer-time">
+                <slot name="footer_property_time"></slot>
+            </div>
+            <div data-exclusion slot="footer_property_time">
+                <slot name="footer_property_time"></slot>
+            </div>
+        </api-footer>
+    </api-substrate>
+</template>
 <body>
-<div slot="root" id="root"></div>
+    <div class="dialog" slot="dialog">
+        <pre>
+Земную жизнь пройдя до половины,
+
+Я очутился в сумрачном лесу,
+
+Утратив правый путь во тьме долины.
+
+Каков он был, о, как произнесу,
+
+Тот дикий лес, дремучий и грозящий,
+
+Чей давний ужас в памяти несу!
+
+Так горек он, что смерть едва ль не слаще.
+
+Но, благо в нем обретши навсегда,
+
+Скажу про все, что видел в этой чаще.
+        </pre>
+    </div>
 </body>
+<script type="module" src="/static/html/components/api-substrate/api-substrate.mjs"></script>
+<script type="module" src="/static/html/components/api-time/api-time.mjs"></script>
+<script type="module" src="/static/html/components/api-processor/api-processor.mjs"></script>
+<script type="module" src="/static/html/components/api-button/api-button.mjs"></script>
 <script type="module">
-    import virtualDOM from '/index.mjs'
-    import { add } from "/modules/wasm/release.js";
-    console.log('=======================', add(1, 2))
-    const shadow = document.body.attachShadow({mode: "open"});
-    shadow.appendChild(document.body.querySelector('#root'))
-    const virtualDom = Symbol("virtualDOM");
-    let shadowRoot = await virtualDOM(virtualDom, document.body.shadowRoot)
-    shadowRoot.render(shadowRoot[virtualDom].app);
+ import mkb from '/mkb/build/index.mjs'
+ import main from './main.mjs'
+
+ console.log('ddddddddddddddd', mkb)
+ let Context = {
+     test: (setName) => {
+
+         setName('ShadowRoot from html')
+         // console.log('test Context ===')
+
+     }
+ }
+
+ main(document.body).then(react => {
+
+     console.log('🟣 NODE 🟣')
+
+ }).catch((e) => {
+     console.log('ERROR', e)
+ });
 </script>
 </html>

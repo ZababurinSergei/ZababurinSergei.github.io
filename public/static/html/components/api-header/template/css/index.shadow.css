@@ -1,0 +1,21 @@
+:host {
+    display: flex;
+    width: 100%;
+    gap: 0.5vw;
+    text-align: center;
+    align-items: center;
+}
+
+api-button {
+    border-radius: 0.2vw;
+    width: 3vw;
+    background: azure;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+}
+
+
+[slot="footer_substrate"] {
+    margin-left: 13vw;
+}

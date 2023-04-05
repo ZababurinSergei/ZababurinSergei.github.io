@@ -1,14 +1,14 @@
 {
   "targets": {
     "debug": {
-      "outFile": "public/modules/wasm/debug.wasm",
-      "textFile": "public/modules/wasm/debug.wat",
+      "outFile": "public/_this/wasm/welcomeBook/debug/index.wasm",
+      "textFile": "public/_this/wasm/welcomeBook/debug/index.wat",
       "sourceMap": true,
       "debug": true
     },
     "release": {
-      "outFile": "public/modules/wasm/release.wasm",
-      "textFile": "public/modules/wasm/release.wat",
+      "outFile": "public/_this/wasm/welcomeBook/index.wasm",
+      "textFile": "public/_this/wasm/welcomeBook/release.wat",
       "sourceMap": true,
       "optimizeLevel": 3,
       "shrinkLevel": 0,
