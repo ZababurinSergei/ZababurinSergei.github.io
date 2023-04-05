@@ -1,5 +1,5 @@
 
-import { virtualDOM, virtualCSS, lightCSS } from './_this/index.mjs'
+import { virtualDOM, virtualCSS, lightCSS } from './this/index.mjs'
 
 export default async (mountPoint, Context) => {
     const shadow = mountPoint.attachShadow({mode: "open"});

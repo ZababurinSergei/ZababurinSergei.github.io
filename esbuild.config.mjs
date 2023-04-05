@@ -20,8 +20,8 @@ for (const k in process.env) {
 }
 
 const entryPoints = [path.resolve(__dirname, 'src/index.tsx')]
-const outdir = path.resolve(__dirname, 'public/_this/virualDom')
-const outfile = path.resolve(__dirname, 'public/_this/virualDom/index.mjs')
+const outdir = path.resolve(__dirname, 'public/this/virualDom')
+const outfile = path.resolve(__dirname, 'public/this/virualDom/index.mjs')
 
 
 fs.emptyDirSync(outdir);
