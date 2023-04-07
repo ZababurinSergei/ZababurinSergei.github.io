@@ -13,7 +13,8 @@
     "typings"
   ],
   "watch": [
-    "./index.mjs"
+    "./index.mjs",
+    ".env"
   ],
   "ext": "mjs",
   "delay": 1000
