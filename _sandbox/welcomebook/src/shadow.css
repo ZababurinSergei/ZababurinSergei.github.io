@@ -1,0 +1,14 @@
+:host {
+    width: 100%;
+    background-size: cover;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.welcome__book {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  height: 100vh;
+}

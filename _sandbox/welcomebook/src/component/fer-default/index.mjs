@@ -2,8 +2,8 @@ import { init, onload } from '../../this/index.mjs'
 import addEventListener from './controller/addEventListener/index.mjs'
 import actions from './actions/index.mjs'
 
-// const COMPONENT = path.dirname(import.meta.url).split(path.sep).pop()
 const COMPONENT = 'fer-default'
+
 const INDEX = class extends HTMLElement {
     _doRender() {
 

@@ -62,11 +62,11 @@ export default (self) => {
                     return;
                 }
 
-                console.log('  🥎 EVENT BUTTON', {
-                    type: self.dataset.type,
-                    id: self.dataset.id,
-                    action: `${self.dataset.type}__${self.dataset.id}`
-                })
+                // console.log('  🥎 EVENT BUTTON', {
+                //     type: self.dataset.type,
+                //     id: self.dataset.id,
+                //     action: `${self.dataset.type}__${self.dataset.id}`
+                // })
 
                 window.dispatchEvent(new CustomEvent('fer-button', {
                     bubbles: true,

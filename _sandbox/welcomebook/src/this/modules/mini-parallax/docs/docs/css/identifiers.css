@@ -8,7 +8,6 @@
   border: solid 1px #ddd;
   border-radius: 0.25em;
   top: 52px;
-  position: -webkit-sticky;
   position: sticky;
   max-height: calc(100vh - 155px);
   overflow-y: scroll;

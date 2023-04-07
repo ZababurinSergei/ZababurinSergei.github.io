@@ -69,13 +69,6 @@ const INDEX =  class extends HTMLElement {
       .then(async (self) => {
         self.controller.addEventListener = await addEventListener(self, await actions(self))
         self.controller.addEventListener.init()
-
-
-
-
-
-
-
       })
       .catch(e => console.error('error', e))
   }

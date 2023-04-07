@@ -1,17 +1,82 @@
 :host {
-	top: 30vh;
+	top: 26.7vh;
 	position: absolute;
-	left: 0;
+	left: -576px;
 	z-index: 2;
+}
+
+:host(.sliderIn) {
+	animation: slide-in 1000ms;
+	animation-delay: 500ms;
+	animation-fill-mode: forwards;
+}
+
+:host(.sliderOut) {
+	animation: slide-out 1000ms;
+	animation-delay: 500ms;
+	animation-fill-mode: backwards;
 }
 
 .container {
 	display: flex;
-	flex-direction: column;
-	gap: 1vw;
 	color: white;
+	height: 80vh;
+	flex-direction: row;
+	gap: 30px;
+	padding-left: 28px;
+}
+
+.slider {
+	width: 22px;
+	/*background: aquamarine;*/
+}
+
+.slider {
+	display: flex;
+	flex-direction: column;
+}
+
+.square {
+	position: absolute;
+	top:0;
+	width: 22px;
+	height: 22px;
+	background: white;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	margin-top: 6px;
+	transition: top 1s ease 0s;
+}
+
+.body {
+	display: flex;
+	flex-direction: column;
+	gap: 26px;
 }
 
 button {
 	cursor: pointer;
+}
+
+@keyframes slide-in {
+	from {
+		transform: translateX(0);
+		opacity: 0.25;
+	}
+	to {
+		transform: translateX(576px);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-out {
+	from {
+		transform: translateX(576px);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 0.25;
+	}
 }

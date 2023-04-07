@@ -3,6 +3,7 @@ export const loadHTML = (htmlRelativeUrl, baseUrl) => {
     return fetch(htmlUrl).then(response => response.text());
 }
 export const activeClass = "active"
+
 export const normalizePathName = (pathname) => {
     pathname = pathname.startsWith('/') ? pathname : `/${pathname}`
     pathname = pathname.endsWith('/') ? pathname : `${pathname}/`
@@ -15,6 +16,10 @@ export const events = (name, detail) => window.dispatchEvent(new CustomEvent(nam
     detail: detail
 }));
 
+
+export const delay = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 export default {
     description: 'utilities for this project'
 }

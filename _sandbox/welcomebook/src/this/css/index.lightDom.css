@@ -75,7 +75,7 @@
     --Main_Main_Layout_search-result: white;
     --Main_Main_Layout_search-wrapper: white;
     /* ///////////////// */
-    --text-base-size: 1.2vw;
+    --text-base-size: 23px;
     --text-scale-ratio: 1.2;
     --text-xs: calc((var(--text-base-size) / var(--text-scale-ratio)) / var(--text-scale-ratio));
     --text-sm: calc(var(--text-xs) * var(--text-scale-ratio));
@@ -93,12 +93,12 @@
     --Apricot: #efb769;
     --red-sand: #efb76a;
     --porsche: #EFB76A;
-    --images: 12vw;
-    --gap: 0.1vw;
-    --card-width: 18vw;
-    --border: 0.1vw;
-    --border-radius: 0.2vw;
-    --margin-base-size: 4vw;
+    --images: 230px;
+    --gap: 2px;
+    --card-width: 346px;
+    --border: 2px;
+    --border-radius: 4px;
+    --margin-base-size: 77px;
     --margin-scale-ratio: 2;
     --margin-xs: calc((var(--margin-base-size) / var(--margin-scale-ratio)) / var(--margin-scale-ratio));
     --margin-sm: calc(var(--margin-xs) * var(--margin-scale-ratio));
@@ -108,15 +108,15 @@
     --margin-bottom-sm: calc(var(--margin-bottom-xs) * var(--margin-scale-ratio));
     --margin-bottom-md: calc(var(--margin-bottom-sm) * var(--margin-scale-ratio));
     --margin-bottom-lg: calc(var(--margin-bottom-md) * var(--margin-scale-ratio));
-    --margin: 2vw;
-    --margin-gap: 0.4vw;
-    --padding-preview: 1vw;
-    --size1: 0.2vw;
-    --size2: 0.6vw;
-    --size3: 1vw;
-    --size4: 1.4vw;
-    --size5: 2vw;
-    --size6: 2.4vw
+    --margin: 38px;
+    --margin-gap: 8px;
+    --padding-preview: 19px;
+    --size1: 4px;
+    --size2: 12px;
+    --size3: 19px;
+    --size4: 27px;
+    --size5: 38px;
+    --size6: 46px
 }
 
 :root.orange {
@@ -280,12 +280,12 @@ body {
 .fer__header {
     display: flex;
     flex-direction: row;
-    gap: 1vw;
+    gap: 19px;
 }
 
 .page-forms {
     display: flex;
-    gap: 1vw;
+    gap: 19px;
 }
 
 dialog {

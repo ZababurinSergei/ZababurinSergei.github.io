@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Welcome Book</title>
-    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1, maximum-scale=3.0, minimum-scale=1">
     <meta property="og:site_name" content="markdown"/>
     <meta property="og:locale" content="ru_RU"/>
     <meta property="og:type" content="contract"/>
@@ -18,9 +18,10 @@
 </head>
 <body>
 <div class="welcome__book">
-    <slot name="general"></slot>
+<!--    <div class="welcome-general">-->
+<!--        <slot name="welcome-general"></slot>-->
+<!--    </div>-->
     <slot name="welcome-menu"></slot>
-    <slot name="welcome-header"></slot>
     <div class="body">
         <section class='animation parallax-container-on' data-id="0" >
             <slot name="welcome-section-0"></slot>
@@ -63,58 +64,32 @@
         </section>
     </div>
 </div>
-<welcome-header slot="welcome-header">
-    <img class='welcome__logo' src="./this/icons/logo.svg"/>
-    <div class="welcome__wrapper">
-        <div class="welcome__link">
-            <slot name="company-site"></slot>
-        </div>
-        <div class="welcome__link">
-            <slot name="company-struct"></slot>
-        </div>
-    </div>
-
-    <fer-button
-            slot="company-struct"
-            class="fer-link"
-            data-type="welcome_button_company"
-            data-id="company"
-            data-type="welcomebook"
-            data-css-shadow="welcomebook"
-    >
-        <div class="word">
-            <div class="word__item word__item--left">Структура сайта</div>
-            <div class="word__item word__item--right">Структура сайта</div>
-        </div>
-    </fer-button>
-
-    <fer-button
-            slot="company-site"
-            class="fer-link"
-            data-type="welcome_button_company"
-            data-id="structure"
-            data-type="welcomebook"
-            data-css-shadow="welcomebook"
-    >
-        <div class="word">
-            <div class=" word__item word__item--left">Сайт Компании</div>
-            <div class=" word__item word__item--right">Сайт Компании</div>
-        </div>
-    </fer-button>
-</welcome-header>
 <welcome-section slot="welcome-section-0">
-    <img class='parallax' src='./this/img/pg1.png?0'/>
+    <div class='parallax'>
+        <img src='./this/img/north_tower.png'/>
+        <slot name="welcome-header"></slot>
+    </div>
     <div class='teaser'>
-        <div class='content'>
-            <div class="cifromed">
-                <p>Привет! Мы рады приветствовать тебя в команде</p>
-                <h1>&laquo;Цифромед&raquo;!</h1>
-                <p>Если ты это читаешь, значит ты успешно преодолел все этапы интервью и пришел к нам в
-                    компанию. Мы рады, что сегодня нас стало на одного замечательного человека больше. А этот
-                    Welcome book поможет тебе быстрее адаптироваться и ответит на основные вопросы.</p>
+        <div class='first-page'>
+            <div class="description">
+                   <p class="description-title">Привет!</p>
+                   <p class="description-title">Мы рады приветствовать тебя в команде</p>
+                   <h1>Цифромед</h1>
+                   <div class="description-content">
+                       <p class="description-text">
+                           Мы знаем, что в первое время у тебя может возникнуть масса самых разнообразных вопросов о Компании, ее структуре, особенностях организации работы, перспективах роста и многом другом. Каждый из нас задавал себе подобные вопросы, когда начинал свою карьеру в Компании и мы понимаем, как важно получить на них своевременные и полные ответы.
+                       </p>
+                       <p class="description-text">
+                           Для того, чтобы ты смог быстрее освоиться в нашей Компании и уверенно ориентироваться в новой обстановке, мы подготовили Welcome Book. В нем содержится вся необходимая в первые месяцы работы информация, даны ответы на многие важные вопросы и полезные рекомендации по успешному прохождению испытательного срока и скорейшей адаптации на новом месте.
+                       </p>
+                       <p class="description-content-end">
+                           Желаем тебе успехов и будем рады оказать поддержку в нужную минуту!
+                       </p>
+                   </div>
             </div>
-
-            <slot name="fer-scroll"></slot>
+            <div class="fer-scroll">
+                <slot name="fer-scroll"></slot>
+            </div>
         </div>
     </div>
 
@@ -129,80 +104,178 @@
             </div>
         </div>
     </fer-scroll>
+
+
+    <welcome-header slot="welcome-header">
+        <img class='welcome__logo' src="./this/icons/logo.svg"/>
+        <div class="welcome__wrapper">
+            <div class="welcome__link">
+                <slot name="company-struct"></slot>
+            </div>
+        </div>
+
+<!--        <fer-button-->
+<!--                slot="company-struct"-->
+<!--                class="fer-link"-->
+<!--                data-type="welcome_button_company"-->
+<!--                data-id="company"-->
+<!--                data-type="welcomebook"-->
+<!--                data-css-shadow="welcomebook2"-->
+<!--        >-->
+<!--            <div class="container">-->
+<!--                <div class="title">Сайт Компании</div>-->
+<!--            </div>-->
+<!--        </fer-button>-->
+    </welcome-header>
 </welcome-section>
 
 <welcome-section slot="welcome-section-1">
-    <img
-            class='parallax'
-            src='./this/img/pg2.png'
-    />
+    <div class='parallax image-background'>
+        <img class="image-scale" src='./this/img/pg2.png'/>
+    </div>
+    <img class="image-scale opacity" src='./this/img/pg2.png'/>
     <div class='teaser'>
         <div class='content'>
-            <p>Важное о компании</p>
-            <hr style="text-align: left; margin-left: 0;  width: 36px; ">
-            <h1>Кто мы и куда мы идем?</h1>
+            <div class="description-without-background">
+                <div class="description-page">
+                    <p class="description-about-compeny">Важное о компании</p>
+                    <ul class="description-ul">
+                        <li>Структура компании</li>
+                        <li>Наши продукты</li>
+                        <li>Что мы ценим друг в друге?</li>
+                        <li>График работы</li>
+                        <li>Дресс-код</li>
+                        <li>Переговорные комнаты</li>
+                        <li>Зарплата</li>
+                        <li>Отпуск</li>
+                        <li>Обед</li>
+                        <li>Прочие радости</li>
+                    </ul>
+                </div>
+                <div class="welcome-logo">
+                    <slot name="welcome-logo"></slot>
+                </div>
+            </div>
+<!--            <slot name="welcome-logo"></slot>-->
         </div>
     </div>
-    <div class='teaser'>
-        <div class='content'>
-            <div class="knowledge">Узнать больше</div>
-        </div>
-    </div>
+
+
+    <welcome-logo slot="welcome-logo">
+            <div class="welcome-logo">
+                <div class="square-buttom">
+                  <p class="square-title">больше</p>
+                </div>
+            </div>
+    </welcome-logo>
+
+<!--    <div class='teaser'>-->
+<!--        <div class='content'>-->
+<!--            <div class="knowledge">больше</div>-->
+<!--        </div>-->
+<!--    </div>-->
 </welcome-section>
 
 <welcome-section slot="welcome-section-2">
-    <img
-            class='parallax'
-            src='./this/img/pg3.png?0'
-    />
+    <div class='parallax image-background'>
+        <img class="image-scale" src='./this/img/pg3.png'/>
+    </div>
+    <img class="image-scale opacity" src='./this/img/pg3.png'/>
     <div class='teaser'>
         <div class='content'>
-            <p>Взаимодействие в коллективе, дресс-код</p>
-            <hr style="text-align: left; margin-left: 0; width: 36px;">
-            <h1>Корпоративная культура</h1>
+            <div class="description-without-background">
+                <div class="description-page">
+                    КОРПОРАТИВНАЯ КУЛЬТУРА
+                    <ul class="description-ul-2">
+                        <li>Обращение к коллегам</li>
+                        <li>Лого, официальные бланки, реквизиты</li>
+                        <li>Программа рекомендаций</li>
+                        <li>Корпоративные праздники</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="welcome-logo">
+                <slot name="welcome-logo"></slot>
+            </div>
         </div>
     </div>
-    <div class='teaser'>
-        <div class='content'>
-            <div class="knowledge">Узнать больше</div>
+    <welcome-logo slot="welcome-logo">
+        <div class="welcome-logo">
+            <div class="square-buttom">
+                <p class="square-title">больше</p>
+            </div>
         </div>
-    </div>
+    </welcome-logo>
 </welcome-section>
 
 <welcome-section slot="welcome-section-3">
-    <img class='parallax' src='./this/img/pg4.png?0'/>
+    <div class='parallax image-background'>
+        <img class="image-scale" src='./this/img/test.jpg'/>
+    </div>
+    <img class="image-scale opacity" src='./this/img/test.jpg'/>
     <div class='teaser'>
         <div class='content'>
-            <p>Наши продукты</p>
-            <hr style="text-align: left; margin-left: 0; width: 36px;">
-            <h1>Разработка, эксплуатация и развитие подсистем и компонентов</h1>
+            <div class="description-without-background-resources">
+                <div class="description-page">
+                    <p class="description-about-resources">ИНФОРМАЦИЯ О РЕСУРСАХ И ДОКУМЕНТАХ</p>
+                    <ul class="description-ul-resources">
+                        <li>CRM ресурсы</li>
+                        <li>Почта</li>
+                        <li>Принтер и сканер</li>
+                        <li>Техническое оборудование</li>
+                        <li>Корпоративная онлайн библиотека</li>
+                        <li>Заказ канцелярии</li>
+                        <li>Пропускная система</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="welcome-logo">
+                <slot name="welcome-logo"></slot>
+            </div>
         </div>
     </div>
-    <div class='teaser'>
-        <div class='content'>
-            <div class="knowledge">Узнать больше</div>
+
+    <welcome-logo slot="welcome-logo">
+        <div class="welcome-logo">
+            <div class="square-buttom">
+                <p class="square-title">больше</p>
+            </div>
         </div>
-    </div>
+    </welcome-logo>
 </welcome-section>
 
 <welcome-section slot="welcome-section-4">
-    <img class='parallax' src='./this/img/pg5.png?0'/>
-    <div class='teaser'>
-        <div class='content'>
-            <p>Рабочее место и переговорные комнаты</p>
-            <hr width="36px" style="text-align: left; margin-left: 0">
-            <h1>правильно организованное рабочее место уменьшает время, необходимое для выполнения работы</h1>
-        </div>
+    <div class='parallax image-background'>
+        <img class="image-scale" src='./this/img/pg5.png'/>
     </div>
+    <img class="image-scale opacity" src='./this/img/pg5.png'/>
     <div class='teaser'>
         <div class='content'>
-            <div class="knowledge">Узнать больше</div>
+            <div class="description-without-background">
+<!--                <div class="description-page">-->
+<!--                    ВАЖное о компании-->
+<!--                    <ul class="description-ul">-->
+<!--                        <li>Структура компании</li>-->
+<!--                        <li>Наши продукты</li>-->
+<!--                        <li>Что мы ценим друг в друге?</li>-->
+<!--                        <li>График работы</li>-->
+<!--                        <li>Дресс-код</li>-->
+<!--                        <li>Переговорные комнаты</li>-->
+<!--                        <li>Зарплата</li>-->
+<!--                        <li>Отпуск</li>-->
+<!--                        <li>Обед</li>-->
+<!--                        <li>Прочие радости</li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+            </div>
         </div>
     </div>
 </welcome-section>
 
 <welcome-section slot="welcome-section-5">
-    <img class='parallax' src='./this/img/pg6.png?0'/>
+    <div class='parallax'>
+        <img src='./this/img/pg6.png'/>
+    </div>
     <div class='teaser'>
         <div class='content'>
             <p>Рабочий график</p>
@@ -212,13 +285,15 @@
     </div>
     <div class='teaser'>
         <div class='content'>
-            <div class="knowledge">Узнать больше</div>
+            <div class="knowledge">больше</div>
         </div>
     </div>
 </welcome-section>
 
 <welcome-section slot="welcome-section-6">
-    <img class='parallax' src='./this/img/pg7.png?0'/>
+    <div class='parallax'>
+        <img src='./this/img/pg7.png'/>
+    </div>
     <div class='teaser'>
         <div class='content'>
             <p>Зарплата и отпуск</p>
@@ -228,13 +303,15 @@
     </div>
     <div class='teaser'>
         <div class='content'>
-            <div class="knowledge">Узнать больше</div>
+            <div class="knowledge">больше</div>
         </div>
     </div>
 </welcome-section>
 
 <welcome-section slot="welcome-section-7">
-    <img class='parallax' src='./this/img/pg8.png?0'/>
+    <div class='parallax'>
+        <img src='./this/img/pg8.png'/>
+    </div>
     <div class='teaser'>
         <div class='content'>
             <p>Прочие радости</p>
@@ -244,13 +321,15 @@
     </div>
     <div class='teaser'>
         <div class='content'>
-            <div class="knowledge">Узнать больше</div>
+            <div class="knowledge">больше</div>
         </div>
     </div>
 </welcome-section>
 
 <welcome-section slot="welcome-section-8">
-    <img class='parallax' src='./this/img/pg9.png?0'/>
+    <div class='parallax'>
+        <img src='./this/img/pg9.png'/>
+    </div>
     <div class='teaser'>
         <div class='content'>
             <p>Информация о ресурсах и документах</p>
@@ -260,13 +339,15 @@
     </div>
     <div class='teaser'>
         <div class='content'>
-            <div class="knowledge">Узнать больше</div>
+            <div class="knowledge">больше</div>
         </div>
     </div>
 </welcome-section>
 
 <welcome-section slot="welcome-section-9">
-    <img class='parallax' src='./this/img/pg10.png?0'/>
+    <div class='parallax'>
+        <img src='./this/img/pg10.png'/>
+    </div>
     <div class='teaser'>
         <div class='content'>
             <p>Обед</p>
@@ -276,13 +357,15 @@
     </div>
     <div class='teaser'>
         <div class='content'>
-            <div class="knowledge">Узнать больше</div>
+            <div class="knowledge">больше</div>
         </div>
     </div>
 </welcome-section>
 
 <welcome-section slot="welcome-section-10">
-    <img class='parallax' src='./this/img/pg11.png'/>
+    <div class='parallax'>
+        <img src='./this/img/pg11.png'/>
+    </div>
     <div class='teaser'>
         <div class='content'>
             <p>Exit-интервью</p>
@@ -292,15 +375,17 @@
     </div>
     <div class='teaser'>
         <div class='content'>
-            <div class="knowledge">Узнать больше</div>
+            <div class="knowledge">больше</div>
         </div>
     </div>
 </welcome-section>
 
 <welcome-section slot="welcome-section-11">
-    <img class='parallax' src='./this/img/contact_content.png'/>
+    <div class='parallax'>
+        <img src='./this/img/contact_content.png'/>
+    </div>
     <div class='teaser-finale'>
-        <div class="content-final">
+        <div class="content">
             <h2 class="final-h2">Спасибо, что прочел наш welcome book!</h2>
             <div class="final-p">Нам важно твое мнение о нем. Помоги нам сделать его лучше и полезнее
                 для новых коллег. Ты можешь предложить новые разделы, ссылки или порекомендовать, что
@@ -338,7 +423,9 @@
 </welcome-section>
 
 <welcome-section slot="welcome-section-12">
-    <img class='parallax' src='./this/img/216e64cb-07b4-4595-8bfa-53cf8cd27f14.jpg'/>
+    <div class='parallax'>
+        <img src='./this/img/216e64cb-07b4-4595-8bfa-53cf8cd27f14.jpg'/>
+    </div>
     <div class='teaser'>
         <div class='content'>
             <div class="cifromed">
@@ -351,155 +438,93 @@
     </div>
 </welcome-section>
 
+<welcome-general slot="welcome-general" >
+        <div class="general__body">
+            <div class="general_close">
+                <img src="./this/icons/close.svg">
+            </div>
+            <div class="general_info">
+                <div class="general_info_description">
+                    Наша компания разделена на Бизнес-единицы, самостоятельные подразделения, которые полностью отвечают за
+                    реализацию проектов в своей зоне ответственности.
+                    Также в структуре Группы компаний есть несколько продуктовых компаний (мы их называем ДЗО – дочернее
+                    зависимое общество)
+                    Информация о продуктах ДЗО в разделе Наши продукты
+                    Подробно со структурой компании и топ-менеджерами ты можешь познакомиться на корпоративном портале.
+                </div>
+                <div class="general_info_wrapper">
+                    <p class="general_info_name">
+                        Владимир Пасынков
+                    </p>
+                    <p class="general_info_status">
+                        Генеральный директор
+                    </p>
+                </div>
+            </div>
+        </div>
+</welcome-general>
+
 <welcome-menu slot="welcome-menu">
     <div class="container">
-        <slot name="button-0"></slot>
-        <slot name="button-1"></slot>
-        <slot name="button-2"></slot>
-        <slot name="button-3"></slot>
-        <slot name="button-4"></slot>
-        <slot name="button-5"></slot>
-        <slot name="button-6"></slot>
-        <slot name="button-7"></slot>
-        <slot name="button-8"></slot>
-        <slot name="button-9"></slot>
-        <slot name="button-10"></slot>
-        <slot name="button-11"></slot>
-        <slot name="button-12"></slot>
+        <div class="slider">
+            <div class="square"></div>
+        </div>
+        <div class="body">
+            <slot name="button-0"></slot>
+            <slot name="button-1"></slot>
+            <slot name="button-2"></slot>
+            <slot name="button-3"></slot>
+            <slot name="button-4"></slot>
+        </div>
     </div>
     <fer-button
             slot="button-0"
             data-id="0"
             data-type="welcome-menu"
-
+            data-css-shadow="menu"
     >
-        <p>Start</p>
+        <p>Приветствие</p>
     </fer-button>
+
     <fer-button
             slot="button-1"
             data-id="1"
             data-type="welcome-menu"
             data-css-shadow="menu"
     >
-        <p>ANIMATION 1</p>
+        <p>О компании</p>
 
     </fer-button>
+
     <fer-button
             slot="button-2"
             data-id="2"
             data-type="welcome-menu"
             data-css-shadow="menu"
     >
-        <p>ANIMATION 2</p>
+        <p>КОРПОРАТИВНАЯ КУЛЬТУРА</p>
     </fer-button>
+
     <fer-button
             slot="button-3"
             data-id="3"
             data-type="welcome-menu"
             data-css-shadow="menu"
     >
-        <p>ANIMATION 3</p>
+        <p>Ресурсы и документы</p>
     </fer-button>
+
     <fer-button
             slot="button-4"
             data-id="4"
             data-type="welcome-menu"
             data-css-shadow="menu"
     >
-        <p>ANIMATION 4</p>
-    </fer-button>
-    <fer-button
-            slot="button-5"
-            data-id="5"
-            data-type="welcome-menu"
-            data-css-shadow="menu"
-    >
-        <p>ANIMATION 5</p>
-    </fer-button>
-    <fer-button
-            slot="button-6"
-            data-id="6"
-            data-type="welcome-menu"
-            data-css-shadow="menu"
-    >
-        <p>ANIMATION 6</p>
-    </fer-button>
-    <fer-button
-            slot="button-7"
-            data-id="7"
-            data-type="welcome-menu"
-            data-css-shadow="menu"
-    >
-        <p>ANIMATION 7</p>
-    </fer-button>
-    <fer-button
-            slot="button-8"
-            data-id="8"
-            data-type="welcome-menu"
-            data-css-shadow="menu"
-    >
-        <p>ANIMATION 8</p>
-    </fer-button>
-    <fer-button
-            slot="button-9"
-            data-id="9"
-            data-type="welcome-menu"
-            data-css-shadow="menu"
-    >
-        <p>ANIMATION 9</p>
-    </fer-button>
-    <fer-button
-            slot="button-10"
-            data-id="10"
-            data-type="welcome-menu"
-    >
-        <p>ANIMATION 10</p>
-    </fer-button>
-    <fer-button
-            slot="button-11"
-            data-id="11"
-            data-type="welcome-menu"
-            data-css-shadow="menu"
-    >
-        <p>ANIMATION 11</p>
-    </fer-button>
-    <fer-button
-            slot="button-12"
-            data-id="12"
-            data-type="welcome-menu"
-            data-css-shadow="menu"
-    >
-        <p>Виноградник</p>
+        <p>Спасибо!</p>
     </fer-button>
 </welcome-menu>
-
-<div slot="general" class="general">
-    <div class="general__body">
-        <div class="general_close">
-            <img src="./this/icons/close.svg">
-        </div>
-        <div class="general_info">
-            <div class="general_info_description">
-                Наша компания разделена на Бизнес-единицы, самостоятельные подразделения, которые полностью отвечают за
-                реализацию проектов в своей зоне ответственности.
-                Также в структуре Группы компаний есть несколько продуктовых компаний (мы их называем ДЗО – дочернее
-                зависимое общество)
-                Информация о продуктах ДЗО в разделе Наши продукты
-                Подробно со структурой компании и топ-менеджерами ты можешь познакомиться на корпоративном портале.
-            </div>
-            <div class="general_info_wrapper">
-                <p class="general_info_name">
-                    Владимир Пасынков
-                </p>
-                <p class="general_info_status">
-                    Генеральный директор
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
 <script type="module">
-    import {events, activeClass} from './this/index.mjs'
+    import {events, activeClass, delay} from './this/index.mjs'
     import ferLink from './component/fer-link/index.mjs'
     import ferHash from './component/fer-hash/index.mjs'
     import ferButton from './component/fer-button/index.mjs'
@@ -507,8 +532,14 @@
     import welcomeMenu from './component/welcome-menu/index.mjs'
     import welcomeSection from './component/welcome-section/index.mjs'
     import welcomeHeader from './component/welcome-header/index.mjs'
+    import welcomeGeneral from './component/welcome-general/index.mjs'
+    import welcomeLogo from './component/welcome-logo/index.mjs'
 
-    console.log('HELP:', { ferButton, ferLink, ferHash, ferScroll, welcomeMenu, welcomeSection, welcomeHeader })
+    console.log('HELP:', {welcomeLogo, welcomeGeneral, ferButton, ferLink, ferHash, ferScroll, welcomeMenu, welcomeSection, welcomeHeader })
+
+    const containersScrollTop = []
+    let offset = 0
+    let filter = 0
 
     const config = {
         page: {
@@ -521,6 +552,14 @@
     const shadow = document.body.attachShadow({mode: "open"});
     shadow.appendChild(document.querySelector('.welcome__book'))
 
+    const pageStyle = document.createElement('style')
+    pageStyle.innerText = `@import "./shadow.css";`
+    shadow.appendChild(pageStyle)
+
+    const indexCss = document.createElement('style')
+    indexCss.innerText = `@import "./index.css";`
+    document.body.appendChild(indexCss)
+
     const parallaxCss = document.createElement('style')
     parallaxCss.innerText = `@import "./parallax.css";`
     shadow.appendChild(parallaxCss)
@@ -529,21 +568,10 @@
     scrollCss.innerText = `@import "./scroll.css";`
     shadow.appendChild(scrollCss)
 
-    const pageStyle = document.createElement('style')
-    pageStyle.innerText = `@import "./page.css";`
-    shadow.appendChild(pageStyle)
-
-    const generalStyle = document.createElement('style')
-    generalStyle.innerText = `@import "./general.css";`
-    document.body.appendChild(generalStyle)
-
     let sections = document.body.shadowRoot.querySelectorAll('.animation')
     let menu = document.body.querySelector('welcome-menu')
     let buttons = menu.querySelectorAll('fer-button')
-
-    function delay(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
+    let teaser = []
 
     const current = () => {
         for (let item of buttons) {
@@ -554,13 +582,24 @@
         return 0
     };
 
-    sections.forEach(el => {
-        el.addEventListener('animationend', async (event) => {
+    sections.forEach(item => {
+        item.addEventListener('animationend', async (event) => {
             const currentId = current()
             const id = parseInt(event.currentTarget.dataset.id, 10)
 
             if (event.animationName === 'inPage') {
-                sections[id].classList.remove('animation')
+                if(sections[id].classList.contains('animation')) {
+                    sections[id].classList.remove('animation')
+                }
+
+                if(sections[id].classList.contains('animation2')) {
+                    sections[id].classList.remove('animation2')
+                }
+
+                if(sections[id].classList.contains('animation3')) {
+                    sections[id].classList.remove('animation3')
+                }
+
                 sections[id].classList.remove('parallax-container-off')
                 sections[id].classList.replace('scrollIn', 'parallax-container-on')
 
@@ -571,7 +610,18 @@
                     })
                 }
             } else if (event.animationName === 'outPage') {
-                sections[id].classList.remove('animation')
+                if(sections[id].classList.contains('animation')) {
+                    sections[id].classList.remove('animation')
+                }
+
+                if(sections[id].classList.contains('animation2')) {
+                    sections[id].classList.remove('animation2')
+                }
+
+                if(sections[id].classList.contains('animation3')) {
+                    sections[id].classList.remove('animation3')
+                }
+
                 sections[id].classList.replace('parallax-container-on', 'parallax-container-off')
                 sections[id].classList.remove('scrollOut')
 
@@ -592,13 +642,48 @@
         });
     })
 
+
+    const backgroundSections = [
+        'transparent',
+        '#666666',
+        '#00A0A8',
+        '#666666',
+        '#00A0A8'
+    ]
+    const preAnimation = (section) => {
+        const id = parseInt(section.dataset.id, 10)
+        const data = section.querySelector('slot').assignedElements()[0].shadowRoot.querySelector('.parallax')
+        const image = data.querySelector('img')
+        data.style.background = backgroundSections[id]
+        image.style.mixBlendMode = 'multiply'
+
+        console.log('========== section ==========', section.dataset.id)
+    }
+
     window.addEventListener('fer-button', async (event) => {
         events('fer-button-in', {
             type: 'welcome-menu',
             action: 'disable'
         })
+
         const currentId = current()
         const id = parseInt(event.detail.id, 10)
+
+        if(currentId === 0 && id === 1) {
+            if(menu.classList.contains('sliderOut')) {
+                menu.classList.replace('sliderOut', 'sliderIn')
+            } else {
+                menu.classList.add('sliderIn')
+            }
+        }
+
+        if(currentId === 1 && id === 0) {
+            if(menu.classList.contains('sliderIn')) {
+                menu.classList.replace('sliderIn', 'sliderOut')
+            } else {
+                menu.classList.add('sliderOut')
+            }
+        }
 
         if (id !== currentId) {
             const isNext = (id - 1) === currentId || (id + 1) === currentId
@@ -608,13 +693,15 @@
                     const itemId = parseInt(sections[i].dataset.id, 10)
 
                     if (itemId === id) {
-                        sections[itemId].classList.add('animation')
+                        preAnimation(sections[itemId])
+                        sections[itemId].classList.add('animation2')
                         sections[itemId].classList.add('scrollIn')
                     } else if (itemId < id) {
                         if (!sections[i].classList.contains('scrollIn') && !sections[i].classList.contains('parallax-container-on')) {
-                            sections[itemId].classList.add('animation')
+                            // preAnimation(sections[itemId])
+                            sections[itemId].classList.add('animation2')
                             sections[itemId].classList.add('scrollIn')
-                            isNext ? '' : await delay(100)
+                            isNext ? '' : await delay(200)
                         } else {
                             if(config.page.first.isDynamic) {
                                 sections[itemId].classList.add('animation')
@@ -630,7 +717,7 @@
                         if (sections[i].classList.contains('parallax-container-on')) {
                             if(id + 1 === itemId) {
                                 if(config.page.first.isDynamic) {
-                                    sections[i - 1].classList.add('animation')
+                                    sections[i - 1].classList.add('animation3')
                                     sections[i - 1].classList.add('scrollTopDown')
                                 }
                             }
@@ -654,14 +741,119 @@
         }
     })
 
-    window.document.body.querySelector('.general_close').addEventListener('click', (events) => {
-        const general = document.body.querySelector('.general__body')
-        general.classList.add('dismiss')
-        general.classList.remove('selected')
-    })
+    // window.document.body.querySelector('.general_close').addEventListener('click', (events) => {
+    //     const general = document.body.querySelector('.general__body')
+    //     general.classList.add('dismiss')
+    //     general.classList.remove('selected')
+    // })
 
 
+    const sensitivity = 340
+    const mousemove = (event) => {
+        const currentId = current()
+        if(currentId !== 0) {
+            if(event.clientX < sensitivity) {
+                if(menu.classList.contains('sliderOut')) {
+                    menu.classList.replace('sliderOut', 'sliderIn')
+                } else {
+                    menu.classList.add('sliderIn')
+                }
+            } else {
+                let timeId = setTimeout(() => {
+                    clearTimeout(timeId)
+                    menu.classList.replace('sliderIn', 'sliderOut')
 
+                }, 1000)
+            }
+        }
+    }
+
+    let isFiring = false;
+    function throttleEvent(event) {
+        if (isFiring === false) {
+            setTimeout(() => {
+                mousemove(event);
+                isFiring = false;
+            }, 300);
+        }
+        isFiring = true;
+    }
+
+    document.addEventListener('mousemove', throttleEvent)
+
+    let position = 0
+    let lock = false
+    const onWheel = (event) => {
+        if(!lock) {
+            event = event || window.event;
+            let delta = event.deltaY || event.detail || event.wheelDelta;
+            position = position + delta
+            let currentId = undefined
+
+            if(position > 100) {
+                lock = true
+                currentId = current()
+                console.log()
+                if((currentId + 1) < buttons.length) {
+                    if(currentId + 1 === 1) {
+                        events('welcome-header', {
+                            isDisable: true
+                        })
+                    }
+                    buttons[currentId + 1].click();
+                    position = 0
+                } else {
+                    position = 0
+                    lock = false
+                }
+            } else if(position < -100) {
+                currentId = current()
+
+                console.log('-------- MINUSE --------------', {
+                    currentId: currentId
+                })
+
+                if(currentId - 1 >= 0) {
+                    lock = true
+                    currentId = current()
+                    if(currentId -1 === 0) {
+                        events('welcome-header', {
+                            isDisable: false
+                        })
+                    }
+                    buttons[currentId - 1].click()
+                    position = 0
+                } else {
+                    position = 0
+                    lock = false
+                }
+            }
+            lock = false
+        }
+    }
+
+    let isFiringWheel = false;
+    function throttleWheel(event) {
+        if (isFiringWheel === false) {
+            setTimeout(() => {
+                onWheel(event);
+                isFiringWheel = false;
+            }, 200);
+        }
+        isFiringWheel = true;
+    }
+
+    if (document.body.addEventListener) {
+        if ('onwheel' in document) {
+            document.body.addEventListener("wheel", throttleWheel);
+        } else if ('onmousewheel' in document) {
+            document.body.addEventListener("mousewheel", throttleWheel);
+        } else {
+            document.body.addEventListener("MozMousePixelScroll", throttleWheel);
+        }
+    } else {
+        document.body.attachEvent("onmousewheel", throttleWheel);
+    }
     // buttons.forEach(item => {
     //     item.addEventListener('click', async (events) => {
     //         buttons.forEach(item => {

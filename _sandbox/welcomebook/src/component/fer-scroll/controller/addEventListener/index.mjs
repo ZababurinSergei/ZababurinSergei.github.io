@@ -1,14 +1,10 @@
 export default async (self, actions) => {
-    let component = self.shadowRoot === null
-        ? self
-        : self.shadowRoot
-
     return {
         init: () => {
-
+            self.addEventListener('click', actions.click)
         },
         termminate: () => {
-
+            self.removeEventListener('click', actions.click)
         }
     }
 

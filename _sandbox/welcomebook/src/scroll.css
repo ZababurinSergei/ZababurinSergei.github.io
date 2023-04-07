@@ -15,7 +15,7 @@
     --stroke-width: 0;
     --stroke-color: black;
     --speed: 4s;
-    --easing: ease-in-out;
+    /*--easing: ease-in-out;*/
     --animation-direction: normal;
     --padding: 0;
     --margin: 1vh;
@@ -25,8 +25,24 @@
 
 .animation {
     animation-fill-mode: forwards;
-    animation-duration: 1s;
-    animation-timing-function: var(--easing);
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: var(--count);
+    animation-direction: var(--animation-direction);
+}
+
+.animation2 {
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: var(--count);
+    animation-direction: var(--animation-direction);
+}
+
+.animation3 {
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
     animation-iteration-count: var(--count);
     animation-direction: var(--animation-direction);
 }
@@ -48,24 +64,26 @@
         transform: scale(1) translateY(0);
     }
     to {
-        transform: scale(1) translateY(110vh);
+        transform: scale(1) translateY(100vh);
     }
 }
+
 
 @keyframes inPage {
     from {
         transform: scale(1) translateY(0);
     }
     to {
-        transform: scale(1) translateY(-110vh);
+        transform: scale(1) translateY(-100vh);
     }
 }
 
 @keyframes scrollTop {
     from {
-        transform: scale(1) translateY(-110vh);
+        transform: scale(1) translateY(-55vh);
     }
     to {
         transform: scale(1) translateY(0);
+        transition: transform 1s;
     }
 }

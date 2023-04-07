@@ -1,25 +1,25 @@
 .form {
-	border: 0.10834vw solid gray;
+	border: 2px solid gray;
 	display: flex;
 	flex-direction: column;
-	padding: 0.32503vw;
-	width: 13.5428vw;
-	margin-top: 0.5vw;
+	padding: 6px;
+	width: 260px;
+	margin-top: 10px;
 }
 
 .form__title {
-	font-size: 0.86674vw;
+	font-size: 17px;
 	font-weight: bold;
-	border-bottom: 0.21668vw solid rgba(0, 0, 0, 0.3);
-	margin-bottom: 0.54171vw;
+	border-bottom: 4px solid rgba(0, 0, 0, 0.3);
+	margin-bottom: 10px;
 }
 
 .form__input {
-	margin-bottom: 0.54171vw;
+	margin-bottom: 10px;
 }
 
 .form__input-label {
-	font-size: 0.7584vw;
+	font-size: 15px;
 	font-weight: bold;
 	display: block;
 }
@@ -28,11 +28,11 @@
 }
 
 .form__textarea {
-	margin-bottom: 0.54171vw;
+	margin-bottom: 10px;
 }
 
 .form__textarea-label {
-	font-size: 0.7584vw;
+	font-size: 15px;
 	font-weight: bold;
 	display: block;
 }
@@ -42,9 +42,9 @@
 }
 
 .form__buttons {
-	margin-bottom: 0.54171vw;
+	margin-bottom: 10px;
 	display: flex;
-	gap: 1vw;
+	gap: 19px;
 	text-align: center;
 }
 
@@ -52,7 +52,7 @@
 	background-color: white;
 	color: blue;
 	border-color: blue;
-	border-radius: 0.21668vw;
+	border-radius: 4px;
 	outline: none;
 }
 
@@ -60,6 +60,6 @@
 	background-color: blue;
 	border-color: blue;
 	color: white;
-	border-radius: 0.21668vw;
+	border-radius: 4px;
 	outline: none;
 }
