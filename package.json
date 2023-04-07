@@ -10,18 +10,20 @@
     "asbuild:release": "asc assembly/index.ts --target release",
     "asbuild": "npm run asbuild:debug && npm run asbuild:release",
     "virtualDom": "nodemon --config nodemon.react.json esbuild.config.mjs",
-    "test": "node tests"
+    "test": "node tests",
+    "px2vw": "gulp px2vw",
+    "vw2px": "gulp vw2px"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/react": "^18.0.31",
+    "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
     "assemblyscript": "^0.27.1",
     "autoprefixer": "^10.4.14",
     "dotenv": "^16.0.3",
-    "esbuild": "^0.17.14",
+    "esbuild": "^0.17.15",
     "esbuild-copy-static-files": "^0.1.0",
     "esbuild-css-modules-plugin": "^2.7.1",
     "esbuild-plugin-path-alias": "^1.0.7",
@@ -29,7 +31,9 @@
     "esbuild-sass-plugin": "^2.8.0",
     "fs-extra": "^11.1.1",
     "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
     "nodemon": "^2.0.22",
+    "postcss-px-to-viewport": "^1.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.0.3"
