@@ -17,9 +17,12 @@ export const events = (name, detail) => window.dispatchEvent(new CustomEvent(nam
 }));
 
 
+export const randomColor = () => `#${Math.floor(Math.random()*16777215).toString(16)}`;
 export const delay = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+export { animationCount } from './count/index.mjs'
 export default {
     description: 'utilities for this project'
 }

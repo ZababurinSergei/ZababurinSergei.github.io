@@ -1,12 +1,15 @@
-import { activeClass } from '../../../this/index.mjs'
+import {activeClass} from '../../../this/index.mjs'
+import { initSections } from '../custom/index.mjs'
+
 export default (self) => {
     return new Promise(async (resolve, reject) => {
+        const method = await initSections(self)
         const buttons = self.querySelectorAll('fer-button')
         const square = self.shadowRoot.querySelector('.square')
 
         const getActive = () => {
-            for(let i = 0; i < buttons.length; ++i) {
-                if(buttons[i].classList.contains(activeClass)) {
+            for (let i = 0; i < buttons.length; ++i) {
+                if (buttons[i].classList.contains(activeClass)) {
                     return parseInt(buttons[i].dataset.id, 10)
                 }
             }
@@ -15,8 +18,8 @@ export default (self) => {
 
         resolve({
             mousemove: (event) => {
-                if(event.clientX < 140) {
-                    if(self.classList.contains('sliderOut')) {
+                if (event.clientX < 140) {
+                    if (self.classList.contains('sliderOut')) {
                         self.classList.replace('sliderOut', 'sliderIn')
                     } else {
                         self.classList.add('sliderIn')
@@ -31,7 +34,8 @@ export default (self) => {
                     }, 300)
                 }
             },
-            ferButton: (event) => {
+            ferButton: async (event) => {
+                method.activeAnimation(event)
                 const gap = 26
                 const fontSize = 30
                 const stepFontSize = 4
@@ -47,29 +51,29 @@ export default (self) => {
 
                 const activeId = getActive()
                 // if(activeId !== 0) {
-                    let percent = 0
-                    for(let i = activeId + 1; i < buttons.length; ++i) {
-                        const currentItem = buttons[i].shadowRoot.querySelector('p')
-                        percent = percent + 1
+                let percent = 0
+                for (let i = activeId + 1; i < buttons.length; ++i) {
+                    const currentItem = buttons[i].shadowRoot.querySelector('p')
+                    percent = percent + 1
 
-                        const opacity = opaticyDefault - stepOpacity * percent
-                        const currentFontSize = fontSize - stepFontSize * percent
+                    const opacity = opaticyDefault - stepOpacity * percent
+                    const currentFontSize = fontSize - stepFontSize * percent
 
-                        currentItem.style.opacity = `${opacity}`
-                        currentItem.style.fontSize = `${currentFontSize}px`
-                    }
+                    currentItem.style.opacity = `${opacity}`
+                    currentItem.style.fontSize = `${currentFontSize}px`
+                }
 
-                    percent = 0
-                    for(let i = activeId - 1; i >= 0; --i) {
-                        percent = percent + 1
-                        const currentItem = buttons[i].shadowRoot.querySelector('p')
+                percent = 0
+                for (let i = activeId - 1; i >= 0; --i) {
+                    percent = percent + 1
+                    const currentItem = buttons[i].shadowRoot.querySelector('p')
 
-                        const opacity = opaticyDefault - stepOpacity * percent
-                        const currentFontSize = fontSize - stepFontSize * percent
+                    const opacity = opaticyDefault - stepOpacity * percent
+                    const currentFontSize = fontSize - stepFontSize * percent
 
-                        currentItem.style.opacity = `${opacity}`
-                        currentItem.style.fontSize = `${currentFontSize}px`
-                    }
+                    currentItem.style.opacity = `${opacity}`
+                    currentItem.style.fontSize = `${currentFontSize}px`
+                }
             }
         })
     })

@@ -1,7 +1,6 @@
 import { init, onload } from '../../this/index.mjs'
 import addEventListener from './controller/addEventListener/index.mjs'
 import actions from './actions/index.mjs'
-import { styleOpacity } from './custom/index.mjs'
 
 const COMPONENT = 'fer-button'
 const INDEX =  class extends HTMLElement {
@@ -77,7 +76,6 @@ const INDEX =  class extends HTMLElement {
       .then(async (self) => {
         self.controller.addEventListener = await addEventListener(self, await actions(self))
         self.controller.addEventListener.init()
-        styleOpacity(self)
       })
       .catch(e => console.error('error', e))
   }

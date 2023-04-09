@@ -14,7 +14,6 @@
     --line-height: 17px;
     --stroke-width: 0;
     --stroke-color: black;
-    --speed: 4s;
     /*--easing: ease-in-out;*/
     --animation-direction: normal;
     --padding: 0;
@@ -41,7 +40,23 @@
 
 .animation3 {
     animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: var(--count);
+    animation-direction: var(--animation-direction);
+}
+
+.animation4 {
+    animation-fill-mode: forwards;
     animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: var(--count);
+    animation-direction: var(--animation-direction);
+}
+
+.animation5 {
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
     animation-timing-function: ease-in;
     animation-iteration-count: var(--count);
     animation-direction: var(--animation-direction);
@@ -50,6 +65,7 @@
 .scrollOut {
     animation-name: outPage;
 }
+
 
 .scrollIn {
     animation-name: inPage;
@@ -80,7 +96,7 @@
 
 @keyframes scrollTop {
     from {
-        transform: scale(1) translateY(-55vh);
+        transform: scale(1) translateY(-15vh);
     }
     to {
         transform: scale(1) translateY(0);
