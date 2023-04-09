@@ -75,6 +75,8 @@ if(process.env.SANDBOX === 'true') {
 
 app.use(express.static(`${__dirname}/public`));
 app.use(express.static(`${__dirname}/services`));
+app.use(express.static(`${__dirname}/services/welcomebook/src`));
+
 app.get(`/*`, async (req, res) => {
     res.status(200).sendFile(path.join(__dirname, '/public/index.html'));
 })

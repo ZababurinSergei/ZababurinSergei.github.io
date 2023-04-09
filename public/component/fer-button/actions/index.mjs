@@ -1,23 +1,28 @@
 import { activeClass } from '../../../this/index.mjs'
+import { initSections } from '../custom/index.mjs'
 
 export default (self) => {
     return new Promise(async (resolve, reject) => {
+        const method = await initSections()
+        method.styleOpacity(self)
+
         resolve({
-            'fer-button-in': (events) => {
-                if (events.detail.type === self.dataset.type && events.detail.action === 'disable') {
+            'fer-button-in': (event) => {
+                if (event.detail.type === self.dataset.type && event.detail.action === 'disable') {
                     self.disabled = true
-                } else if (events.detail.type === self.dataset.type && events.detail.action === 'enable') {
+                } else if (event.detail.type === self.dataset.type && event.detail.action === 'enable') {
                     if (!self.classList.contains(activeClass)) {
                         self.disabled = false
                     }
                 }
             },
-            'fer-button': (events) => {
-                if (events.detail.id === self.dataset.id) {
-                    self.classList.add(activeClass)
-                } else {
-                    self.classList.remove(activeClass)
-                }
+            'fer-button': async (events) => {
+                // if (events.detail.id === self.dataset.id) {
+                //     method.animationButton(self)
+                //     self.classList.add(activeClass)
+                // } else {
+                //     self.classList.remove(activeClass)
+                // }
             },
             mouseover: (events) => {
                 if (self.dataset.cssShadow === 'welcomebook') {
@@ -62,11 +67,11 @@ export default (self) => {
                     return;
                 }
 
-                console.log('  🥎 EVENT BUTTON', {
-                    type: self.dataset.type,
-                    id: self.dataset.id,
-                    action: `${self.dataset.type}__${self.dataset.id}`
-                })
+                // console.log('  🥎 EVENT BUTTON', {
+                //     type: self.dataset.type,
+                //     id: self.dataset.id,
+                //     action: `${self.dataset.type}__${self.dataset.id}`
+                // })
 
                 window.dispatchEvent(new CustomEvent('fer-button', {
                     bubbles: true,

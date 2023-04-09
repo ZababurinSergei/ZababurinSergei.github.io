@@ -1,6 +1,7 @@
 import { init, onload } from '../../this/index.mjs'
 import addEventListener from './controller/addEventListener/index.mjs'
 import actions from './actions/index.mjs'
+
 const COMPONENT = 'fer-button'
 const INDEX =  class extends HTMLElement {
   static get observedAttributes() {
@@ -15,6 +16,7 @@ const INDEX =  class extends HTMLElement {
   getState(path) {
     return this._state[path];
   }
+
   setState(path, value) {
     if(!this._state.hasOwnProperty(path)) {
       alert(`надо определить свойство ${path} в стейте`)
@@ -56,6 +58,7 @@ const INDEX =  class extends HTMLElement {
     return this.hasAttribute('disabled');
   }
 
+
   constructor () {
     super()
     this.controller = {}
@@ -70,17 +73,16 @@ const INDEX =  class extends HTMLElement {
   }
   connectedCallback() {
     onload(this)
-        .then(async (self) => {
-          self.controller.addEventListener = await addEventListener(self, await actions(self))
-          self.controller.addEventListener.init()
-        })
-        .catch(e => console.error('error', e))
+      .then(async (self) => {
+        self.controller.addEventListener = await addEventListener(self, await actions(self))
+        self.controller.addEventListener.init()
+      })
+      .catch(e => console.error('error', e))
   }
   disconnectedCallback() {
     this.controller.addEventListener.terminate()
     console.log(`     🔴 COMPONENTS ${this.tagName} disconnected`)
   }
-
   attributeChangedCallback(name, oldValue, newValue) {
     if (this.disabled) {
       this.setAttribute('tabindex', '-1');

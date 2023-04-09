@@ -1,9 +1,5 @@
 import { activeClass, normalizePathName } from '../../../../this/index.mjs'
 export default async (self, actions) => {
-    let component = self.shadowRoot === null
-        ? self
-        : self.shadowRoot
-
     const link = self
 
     return {
@@ -26,5 +22,4 @@ export default async (self, actions) => {
             window.removeEventListener('popstate', actions.popstate);
         }
     }
-
 }

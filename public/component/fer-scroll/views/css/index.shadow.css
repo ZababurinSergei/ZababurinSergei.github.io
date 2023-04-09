@@ -1,8 +1,12 @@
+:host {
+	/*position: absolute;*/
+	/*bottom: 43px;*/
+}
 
 .welcome__scroll {
 	position: absolute;
-	bottom: -55%;
-	left: 58%;
+	/*bottom: -55%;*/
+	/*left: 58%;*/
 }
 
 .scroll {
@@ -34,7 +38,7 @@
 	padding-top: 17px;
 	width: 58px;
 	height: 16px;
-	font-family: "Open Sans";
+	font-family: "Raleway", serif;
 	font-style: normal;
 	font-weight: 300;
 	font-size: 12px;

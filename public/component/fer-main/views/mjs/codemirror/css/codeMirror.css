@@ -7,11 +7,11 @@
 }
 
 .CodeMirror-lines {
-    padding: 0.21668vw 0
+    padding: 4px 0
 }
 
 .CodeMirror pre {
-    padding: 0 0.21668vw
+    padding: 0 4px
 }
 
 .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
@@ -19,14 +19,14 @@
 }
 
 .CodeMirror-gutters {
-    border-right: 0.08726vw solid #ddd;
+    border-right: 2px solid #ddd;
     background-color: #f7f7f7;
     white-space: nowrap
 }
 
 .CodeMirror-linenumber {
-    padding: 0 0.16251vw 0 0.27086vw;
-    min-width: 1.08342vw;
+    padding: 0 3px 0 5px;
+    min-width: 21px;
     text-align: right;
     color: #999;
     white-space: nowrap
@@ -41,13 +41,13 @@
 }
 
 .CodeMirror-cursor {
-    border-left: 0.08726vw solid #000;
+    border-left: 2px solid #000;
     border-right: none;
     width: 0
 }
 
 .CodeMirror div.CodeMirror-secondarycursor {
-    border-left: 0.08726vw solid silver
+    border-left: 2px solid silver
 }
 
 .cm-fat-cursor .CodeMirror-cursor {
@@ -82,13 +82,13 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: -2.70856vw;
-    bottom: -1.08342vw;
+    top: -52px;
+    bottom: -21px;
     overflow: hidden
 }
 
 .CodeMirror-ruler {
-    border-left: 0.08726vw solid #ccc;
+    border-left: 2px solid #ccc;
     top: 0;
     bottom: 0;
     position: absolute
@@ -203,7 +203,7 @@
 }
 
 .CodeMirror-composing {
-    border-bottom: 0.10834vw solid
+    border-bottom: 2px solid
 }
 
 div.CodeMirror span.CodeMirror-matchingbracket {
@@ -232,9 +232,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 
 .CodeMirror-scroll {
     overflow: scroll !important;
-    margin-bottom: -1.62514vw;
-    margin-right: -1.62514vw;
-    padding-bottom: 1.62514vw;
+    margin-bottom: -31px;
+    margin-right: -31px;
+    padding-bottom: 31px;
     height: 100%;
     outline: none;
     position: relative
@@ -242,7 +242,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 
 .CodeMirror-sizer {
     position: relative;
-    border-right: 1.62514vw solid rgba(0, 0, 0, 0)
+    border-right: 31px solid rgba(0, 0, 0, 0)
 }
 
 .CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
@@ -288,7 +288,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     height: 100%;
     display: inline-block;
     vertical-align: top;
-    margin-bottom: -1.62514vw
+    margin-bottom: -31px
 }
 
 .CodeMirror-gutter-wrapper {
@@ -319,7 +319,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 
 .CodeMirror-lines {
     cursor: text;
-    min-height: 0.08726vw
+    min-height: 2px
 }
 
 .CodeMirror pre {
@@ -459,12 +459,12 @@ span.CodeMirror-selectedtext {
 }
 
 .CodeMirror-dialog-top {
-    border-bottom: 0.08726vw solid #eee;
+    border-bottom: 2px solid #eee;
     top: 0
 }
 
 .CodeMirror-dialog-bottom {
-    border-top: 0.08726vw solid #eee;
+    border-top: 2px solid #eee;
     bottom: 0
 }
 
@@ -504,7 +504,7 @@ span.CodeMirror-selectedtext {
 
 .cm-s-one-dark .CodeMirror-gutters {
     background: #282c34;
-    border-right: 0.08726vw solid #282c34
+    border-right: 2px solid #282c34
 }
 
 .cm-s-one-dark .CodeMirror-guttermarker {
@@ -520,7 +520,7 @@ span.CodeMirror-selectedtext {
 }
 
 .cm-s-one-dark .CodeMirror-cursor {
-    border-left: 0.08726vw solid #528bff
+    border-left: 2px solid #528bff
 }
 
 .cm-s-one-dark span.cm-comment {
@@ -605,12 +605,12 @@ span.CodeMirror-selectedtext {
 }
 
 .CodeMirror-dialog-top {
-    border-bottom: 0.08726vw solid #eee;
+    border-bottom: 2px solid #eee;
     top: 0
 }
 
 .CodeMirror-dialog-bottom {
-    border-top: 0.08726vw solid #eee;
+    border-top: 2px solid #eee;
     bottom: 0
 }
 

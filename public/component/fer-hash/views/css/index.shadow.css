@@ -26,17 +26,17 @@
 p {
     margin: 0;
     padding: 0;
-    border: 0.10834vw solid var(--gray-100per);
+    border: 2px solid var(--gray-100per);
     cursor: pointer;
     text-align: center;
 }
 
 p.undefined {
-    font-size: 1.1vw;
+    font-size: 21px;
     color: #000;
     cursor: pointer;
     box-sizing: border-box;
-    padding: .2vw;
+    padding: 4px;
     cursor: pointer;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -51,11 +51,11 @@ p.auction-data__header_button {
     justify-content: center;
     height: 100%;
     background: #758a7a;
-    border-radius: .2vw;
+    border-radius: 4px;
     color: #fff;
     box-sizing: border-box;
-    padding: .4vw;
-    font-size: 1.1vw;
+    padding: 8px;
+    font-size: 21px;
     cursor: pointer;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -64,13 +64,13 @@ p.auction-data__header_button {
 }
 
 p.active {
-    text-shadow: rgb(0, 0, 0, 0.3) 0 0 1.5vw;
+    text-shadow: rgb(0, 0, 0, 0.3) 0 0 29px;
     background: var(--red-sand);;
 }
 
 p.welcome__header_link {
     box-sizing: border-box;
-    padding: 0.3vw;
+    padding: 6px;
     cursor: pointer;
 }
 
@@ -108,13 +108,9 @@ p.welcome__header_link {
 }
 
 .word__item {
-    -webkit-animation-duration: var(--speed);
     animation-duration: var(--speed);
-    -webkit-animation-timing-function: var(--easing);
     animation-timing-function: var(--easing);
-    -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
-    -webkit-animation-direction: var(--animation-direction);
     animation-direction: var(--animation-direction);
 }
 
@@ -124,25 +120,15 @@ p.welcome__header_link {
 
 .word__item--left {
     transform-origin: center left;
-    -webkit-animation-name: shrinkx;
     animation-name: shrinkx;
 }
 
 .word__item--right {
     transform-origin: center right;
-    -webkit-animation-name: growx;
     animation-name: growx;
     position: absolute;
     right: 0;
     top: 0;
-}
-
-@-webkit-keyframes shrinkx {
-    from {transform: scalex(1) skewx(0deg); opacity: 1}
-    to {
-        font-weight: bold;
-        transform: scalex(0) skewx(0); opacity: var(--opacity)
-    }
 }
 
 @keyframes shrinkx {
@@ -150,20 +136,9 @@ p.welcome__header_link {
     to {transform: scalex(0) skewx(0); opacity: var(--opacity)}
 }
 
-@-webkit-keyframes growx {
-    from {transform: scalex(0) skewx(0); opacity: var(--opacity)}
-    to {transform: scalex(1) skewx(0) ; opacity: 1}
-}
-
 @keyframes growx {
     from {transform: scalex(0) skewx(0); opacity: var(--opacity)}
     to {transform: scalex(1) skewx(0) ; opacity: 1}
-}
-
-@-webkit-keyframes wordAnim {
-    0% {transform: translate3d(-100px, 0, 0) rotate(-10deg) scale(1)}
-    50% {transform: translate3d(100px, 0, 0) rotate(10deg) scale(.5)}
-    100% {transform: translate3d(-100px, 0, 0) rotate(-10deg) scale(1)}
 }
 
 @keyframes wordAnim {
