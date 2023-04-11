@@ -1,0 +1,130 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	width: 100%;
+	background-size: cover;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	/*background: antiquewhite;*/
+}
+
+section[class*="_children"] {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 100vh;
+	width: 100%;
+	height: 100vh;
+	transition: width 1s, opacity 1s, height 1s, background-color 1s, transform 1s;
+}
+
+.section_content {
+	display: flex;
+	flex-direction: column;
+}
+
+div[class*="section_content_item"] {
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
+}
+
+.section_content_body_ecp_marketing {
+	font-family: 'Raleway', serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 47px;
+	line-height: 120%;
+	text-align: center;
+	color: #000000;
+	width: 85%;
+	align-self: center;
+}
+
+div[class*="content_item_0"] {
+	height: 100vh;
+}
+
+div[class*="content_item_1"] {
+	/*height: 100vh;*/
+}
+
+.section_content_header {
+	display: grid;
+	grid-template-columns: 1fr max-content 1fr;
+	gap: 50px;
+	font-family: 'Raleway', serif;
+	text-align: center;
+	color: var(--main);
+	font-style: normal;
+	font-weight: 800;
+	font-size: 50px;
+	line-height: 59px;
+	text-transform: uppercase;
+	box-sizing: border-box;
+	padding: 0 151px;
+	margin-top: 100px;
+}
+
+.section_content_body {
+	box-sizing: border-box;
+	padding: 0 151px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.section_content_body_ecp {
+	display: flex;
+	flex-direction: row;
+	gap: 97px;
+}
+
+.section_content_body_ecp_info {
+	/*display: flex;*/
+	/*flex-direction: row;*/
+
+}
+
+p[class*="section_content_header_p"] {
+	padding: 0;
+	margin: auto;
+	position: relative;
+	/*width: fit-content;*/
+}
+
+p[class*="section_content_body_p"] {
+	padding: 0;
+	text-align: start;
+	margin: 0 0 8px;
+	font-family: 'Raleway', serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 30px;
+	color: #000000;
+}
+
+.section_content_header_p_left, .section_content_header_p_right {
+	position: relative;
+	background: var(--main);
+	height: 0.2vw;
+	width: 100%;
+}
+
+.section_content_header_p_left > img{
+	position: absolute;
+	top: -84px;
+	left: 0;
+	width: 38px;
+	height: 38px;
+	cursor: pointer;
+}
+
+.section_content_header_p_regions {
+	width: 900px;
+}

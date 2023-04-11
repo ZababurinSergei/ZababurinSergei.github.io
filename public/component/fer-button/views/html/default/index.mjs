@@ -29,7 +29,6 @@ components.set('welcomebook', [{
                         <div class="word__item word__item--right">Сайт Компании</div>
                     </div>
                 `
-                break
         }
     }
 }])
