@@ -10,8 +10,8 @@
 }
 
 .scroll {
-	width: 60px;
-	height: 50px;
+	width: 3.125vw;
+	height: 2.60417vw;
 	cursor: pointer;
 	transition: height 0.4s ease;
 }
@@ -23,7 +23,7 @@
 }
 
 .scroll__left {
-	border-right: white 1px solid;
+	border-right: white 0.05208vw solid;
 	width: 50%;
 	height: 100%;
 }
@@ -35,14 +35,14 @@
 
 .scroll__title {
 	margin: 0;
-	padding-top: 17px;
-	width: 58px;
-	height: 16px;
+	padding-top: 0.88542vw;
+	width: 3.02083vw;
+	height: 0.83333vw;
 	font-family: "Raleway", serif;
 	font-style: normal;
 	font-weight: 300;
-	font-size: 12px;
-	line-height: 16px;
+	font-size: 0.625vw;
+	line-height: 0.83333vw;
 	letter-spacing: 0.255em;
 	text-transform: uppercase;
 	color: #ffffff;
@@ -52,5 +52,5 @@
 }
 
 .scroll:hover {
-	height: 82px;
+	height: 4.27083vw;
 }

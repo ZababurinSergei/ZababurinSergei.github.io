@@ -1,10 +1,18 @@
+:host {
+    width: 100%;
+    background-size: cover;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
 #root {
     display: grid;
     grid-template-areas:
     "header header header"
     "article article article"
     "footer footer footer";
-    grid-template-rows: 77px 1fr 77px;
+    grid-template-rows: 4.01042vw 1fr 4.01042vw;
     grid-template-columns: 20% 1fr 15%;
     grid-gap: 0;
     height: 100vh;
@@ -14,7 +22,7 @@
 }
 
 header, footer, article, nav, div {
-    padding: 10px;
+    padding: 0.52083vw;
 }
 
 #pageHeader {
@@ -40,9 +48,18 @@ header, footer, article, nav, div {
     padding: 0;
     margin: 0;
 }
+
 #mainNav {
     grid-area: nav;
 }
+
 #siteAds {
     grid-area: ads;
+}
+
+.welcome__book {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    height: 100vh;
 }

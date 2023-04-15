@@ -9,9 +9,9 @@
     --main-bg-color: blue;
     --font-family: 'Rubik';
     --text-color: #FFFFFF;
-    --font-size: 14px;
+    --font-size: 0.72917vw;
     --font-weight: 500;
-    --line-height: 17px;
+    --line-height: 0.88542vw;
     --stroke-width: 0;
     --stroke-color: black;
     /*--easing: ease-in-out;*/

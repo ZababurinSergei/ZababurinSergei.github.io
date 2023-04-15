@@ -11,7 +11,7 @@ export let pixelToVW = function (value) {
   return ((100 * value) / window.innerWidth)
 }
 
-export let customPixelToVW = function (value, width) {
+export let size = function (value, width) {
   // console.log('pixelToVW', value, `=>`, `${(100 * value) / window.innerWidth}vw`)
   return ((100 * value) / width)
 }

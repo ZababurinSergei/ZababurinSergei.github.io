@@ -1,0 +1,294 @@
+/* Colors */
+:root {
+    /*Text color*/
+    --text-color-100per: #333333;
+    /* Blue */
+    --blue-120per: #3C5099;
+    --Body_Header: #3C5099;
+    --blue-100per: #3256B0;
+    --blue-50per: #6C8BC9;
+    --blue-40per: #99C0F0;
+    --blue-20per: #E4ECFC;
+    --blue-10per: #F5F8FE;
+    --blue-5per: #FAFCFF;
+    /* //////////////////// */
+    --Main_Coding_blue-5per: #FAFCFF;
+    --Main_Decoding_blue-5per: #FAFCFF;
+    --Main_Decoding_content_container_blue-5per: #FAFCFF;
+    --Body_blue-5per: #FAFCFF;
+    /* ////////////////// */
+    --Main_Main_ancesor-container_blue-5per: #FAFCFF;
+    --Main_Main_postcoordination-help_blue-20per: #E4ECFC;
+    --Main_Main_default-table_black-40per: rgba(51, 51, 51, 0.4);
+    --Main_Main_default-table-header_blue-40per: #99C0F0;
+    --Main_Main_Editor_container_blue-5per: #FAFCFF;
+    --Main_Main_Editor_window-postcoordination: #F0F0F0;
+    --Main_Main_Layout_container_blue-5per: #FAFCFF;
+    --Main_Main_Layout_Check_blue-50per: #6C8BC9;
+    /* //////////////// */
+    /* Red */
+    --red-100per: #F04B65;
+    --red-text-100per: #C61C1C;
+    --burgundy-100per: #AB2D2E;
+    --red-10per: #FDECEF;
+    /* Orange */
+    --orange-100per: #FDA52C;
+    --orange-75per: #EF8C03;
+    --orange-50per: #FFF9E5;
+    --orange-10per: #FFFCF2;
+    --orange-5per: #FFFCF2;
+    /* Green */
+    --green-100per: #37C570;
+    --green-flowkit: #29CC6A;
+    --green-10per: #EBF9F1;
+    /* Black */
+    --black-100per: #333333;
+    --black-50per: #7B7D8A;
+    --black-40per: rgba(51, 51, 51, 0.4);
+    --black-35per: #9FA2B4;
+    --black-20per: #C7D2E3;
+    --black-15per: #C3C6CE;
+    --black-10per: #E5E5EB;
+    --black-5per: #F5F7FA;
+    /* White */
+    --white-100per: #FFF;
+    --white-60per: rgba(255, 255, 255, 0.6);
+    /* Purple */
+    --purple-100per: #944EE0;
+    --purple-10per: #F5EEFB;
+    /* Gray */
+    --gray-100per: rgba(51, 51, 51, 0.4);
+
+
+    /* ////////////// */
+    --api-footer_propert_relation: white;
+    /* /////////////////// */
+    --Main_Coding_search-wrapper: white;
+    --Main_Decoding_search-wrapper: white;
+    --Main_Decoding_input_container: white;
+    --Main_Coding_input-container: white;
+    --Main_Main_content: white;
+    --Main_Main_default-table: white;
+    --Main_Main_Editor_children__inputSearch: white;
+    --Main_Main_Layout_content: white;
+    --Main_Main_Layout_dialog: white;
+    --Main_Main_Layout_search-result: white;
+    --Main_Main_Layout_search-wrapper: white;
+    /* ///////////////// */
+    --text-base-size: 1.19792vw;
+    --text-scale-ratio: 1.2;
+    --text-xs: calc((var(--text-base-size) / var(--text-scale-ratio)) / var(--text-scale-ratio));
+    --text-sm: calc(var(--text-xs) * var(--text-scale-ratio));
+    --text-md: calc(var(--text-sm) * var(--text-scale-ratio));
+    --text-lg: calc(var(--text-md) * var(--text-scale-ratio));
+    --text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
+    --text-xxl: calc(var(--text-xl) * var(--text-scale-ratio));
+    --text-xxxl: calc(var(--text-xxl) * var(--text-scale-ratio));
+    --Lime: #00ff00;
+    --brassica: #758a7a;
+    --fir: #859d85;
+    --spanish-green: #869e86;
+    --Coral: #d31919;
+    --Thunderbird: #d31a1a;
+    --Apricot: #efb769;
+    --red-sand: #efb76a;
+    --porsche: #EFB76A;
+    --images: 11.97917vw;
+    --gap: 0.10417vw;
+    --card-width: 18.02083vw;
+    --border: 0.10417vw;
+    --border-radius: 0.20833vw;
+    --margin-base-size: 4.01042vw;
+    --margin-scale-ratio: 2;
+    --margin-xs: calc((var(--margin-base-size) / var(--margin-scale-ratio)) / var(--margin-scale-ratio));
+    --margin-sm: calc(var(--margin-xs) * var(--margin-scale-ratio));
+    --margin-md: calc(var(--margin-sm) * var(--margin-scale-ratio));
+    --margin-lg: calc(var(--margin-md) * var(--margin-scale-ratio));
+    --margin-bottom-xs: calc((var(--margin-base-size) / var(--margin-scale-ratio)) / var(--margin-scale-ratio) / var(--margin-scale-ratio));
+    --margin-bottom-sm: calc(var(--margin-bottom-xs) * var(--margin-scale-ratio));
+    --margin-bottom-md: calc(var(--margin-bottom-sm) * var(--margin-scale-ratio));
+    --margin-bottom-lg: calc(var(--margin-bottom-md) * var(--margin-scale-ratio));
+    --margin: 1.97917vw;
+    --margin-gap: 0.41667vw;
+    --padding-preview: 0.98958vw;
+    --size1: 0.20833vw;
+    --size2: 0.625vw;
+    --size3: 0.98958vw;
+    --size4: 1.40625vw;
+    --size5: 1.97917vw;
+    --size6: 2.39583vw
+}
+
+:root.orange {
+    /* Blue */
+    --blue-120per: #DD8000;
+    --Body_Header: #DD8000;
+    --blue-100per: #3256B0;
+    --blue-50per: #6C8BC9;
+    --blue-40per: #99C0F0;
+    --blue-20per: #E4ECFC;
+    --blue-10per: #FFFCF2;
+    --blue-5per: #FFF9E5;
+
+    --Main_Coding_blue-5per: #FAFCFF;
+    --Main_Decoding_blue-5per: #FAFCFF;
+    --Main_Decoding_content_container_blue-5per: #FAFCFF;
+    --Body_blue-5per: #FAFCFF;
+
+    --Main_Main_ancesor-container_blue-5per: #FAFCFF;
+    --Main_Main_postcoordination-help_blue-20per: #E4ECFC;
+    --Main_Main_default-table_black-40per: rgba(51, 51, 51, 0.4);
+    --Main_Main_default-table-header_blue-40per: #99C0F0;
+    --Main_Main_Editor_container_blue-5per: #FAFCFF;
+    --Main_Main_Editor_window-postcoordination: #F0F0F0;
+    --Main_Main_Layout_container_blue-5per: #FAFCFF;
+    --Main_Main_Layout_Check_blue-50per: #6C8BC9;
+
+    /* Red */
+    --red-100per: #F04B65;
+    --red-text-100per: #C61C1C;
+    --burgundy-100per: #AB2D2E;
+    --red-10per: #FDECEF;
+    /* Orange */
+    --orange-100per: #FDA52C;
+    --orange-75per: #EF8C03;
+    --orange-50per: #FFF9E5;
+    --orange-10per: #FFFCF2;
+    --orange-5per: #FFFCF2;
+    /* Green */
+    --green-100per: #37C570;
+    --green-flowkit: #29CC6A;
+    --green-10per: #EBF9F1;
+    /* Black */
+    --black-100per: #333333;
+    --black-50per: #7B7D8A;
+    --black-40per: rgba(51, 51, 51, 0.4);
+    --black-35per: #9FA2B4;
+    --black-20per: #C7D2E3;
+    --black-15per: #C3C6CE;
+    --black-10per: #E5E5EB;
+    --black-5per: #F5F7FA;
+    /* White */
+    --white-100per: #FFF;
+    --white-60per: rgba(255, 255, 255, 0.6);
+    /* Purple */
+    --purple-100per: #944EE0;
+    --purple-10per: #F5EEFB;
+    /* Gray */
+    --gray-100per: rgba(51, 51, 51, 0.4);
+
+
+    /* ////////////// */
+    --api-footer_propert_relation: white;
+    /* ////////////// */
+    --Main_Coding_search-wrapper: white;
+    --Main_Decoding_search-wrapper: white;
+    --Main_Decoding_input_container: white;
+    --Main_Coding_input-container: white;
+    --Main_Main_content: white;
+    --Main_Main_default-table: white;
+    --Main_Main_Editor_children__inputSearch: white;
+    --Main_Main_Layout_content: white;
+    --Main_Main_Layout_dialog: white;
+    --Main_Main_Layout_search-result: white;
+    --Main_Main_Layout_search-wrapper: white;
+    /* /////////////// */
+}
+
+:root.black {
+    /*Text color*/
+    --text-color-100per: white;
+    /* Blue */
+    --blue-120per: #3C5099;
+    --Body_Header: #3C5099;
+    --blue-100per: #3256B0;
+    --blue-50per: #6C8BC9;
+    --blue-40per: #99C0F0;
+    --blue-20per: #E4ECFC;
+    --blue-10per: #F5F8FE;
+    --blue-5per: #FAFCFF;
+    /* //////////////////// */
+    --Main_Coding_blue-5per: transparent;
+    --Main_Decoding_blue-5per: transparent;
+    --Main_Decoding_content_container_blue-5per: transparent;
+    --Body_blue-5per: transparent;
+    /* ////////////////// */
+    --Main_Main_ancesor-container_blue-5per: transparent;
+    --Main_Main_postcoordination-help_blue-20per: transparent;
+    --Main_Main_default-table_black-40per: transparent;
+    --Main_Main_default-table-header_blue-40per: transparent;
+    --Main_Main_Editor_container_blue-5per: transparent;
+    --Main_Main_Editor_window-postcoordination: transparent;
+    --Main_Main_Layout_container_blue-5per: transparent;
+    --Main_Main_Layout_Check_blue-50per: transparent;
+    /* //////////////// */
+    /* Red */
+    --red-100per: #F04B65;
+    --red-text-100per: #C61C1C;
+    --burgundy-100per: #AB2D2E;
+    --red-10per: #FDECEF;
+    /* Orange */
+    --orange-100per: #FDA52C;
+    --orange-75per: #EF8C03;
+    --orange-50per: #FFF9E5;
+    --orange-10per: #FFFCF2;
+    --orange-5per: #FFFCF2;
+    /* Green */
+    --green-100per: #37C570;
+    --green-flowkit: #29CC6A;
+    --green-10per: #EBF9F1;
+    /* Black */
+    --black-100per: #333333;
+    --black-50per: #7B7D8A;
+    --black-40per: rgba(51, 51, 51, 0.4);
+    --black-35per: #9FA2B4;
+    --black-20per: #C7D2E3;
+    --black-15per: #C3C6CE;
+    --black-10per: #E5E5EB;
+    --black-5per: #F5F7FA;
+    /* White */
+    --white-100per: #FFF;
+    --white-60per: rgba(255, 255, 255, 0.6);
+    /* Purple */
+    --purple-100per: #944EE0;
+    --purple-10per: #F5EEFB;
+    /* Gray */
+    --gray-100per: rgba(51, 51, 51, 0.4);
+
+    /* ////////////// */
+    --api-footer_propert_relation: transparent;
+    /* /////////////////// */
+    --Main_Coding_search-wrapper: transparent;
+    --Main_Decoding_search-wrapper: transparent;
+    --Main_Decoding_input_container: transparent;
+    --Main_Coding_input-container: transparent;
+    --Main_Main_content: transparent;
+    --Main_Main_default-table: transparent;
+    --Main_Main_Editor_children__inputSearch: transparent;
+    --Main_Main_Layout_content: transparent;
+    --Main_Main_Layout_dialog: transparent;
+    --Main_Main_Layout_search-result: transparent;
+    --Main_Main_Layout_search-wrapper: transparent;
+    /* ///////////////// */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.fer__header {
+    display: flex;
+    flex-direction: row;
+    gap: 0.98958vw;
+}
+
+.page-forms {
+    display: flex;
+    gap: 0.98958vw;
+}
+
+dialog {
+    position: fixed;
+    top: 50%;
+}

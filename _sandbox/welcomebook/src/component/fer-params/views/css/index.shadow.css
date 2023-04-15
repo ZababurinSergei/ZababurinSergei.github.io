@@ -10,17 +10,17 @@
 p {
     margin: 0;
     padding: 0;
-    border: 2px solid var(--gray-100per);
+    border: 0.10417vw solid var(--gray-100per);
     cursor: pointer;
     text-align: center;
 }
 
 p.undefined {
-    font-size: 21px;
+    font-size: 1.09375vw;
     color: #000;
     cursor: pointer;
     box-sizing: border-box;
-    padding: 4px;
+    padding: 0.20833vw;
     cursor: pointer;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -35,11 +35,11 @@ p.auction-data__header_button {
     justify-content: center;
     height: 100%;
     background: #758a7a;
-    border-radius: 4px;
+    border-radius: 0.20833vw;
     color: #fff;
     box-sizing: border-box;
-    padding: 8px;
-    font-size: 21px;
+    padding: 0.41667vw;
+    font-size: 1.09375vw;
     cursor: pointer;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -48,13 +48,13 @@ p.auction-data__header_button {
 }
 
 p.active {
-    text-shadow: rgb(0, 0, 0, 0.3) 0 0 29px;
+    text-shadow: rgb(0, 0, 0, 0.3) 0 0 1.51042vw;
     background: #6A90EFFF;
 }
 
 p.welcome__header_link {
     box-sizing: border-box;
-    padding: 6px;
+    padding: 0.3125vw;
     cursor: pointer;
 }
 

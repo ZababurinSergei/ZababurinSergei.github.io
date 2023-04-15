@@ -1,7 +1,7 @@
 :host {
-	top: 26.7vh;
+	top: 36.7vh;
 	position: absolute;
-	left: -576px;
+	left: -30vw;
 	z-index: 2;
 }
 
@@ -22,12 +22,12 @@
 	color: white;
 	height: 80vh;
 	flex-direction: row;
-	gap: 30px;
-	padding-left: 28px;
+	gap: 1.35417vw;
+	padding-left: 3.90625vw;
 }
 
 .slider {
-	width: 22px;
+	width: 1.14583vw;
 	/*background: aquamarine;*/
 }
 
@@ -39,20 +39,20 @@
 .square {
 	position: absolute;
 	top:0;
-	width: 22px;
-	height: 22px;
+	width: 1.14583vw;
+	height: 1.14583vw;
 	background: white;
 	display: flex;
 	flex-direction: column;
 	align-self: center;
-	margin-top: 6px;
+	margin-top: 0.3125vw;
 	transition: top 1s ease 0s;
 }
 
 .body {
 	display: flex;
 	flex-direction: column;
-	gap: 26px;
+	gap: 1.35417vw;
 }
 
 button {
@@ -65,14 +65,14 @@ button {
 		opacity: 0.25;
 	}
 	to {
-		transform: translateX(576px);
+		transform: translateX(30vw);
 		opacity: 1;
 	}
 }
 
 @keyframes slide-out {
 	from {
-		transform: translateX(576px);
+		transform: translateX(30vw);
 		opacity: 1;
 	}
 	to {

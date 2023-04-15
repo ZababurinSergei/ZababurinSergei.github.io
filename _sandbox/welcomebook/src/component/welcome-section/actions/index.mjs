@@ -1,15 +1,18 @@
 import {activeClass, events, config, animationCount, randomColor} from '../../../this/index.mjs'
-import {initSections} from '../custom/index.mjs'
+import { initSections } from '../custom/index.mjs'
 
 export default (self) => {
     return new Promise(async (resolve, reject) => {
-        const method = await initSections()
+        const method = await initSections(self)
         let start = null;
         let position = 0
+        const template = method.get.template()
 
         let description = self.shadowRoot.querySelector('.description')
         let content = self.shadowRoot.querySelectorAll('.text-offset')
         let imageScale = self.shadowRoot.querySelectorAll('.image-scale')
+
+        let menuFormEmail = self.shadowRoot.querySelector('.description-without-background-item-4')
 
         let isAnimation = false
         let section = self.assignedSlot.closest('section')
@@ -70,17 +73,28 @@ export default (self) => {
                     if (isUp) {
                         if (section.classList.contains('animation4')) {
                             const step = offsetToTop / 100
-                            content.forEach(item => {
-                                item.style.transform = `translateY(${step * percentContentUp * -1}vh)`
-                            })
+                            if(menuFormEmail !== null) {
+                                menuFormEmail.style.transform = `translateY(${step * percentContentUp * -1}vh)`
+                                // menuFormEmail.style.background = randomColor();
+                            } else {
+                                content.forEach(item => {
+                                    item.style.transform = `translateY(${step * percentContentUp * -1}vh)`
+                                })
+                            }
                         }
 
                         if (section.classList.contains('animation2')) {
                             const step = offsetToCenter / 100
-                            content.forEach(item => {
-                                item.style.transform = `translateY(${offsetToCenter + step * percentContentUp * -1}vh)`
-                                // item.style.background = randomColor();
-                            })
+                            if(menuFormEmail !== null) {
+                                menuFormEmail.style.transform = `translateY(${offsetToCenter + step * percentContentUp * -1}vh)`
+                                // menuFormEmail.style.ba          // item.style.background = randomColor();ckground = randomColor();
+                            } else {
+                                content.forEach(item => {
+                                    item.style.transform = `translateY(${offsetToCenter + step * percentContentUp * -1}vh)`
+                                    // item.style.background = randomColor();
+                                })
+                            }
+
                         }
                     } else {
                         const startTop = -45
@@ -88,17 +102,28 @@ export default (self) => {
                         const step = startTop / 100
                         const stepEndDown = endDown / 100
                         if (section.classList.contains('animation3')) {
-                            content.forEach(item => {
-                                item.style.transform = `translateY(${startTop - step * percentContentUp}vh)`
-                                // item.style.background = randomColor();
-                            })
+                            if(menuFormEmail !== null) {
+                                menuFormEmail.style.transform = `translateY(${startTop - step * percentContentUp}vh)`
+                                menuFormEmail.style.background = randomColor();
+                            } else {
+                                content.forEach(item => {
+                                    item.style.transform = `translateY(${startTop - step * percentContentUp}vh)`
+                                    // item.style.background = randomColor();
+                                })
+                            }
                         }
 
                         if (section.classList.contains('animation5')) {
-                            content.forEach(item => {
-                                item.style.transform = `translateY(${stepEndDown * percentContentUp * -1}vh)`
-                                // item.style.background = randomColor();
-                            })
+
+                            if(menuFormEmail !== null) {
+                                menuFormEmail.style.transform = `translateY(${stepEndDown * percentContentUp * -1}vh)`
+                                // menuFormEmail.style.background = randomColor();
+                            } else {
+                                content.forEach(item => {
+                                    item.style.transform = `translateY(${stepEndDown * percentContentUp * -1}vh)`
+                                })
+                            }
+
                         }
                     }
                 }
@@ -207,14 +232,8 @@ export default (self) => {
                 const id = parseInt(section.dataset.id, 10)
 
                 if (count === 1) {
-                    // console.log('dddddddddddddddaaaaaaaaaaaaaaaaaa', activeId, id)
                    animationCount.setDirection(activeId > id)
                 }
-
-                console.log('activeId: ', animationCount.getDirection(), activeId, 'id: ', id, {
-                    description: description !== null,
-                    imageScale: imageScale
-                })
 
                 if (description !== null) {
                     description.style.setProperty("--offset", `0`);
@@ -252,23 +271,20 @@ export default (self) => {
 
                     section.classList.remove('parallax-container-off')
                     section.classList.replace('scrollIn', 'parallax-container-on')
-
-                    console.log('Появляется на странице текущий', section, 'currentId: ', currentId, 'id: ', id)
                 } else if (event.animationName === 'outPage') {
                     method.clearClass(section)
                     section.classList.replace('parallax-container-on', 'parallax-container-off')
                     section.classList.remove('scrollOut')
-                    console.log('Уходит со страницы вниз предыдущий', section, 'currentId: ', currentId, 'id: ', id)
                 } else if (event.animationName === 'scrollTop') {
                     method.clearClass(section)
-                    console.log('scrollTop сверху выезжает', currentId, id)
+
                     if (config.page.first.isDynamic) {
                         section.classList.remove('animation')
                         section.classList.remove('scrollTopDown')
                     }
                 }
                 if (animationEndCount === 0) {
-                    console.log('ВКЛЮЧИТЬ КНОПКИ')
+
                     events('fer-button-in', {
                         type: 'welcome-menu',
                         action: 'enable'

@@ -1,10 +1,11 @@
 import virtualRootCSS from './css/index.shadowRoot.css' assert { type: 'css' }
 import lightDomCSS from './css/index.lightDom.css' assert { type: 'css' }
 export { verification, init, onload, slotRouter } from './init/index.mjs'
+
 export {
     pixelToVH,
     pixelToVW,
-    customPixelToVW,
+    size,
     vhToPixel,
     vwToPixel,
     clearnPx,

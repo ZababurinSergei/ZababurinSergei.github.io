@@ -211,11 +211,6 @@ export default (self) => {
                    animationCount.setDirection(activeId > id)
                 }
 
-                console.log('activeId: ', animationCount.getDirection(), activeId, 'id: ', id, {
-                    description: description !== null,
-                    imageScale: imageScale
-                })
-
                 if (description !== null) {
                     description.style.setProperty("--offset", `0`);
                     isAnimation = true

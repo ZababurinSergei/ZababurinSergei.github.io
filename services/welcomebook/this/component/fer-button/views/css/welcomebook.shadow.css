@@ -9,9 +9,9 @@
     --main-bg-color: blue;
     --font-family: 'Rubik';
     /*--text-color: #FFFFFF;*/
-    --font-size: 14px;
+    --font-size: 0.72917vw;
     /*--font-weight: 500;*/
-    --line-height: 17px;
+    --line-height: 0.88542vw;
     --stroke-width: 0;
     /*--stroke-color: black;*/
     --speed: 1s;
@@ -29,7 +29,7 @@
     font-style: normal;
     text-transform: uppercase;
     position: relative;
-    perspective: 100px;
+    perspective: 5.20833vw;
     /*font-weight: var(--font-weight);*/
     /*color: var(--text-color);*/
     font-size: var(--font-size);

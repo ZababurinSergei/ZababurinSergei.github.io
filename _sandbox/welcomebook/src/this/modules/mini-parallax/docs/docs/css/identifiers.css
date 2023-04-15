@@ -5,20 +5,20 @@
 
 .identifier-dir-tree {
   background: #fff;
-  border: solid 1px #ddd;
+  border: solid 0.05208vw #ddd;
   border-radius: 0.25em;
-  top: 52px;
+  top: 2.70833vw;
   position: sticky;
-  max-height: calc(100vh - 155px);
+  max-height: calc(100vh - 8.07292vw);
   overflow-y: scroll;
-  min-width: 200px;
+  min-width: 10.41667vw;
   margin-left: 1em;
 }
 
 .identifier-dir-tree-header {
   padding: 0.5em;
   background-color: #fafafa;
-  border-bottom: solid 1px #ddd;
+  border-bottom: solid 0.05208vw #ddd;
 }
 
 .identifier-dir-tree-content {

@@ -1,4 +1,4 @@
-import { events } from '../../../this/index.mjs'
+import { events, animationCount } from '../../../this/index.mjs'
 
 export default (self) => {
     return new Promise(async (resolve, reject) => {
@@ -8,7 +8,11 @@ export default (self) => {
                 if (self.disabled) {
                     return;
                 }
+
+                animationCount.setDirection(true)
+
                 const buttons = document.querySelectorAll('fer-button')
+
                 for(let i = 0; i < buttons.length; ++i) {
                     if(parseInt(buttons[i].dataset.id, 10) === 1 && buttons[i].dataset.type === 'welcome-menu') {
                         buttons[i].click()

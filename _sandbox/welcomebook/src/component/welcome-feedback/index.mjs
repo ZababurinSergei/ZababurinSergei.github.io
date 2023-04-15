@@ -2,7 +2,7 @@ import { init, onload } from '../../this/index.mjs'
 import addEventListener from './controller/addEventListener/index.mjs'
 import actions from './actions/index.mjs'
 
-const COMPONENT = 'fer-default'
+const COMPONENT = 'welcome-feedback'
 
 const INDEX = class extends HTMLElement {
     _doRender() {

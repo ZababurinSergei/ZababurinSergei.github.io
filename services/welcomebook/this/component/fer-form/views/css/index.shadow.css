@@ -1,25 +1,25 @@
 .form {
-	border: 2px solid gray;
+	border: 0.10417vw solid gray;
 	display: flex;
 	flex-direction: column;
-	padding: 6px;
-	width: 260px;
-	margin-top: 10px;
+	padding: 0.3125vw;
+	width: 13.54167vw;
+	margin-top: 0.52083vw;
 }
 
 .form__title {
-	font-size: 17px;
+	font-size: 0.88542vw;
 	font-weight: bold;
-	border-bottom: 4px solid rgba(0, 0, 0, 0.3);
-	margin-bottom: 10px;
+	border-bottom: 0.20833vw solid rgba(0, 0, 0, 0.3);
+	margin-bottom: 0.52083vw;
 }
 
 .form__input {
-	margin-bottom: 10px;
+	margin-bottom: 0.52083vw;
 }
 
 .form__input-label {
-	font-size: 15px;
+	font-size: 0.78125vw;
 	font-weight: bold;
 	display: block;
 }
@@ -28,11 +28,11 @@
 }
 
 .form__textarea {
-	margin-bottom: 10px;
+	margin-bottom: 0.52083vw;
 }
 
 .form__textarea-label {
-	font-size: 15px;
+	font-size: 0.78125vw;
 	font-weight: bold;
 	display: block;
 }
@@ -42,9 +42,9 @@
 }
 
 .form__buttons {
-	margin-bottom: 10px;
+	margin-bottom: 0.52083vw;
 	display: flex;
-	gap: 19px;
+	gap: 0.98958vw;
 	text-align: center;
 }
 
@@ -52,7 +52,7 @@
 	background-color: white;
 	color: blue;
 	border-color: blue;
-	border-radius: 4px;
+	border-radius: 0.20833vw;
 	outline: none;
 }
 
@@ -60,6 +60,6 @@
 	background-color: blue;
 	border-color: blue;
 	color: white;
-	border-radius: 4px;
+	border-radius: 0.20833vw;
 	outline: none;
 }

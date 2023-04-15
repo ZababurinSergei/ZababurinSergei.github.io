@@ -1,10 +1,30 @@
-import { activeClass } from '../../../this/index.mjs'
+const { activeClass } = await import('../../../this/index.mjs')
 export const initSections = (self) => {
    return new Promise((resolve, reject) => {
         let menu = document.body.querySelector('welcome-menu')
         let buttons = menu.querySelectorAll('fer-button')
+        let close = self.shadowRoot.querySelector('.onclick')
+
+        if(close !== null) {
+            close.addEventListener('click', (event) => {
+                window.dispatchEvent(new CustomEvent('change-views', {
+                    bubbles: true,
+                    composed: true,
+                    detail: {
+                        type: 'transform',
+                        id: parseInt(event.currentTarget.dataset.id, 10),
+                        action: `from`
+                    }
+                }));
+            })
+        }
 
         resolve({
+            get: {
+                template: () => {
+
+                }
+            },
            current: () => {
                for (let item of buttons) {
                    if (item.classList.contains(activeClass)) {

@@ -8,8 +8,8 @@
 }
 
 .manual-index .manual-card-wrap {
-  width: 280px;
-  padding: 10px 20px 10px 0;
+  width: 14.58333vw;
+  padding: 0.52083vw 1.04167vw 0.52083vw 0;
   box-sizing: border-box;
 }
 
@@ -27,11 +27,11 @@
 }
 
 .manual-index .manual-card {
-  height: 200px;
+  height: 10.41667vw;
   overflow: hidden;
-  border: solid 1px rgba(230, 230, 230, 0.84);
+  border: solid 0.05208vw rgba(230, 230, 230, 0.84);
   border-radius: 0 0 0.1em 0.1em;
-  padding: 8px;
+  padding: 0.41667vw;
   position: relative;
 }
 
@@ -60,12 +60,12 @@
 
 .manual-index .manual-user-index {
   margin-bottom: 1em;
-  border-bottom: solid 1px #ddd;
+  border-bottom: solid 0.05208vw #ddd;
 }
 
 .manual-root .navigation {
-  padding-left: 4px;
-  margin-top: 4px;
+  padding-left: 0.20833vw;
+  margin-top: 0.20833vw;
 }
 
 .navigation .manual-toc-root > div {

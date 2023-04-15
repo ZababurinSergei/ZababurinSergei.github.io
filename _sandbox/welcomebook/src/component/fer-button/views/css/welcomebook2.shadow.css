@@ -14,14 +14,14 @@
     flex-direction: column;
     text-align: center;
     background: white;
-    width: 141px;
-    height: 33px;
+    width: 7.34375vw;
+    height: 1.71875vw;
 
 }
 
 .title {
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 0.72917vw;
+    line-height: 0.83333vw;
     font-family: 'Raleway', serif;
     font-weight: 800;
     font-style: normal;

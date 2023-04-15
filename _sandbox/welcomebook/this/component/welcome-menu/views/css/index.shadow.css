@@ -1,0 +1,82 @@
+:host {
+	top: 36.7vh;
+	position: absolute;
+	left: -30vw;
+	z-index: 2;
+}
+
+:host(.sliderIn) {
+	animation: slide-in 1000ms;
+	animation-delay: 500ms;
+	animation-fill-mode: forwards;
+}
+
+:host(.sliderOut) {
+	animation: slide-out 1000ms;
+	animation-delay: 500ms;
+	animation-fill-mode: backwards;
+}
+
+.container {
+	display: flex;
+	color: white;
+	height: 80vh;
+	flex-direction: row;
+	gap: 1.35417vw;
+	padding-left: 3.90625vw;
+}
+
+.slider {
+	width: 1.14583vw;
+	/*background: aquamarine;*/
+}
+
+.slider {
+	display: flex;
+	flex-direction: column;
+}
+
+.square {
+	position: absolute;
+	top:0;
+	width: 1.14583vw;
+	height: 1.14583vw;
+	background: white;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	margin-top: 0.3125vw;
+	transition: top 1s ease 0s;
+}
+
+.body {
+	display: flex;
+	flex-direction: column;
+	gap: 1.35417vw;
+}
+
+button {
+	cursor: pointer;
+}
+
+@keyframes slide-in {
+	from {
+		transform: translateX(0);
+		opacity: 0.25;
+	}
+	to {
+		transform: translateX(30vw);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-out {
+	from {
+		transform: translateX(30vw);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 0.25;
+	}
+}

@@ -15,8 +15,6 @@ export const events = (name, detail) => window.dispatchEvent(new CustomEvent(nam
     composed: true,
     detail: detail
 }));
-
-
 export const randomColor = () => `#${Math.floor(Math.random()*16777215).toString(16)}`;
 export const delay = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));

@@ -1,9 +1,19 @@
+import { anime } from '../views/index.mjs'
+
 export default (self) => {
     return new Promise(async (resolve, reject) => {
 
         resolve({
             click: (event) => {
-
+                window.dispatchEvent(new CustomEvent('change-views', {
+                    bubbles: true,
+                    composed: true,
+                    detail: {
+                        id: parseInt(self.parentNode.dataset.id, 10),
+                        type: 'transform',
+                        action: `to`
+                    }
+                }));
             },
             mouseenter: (event) => {
                 const outsideSquare = self.shadowRoot.querySelector('.welcome-logo')

@@ -926,7 +926,7 @@ function anime(params) {
         instance.finished = promise;
         return promise;
     }
-console.log('@@@@@@@@@@@@@@ createNewInstance @@@@@@@@@@@@@@@@@@@@', params)
+
     var instance = createNewInstance(params);
     var promise = makePromise(instance);
 

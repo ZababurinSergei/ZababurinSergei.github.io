@@ -10,9 +10,13 @@ dotenv.config()
 const dir = 'services/welcomebook/src'
 const rootWidthDesktop = 1920
 const rootWidthMobile = 375
+
+
+//
 gulp.task('px2vw', function () {
- 
-    var processors = [
+    // console.time("⚡ [gulp] Done");
+
+    let processors = [
         pxtoviewport({
             unitToConvert: 'px',
             propList: ['*'],
@@ -24,7 +28,7 @@ gulp.task('px2vw', function () {
             minPixelValue: 0.1,
             mediaQuery: true,
             replace: true,
-            exclude: [],
+            exclude: [/(\/|\\)node_modules(\/|\\)/],
             landscape: false,
             landscapeUnit: 'vw',
             landscapeWidth: rootWidthMobile
@@ -32,15 +36,21 @@ gulp.task('px2vw', function () {
     ];
 
 
-    return gulp.src([`./${dir}/**/*.css`])
+    let result = gulp.src([`./${dir}/**/*.css`])
         .pipe(postcss(processors))
         .pipe(postcss([ autoprefixer()]))
         .pipe(gulp.dest(`./${dir}`));
+
+    // console.timeEnd("⚡ [gulp] Done");
+
+    return result
 });
 
 
 gulp.task('vw2px', function () {
-    var processors = [
+    // console.time("⚡ [gulp] Done");
+
+    let processors = [
         pxtoviewport({
             unitToConvert: 'vw',
             propList: ['*'],
@@ -52,15 +62,19 @@ gulp.task('vw2px', function () {
             minPixelValue: 0.001,
             mediaQuery: true,
             replace: true,
-            exclude: [],
+            exclude: [/(\/|\\)node_modules(\/|\\)/],
             landscape: false,
             landscapeUnit: 'px',
             landscapeWidth: rootWidthMobile
         })
     ];
  
-    return gulp.src([`./${dir}/**/*.css`], { sourcemaps: true })
+    let out = gulp.src([`./${dir}/**/*.css`], { sourcemaps: true })
         .pipe(postcss(processors))
         .pipe(postcss([ autoprefixer()]))
         .pipe(gulp.dest(`./${dir}`), { sourcemaps: true });
+
+    // console.timeEnd("⚡ [gulp] Done");
+
+    return out
 });
