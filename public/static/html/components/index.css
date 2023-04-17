@@ -292,7 +292,9 @@
 }
 
 body {
-    overflow-x: hidden
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .skeleton-box::after {

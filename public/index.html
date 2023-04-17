@@ -52,10 +52,18 @@
     </api-substrate>
 </template>
 <body>
-<div class="dialog" slot="dialog">
-
-</div>
+<div class="dialog" slot="dialog"></div>
 </body>
+<style>
+    html {
+        font-family: "Raleway", serif;
+        font-size: 0.8vw;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+    }
+</style>
 <script type="module" src="/static/html/components/api-substrate/api-substrate.mjs"></script>
 <script type="module" src="/static/html/components/api-time/api-time.mjs"></script>
 <script type="module" src="/static/html/components/api-processor/api-processor.mjs"></script>
@@ -80,6 +88,7 @@
     }
 
     const images = template.content.querySelectorAll('img')
+
     for(let i =0 ; i < images.length; ++i) {
         let url = new URL(images[i].src)
         url.pathname = `${mountPoint.pathname}${url.pathname}`

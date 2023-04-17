@@ -116,13 +116,12 @@ const index = class extends HTMLElement {
 
                 let Context = {
                     test: (setName) => {
-
                         setName('ShadowRoot from html')
                     }
                 }
 
 
-                console.log('============ React =============>>>', await React(self, Context))
+                console.log('🥋 Connect virtual dom 🥋', await React(self, Context))
 
                 window.addEventListener('popstate', self.popstate);
                 let div_dialog = document.createElement('div')

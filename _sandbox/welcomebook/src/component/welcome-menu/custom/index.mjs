@@ -34,7 +34,6 @@ export const initSections = (self) => {
         }
         const getWelcomeSection = (currentId) => {
             for (let i = 0; i < welcomeSections.length; ++i) {
-                console.log('@@@@@@@@@@@@@@@@@@@@', welcomeSections[i].dataset.id)
                 if (parseInt(welcomeSections[i].dataset.id, 10) === currentId) {
                     return welcomeSections[i]
                 }
