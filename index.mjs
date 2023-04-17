@@ -74,6 +74,7 @@ if(process.env.SANDBOX === 'true') {
     app.use('/welcomebook', express.static(`${__dirname}/services/welcomebook/src`));
 }
 
+app.use('/template',express.static(`${__dirname}/template`));
 app.use(express.static(`${__dirname}/public`));
 app.use('/services',express.static(`${__dirname}/services`));
 

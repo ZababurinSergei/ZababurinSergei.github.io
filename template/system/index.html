@@ -1,0 +1,31 @@
+<template id="system">
+    <api-substrate slot="system" class="system">
+        <api-header data-template slot="header_relation">Relation</api-header>
+        <api-header data-template slot="header_substrate">Link</api-header>
+        <api-header data-template slot="header_property">Property</api-header>
+        <api-relation slot="body_relation">Relation</api-relation>
+        <api-main data-swap slot="body_substrate"></api-main>
+        <api-property slot="body_property">Property</api-property>
+        <api-footer
+                slot="footer_relation"
+        >
+            <div class="footer-time">
+                <slot name="footer_relation_time"></slot>
+            </div>
+            <div data-exclusion slot="footer_relation_time">
+                <slot name="footer_relation_time"></slot>
+            </div>
+        </api-footer>
+        <api-footer data-template slot="footer_substrate">Substrate</api-footer>
+        <api-footer
+                slot="footer_property"
+        >
+            <div class="footer-time">
+                <slot name="footer_property_time"></slot>
+            </div>
+            <div data-exclusion slot="footer_property_time">
+                <slot name="footer_property_time"></slot>
+            </div>
+        </api-footer>
+    </api-substrate>
+</template>
