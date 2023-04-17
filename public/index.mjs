@@ -1,4 +1,3 @@
-
 import { virtualDOM, virtualCSS, lightCSS } from './this/index.mjs'
 
 export default async (mountPoint, Context) => {

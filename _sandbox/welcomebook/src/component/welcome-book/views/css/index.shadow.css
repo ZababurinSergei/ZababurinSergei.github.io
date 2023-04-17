@@ -6,7 +6,7 @@
 }
 
 .welcome__book {
-	/*min-height: 100vh;*/
+	/*min-height: 100%;*/
 	width: 100%;
 	position: relative;
 	box-sizing: border-box;
@@ -131,14 +131,14 @@
 	background-image: url('/this/img/pg1.png');
 	background-size: cover;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 }
 
 .welcome__pg2 {
 	background-image: url('/this/img/pg2.png');
 	background-size: cover;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 
 }
 
@@ -146,7 +146,7 @@
 	background-image: url('/this/img/pg3.png');
 	background-size: cover;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 
 }
 
@@ -154,7 +154,7 @@
 	background-image: url('/this/img/pg4.png');
 	background-size: cover;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 
 }
 
@@ -162,7 +162,7 @@
 	background-image: url('/this/img/pg5.png');
 	background-size: cover;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 
 }
 
@@ -170,7 +170,7 @@
 	background-image: url('/this/img/pg6.png');
 	background-size: cover;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 
 }
 
@@ -178,7 +178,7 @@
 	background-image: url('/this/img/pg7.png');
 	background-size: cover;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 
 }
 
@@ -186,7 +186,7 @@
 	background-image: url('/this/img/pg8.png');
 	background-size: cover;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 
 }
 
@@ -194,7 +194,7 @@
 	background-image: url('/this/img/pg9.png');
 	background-size: cover;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 
 }
 
@@ -202,7 +202,7 @@
 	background-image: url('/this/img/pg10.png');
 	background-size: cover;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 
 }
 
@@ -210,7 +210,7 @@
 	background-image: url('/this/img/pg11.png');
 	background-size: cover;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 }
 
 .img-parallax {

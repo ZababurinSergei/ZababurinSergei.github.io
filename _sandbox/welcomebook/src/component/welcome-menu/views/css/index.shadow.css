@@ -1,5 +1,5 @@
 :host {
-	top: 36.7vh;
+	top: 25vh;
 	position: absolute;
 	left: -30vw;
 	z-index: 2;
@@ -23,7 +23,7 @@
 	height: 80vh;
 	flex-direction: row;
 	gap: 1.35417vw;
-	padding-left: 3.90625vw;
+	padding-left: 3.90625rem;
 }
 
 .slider {

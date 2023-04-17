@@ -69,13 +69,13 @@ if(process.env.SANDBOX === 'true') {
     app.use('/', express.static(`${__dirname}/_sandbox/welcomebook/src`));
     app.use('/rules', express.static(`${__dirname}/_sandbox/rules/src`));
 } else {
-    app.use('/rules', express.static(`${__dirname}/services/rules/src`));
     // app.use('/welcomebook', express.static(`${__dirname}/services/welcomebook/this`));
+    // app.use('/rules', express.static(`${__dirname}/services/rules/src`));
     app.use('/welcomebook', express.static(`${__dirname}/services/welcomebook/src`));
 }
 
 app.use(express.static(`${__dirname}/public`));
-app.use(express.static(`${__dirname}/services`));
+app.use('/services',express.static(`${__dirname}/services`));
 
 
 // app.get(`/welcomebook/*`, async (req, res) => {

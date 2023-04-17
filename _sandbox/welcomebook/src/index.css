@@ -15,12 +15,13 @@ html {
 body {
     margin: 0;
     font-family: 'Raleway', serif;
-
 }
+
 
 /* Colors */
 :root {
     --main: #00A0A8;
+    --main-height: 100vh;
     /*Text color*/
     --text-color-100per: #333333;
     /* Blue */

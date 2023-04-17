@@ -1,18 +1,4 @@
-const components = ['welcome-feedback','welcome-logo','fer-link', 'fer-hash', 'fer-button', 'fer-scroll', 'welcome-menu', 'welcome-section', 'welcome-header']
-const {
-    events,
-    animationCount,
-    activeClass,
-    config,
-    anime,
-    size,
-    vhToPixel
-} = await import('./this/index.mjs')
 // import {events, activeClass, delay} from './this/index.mjs'
-
-for(let i = 0; i < components.length; ++i) {
-    import(`./component/${components[i]}/index.mjs`)
-}
 // import ferHash from './component/fer-hash/index.mjs'
 // import ferButton from './component/fer-button/index.mjs'
 // import ferScroll from './component/fer-scroll/index.mjs'
@@ -29,20 +15,56 @@ for(let i = 0; i < components.length; ++i) {
 // import parallax from './parallax.css' assert { type:'css' }
 // import scroll from './scroll.css' assert { type:'css' }
 
-export const welcomebook = (root = document.body, template = undefined) => {
-    return new Promise((resolve, reject) => {
+
+export const welcomebook = (mount = {}) => {
+    return new Promise(async (resolve, reject) => {
+
+        const {pathname, CSSVariables, mountPoint, template} = Object.assign(  {
+            pathname: '.',
+            mountPoint: document.body,
+            template: undefined,
+            CSSVariables: undefined
+        }, mount);
+
+        const components = ['welcome-feedback','welcome-logo','fer-link', 'fer-hash', 'fer-button', 'fer-scroll', 'welcome-menu', 'welcome-section', 'welcome-header']
+
+        if(CSSVariables) {
+            for(let type in CSSVariables) {
+                console.log('type', type)
+                if(type === 'root') {
+                    for(let key in CSSVariables[type]) {
+
+                        document.documentElement.style.setProperty(key, CSSVariables[type][key]);
+                    }
+                }
+            }
+        }
+
+        const {
+            events,
+            animationCount,
+            activeClass,
+            config,
+            anime,
+            size,
+            vhToPixel
+        } = await import(`${pathname}/this/index.mjs`)
+
+        for(let i = 0; i < components.length; ++i) {
+            import(`${pathname}/component/${components[i]}/index.mjs`)
+        }
 
         window.scrollTo(0,0)
         let templateContent = template
             ? template.content
-            : root
+            : mountPoint
 
-        let shadow = root.attachShadow({mode: "open"});
+        let shadow = mountPoint.attachShadow({mode: "open"});
         let shadowData = templateContent.querySelector('.welcome__book')
         shadow.appendChild(shadowData)
 
         if(template) {
-            root.appendChild(templateContent)
+            mountPoint.appendChild(templateContent)
         }
 
         // const mainCss = document.createElement('style')
@@ -51,19 +73,19 @@ export const welcomebook = (root = document.body, template = undefined) => {
         // document.body.appendChild(mainCss)
 
         const indexCss = document.createElement('style')
-        indexCss.innerText = `@import "./index.css";`
+        indexCss.innerText = `@import "${pathname}/index.css";`
         document.body.appendChild(indexCss)
 
         const pageStyle = document.createElement('style')
-        pageStyle.innerText = `@import "./shadow.css";`
+        pageStyle.innerText = `@import "${pathname}/shadow.css";`
         shadow.appendChild(pageStyle)
 
         const parallaxCss = document.createElement('style')
-        parallaxCss.innerText = `@import "./parallax.css";`
+        parallaxCss.innerText = `@import "${pathname}/parallax.css";`
         shadow.appendChild(parallaxCss)
 
         const scrollCss = document.createElement('style')
-        scrollCss.innerText = `@import "./scroll.css";`
+        scrollCss.innerText = `@import "${pathname}/scroll.css";`
         shadow.appendChild(scrollCss)
         // console.log('================================', shadowDom)
         // document.adoptedStyleSheets = [...document.adoptedStyleSheets, lightDom];

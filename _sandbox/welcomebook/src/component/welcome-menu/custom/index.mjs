@@ -34,6 +34,7 @@ export const initSections = (self) => {
         }
         const getWelcomeSection = (currentId) => {
             for (let i = 0; i < welcomeSections.length; ++i) {
+                console.log('@@@@@@@@@@@@@@@@@@@@', welcomeSections[i].dataset.id)
                 if (parseInt(welcomeSections[i].dataset.id, 10) === currentId) {
                     return welcomeSections[i]
                 }
@@ -283,11 +284,11 @@ export const initSections = (self) => {
                 const stepOpacity = 0.15
 
                 let rect = buttons[event.detail.id].getBoundingClientRect()
-                square.style.top = `${size(event.detail.id * rect.height + gap * event.detail.id, 1920)}vw`
+                square.style.top = `${size(event.detail.id * rect.height + gap * event.detail.id, 1920)}rem`
                 const activeItem = buttons[event.detail.id].shadowRoot.querySelector('p')
 
                 activeItem.style.opacity = `${opaticyDefault}`
-                activeItem.style.fontSize = `${size(fontSize, 1920)}vw`
+                activeItem.style.fontSize = `${size(fontSize, 1920)}rem`
                 activeItem.style.fontWeight = `600`
 
                 const activeId = getActive()
@@ -300,7 +301,7 @@ export const initSections = (self) => {
                     const currentFontSize = fontSize - stepFontSize * percent
 
                     currentItem.style.opacity = `${opacity}`
-                    currentItem.style.fontSize = `${size(currentFontSize, 1920)}vw`
+                    currentItem.style.fontSize = `${size(currentFontSize, 1920)}rem`
                     currentItem.style.fontWeight = `400`
                 }
 
@@ -313,7 +314,7 @@ export const initSections = (self) => {
                     const currentFontSize = fontSize - stepFontSize * percent
 
                     currentItem.style.opacity = `${opacity}`
-                    currentItem.style.fontSize = `${size(currentFontSize, 1920)}vw`
+                    currentItem.style.fontSize = `${size(currentFontSize, 1920)}rem`
                     currentItem.style.fontWeight = `400`
                 }
             }
