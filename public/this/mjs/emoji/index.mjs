@@ -1444,7 +1444,7 @@ export let hearts = [
     ['❤','♥','❣','😻','👩‍❤️‍👩','👨‍❤️‍👨'],
     ['💗','💖','💕','💑','💓','💞','💟'],
 ]
-export default (name)=>{
+export const emoji = (name)=> {
    let all = false
     switch (name) {
         case 'all':
@@ -1472,3 +1472,7 @@ export default (name)=>{
 emojiMap.forEach(({emoji, name}) => {
     console[name] = console.log.bind(console, `${emoji} `);
 });
+
+export default {
+    description: 'emoji'
+}

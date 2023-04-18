@@ -56,4 +56,7 @@ function isEmpty(val) {
     return false
 }
 
-export default isEmpty
+export { isEmpty }
+export default {
+    description: 'verify'
+}

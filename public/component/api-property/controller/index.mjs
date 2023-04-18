@@ -1,5 +1,5 @@
 import addEventListener from './addEventListener/index.mjs'
-import task from './task/index.mjs'
+import addTaskListener from './addTaskListener/index.mjs'
 export const controller = (self, actions) => {
     return new Promise(async (resolve, reject) => {
 
@@ -16,7 +16,7 @@ export const controller = (self, actions) => {
 
         resolve({
             addEventListener: await addEventListener(self, actions),
-            task: await task(self, actions)
+            addTaskListener: await addTaskListener(self, actions)
         })
     })
 }

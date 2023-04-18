@@ -10,6 +10,8 @@ export default async (config) => {
 
     const components = ['api-relation', 'api-property', 'api-substrate', 'api-footer', 'api-time', 'api-header', 'api-button', 'api-main']
 
+    // const components = ['api-relation', 'api-property', 'api-substrate']
+
     for (let i = 0; i < components.length; ++i) {
         import(`${pathname}/component/${components[i]}/index.mjs`)
     }

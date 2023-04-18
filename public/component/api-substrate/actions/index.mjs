@@ -1,4 +1,4 @@
-import { normalizePathName } from "../../../static/html/components/api-substrate/external/index.mjs";
+import { normalizePathName } from "../../../this/index.mjs";
 export default (self) => {
     return new Promise(async (resolve, reject) => {
         const pathname = normalizePathName(window.location.pathname)

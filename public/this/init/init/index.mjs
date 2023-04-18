@@ -12,7 +12,6 @@ export const init = (self) => {
                 ? await html.get(self.slot)[0].template(self.slot)
                 : await html.get('default')[0].template(self.slot)
 
-            console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@',self)
             self.innerHTML = ''
             self.insertAdjacentHTML('afterbegin', template)
         } else {

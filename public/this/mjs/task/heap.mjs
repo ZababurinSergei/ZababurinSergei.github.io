@@ -1,6 +1,6 @@
-import isEmpty from '/static/html/components/component_modules/isEmpty/isEmpty.mjs'
-import emoji from '/static/html/components/component_modules/emoji/emoji.mjs'
-import {state} from './index.mjs'
+import { isEmpty } from '../../index.mjs'
+import { emoji } from '../../index.mjs'
+import { state } from './index.mjs'
 
 let source = {}
 let target = {}

@@ -1,5 +1,5 @@
 import heap from './heap.mjs'
-import emoji from '../emoji/index.mjs'
+import { emoji } from '../emoji/index.mjs'
 import { Color } from '../ansis/index.js'
 
 let self = undefined

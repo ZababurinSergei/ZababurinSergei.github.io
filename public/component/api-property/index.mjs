@@ -67,14 +67,14 @@ const INDEX = class extends HTMLElement {
             .then(async (self) => {
                 self.controller = await controller(self, await actions(self))
                 self.controller.addEventListener.init()
-                self.controller.task.init()
+                self.controller.addTaskListener.init()
             })
             .catch(e => console.error('error', e))
     }
 
     disconnectedCallback() {
         this.controller.addEventListener.terminate()
-        this.controller.task.terminate()
+        this.controller.addTaskListener.terminate()
         console.log(`     🔴 COMPONENTS ${this.tagName} disconnected`)
     }
 }
