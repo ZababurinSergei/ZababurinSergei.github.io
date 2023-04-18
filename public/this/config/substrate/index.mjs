@@ -43,26 +43,30 @@ export const taskRelation = {
     events: {
         'default': '',
         'API-RELATION': [{
-            Domain: {
-                type: 'aside'
+            Schema: {
+                type: 'aside',
+                name: 'Схемы',
+                icon: './this/icons/schema.svg'
             },
-            Region: {
-                type: 'aside'
-            },
-            Event: {
-                type: 'aside'
-            },
-            Rule: {
-                type: 'aside'
+            Rules: {
+                type: 'aside',
+                name: 'Правила',
+                icon: './this/icons/rules.svg'
             },
             Manifest: {
-                type: 'aside'
+                type: 'aside',
+                name: 'Манифесты',
+                icon: './this/icons/manifest.svg'
             },
-            validators: {
-                type: 'aside'
+            Region: {
+                type: 'aside',
+                name: 'Регион',
+                icon: './this/icons/region.svg'
             },
-            Connections: {
-                type: 'aside'
+            Domain: {
+                type: 'aside',
+                name: 'Домен',
+                icon: './this/icons/domain.svg'
             }
         }]
     }

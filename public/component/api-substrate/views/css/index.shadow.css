@@ -1,4 +1,4 @@
-@import '/components/terminal/modules/xterm/css/xterm.css';
+/*@import '/components/terminal/modules/xterm/css/xterm.css';*/
 
 :host {
     width: 100%;
@@ -73,8 +73,9 @@ p {
 
 .grid__footer {
     grid-template-columns: minmax(7vw, 12vw) 1fr minmax(7vw, 12vw);
-    grid-template-rows: 1.9vw;
+    grid-template-rows: 6vh;
     gap: 0;
+
 }
 
 .grid__header_relation {
@@ -130,7 +131,13 @@ p {
     grid-column: 2 / 3;
 }
 
+#relation {
+    /*background: #F5F7FA;*/
+    background: #1e5bb6;
+}
+
 .body_main {
+    position: relative;
     min-height: auto;
     height: -moz-max-content;
     height: max-content;

@@ -4,6 +4,23 @@ export const init = (self) => {
     return new Promise(async (resolve, reject) => {
         const shadowDom = []
         const isTemplate = self.dataset.template !== undefined
+        const isLight = "csslight" in self.dataset
+
+        if(isLight) {
+            const name = self.dataset.csslight.length === 0 ? 'index' : self.dataset.csslight
+            const link = `../../../component/${self.tagName.toLowerCase()}/views/css/${name}.light.css`
+            const root = self.getRootNode()
+            const styleLight = (await import(link, {
+                assert: {
+                    type: "css",
+                },
+            }))['default'];
+
+
+            root.adoptedStyleSheets = [...root.adoptedStyleSheets, styleLight];
+
+            console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$', self.getRootNode())
+        }
 
         if (isTemplate) {
             const { html } = await import(`../../../component/${self.tagName.toLowerCase()}/views/index.mjs`)
@@ -34,10 +51,11 @@ export const init = (self) => {
                     self.attachShadow({mode: 'open'})
                 }
 
-                if (self.dataset.cssShadow) {
-                    link = `../../../component/${self.tagName.toLowerCase()}/views/css/${self.dataset.cssShadow}.shadow.css`
+                if (self.dataset.cssshadow) {
+                    link = `../../../component/${self.tagName.toLowerCase()}/views/css/${self.dataset.cssshadow}.shadow.css`
                 }
 
+                console.log('888888888888888888888***********', link)
                 let styleShadow = (await import(link, {
                     assert: {
                         type: "css",

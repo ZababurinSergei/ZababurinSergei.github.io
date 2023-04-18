@@ -67,7 +67,7 @@ export default (self) => {
                 let soltNames = ['header_base', 'TabAccounts', 'TabSend', 'TabDapps', 'TabSharding', 'TabSharding', 'TabExplorer']
 
                 if (event.detail && event.detail.pathname) {
-                    const slots = this.querySelectorAll('slot');
+                    const slots = self.querySelectorAll('slot');
 
                     switch (event.detail.pathname) {
                         case "/":

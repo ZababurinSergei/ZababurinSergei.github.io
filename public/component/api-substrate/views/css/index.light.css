@@ -41,7 +41,7 @@ api-footer a {
 }
 
 [slot="footer_substrate"] {
-    /* margin-left: 13vw; */
+     margin-left: 13vw;
 }
 
 lib-markdown {

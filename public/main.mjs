@@ -8,9 +8,12 @@ export default async (config) => {
         CSSVariables: undefined
     }, config);
 
-    const components = ['api-relation', 'api-property', 'api-substrate', 'api-footer', 'api-time', 'api-header', 'api-button', 'api-main']
+    const {
+        shadowCSS,
+        lightCSS
+    } = await import(`${pathname}/this/index.mjs`)
 
-    // const components = ['api-relation', 'api-property', 'api-substrate']
+    const components = ['api-relation', 'api-property', 'api-substrate', 'api-footer', 'api-time', 'api-header', 'api-button', 'api-main', 'link-auction']
 
     for (let i = 0; i < components.length; ++i) {
         import(`${pathname}/component/${components[i]}/index.mjs`)
@@ -28,6 +31,10 @@ export default async (config) => {
     }
 
     const shadow = mountPoint.attachShadow({mode: "open"});
+
+    // shadow.adoptedStyleSheets = [...shadow.adoptedStyleSheets, shadowCSS];
+    document.adoptedStyleSheets = [...document.adoptedStyleSheets, lightCSS];
+
     const systemContent = template.content;
     shadow.prepend(systemContent);
 }

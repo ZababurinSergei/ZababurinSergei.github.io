@@ -3,11 +3,19 @@ import { activeClass, normalizePathName, task } from "../../../this/index.mjs";
 export default (self) => {
     return new Promise(async (resolve, reject) => {
 
+        const img = self.shadowRoot.querySelector('.rules-relation_container_img')
+        const text = self.shadowRoot.querySelector('.rules-relation_container_name')
+        const container = self.shadowRoot.querySelector('.rules-relation_container')
+
         resolve({
             customEvents: (event) => {
                 if (`${self.dataset.type}_${self.dataset.role}_${self.dataset.key}` !== event.detail && self.shadowRoot.querySelector('p').classList.contains(activeClass)) {
                     self.disabled = false
-                    self.shadowRoot.querySelector('p').classList.remove(activeClass)
+                    console.log('###########################')
+                    // self.shadowRoot.querySelector('p').classList.remove(activeClass)
+                    text.classList.remove(activeClass)
+                    img.classList.remove(activeClass)
+                    container.classList.remove(activeClass)
                 }
             },
             popstate: (event) => {
@@ -26,7 +34,13 @@ export default (self) => {
                 const item = event.currentTarget
                 const element = item.getRootNode().host
 
-                item.classList.add(activeClass)
+                // img.classList.add(activeClass)
+                // text.classList.add(activeClass)
+                // container.classList.add(activeClass)
+
+                text.classList.add(activeClass)
+                img.classList.add(activeClass)
+                container.classList.add(activeClass)
 
                 console.log(`  🥎 EVENT ${element.dataset.event} BUTTON ${self.dataset.type} PUSH`, {
                     ...element.dataset,

@@ -7,19 +7,23 @@ export default (self) => {
         menu.innerHTML = ''
         for(let list of taskRelation.events[self.tagName]) {
             for(let event in list) {
+                console.log('ssssssssssss',list[event])
                 menu.insertAdjacentHTML('beforeend', `
                 <api-button
                     data-role="aside"
+                    data-cssshadow="rules"
                     data-key="${idKey()}"
                     data-type="api-relation"
                     data-event="${event}"
                     class="api-relation__relation_button"
                 >
-                    <p
-                        class="substrat__relation_button"
-                    >
-                       ${event}
+                <div class="rules-relation_container">
+                    <img class="rules-relation_container_img" src="${list[event].icon}"/>
+                    <p class="rules-relation_container_name">
+                       ${list[event].name}
                     </p>
+                </div>
+                   
                 </api-button>
             `)
 
