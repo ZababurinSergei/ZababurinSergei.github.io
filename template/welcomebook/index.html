@@ -53,6 +53,66 @@
         </div>
     </div>
 
+    <welcome-menu slot="welcome-menu">
+        <div class="container">
+            <div class="slider">
+                <div class="square"></div>
+            </div>
+            <div class="body">
+                <slot name="button-0"></slot>
+                <slot name="button-1"></slot>
+                <slot name="button-2"></slot>
+                <slot name="button-3"></slot>
+                <slot name="button-4"></slot>
+            </div>
+        </div>
+        <fer-button
+                slot="button-0"
+                data-id="0"
+                data-type="welcome-menu"
+                data-css-shadow="menu"
+        >
+            <p>Приветствие</p>
+        </fer-button>
+
+        <fer-button
+                slot="button-1"
+                data-id="1"
+                data-type="welcome-menu"
+                data-css-shadow="menu"
+        >
+            <p>О компании</p>
+
+        </fer-button>
+
+        <fer-button
+                slot="button-2"
+                data-id="2"
+                data-type="welcome-menu"
+                data-css-shadow="menu"
+        >
+            <p>КОРПОРАТИВНАЯ КУЛЬТУРА</p>
+        </fer-button>
+
+        <fer-button
+                slot="button-3"
+                data-id="3"
+                data-type="welcome-menu"
+                data-css-shadow="menu"
+        >
+            <p>Ресурсы и документы</p>
+        </fer-button>
+
+        <fer-button
+                slot="button-4"
+                data-id="4"
+                data-type="welcome-menu"
+                data-css-shadow="menu"
+        >
+            <p>Спасибо!</p>
+        </fer-button>
+    </welcome-menu>
+
     <welcome-logo slot="welcome-logo">
         <div class="welcome-logo">
             <div class="square-buttom">
@@ -317,65 +377,7 @@
         </welcome-feedback>
     </welcome-section>
 
-    <welcome-menu slot="welcome-menu">
-        <div class="container">
-            <div class="slider">
-                <div class="square"></div>
-            </div>
-            <div class="body">
-                <slot name="button-0"></slot>
-                <slot name="button-1"></slot>
-                <slot name="button-2"></slot>
-                <slot name="button-3"></slot>
-                <slot name="button-4"></slot>
-            </div>
-        </div>
-        <fer-button
-                slot="button-0"
-                data-id="0"
-                data-type="welcome-menu"
-                data-css-shadow="menu"
-        >
-            <p>Приветствие</p>
-        </fer-button>
 
-        <fer-button
-                slot="button-1"
-                data-id="1"
-                data-type="welcome-menu"
-                data-css-shadow="menu"
-        >
-            <p>О компании</p>
-
-        </fer-button>
-
-        <fer-button
-                slot="button-2"
-                data-id="2"
-                data-type="welcome-menu"
-                data-css-shadow="menu"
-        >
-            <p>КОРПОРАТИВНАЯ КУЛЬТУРА</p>
-        </fer-button>
-
-        <fer-button
-                slot="button-3"
-                data-id="3"
-                data-type="welcome-menu"
-                data-css-shadow="menu"
-        >
-            <p>Ресурсы и документы</p>
-        </fer-button>
-
-        <fer-button
-                slot="button-4"
-                data-id="4"
-                data-type="welcome-menu"
-                data-css-shadow="menu"
-        >
-            <p>Спасибо!</p>
-        </fer-button>
-    </welcome-menu>
 
     <welcome-section
             data-css-shadow="section"
@@ -424,18 +426,9 @@
                     <p class='section_content_header_p'></p>
                 </div>
                 <div class='section_content_body_1_0'>
-                    <div class='section_content_body_ecp_1_0'>
-                        <div class='section_content_body_diagram'>
-                            <img src="./this/img/sections/0/graph.svg"/>
-                        </div>
-                        <div class='section_content_body_ecp_list_1_0'>
-                            <h3>ЕЦП. МИС</h3>
-                            <p>медицинская</p>
-                            <p>информационная система</p>
-                            <p>цифровое решение</p>
-                            <p>для медицинских организаций</p>
-                        </div>
-                    </div>
+                   <div class="diagram">
+                       <slot name="welcome-diagram-0"></slot>
+                   </div>
                     <div class='section_content_body_ecp_marketing'>
                         Наша компания «Цифромед» является головной
                         компанией кластера «Медицина» ПАО Ростелеком
@@ -512,6 +505,38 @@
                 </div>
             </div>
         </div>
+
+        <welcome-diagram slot="welcome-diagram-0">
+            <div class='section_content_body_ecp_1_0'>
+                <div class='section_content_body_diagram'>
+                    <div class="diagram_section_0">
+                        <img class="diagram_section_0_img" src="./this/img/diagram/section/s_0.svg"/>
+                    </div>
+                    <div class="diagram_section_1">
+                        <img class="diagram_section_0_img" src="./this/img/diagram/section/s_1.svg"/>
+                    </div>
+                    <div class="diagram_section_2">
+                        <img class="diagram_section_0_img" src="./this/img/diagram/section/s_2.svg"/>
+                    </div>
+                    <div class="diagram_section_3">
+                        <img class="diagram_section_0_img" src="./this/img/diagram/section/s_3.svg"/>
+                    </div>
+                    <div class="diagram_section_4">
+                        <img class="diagram_section_0_img" src="./this/img/diagram/section/s_4.svg"/>
+                    </div>
+                    <div class="diagram_section_5">
+                        <img class="diagram_section_0_img" src="./this/img/diagram/section/s_5.svg"/>
+                    </div>
+                </div>
+                <div class='section_content_body_ecp_list_1_0'>
+                    <h3>ЕЦП. МИС</h3>
+                    <p>медицинская</p>
+                    <p>информационная система</p>
+                    <p>цифровое решение</p>
+                    <p>для медицинских организаций</p>
+                </div>
+            </div>
+        </welcome-diagram>
     </welcome-section>
 
 
