@@ -18,8 +18,6 @@ export const init = (self) => {
 
 
             root.adoptedStyleSheets = [...root.adoptedStyleSheets, styleLight];
-
-            console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$', self.getRootNode())
         }
 
         if (isTemplate) {
@@ -55,7 +53,6 @@ export const init = (self) => {
                     link = `../../../component/${self.tagName.toLowerCase()}/views/css/${self.dataset.cssshadow}.shadow.css`
                 }
 
-                console.log('888888888888888888888***********', link)
                 let styleShadow = (await import(link, {
                     assert: {
                         type: "css",
