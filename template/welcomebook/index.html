@@ -2,6 +2,7 @@
     <body>
     <div class="welcome__book">
         <slot name="welcome-logo"></slot>
+        <slot name="fer-scroll"></slot>
         <slot name="welcome-menu"></slot>
         <slot name="welcome-animation"></slot>
         <div class="welcome-body">
@@ -60,6 +61,18 @@
         </div>
     </welcome-logo>
 
+
+    <fer-scroll
+        data-css-shadow="arrow"
+        slot="fer-scroll"
+    >
+        <div class="arrow">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </fer-scroll>
+
     <welcome-section data-id="0" children slot="welcome-section-0">
         <div class='parallax'>
             <img src='./this/img/north_tower.png'/>
@@ -102,9 +115,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="fer-scroll">
-                    <slot name="fer-scroll"></slot>
-                </div>
             </div>
 
             <section class="welcome-section_children_0">
@@ -144,9 +154,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="fer-scroll">
-                            <slot name="fer-scroll"></slot>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -160,18 +167,6 @@
                 </div>
             </div>
         </welcome-header>
-
-        <fer-scroll slot="fer-scroll">
-            <div class="welcome__scroll">
-                <div class="scroll">
-                    <div class="scroll__up-block">
-                        <div class="scroll__left"></div>
-                        <div class="scroll__right"></div>
-                    </div>
-                    <p class="scroll__title">scroll</p>
-                </div>
-            </div>
-        </fer-scroll>
     </welcome-section>
 
     <welcome-section data-id="1" slot="welcome-section-1">
@@ -198,9 +193,6 @@
                         </ul>
                     </div>
                 </div>
-                <div class="welcome-logo">
-                    <slot name="welcome-logo"></slot>
-                </div>
             </div>
         </div>
     </welcome-section>
@@ -223,18 +215,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="welcome-logo">
-                    <slot name="welcome-logo"></slot>
-                </div>
             </div>
         </div>
-<!--        <welcome-logo class="slot-2" slot="welcome-logo">-->
-<!--            <div class="welcome-logo">-->
-<!--                <div class="square-buttom">-->
-<!--                    <p class="square-title">больше</p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </welcome-logo>-->
     </welcome-section>
 
     <welcome-section data-id="3" slot="welcome-section-3">
@@ -259,19 +241,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="welcome-logo">
-                    <slot name="welcome-logo"></slot>
-                </div>
             </div>
         </div>
-
-<!--        <welcome-logo class="slot-2" slot="welcome-logo">-->
-<!--            <div class="welcome-logo">-->
-<!--                <div class="square-buttom">-->
-<!--                    <p class="square-title">больше</p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </welcome-logo>-->
     </welcome-section>
 
     <welcome-section data-id="4" slot="welcome-section-4">
