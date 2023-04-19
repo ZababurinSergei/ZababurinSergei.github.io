@@ -5,7 +5,7 @@
 }
 
 .welcome-logo {
-	position: relative;
+	position: absolute;
 	transform: rotate(45deg);
 	display: flex;
 	border: 4px solid white;
@@ -19,6 +19,7 @@
 	transition: width 1s, opacity 1s, height 1s, background-color 1s, transform 1s;
 	cursor: pointer;
 	transform-origin: center center;
+	left: -1.2vw;
 }
 
 .welcome-logo:hover {
