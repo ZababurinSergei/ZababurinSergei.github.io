@@ -46,9 +46,24 @@
                 <slot name="welcome-section-12"></slot>
             </section>
         </div>
-        <div data-id="1" class="welcome-body_section_1_0" style="display: none">
+        <div
+                data-id="1"
+                data-section="1_0"
+                class="welcome-body_section_1_0"
+                style="display: none"
+        >
             <section data-id="0">
                 <slot name="welcome-section_1_0"></slot>
+            </section>
+        </div>
+        <div
+                data-id="2"
+                data-section="2_0"
+                class="welcome-body_section_2_0"
+                style="display: none"
+        >
+            <section data-id="0">
+                <slot name="welcome-section_2_0"></slot>
             </section>
         </div>
     </div>
@@ -774,6 +789,57 @@
         </div>
     </welcome-section>
 
+
+    <welcome-section
+            data-css-shadow="section"
+            data-id="2_0"
+            slot="welcome-section_2_0"
+    >
+        <div class='section_content'>
+            <div class='section_content_item_0'>
+                <div class='section_content_header'>
+                    <p class='section_content_header_p_left'></p>
+                    <p class='section_content_header_p'>Зарплата</p>
+                    <p class='section_content_header_p_right'></p>
+                </div>
+                <div class='section_content_body'>
+                    <p class='section_content_body_p'>
+                        Зарплата выплачивается 2 раза в месяц: за первую половину месяца - 25-го числа текущего месяца,
+                        за вторую половину - 10-го числа следующего месяца.
+                    </p>
+                    <p class='section_content_body_p'>
+                        В случае, если у тебя будут вопросы по расчету и выплате зарплаты обращайся в бухгалтерию!
+                    </p>
+                </div>
+            </div>
+            <div class='section_content_item_img-7'>
+                <!--            <img src="./this/img/sections/0/06.png"/>-->
+            </div>
+            <div class='section_content_item_1'>
+                <div class='section_content_header'>
+                    <p class='section_content_header_p'></p>
+                    <p class='section_content_header_p_regions'>Отпуск</p>
+                    <p class='section_content_header_p'></p>
+                </div>
+                <div class='section_content_body'>
+                    <p class='section_content_body_p'>
+                        Ну, об этом еще рано говорить, ведь ты только пришел к нам))), а если серьезно: по
+                        законодательству ты имеешь право на отпуск через 6 месяцев работы в компании. Обычно отпуск
+                        делится на 2 части по 14 дней, но бывают отпуска «4 по 7» и «3 по 10» (мы жепонятно объяснили?)
+                    </p>
+                    <p class='section_content_body_p'>
+                        В любом случае, если у тебя есть вопросы по отпуску сначала обратись в отдел персонала, а потом
+                        к своему Руководителю.
+                    </p>
+                </div>
+            </div>
+
+            <div class='section_content_item_img-8'>
+                <!--            <img src="./this/img/sections/0/07.png"/>-->
+            </div>
+        </div>
+    </welcome-section>
+
     <welcome-section
             data-css-shadow="section"
             data-id="1_5"
@@ -831,11 +897,6 @@
         </div>
     </welcome-section>
     <div slot="welcome-animation" class="animation">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
         <div class="item"></div>
         <div class="item"></div>
         <div class="item"></div>
