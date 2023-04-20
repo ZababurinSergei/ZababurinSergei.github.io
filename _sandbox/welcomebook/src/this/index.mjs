@@ -1,8 +1,10 @@
-import virtualRootCSS from './css/index.shadowRoot.css' assert { type: 'css' }
-import lightDomCSS from './css/index.lightDom.css' assert { type: 'css' }
+import { svg } from './img/diagram/index.mjs'
+import shadowCSS from './css/index.shadow.css' assert { type: 'css' }
+import lightCSS from './css/index.light.css' assert { type: 'css' }
 export { verification, init, onload, slotRouter } from './init/index.mjs'
 
 export {
+    loadHTML,
     pixelToVH,
     pixelToVW,
     size,
@@ -18,8 +20,8 @@ export {
     anime
 } from './mjs/index.mjs'
 export { config } from './config/index.mjs'
-export { virtualRootCSS }
-export { lightDomCSS }
+export { shadowCSS }
+export { lightCSS }
 export default {
     description: 'all modules for this'
 }

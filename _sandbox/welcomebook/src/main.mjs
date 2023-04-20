@@ -8,39 +8,35 @@
 // import welcomeGeneral from './component/welcome-general/index.mjs'
 // import welcomeLogo from './component/welcome-logo/index.mjs'
 // import welcomeFeedback from './component/welcome-feedback/index.mjs'
-
 // import lightDom from './index.css' assert { type:'css' }
 // import shadowDom from './shadow.css' assert { type:'css' }
 // import shadowDom from './index.css' assert { type:'css' }
 // import parallax from './parallax.css' assert { type:'css' }
 // import scroll from './scroll.css' assert { type:'css' }
 
-
 export const welcomebook = (mount = {}) => {
     return new Promise(async (resolve, reject) => {
 
-        const {pathname, CSSVariables, mountPoint, template} = Object.assign(  {
+        const {pathname, CSSVariables, mountPoint, template} = Object.assign({
             pathname: '.',
             mountPoint: document.body,
             template: undefined,
             CSSVariables: undefined
         }, mount);
 
-        const components = ['welcome-feedback','welcome-logo','fer-link', 'fer-hash', 'fer-button', 'fer-scroll', 'welcome-menu', 'welcome-section', 'welcome-header']
-
-        if(CSSVariables) {
-            for(let type in CSSVariables) {
-                console.log('type', type)
-                if(type === 'root') {
-                    for(let key in CSSVariables[type]) {
-
-                        document.documentElement.style.setProperty(key, CSSVariables[type][key]);
+        if (CSSVariables) {
+            for (let type in CSSVariables) {
+                if (type === 'root') {
+                    for (let key in CSSVariables[type]) {
+                        mountPoint.style.setProperty(key, CSSVariables[type][key]);
                     }
                 }
             }
         }
 
         const {
+            shadowCSS,
+            lightCSS,
             events,
             animationCount,
             activeClass,
@@ -50,43 +46,68 @@ export const welcomebook = (mount = {}) => {
             vhToPixel
         } = await import(`${pathname}/this/index.mjs`)
 
-        for(let i = 0; i < components.length; ++i) {
+        const components = ['welcome-diagram','welcome-feedback', 'welcome-logo', 'fer-link', 'fer-hash', 'fer-button', 'fer-scroll', 'welcome-menu', 'welcome-section', 'welcome-header']
+
+        for (let i = 0; i < components.length; ++i) {
             import(`${pathname}/component/${components[i]}/index.mjs`)
         }
 
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
+
         let templateContent = template
             ? template.content
             : mountPoint
 
         let shadow = mountPoint.attachShadow({mode: "open"});
+
+        const raleway = new FontFace('Raleway', `url(${pathname}/this/fonts/Raleway/Raleway-VariableFont_wght.ttf)`)
+        const ralewayItalic = new FontFace('Raleway italic', `url(${pathname}/this/fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf)`)
+
+        raleway.load().then(function (loaded_face) {
+            document.fonts.add(loaded_face)
+            // shadow.fonts.add(loaded_face)
+        }).catch(function (error) {
+            console.log('error', error)
+        });
+
+        ralewayItalic.load().then(function (loaded_face) {
+            // shadow.fonts.add(loaded_face)
+            document.fonts.add(loaded_face)
+        }).catch(function (error) {
+            console.log('error', error)
+        });
+
+        shadow.adoptedStyleSheets = [...shadow.adoptedStyleSheets, shadowCSS];
+        document.adoptedStyleSheets = [...document.adoptedStyleSheets, lightCSS];
+
         let shadowData = templateContent.querySelector('.welcome__book')
         shadow.appendChild(shadowData)
 
-        if(template) {
+        if (template) {
             mountPoint.appendChild(templateContent)
         }
 
-        // const mainCss = document.createElement('style')
-        // mainCss.innerText = `@import "./main.css";`
-        // shadow.appendChild(mainCss)
-        // document.body.appendChild(mainCss)
+        const mainCss = document.createElement('style')
+        mainCss.innerText = `@import "./main.css";`
+        shadow.appendChild(mainCss)
+        document.body.appendChild(mainCss)
 
-        const indexCss = document.createElement('style')
-        indexCss.innerText = `@import "${pathname}/index.css";`
-        document.body.appendChild(indexCss)
+        // const indexCss = document.createElement('style')
+        // indexCss.innerText = `@import "${pathname}/index.css";`
+        // document.body.appendChild(indexCss)
 
-        const pageStyle = document.createElement('style')
-        pageStyle.innerText = `@import "${pathname}/shadow.css";`
-        shadow.appendChild(pageStyle)
+        // const pageStyle = document.createElement('style')
+        // pageStyle.innerText = `@import "${pathname}/shadow.css";`
+        // shadow.appendChild(pageStyle)
 
-        const parallaxCss = document.createElement('style')
-        parallaxCss.innerText = `@import "${pathname}/parallax.css";`
-        shadow.appendChild(parallaxCss)
+        // const parallaxCss = document.createElement('style')
+        // parallaxCss.innerText = `@import "${pathname}/parallax.css";`
+        // shadow.appendChild(parallaxCss)
 
-        const scrollCss = document.createElement('style')
-        scrollCss.innerText = `@import "${pathname}/scroll.css";`
-        shadow.appendChild(scrollCss)
+        // const scrollCss = document.createElement('style')
+        // scrollCss.innerText = `@import "${pathname}/scroll.css";`
+        // shadow.appendChild(scrollCss)
+
         // console.log('================================', shadowDom)
         // document.adoptedStyleSheets = [...document.adoptedStyleSheets, lightDom];
         // shadow.adoptedStyleSheets = [...shadow.adoptedStyleSheets, shadowDom];
@@ -99,6 +120,8 @@ export const welcomebook = (mount = {}) => {
         const current = () => {
             for (let item of buttons) {
                 if (item.classList.contains(activeClass)) {
+                    console.log('ssssssssssssssss',item)
+                    // debugger
                     return parseInt(item.dataset.id, 10)
                 }
             }
@@ -108,24 +131,24 @@ export const welcomebook = (mount = {}) => {
         const sensitivity = 340
         const mousemove = (event) => {
             const currentId = current()
-            if(currentId !== 0) {
-                if(event.clientX < sensitivity) {
-                    if(menu.classList.contains('sliderOut')) {
+            if (currentId !== 0) {
+                if (event.clientX < sensitivity) {
+                    if (menu.classList.contains('sliderOut')) {
                         menu.classList.replace('sliderOut', 'sliderIn')
                     } else {
                         menu.classList.add('sliderIn')
                     }
                 } else {
-                    let timeId = setTimeout(() => {
-                        clearTimeout(timeId)
-                        menu.classList.replace('sliderIn', 'sliderOut')
-
-                    }, 20000)
+                    // let timeId = setTimeout(() => {
+                    //     clearTimeout(timeId)
+                    //     menu.classList.replace('sliderIn', 'sliderOut')
+                    // }, 20000)
                 }
             }
         }
 
         let isFiring = false;
+
         function throttleEvent(event) {
             if (isFiring === false) {
                 setTimeout(() => {
@@ -135,14 +158,15 @@ export const welcomebook = (mount = {}) => {
             }
             isFiring = true;
         }
+
         const getWelcomeSection = (currentId) => {
             const sections = document.body.querySelectorAll('welcome-section')
-            for(let i = 0; i < sections.length; ++i) {
-                if(parseInt(sections[i].dataset.id, 10) === currentId) {
+            for (let i = 0; i < sections.length; ++i) {
+                if (parseInt(sections[i].dataset.id, 10) === currentId) {
                     return sections[i]
                 }
             }
-            return  undefined
+            return undefined
         }
 
         document.addEventListener('mousemove', throttleEvent)
@@ -150,16 +174,16 @@ export const welcomebook = (mount = {}) => {
         let position = 0
         let lock = false
         const onWheel = (event) => {
-            if(!lock) {
+            if (!lock) {
                 event = event || window.event;
                 let delta = event.deltaY || event.detail || event.wheelDelta;
                 position = position + delta
                 let currentId = undefined
 
-                if(position > 100) {
+                if (position > 100) {
                     lock = true
                     currentId = current()
-                    if((currentId + 1) < buttons.length) {
+                    if ((currentId + 1) < buttons.length) {
                         animationCount.setDirection(true)
                         buttons[currentId + 1].click();
                         position = 0
@@ -167,10 +191,10 @@ export const welcomebook = (mount = {}) => {
                         position = 0
                         lock = false
                     }
-                } else if(position < -100) {
+                } else if (position < -100) {
                     currentId = current()
 
-                    if(currentId - 1 >= 0) {
+                    if (currentId - 1 >= 0) {
                         lock = true
                         currentId = current()
                         animationCount.setDirection(false)
@@ -184,7 +208,7 @@ export const welcomebook = (mount = {}) => {
                                 let maxId = parseInt(childrentId[0], 10);
                                 let currentId = parseInt(childrentId[1], 10);
 
-                                if(maxId !== currentId) {
+                                if (maxId !== currentId) {
                                     buttons[0].classList.remove(activeClass)
                                     // buttons[0].disable = false
                                     buttons[0].removeAttribute('disabled')
@@ -206,10 +230,11 @@ export const welcomebook = (mount = {}) => {
         }
 
         let isFiringWheel = false;
+
         function throttleWheel(event) {
             if (isFiringWheel === false) {
                 setTimeout(() => {
-                    if(config.page.isMain.get()) {
+                    if (config.page.isMain.get()) {
                         onWheel(event);
                     }
                     isFiringWheel = false;
@@ -239,32 +264,29 @@ export const welcomebook = (mount = {}) => {
         let offsetChukdren = 0
         let filter = 0
 
-        // console.log('dddddddddddddd', window.screen.availHeight, window.outerHeight, window.innerHeight)
         const currentSection = () => {
-            // console.log('dddddddddddddd', window.screen.availHeight)
             const topDistance = window.scrollY + window.innerHeight;
-            // const topDistance = window.scrollY;
+
             for (let i = 0; i < containersScrollTop.length; ++i) {
                 const position = containersScrollTop[i] - topDistance
 
-                if(position > 0) {
+                if (position > 0) {
                     const percent = position * 100 / containersScrollTop[i]
                     const reversePercent = 100 - percent
                     let heigthData = 0
-                    if(heigthData === 0) {
+
+                    if (heigthData === 0) {
                         heigthData = vhToPixel(100)
                     }
+
                     let object = []
-                    for(let j = 0; j < sectionChildren[i].length; ++j) {
-                        if(sectionChildrenContent[i][j].classList.contains('section_content_item_img')) {
+
+                    for (let j = 0; j < sectionChildren[i].length; ++j) {
+                        if (sectionChildrenContent[i][j].classList.contains('section_content_item_img')) {
                             const pos = sectionChildren[i][j] - topDistance
 
-                            console.log('---------------------------', pos <= heigthData, pos > -heigthData, heigthData, sectionChildren[i][j] - topDistance)
-
-                            // const rect = child[j].getBoundingClientRect()
-                            // const bottom = Math.round(offsetChukdren + rect.height)
-                            if(pos <= heigthData && pos > -heigthData ) {
-                                if(sectionChildren[i][j] - topDistance > 0) {
+                            if (pos <= heigthData && pos > -heigthData) {
+                                if (sectionChildren[i][j] - topDistance > 0) {
 
                                     let position = sectionChildren[i][j] - topDistance
 
@@ -302,123 +324,44 @@ export const welcomebook = (mount = {}) => {
                         }
                     }
 
-                    // console.log('dddddddddd ---- ddddddddddd', object)
-                    return  object
-
-
+                    return object
                 }
-                // sectionChildren
-
-                // if (i !== 0) {
-                    // const position = topDistance + containersScrollTop[0]
-                    // const intensive = containersScrollTop[i] - position
-
-                    // if (intensive > 0 && filter < 1) {
-                    //     const height = sectionsScroll[i].getBoundingClientRect().height
-                    //     const percent = Math.round((100 * intensive) / height)
-                    //     const reversePercent = 100 - percent
-                    //     filter = filter + 1
-                        // console.log('===================================', percent)
-                        // return {
-                        //     this: sectionsScroll[i],
-                        //     props: {
-                        //         percent: percent,
-                        //         reversePercent: reversePercent
-                        //     }
-                        // }
-                    // }
-
-                    // if (i === containersScrollTop.length - 1) {
-                    //     filter = 0
-                    // }
-                // } else {
-                //
-                // }
             }
             return []
         }
 
         window.addEventListener('scroll', (event) => {
-            const top  = window.pageYOffset || document.documentElement.scrollTop
+            const top = window.pageYOffset || document.documentElement.scrollTop
             const object = currentSection()
 
             object.forEach(item => {
-                console.log('---------- item.position -----------', item.position)
-                if(item.isNeg) {
+                if (item.isNeg) {
                     item.img.style.transform = `translateY(${item.position * -1}px)`
                 } else {
                     item.img.style.transform = `translateY(${-item.position}px)`
                 }
-
-                // console.log('================', item.img)
             })
-
-            let step = 0
-            if(object?.img) {
-                switch (object.i) {
-                    case 0:
-                        // console.log('ssssssssssssssssssssss', object.percent.this)
-                        // step = object.container[0]?.clientHeight / 10
-                        // object.img.style.transform = `translateY(${size((step * object.percent.this * -1) + 240, 1920)}vw)`
-                        break
-                    case 1:
-                        // step = object.container[0]?.clientHeight / 95
-                        // object.img[0].style.transform = `translateY(${size((step * object.percent.this * -1) + 240, 1920)}vw)`
-                        // object.img[1].style.transform = `translateY(${size((step * object.percent.this * -1) + 10, 1920)}vw)`
-                        break
-                    case 2:
-                        // step = object.container[0]?.clientHeight / 98
-                        // object.img[0].style.transform = `translateY(${size((step * object.percent.this * -1) + 80, 1920)}vw)`
-                        break
-                    case 3:
-                        // step = object.container[0]?.clientHeight / 98
-                        // object.img[0].style.transform = `translateY(${size((step * object.percent.this * -1) + 100, 1920)}vw)`
-                        // object.img[1].style.transform = `translateY(${size((step * object.percent.this * -1) + 300, 1920)}vw)`
-                        break
-                    case 4:
-                        // step = object.container[0]?.clientHeight / 98
-                        // object.img[0].style.transform = `translateY(${size((step * object.percent.this * -1) + 200, 1920)}vw)`
-                        // object.img[1].style.transform = `translateY(${size((step * object.percent.this * -1), 1920)}vw)`
-                        break
-                    case 5:
-                        // step = object.container[0]?.clientHeight / 98
-                        // object.img[0].style.transform = `translateY(${size((step * object.percent.this * -1) + 200, 1920)}vw)`
-                        // object.img[1].style.transform = `translateY(${size((step * object.percent.this * -1), 1920)}vw)`
-                        break
-                }
-            }
-
-            // if (object) {
-            //     object.self.style.opacity = object.props.reversePercent / 100
-            // }
-            //       // movement = topDistance * 2;
-            //
-            //     // fadeOut(scrollIndicator[0], topDistance, 150);
-            //   // tweenHeight(scrollIndicatorLine[0], topDistance, 100, 25);
-            //   //
-            //   // elements.forEach(function (element) {
-            //   //     movement = -(topDistance * element.dataset.speed);
-            //   //     move(element, movement);
-            //   //     fadeOut(element, topDistance, tweenDistance);
-            //   // });
         });
 
         window.addEventListener('change-views', (event) => {
             config.page.isMain.set(false)
-            const animation = document.body.querySelector('.animation')
-            const welcomeBody = document.body.shadowRoot.querySelector('.welcome-body')
-            const welcomeSection = document.body.shadowRoot.querySelector('.welcome-body_section_1_0')
-            const sections = document.body.shadowRoot.querySelectorAll('div[class*="welcome-body_section"]')
+            const animation = mountPoint.querySelector('.animation')
+            const welcomeBody = mountPoint.shadowRoot.querySelector('.welcome-body')
+            const welcomeSection = mountPoint.shadowRoot.querySelector('.welcome-body_section_1_0')
+            const sections = mountPoint.shadowRoot.querySelectorAll('div[class*="welcome-body_section"]')
             let activeSection = undefined
+            const welcomeLogo = mountPoint.querySelector('welcome-logo')
 
-            for(let i =0; i < sections.length; ++i) {
-                if(parseInt(sections[i].dataset.id, 10) === event.detail.id) {
+
+            for (let i = 0; i < sections.length; ++i) {
+                console.log(sections, sections[i].dataset.id, event.detail.id)
+                if (sections[i].dataset.id === event.detail.id) {
                     activeSection = sections[i]
                     break
                 }
             }
 
-            if(!activeSection) {
+            if (!activeSection) {
                 console.assert(false, 'Должен определиться слот')
                 activeSection = welcomeSection
             }
@@ -437,23 +380,28 @@ export const welcomebook = (mount = {}) => {
 
             tl.add({
                 targets: animation.querySelectorAll('.item'),
-                width: '100%',
+                height: '100%',
                 backgroundColor: '#00A0A8',
                 delay: anime.stagger(100),
                 changeComplete: () => {
-                    if(event.detail.type === 'transform' && event.detail.action === 'to') {
+                    if (event.detail.type === 'transform' && event.detail.action === 'to') {
                         activeSection.style.display = 'flex'
                         welcomeBody.style.display = 'none'
                         document.body.style.overflow = 'overlay'
-                        window.scrollTo(0,0)
+                        console.log('== welcomeLogo ==', welcomeLogo)
+                        welcomeLogo.style.top = 'calc(var(--main-height) - 6vw)'
+                        welcomeLogo.style.left = 'unset'
+                        welcomeLogo.style.right = '5%'
+                        window.scrollTo(0, 0)
+
                     }
 
-                    if(event.detail.type === 'transform' && event.detail.action === 'from') {
+                    if (event.detail.type === 'transform' && event.detail.action === 'from') {
                         config.page.isMain.set(true)
                         activeSection.style.display = 'none'
                         welcomeBody.style.display = 'flex'
                         document.body.style.overflow = 'hidden'
-                        window.scrollTo( 0, 0);
+                        window.scrollTo(0, 0);
                     }
                 }
             });
@@ -461,23 +409,24 @@ export const welcomebook = (mount = {}) => {
             tl.add({
                 targets: animation.querySelectorAll('.item'),
                 delay: anime.stagger(70),
-                width: '100%',
+                height: '100%',
                 backgroundColor: 'rgba(15,223,239,0.42)',
                 changeBegin: () => {
-                    for(let i = 0; i < children.length; ++i) {
+                    for (let i = 0; i < children.length; ++i) {
                         const rect = children[i].getBoundingClientRect()
                         const bottom = Math.round(offset + rect.height)
 
-                        if(!sectionChildren[i]) {
+                        if (!sectionChildren[i]) {
                             sectionChildren[i] = []
                         }
 
-                        if(!sectionChildrenContent[i]) {
+                        if (!sectionChildrenContent[i]) {
                             sectionChildrenContent[i] = []
                         }
 
                         const child = children[i].shadowRoot.querySelector('.section_content').children
-                        for(let j = 0; j < child.length; ++j) {
+
+                        for (let j = 0; j < child.length; ++j) {
                             const rect = child[j].getBoundingClientRect()
                             const bottom = Math.round(offsetChukdren + rect.height)
                             sectionChildren[i].push(bottom)
@@ -494,7 +443,6 @@ export const welcomebook = (mount = {}) => {
                 },
                 changeComplete: () => {
                     animation.style.display = 'none';
-                    let offset = 0
                 }
             });
         })

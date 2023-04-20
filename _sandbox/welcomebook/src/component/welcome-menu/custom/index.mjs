@@ -7,12 +7,25 @@ const {
     size
 } = await import('../../../this/index.mjs')
 
+let isNextCurrent = false
+let childrentId = {}
+let children = {}
+
 export const initSections = (self) => {
     return new Promise((resolve, reject) => {
-
         let buttons = self.querySelectorAll('fer-button')
         let sections = self.assignedSlot.closest('div').querySelectorAll('.slider')
         let welcomeSections = self.getRootNode().querySelectorAll('welcome-section')
+        buttons[0].classList.add(activeClass)
+
+        welcomeSections.forEach(section => {
+            if (section.hasAttribute('children')) {
+                childrentId = section.getAttribute('children');
+                children = section.shadowRoot.querySelectorAll('section[class*="_children"]')
+                section.setAttribute('children', `${children.length}_0`);
+                console.log('item welcomeSections item', section)
+            }
+        })
 
         const getActive = () => {
             for (let i = 0; i < buttons.length; ++i) {
@@ -60,7 +73,9 @@ export const initSections = (self) => {
         }
         const activeButton = (event) => {
             for (let item of buttons) {
-                if (event.detail.id === item.dataset.id) {
+                console.log('event.detail.id', event.detail.id  - 1, item.dataset.id)
+                const id = parseInt(event.detail.id, 10) - 1 >= 0 ? parseInt(event.detail.id, 10) : 0
+                if ( id === parseInt(item.dataset.id, 10)) {
                     item.classList.add(activeClass)
                 } else {
                     item.classList.remove(activeClass)
@@ -109,6 +124,7 @@ export const initSections = (self) => {
                 const id = parseInt(event.detail.id, 10)
                 const section = getWelcomeSection(currentId)
 
+                console.log('CURRENT ID', currentId)
                 const description = section.shadowRoot.querySelector('.first-page')?.querySelector('.content')
 
                 let isNextCurrent = false
@@ -134,13 +150,15 @@ export const initSections = (self) => {
                                 }
                             } else {
                                 if (maxId >= currentId) {
-                                    section.setAttribute('children', `${children.length}_${currentId - 1}`);
+                                    const id = currentId - 1 > 0 ? currentId - 1 : 0
+                                    section.setAttribute('children', `${children.length}_${id}`);
                                     childrentId[0] = parseInt(maxId, 10)
-                                    childrentId[1] = parseInt(currentId - 1, 10)
+                                    childrentId[1] = parseInt(id, 10)
                                     isNextCurrent = true
                                 }
                             }
                         } else {
+                            debugger
                             section.setAttribute('children', `${children.length}_1`);
                             childrentId[0] = parseInt(children.length, 10)
                             childrentId[1] = 1
@@ -156,13 +174,21 @@ export const initSections = (self) => {
                     })
 
                     const list = section.shadowRoot.querySelectorAll('.content')
+                    let general = section.shadowRoot.querySelector('.image-general')
 
                     if(childrentId[1] !== 0) {
                         const isUp = animationCount.getDirection()
                         const item = getShadowSection(children, parseInt(isUp ? childrentId[1] - 1 : childrentId[1], 10))
 
                         if(isUp) {
-                            section.shadowRoot.querySelector('.image-general').style.opacity = 1
+                            if(general.classList.contains('ease-out')) {
+                                general.classList.replace('ease-out', 'ease-in')
+                            } else {
+                                general.classList.add('ease-in')
+                            }
+
+                            general.style.bottom = 0
+
                             if(list[0].classList.contains('descriptionDown')) {
                                 list[0].classList.replace('descriptionDown', 'descriptionUp')
                             } else {
@@ -176,7 +202,9 @@ export const initSections = (self) => {
                             }
                         } else {
 
-                            section.shadowRoot.querySelector('.image-general').style.opacity = 0
+                            // const height = getComputedStyle(document.documentElement).getPropertyValue('--main-height');
+                            // console.log('dddddddddddddddd', height)
+                            // section.shadowRoot.querySelector('.image-general').style.bottom = height
 
                             if(list[0].classList.contains('descriptionUp')) {
                                 list[0].classList.replace('descriptionUp', 'descriptionDown')
@@ -191,7 +219,16 @@ export const initSections = (self) => {
                             }
                         }
                     } else {
-                        section.shadowRoot.querySelector('.image-general').style.opacity = 0
+                        const height = getComputedStyle(document.documentElement).getPropertyValue('--main-height').trim();
+
+                        if(general.classList.contains('ease-in')) {
+                            general.classList.replace('ease-in', 'ease-out')
+                        } else {
+                            general.classList.add('ease-out')
+                        }
+
+                        section.shadowRoot.querySelector('.image-general').style.bottom = `-${height}`
+
                         const item = getShadowSection(children, 0)
 
                         if(list[0].classList.contains('descriptionUp')) {
@@ -207,6 +244,7 @@ export const initSections = (self) => {
                         }
                     }
 
+                    // activeButton(event)
                     events('fer-button-in', {
                         type: 'welcome-menu',
                         action: 'enable'
@@ -219,6 +257,7 @@ export const initSections = (self) => {
                     activeButton(event)
                     activeAnimationMenu(currentId, id)
 
+                    console.log('ssssssssssssssssssssssssssssssss', currentId, id)
                     if (id !== currentId) {
                         const isNext = (id - 1) === currentId || (id + 1) === currentId
                         const isBack = currentId >= id
@@ -282,8 +321,9 @@ export const initSections = (self) => {
                 const opaticyDefault = 1
                 const stepOpacity = 0.15
 
-                let rect = buttons[event.detail.id].getBoundingClientRect()
-                square.style.top = `${size(event.detail.id * rect.height + gap * event.detail.id, 1920)}rem`
+                let button = buttons[event.detail.id].getBoundingClientRect()
+                let menu = self.getBoundingClientRect()
+                square.style.top = `${((button.height + gap) * parseInt(event.detail.id,10)) - 1.2}px`
                 const activeItem = buttons[event.detail.id].shadowRoot.querySelector('p')
 
                 activeItem.style.opacity = `${opaticyDefault}`
@@ -293,6 +333,7 @@ export const initSections = (self) => {
                 const activeId = getActive()
 
                 let percent = 0
+
                 for (let i = activeId + 1; i < buttons.length; ++i) {
                     const currentItem = buttons[i].shadowRoot.querySelector('p')
                     percent = percent + 1

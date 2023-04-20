@@ -132,7 +132,7 @@ div[class*="content_item_img"] {
 }
 
 div[class*="content_item_0"] {
-	height: 100%;
+	height: 100vh;
 }
 
 div[class*="content_item_1"] {
@@ -503,10 +503,11 @@ h3[class*="section_content_text"] {
 }
 
 .section_content_body_diagram {
-	width: 765px;
-	height: 765px;
-	position: relative;
 	display: flex;
+	position: relative;
+	width: 39.84375vw;
+	height: 39.84375vw;
 	flex-direction: column;
 	justify-content: center;
+	background: red;
 }

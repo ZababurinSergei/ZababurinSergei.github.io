@@ -5,6 +5,9 @@ import actions from './actions/index.mjs'
 // const COMPONENT = path.dirname(import.meta.url).split(path.sep).pop()
 const COMPONENT = 'fer-modal'
 const INDEX =  class extends HTMLDialogElement {
+  static get observedAttributes() {
+    return ['disabled', 'open'];
+  }
   _doRender() {
     if(this._state.tree) {
       console.log('     🔵 RENDER')

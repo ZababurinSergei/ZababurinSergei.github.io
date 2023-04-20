@@ -1,7 +1,9 @@
 :host {
 	position: absolute;
-	bottom: 3.64583vw;
-	left: 47.5%;
+	top: calc(var(--main-height) - 11vw);
+	left: 50%;
+	z-index: 10;
+	width: 1px;
 }
 
 :host(.slot-2) {
@@ -10,12 +12,11 @@
 	left: 47.5%;
 }
 
-
 .welcome-logo {
-	position: relative;
+	position: absolute;
 	transform: rotate(45deg);
 	display: flex;
-	border: 0.20833vw solid white;
+	border: 0.20833vw solid #d50606;
 	/*width: 116px;*/
 	/*height: 116px;*/
 	width: 3.33333vw;
@@ -26,6 +27,8 @@
 	transition: width 1s, opacity 1s, height 1s, background-color 1s, transform 1s;
 	cursor: pointer;
 	transform-origin: center center;
+	left: -1.45vw;
+
 }
 
 .welcome-logo:hover {

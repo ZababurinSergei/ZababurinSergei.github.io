@@ -226,19 +226,18 @@ div[class*="description-without-background"] {
 
 div[class*="background-item-1"] {
 	padding: 0;
-	width: 30.88542vw;
+	width: 28.5rem;
 }
 
 div[class*="background-item-2"] {
 	padding: 0;
-	width: 37.5vw;
+	width: 28.5rem;
 }
 
 div[class*="background-item-3"] {
 	padding: 0;
-	width: 60.10417vw;
-	align-self: flex-end;
-	margin-right: 10.57292vw;
+	width: 28.5rem;
+	align-self: center;
 }
 
 div[class*="background-item-4"] {
@@ -302,7 +301,7 @@ div[class*="background-item-4"] {
 	line-height: 1.5625rem;
 	/*text-align: left;*/
 	margin-bottom: 0.625vw;
-	width: 64%;
+	width: 70%;
 }
 
 .description-text-margin-unset {
@@ -361,7 +360,7 @@ div[class*="background-item-4"] {
 	text-transform: uppercase;
 	position: relative;
 	text-align: left;
-
+	width: 100%;
 }
 
 .description-page-section-2 {
@@ -377,29 +376,29 @@ ul[class*="description-ul"] {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding: 0px;
 	gap: 0.72917vw;
 	font-style: normal;
 	font-size: 1.25rem;
 	line-height: 1.45833rem;
 	top: 58%;
-	left: 100%;
-	margin: 0 0 0 1.25vw;
+	left: 118%;
 	width: 19.0625vw;
+	padding-left: 0;
+	margin: 0;
 }
 
 ul[class*="ul-1"] {
-	margin-left: 2.91667vw;
+	margin-left: 0;
 }
 
 ul[class*="ul-2"] {
-	width: 29.11458vw;
-	left: 96%;
+	width: inherit;
+	/*left: 96%;*/
 }
 
 ul[class*="ul-3"] {
-	width: 23.95833vw;
-	left: 63%;
+	/*width: 23.95833vw;*/
+	/*left: 63%;*/
 }
 
 
@@ -413,9 +412,9 @@ ul[class*="ul-3"] {
 }
 
 .description-about-compeny, .description-about-resources {
-	width: 30.88542vw;
-	margin: 0;
+	width: 100%;
 	padding: 0;
+	margin: 0;
 	font-family: 'Raleway', serif;
 	font-style: normal;
 	font-weight: 700;
@@ -425,11 +424,15 @@ ul[class*="ul-3"] {
 }
 
 .description-about-resources {
-	width: unset;
+	width: 58rem;
 	/*width: 60.10417vw;*/
 	text-align: left;
 	align-self: flex-start;
 	/*margin-right: -7.08333vw;*/
+}
+
+.description-about-resources-4 {
+	margin: 0 0 0 -14%;
 }
 
 .description-without-background-thanks {
@@ -510,13 +513,20 @@ ul > li {
 	flex-direction: column;
 	min-width: unset;
 	z-index: 20;
-	opacity: 0;
-	transition: opacity 1s ease-in 0.5s;
-	bottom: 0;
+	opacity: 1;
+	bottom: calc(var(--main-height) * -1);
 	right: 0;
 	align-self: center;
 	height: 100%;
 	justify-content: flex-end;
+}
+
+.ease-in {
+	transition: bottom 1s ease-in 0.5s;
+}
+
+.ease-out {
+	transition: bottom 1.1s ease-in 0s;
 }
 
 .image-general-src {

@@ -5,6 +5,9 @@ import actions from './actions/index.mjs'
 // const COMPONENT = path.dirname(import.meta.url).split(path.sep).pop()
 const COMPONENT = 'fer-scroll'
 const INDEX = class extends HTMLElement {
+    static get observedAttributes() {
+        return ['disabled', 'open'];
+    }
     _doRender() {
 
     }

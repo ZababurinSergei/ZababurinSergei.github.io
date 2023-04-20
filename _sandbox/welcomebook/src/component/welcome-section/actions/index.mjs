@@ -32,12 +32,11 @@ export default (self) => {
 
         const speedAnimationImageTop = getComputedStyle(self, 'host').getPropertyValue("--speedAnimationImageTop");
         const speedAnimationImageBottom = getComputedStyle(self, 'host').getPropertyValue("--speedAnimationImageBottom");
-        // const speedAnimationContent = getComputedStyle(self, 'host').getPropertyValue("--speedAnimationContent");
         const k = speedAnimationImageTop * 100 / speedAnimationImageBottom
 
         // console.log('##### 2######### self ##############', speedAnimationImageTop, speedAnimationImageBottom)
 
-        const maxScale = 1.5
+        const maxScale = 1.2
         const maxOpacity = 0
 
         function requestAnimationFrame(timestamp) {
@@ -209,7 +208,7 @@ export default (self) => {
                     })
                 } else {
                     imageScale.forEach((item, index) => {
-                        item.style.transform = `scale(1.5)`
+                        item.style.transform = `scale(${maxScale})`
                         if(index === 1) {
                             item.style.opacity = `0`
                         }

@@ -5,6 +5,9 @@ import actions from './actions/index.mjs'
 const COMPONENT = 'welcome-logo'
 
 const INDEX = class extends HTMLElement {
+    static get observedAttributes() {
+        return ['disabled', 'open'];
+    }
     _doRender() {
 
     }

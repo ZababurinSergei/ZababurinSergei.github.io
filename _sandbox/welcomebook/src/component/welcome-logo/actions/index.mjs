@@ -1,15 +1,18 @@
-import { anime } from '../views/index.mjs'
-
+// import { anime } from '../views/index.mjs'
+import { activeClass } from '../../../this/index.mjs'
 export default (self) => {
     return new Promise(async (resolve, reject) => {
 
         resolve({
             click: (event) => {
+                let menu = self.getRootNode().querySelector('welcome-menu')
+                menu = menu.querySelector(`.${activeClass}`)
+                // console.log('dddddddddddddddddddd', menu, parseInt(menu.dataset.id, 10) )
                 window.dispatchEvent(new CustomEvent('change-views', {
                     bubbles: true,
                     composed: true,
                     detail: {
-                        id: parseInt(self.parentNode.dataset.id, 10),
+                        id: menu.dataset.id,
                         type: 'transform',
                         action: `to`
                     }

@@ -1,10 +1,13 @@
 :host {
-	/*position: absolute;*/
-	/*bottom: 43px;*/
+	position: fixed;
+	bottom: 15vh;
+	left: 48.5vw;
+	z-index: 10000;
 }
 
 .welcome__scroll {
 	position: absolute;
+	top: 30%;
 	/*bottom: -55%;*/
 	/*left: 58%;*/
 }

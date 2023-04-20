@@ -3,6 +3,9 @@ import addEventListener from './controller/addEventListener/index.mjs'
 import actions from './actions/index.mjs'
 const COMPONENT = 'fer-hash'
 const INDEX =  class extends HTMLElement {
+  static get observedAttributes() {
+    return ['disabled', 'open'];
+  }
   _doRender() {
     if(this._state.tree) {
       console.log('     🔵 RENDER')

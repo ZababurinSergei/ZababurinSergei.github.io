@@ -1,7 +1,26 @@
-import { events, animationCount } from '../../../this/index.mjs'
+import {events, animationCount, activeClass} from '../../../this/index.mjs'
 
 export default (self) => {
     return new Promise(async (resolve, reject) => {
+
+        const isNextSectionById = (welcomeSection, id) => {
+            let isNextSectionById = true
+            welcomeSection.forEach(section => {
+                const currentId = section.dataset.id
+                if(section.dataset.id === id.toString() && section.hasAttribute('children')) {
+                    const childrentId = section.getAttribute('children').split('_');
+                    let maxId = parseInt(childrentId[0], 10);
+                    let currentId = parseInt(childrentId[1], 10);
+                    if(maxId > currentId) {
+                        isNextSectionById = false
+                    }
+                    console.log('sssssssssss 🏤sssssssssssssssssss',maxId, currentId)
+                }
+
+            })
+
+            return isNextSectionById
+        }
 
         resolve({
             click: (event) => {
@@ -13,10 +32,39 @@ export default (self) => {
 
                 const buttons = document.querySelectorAll('fer-button')
 
+
+                const root = self.getRootNode()
+                const welcomeSection = root.querySelectorAll('welcome-section')
+
+                let currentButtonIndex = undefined
+                let currentButton = undefined
+                let currentButtonId= undefined
+
                 for(let i = 0; i < buttons.length; ++i) {
-                    if(parseInt(buttons[i].dataset.id, 10) === 1 && buttons[i].dataset.type === 'welcome-menu') {
-                        buttons[i].click()
+                    const id = parseInt(buttons[i].dataset.id, 10)
+                    if(buttons[i].dataset.type === 'welcome-menu' && buttons[i].classList.contains(activeClass)) {
+                       currentButtonIndex = i
+                        currentButtonId = id
+                        currentButton = buttons[i]
+                        break
                     }
+
+                    if(id === 0) {
+                        currentButtonIndex = 0
+                        currentButtonId = 0
+                        currentButton = buttons[i]
+                    }
+                    // console.log('dddddddddddddddddd', buttons[i].dataset.id, )
+                    //     if(parseInt(buttons[i].dataset.id, 10) === 1 && buttons[i].dataset.type === 'welcome-menu') {
+                    //     buttons[i].click()
+                    // }
+                }
+
+
+                if(isNextSectionById(welcomeSection, currentButtonId)) {
+                    buttons[currentButtonId + 1].click()
+                } else {
+                    buttons[parseInt(currentButtonId, 10)].click()
                 }
 
                 events('welcome-header', {
