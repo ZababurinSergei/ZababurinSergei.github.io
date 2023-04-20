@@ -149,7 +149,7 @@ div[class*="content_item_1_0"] {
 	gap: 2.60417vw;
 	font-family: 'Raleway', serif;
 	text-align: center;
-	color: var(--main);
+	color: var(--main-color);
 	font-style: normal;
 	font-weight: 800;
 	font-size: 2.60417vw;
@@ -233,7 +233,7 @@ p[class*="section_content_body_p"] {
 
 .section_content_header_p_left, .section_content_header_p_right {
 	position: relative;
-	background: var(--main);
+	background: var(--main-color);
 	height: 0.20833vw;
 	width: 100%;
 }
