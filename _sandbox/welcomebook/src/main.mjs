@@ -1,21 +1,7 @@
-// import {events, activeClass, delay} from './this/index.mjs'
-// import ferHash from './component/fer-hash/index.mjs'
-// import ferButton from './component/fer-button/index.mjs'
-// import ferScroll from './component/fer-scroll/index.mjs'
-// import welcomeMenu from './component/welcome-menu/index.mjs'
-// import welcomeSection from './component/welcome-section/index.mjs'
-// import welcomeHeader from './component/welcome-header/index.mjs'
-// import welcomeGeneral from './component/welcome-general/index.mjs'
-// import welcomeLogo from './component/welcome-logo/index.mjs'
-// import welcomeFeedback from './component/welcome-feedback/index.mjs'
-// import lightDom from './index.css' assert { type:'css' }
-// import shadowDom from './shadow.css' assert { type:'css' }
-// import shadowDom from './index.css' assert { type:'css' }
-// import parallax from './parallax.css' assert { type:'css' }
-// import scroll from './scroll.css' assert { type:'css' }
 
 export const welcomebook = (mount = {}) => {
     return new Promise(async (resolve, reject) => {
+        window.scrollTo(0, 0)
 
         const {pathname, CSSVariables, mountPoint, template} = Object.assign({
             pathname: '.',
@@ -87,42 +73,19 @@ export const welcomebook = (mount = {}) => {
             mountPoint.appendChild(templateContent)
         }
 
-        const mainCss = document.createElement('style')
-        mainCss.innerText = `@import "./main.css";`
-        shadow.appendChild(mainCss)
-        document.body.appendChild(mainCss)
-
-        // const indexCss = document.createElement('style')
-        // indexCss.innerText = `@import "${pathname}/index.css";`
-        // document.body.appendChild(indexCss)
-
-        // const pageStyle = document.createElement('style')
-        // pageStyle.innerText = `@import "${pathname}/shadow.css";`
-        // shadow.appendChild(pageStyle)
-
-        // const parallaxCss = document.createElement('style')
-        // parallaxCss.innerText = `@import "${pathname}/parallax.css";`
-        // shadow.appendChild(parallaxCss)
-
-        // const scrollCss = document.createElement('style')
-        // scrollCss.innerText = `@import "${pathname}/scroll.css";`
-        // shadow.appendChild(scrollCss)
-
-        // console.log('================================', shadowDom)
-        // document.adoptedStyleSheets = [...document.adoptedStyleSheets, lightDom];
-        // shadow.adoptedStyleSheets = [...shadow.adoptedStyleSheets, shadowDom];
-        // shadow.adoptedStyleSheets = [...shadow.adoptedStyleSheets, parallax];
-        // shadow.adoptedStyleSheets = [...shadow.adoptedStyleSheets, scroll];
+        // const mainCss = document.createElement('style')
+        // mainCss.innerText = `@import "./main.css";`
+        // shadow.appendChild(mainCss)
+        // document.body.appendChild(mainCss)
 
         let menu = document.body.querySelector('welcome-menu')
         let buttons = menu.querySelectorAll('fer-button')
+        let welcomeLogo = document.body.querySelector('welcome-logo')
 
         const current = () => {
             for (let item of buttons) {
                 if (item.classList.contains(activeClass)) {
-                    console.log('ssssssssssssssss',item)
-                    // debugger
-                    return parseInt(item.dataset.id, 10)
+                    return item.dataset.id
                 }
             }
             return 0
@@ -132,7 +95,7 @@ export const welcomebook = (mount = {}) => {
         const mousemove = (event) => {
             const currentId = current()
             if (currentId !== 0) {
-                if (event.clientX < sensitivity) {
+                if (event.clientX < sensitivity && welcomeLogo.dataset.id !== '0') {
                     if (menu.classList.contains('sliderOut')) {
                         menu.classList.replace('sliderOut', 'sliderIn')
                     } else {
@@ -162,7 +125,7 @@ export const welcomebook = (mount = {}) => {
         const getWelcomeSection = (currentId) => {
             const sections = document.body.querySelectorAll('welcome-section')
             for (let i = 0; i < sections.length; ++i) {
-                if (parseInt(sections[i].dataset.id, 10) === currentId) {
+                if (sections[i].dataset.id === currentId) {
                     return sections[i]
                 }
             }
@@ -171,25 +134,52 @@ export const welcomebook = (mount = {}) => {
 
         document.addEventListener('mousemove', throttleEvent)
 
+
+        const isNextSectionById = (welcomeSection, id) => {
+            let isNextSectionById = true
+            welcomeSection.forEach(section => {
+                const currentId = section.dataset.id
+                if(section.dataset.id === id.toString() && section.hasAttribute('children')) {
+                    const childrentId = section.getAttribute('children').split('_');
+                    let maxId = parseInt(childrentId[0], 10);
+                    let currentId = parseInt(childrentId[1], 10);
+                    if(maxId > currentId) {
+                        isNextSectionById = false
+                    }
+                }
+
+            })
+
+            return isNextSectionById
+        }
+
+        const welcomeSection = mountPoint.querySelectorAll('welcome-section')
         let position = 0
         let lock = false
         const onWheel = (event) => {
             if (!lock) {
+                lock = true
                 event = event || window.event;
                 let delta = event.deltaY || event.detail || event.wheelDelta;
                 position = position + delta
                 let currentId = undefined
-
                 if (position > 100) {
-                    lock = true
-                    currentId = current()
-                    if ((currentId + 1) < buttons.length) {
-                        animationCount.setDirection(true)
-                        buttons[currentId + 1].click();
-                        position = 0
-                    } else {
-                        position = 0
-                        lock = false
+                    currentId = current().toString()
+                    //__zb__
+                    const currentLength = currentId.split('_')
+                    if(currentLength.length === 1) {
+                        if ((parseInt(currentId, 10) + 1) < buttons.length) {
+                            let step = 0
+                            if(isNextSectionById(welcomeSection, currentId)) {
+                                step = 1
+                            }
+                            animationCount.setDirection(true)
+                            buttons[parseInt(currentId, 10) + step].click();
+                            position = 0
+                        } else {
+                            position = 0
+                            lock = false
+                        }
                     }
                 } else if (position < -100) {
                     currentId = current()
@@ -345,106 +335,277 @@ export const welcomebook = (mount = {}) => {
 
         window.addEventListener('change-views', (event) => {
             config.page.isMain.set(false)
+            let id = {}
+            id.array = event.detail.id.split('_')
+            id.section = event.detail.section
+            id.isFirst = id.array.length === 1
             const animation = mountPoint.querySelector('.animation')
             const welcomeBody = mountPoint.shadowRoot.querySelector('.welcome-body')
             const welcomeSection = mountPoint.shadowRoot.querySelector('.welcome-body_section_1_0')
+            const welcomeLogo = mountPoint.querySelector('welcome-logo')
+            const ferScroll = mountPoint.querySelector('fer-scroll')
+            const welcomeMenu = mountPoint.querySelector('welcome-menu')
             const sections = mountPoint.shadowRoot.querySelectorAll('div[class*="welcome-body_section"]')
             let activeSection = undefined
-            const welcomeLogo = mountPoint.querySelector('welcome-logo')
-
-
-            for (let i = 0; i < sections.length; ++i) {
-                console.log(sections, sections[i].dataset.id, event.detail.id)
-                if (sections[i].dataset.id === event.detail.id) {
-                    activeSection = sections[i]
-                    break
-                }
-            }
-
-            if (!activeSection) {
-                console.assert(false, 'Должен определиться слот')
-                activeSection = welcomeSection
-            }
-
-            let children = activeSection.querySelector('slot')
-
-            children = children.assignedNodes()
-
-            animation.style.opacity = '1';
-            animation.style.display = 'grid'
-
-            let tl = anime.timeline({
-                easing: 'easeOutExpo',
-                duration: 850
-            });
-
-            tl.add({
-                targets: animation.querySelectorAll('.item'),
-                height: '100%',
-                backgroundColor: '#00A0A8',
-                delay: anime.stagger(100),
-                changeComplete: () => {
-                    if (event.detail.type === 'transform' && event.detail.action === 'to') {
-                        activeSection.style.display = 'flex'
-                        welcomeBody.style.display = 'none'
-                        document.body.style.overflow = 'overlay'
-                        console.log('== welcomeLogo ==', welcomeLogo)
-                        welcomeLogo.style.top = 'calc(var(--main-height) - 6vw)'
-                        welcomeLogo.style.left = 'unset'
-                        welcomeLogo.style.right = '5%'
-                        window.scrollTo(0, 0)
-
+            const welcomeSections = mountPoint.querySelectorAll(`welcome-section[data-id*="${id.array[0]}_"]`)
+            const percent = '15vh'
+            if(id.isFirst) {
+                for (let i = 0; i < sections.length; ++i) {
+                    if (sections[i].dataset.id === event.detail.id) {
+                        activeSection = sections[i]
+                        break
                     }
+                }
 
-                    if (event.detail.type === 'transform' && event.detail.action === 'from') {
+                if (!activeSection) {
+                    // console.assert(false, 'Должен определиться слот')
+                    activeSection = welcomeSection
+                }
+
+                const self = document
+                const root = self.getRootNode()
+                const welcomeSectionActive = root.querySelector(`welcome-section[data-id="${activeSection.dataset.section}"]`)
+                const hasAnimations = welcomeSectionActive.shadowRoot.querySelectorAll('.has-animation')
+
+                for(let i =0; i < welcomeSections.length;++i) {
+                    if(welcomeSections[i].dataset.id === id.section) {
+                        welcomeLogo.dataset.id = welcomeSections[i].dataset.id
+                        welcomeLogo.section = id.section
+                        ferScroll.section = id.section
+                        // console.log('!!!!!!!!!!!!!!!!!', welcomeSections[i].dataset.id, id.section)
+                    }
+                }
+
+                // welcomeLogo.dataset.id = activeSection.dataset.section
+
+
+
+                // console.log('😔 SECTIONS 😔 ',sections, activeSection.dataset.section, event.detail.id)
+                let children = activeSection.querySelector('slot')
+
+                children = children.assignedNodes()
+
+                animation.style.opacity = '1';
+                animation.style.display = 'grid'
+
+                let currentSection = {}
+
+                let tl = anime.timeline({
+                    easing: 'easeOutExpo',
+                    duration: 850
+                });
+
+                tl.add({
+                    targets: animation.querySelectorAll('.item'),
+                    height: percent,
+                    backgroundColor: '#00A0A8',
+                    delay: anime.stagger(100),
+                    changeComplete: () => {
+                        if (event.detail.type === 'transform' && event.detail.action === 'to') {
+                            for(let i = 0; i < welcomeSections.length; ++i) {
+                                if(welcomeSections[i].dataset.id === id.section) {
+                                    currentSection = welcomeSections[i]
+                                }
+                            }
+
+
+                            activeSection.style.display = 'flex'
+                            welcomeBody.style.display = 'none'
+                            // document.body.style.overflow = 'overlay'
+                            welcomeLogo.style.top = 'calc(var(--main-height) - 6.5vw)'
+                            welcomeLogo.style.left = 'unset'
+                            welcomeLogo.style.right = '5%'
+                            // const color = getComputedStyle(ferScroll).getPropertyValue('--color');
+                            welcomeMenu.style.display = 'none'
+                            ferScroll.style.setProperty("--color", '#000000');
+                            // const welcomeLogoOutSide = ferScroll.shadowRoot.querySelector('span')
+
+                            const welcomeLogoOutSide = welcomeLogo.shadowRoot.querySelector('.welcome-logo')
+                            const squareButtom = welcomeLogo.shadowRoot.querySelector('.square-buttom')
+                            const squareTitle = welcomeLogo.shadowRoot.querySelector('.square-title')
+
+                            welcomeLogoOutSide.style.border = '0.20833vw solid #000000'
+                            // welcomeLogoOutSide.style.background = '#000000'
+                            squareButtom.style.background = '#000000'
+                            squareTitle.style.color = '#fff'
+
+                            welcomeLogo.shadowRoot.querySelector('.square-title').textContent = 'Назад';
+                            // welcomeLogo.style.position = 'fixed'
+                            // ferScroll.style.position = 'fixed'
+                            //
+
+                            hasAnimations.forEach(item => {
+                                item.classList.add('animate-in')
+                            })
+                        }
+
+                        if (event.detail.type === 'transform' && event.detail.action === 'from') {
+                            config.page.isMain.set(true)
+                            activeSection.style.display = 'none'
+                            welcomeBody.style.display = 'flex'
+                            document.body.style.overflow = 'hidden'
+                            // window.scrollTo(0, 0);
+                        }
+                    }
+                });
+
+                tl.add({
+                    targets: animation.querySelectorAll('.item'),
+                    delay: anime.stagger(70),
+                    height: percent,
+                    backgroundColor: 'rgba(15,223,239,0.42)',
+                    changeBegin: () => {
+                        currentSection.scrollIntoView()
+
+                        for (let i = 0; i < children.length; ++i) {
+                            const rect = children[i].getBoundingClientRect()
+                            const bottom = Math.round(offset + rect.height)
+
+                            if (!sectionChildren[i]) {
+                                sectionChildren[i] = []
+                            }
+
+                            if (!sectionChildrenContent[i]) {
+                                sectionChildrenContent[i] = []
+                            }
+
+                            const child = children[i].shadowRoot.querySelector('.section_content').children
+
+                            for (let j = 0; j < child.length; ++j) {
+                                const rect = child[j].getBoundingClientRect()
+                                const bottom = Math.round(offsetChukdren + rect.height)
+                                sectionChildren[i].push(bottom)
+                                sectionChildrenContent[i].push(child[j])
+                                offsetChukdren = bottom
+                            }
+
+                            sectionsScroll.push(children[i])
+                            containersScrollTop.push(bottom)
+                            offset = bottom
+                        }
+
+                        animation.style.opacity = '0';
+                    },
+                    changeComplete: () => {
+                        animation.style.display = 'none';
+                    }
+                })
+            } else {
+                for (let i = 0; i < sections.length; ++i) {
+                    if (sections[i].dataset.id === id.array[0]) {
+                        activeSection = sections[i]
+                        break
+                    }
+                }
+
+                if (!activeSection) {
+                    console.assert(false, 'Должен определиться слот')
+                    activeSection = welcomeSection
+                }
+
+                welcomeLogo.section = activeSection.dataset.section
+                ferScroll.section = activeSection.dataset.section
+
+                let children = activeSection.querySelector('slot')
+
+                children = children.assignedNodes()
+
+                animation.style.opacity = '1';
+                animation.style.display = 'grid'
+
+                let tl = anime.timeline({
+                    easing: 'easeOutExpo',
+                    duration: 850
+                });
+
+                tl.add({
+                    targets: animation.querySelectorAll('.item'),
+                    height: percent,
+                    backgroundColor: '#00A0A8',
+                    delay: anime.stagger(100),
+                    changeComplete: () => {
+                        if (event.detail.type === 'transform' && event.detail.action === 'to') {
+                            activeSection.style.display = 'none'
+                            welcomeBody.style.display = 'flex'
+                            welcomeSections.forEach(item => {
+                                item.style.transform =  `translateY(0)`
+                            })
+
+                            welcomeMenu.style.display = 'flex'
+                            welcomeLogo.dataset.id = id.array[0]
+                            welcomeLogo.section = `${id.array[0]}_0`
+                            ferScroll.section = id.array[0]
+
+                            ferScroll.style.setProperty("--color", '#ffffff');
+                            const welcomeLogoOutSide = welcomeLogo.shadowRoot.querySelector('.welcome-logo')
+                            const squareButtom = welcomeLogo.shadowRoot.querySelector('.square-buttom')
+                            const squareTitle = welcomeLogo.shadowRoot.querySelector('.square-title')
+                            squareTitle.style.color = 'black'
+                            welcomeLogoOutSide.style.border = '0.20833vw solid #ffffff'
+                            squareButtom.style.background = '#ffffff'
+
+                            welcomeLogo.style.top = 'calc(var(--main-height) - 12.3vw)'
+                            welcomeLogo.style.left = '49.67%'
+                            welcomeLogo.style.right = 'unset'
+                            welcomeLogo.shadowRoot.querySelector('.square-title').textContent = 'Больше'
+
+                            window.scrollTo(0, 0)
+
+                        }
+
+                        if (event.detail.type === 'transform' && event.detail.action === 'from') {
+                            config.page.isMain.set(true)
+                            activeSection.style.display = 'none'
+                            welcomeBody.style.display = 'flex'
+                            document.body.style.overflow = 'hidden'
+                            window.scrollTo(0, 0);
+                        }
+                    }
+                });
+
+                tl.add({
+                    targets: animation.querySelectorAll('.item'),
+                    delay: anime.stagger(70),
+                    height: percent,
+                    backgroundColor: 'rgba(15,223,239,0.42)',
+                    changeBegin: () => {
+                        for (let i = 0; i < children.length; ++i) {
+
+                            const rect = children[i].getBoundingClientRect()
+                            const bottom = Math.round(offset + rect.height)
+
+                            if (!sectionChildren[i]) {
+                                sectionChildren[i] = []
+                            }
+
+                            if (!sectionChildrenContent[i]) {
+                                sectionChildrenContent[i] = []
+                            }
+
+                            const child = children[i].shadowRoot.querySelector('.section_content').children
+
+                            for (let j = 0; j < child.length; ++j) {
+                                const rect = child[j].getBoundingClientRect()
+                                const bottom = Math.round(offsetChukdren + rect.height)
+                                sectionChildren[i].push(bottom)
+                                sectionChildrenContent[i].push(child[j])
+                                offsetChukdren = bottom
+                            }
+
+                            sectionsScroll.push(children[i])
+                            containersScrollTop.push(bottom)
+                            offset = bottom
+                        }
+
+                        animation.style.opacity = '0';
+                    },
+                    changeComplete: () => {
                         config.page.isMain.set(true)
-                        activeSection.style.display = 'none'
-                        welcomeBody.style.display = 'flex'
-                        document.body.style.overflow = 'hidden'
-                        window.scrollTo(0, 0);
+                        animation.style.display = 'none';
                     }
-                }
-            });
+                })
+            }
 
-            tl.add({
-                targets: animation.querySelectorAll('.item'),
-                delay: anime.stagger(70),
-                height: '100%',
-                backgroundColor: 'rgba(15,223,239,0.42)',
-                changeBegin: () => {
-                    for (let i = 0; i < children.length; ++i) {
-                        const rect = children[i].getBoundingClientRect()
-                        const bottom = Math.round(offset + rect.height)
-
-                        if (!sectionChildren[i]) {
-                            sectionChildren[i] = []
-                        }
-
-                        if (!sectionChildrenContent[i]) {
-                            sectionChildrenContent[i] = []
-                        }
-
-                        const child = children[i].shadowRoot.querySelector('.section_content').children
-
-                        for (let j = 0; j < child.length; ++j) {
-                            const rect = child[j].getBoundingClientRect()
-                            const bottom = Math.round(offsetChukdren + rect.height)
-                            sectionChildren[i].push(bottom)
-                            sectionChildrenContent[i].push(child[j])
-                            offsetChukdren = bottom
-                        }
-
-                        sectionsScroll.push(children[i])
-                        containersScrollTop.push(bottom)
-                        offset = bottom
-                    }
-
-                    animation.style.opacity = '0';
-                },
-                changeComplete: () => {
-                    animation.style.display = 'none';
-                }
-            });
         })
 
         resolve()

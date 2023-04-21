@@ -1,9 +1,10 @@
 :host {
-	position: absolute;
+	position: fixed;
 	top: calc(var(--main-height) - 6vw);
 	left: 50%;
-	z-index: 10;
-	width: 1px;
+	z-index: 15;
+	width: 0.05208vw;
+	--color: white
 }
 
 body {
@@ -15,7 +16,7 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	transform: rotate(0);
+	/*transform: rotate(0);*/
 	cursor: pointer;
 }
 
@@ -23,8 +24,8 @@ body {
 	display: block;
 	width: 1.5vw;
 	height: 1.5vw;
-	border-bottom: 0.20833vw solid #ad1010;
-	border-right: 0.20833vw solid #961c1c;
+	border-bottom: 0.20833vw solid var(--color);
+	border-right: 0.20833vw solid var(--color);
 	transform: rotate(45deg);
 	margin: -0.52083vw;
 	animation: animate 2s infinite;

@@ -1,12 +1,13 @@
 import { init, onload } from '../../this/index.mjs'
 import addEventListener from './controller/addEventListener/index.mjs'
 import actions from './actions/index.mjs'
+import { delay } from '../../this/index.mjs'
 
 const COMPONENT = 'welcome-logo'
 
 const INDEX = class extends HTMLElement {
     static get observedAttributes() {
-        return ['disabled', 'open'];
+        return ['disabled', 'open', 'section'];
     }
     _doRender() {
 
@@ -30,6 +31,18 @@ const INDEX = class extends HTMLElement {
             }
         }
     }
+    set section(val) {
+        if (val) {
+            this.setAttribute('section', val);
+        } else {
+            this.removeAttribute('section');
+        }
+    }
+
+    get section() {
+        return this.hasAttribute('section') ? this.getAttribute('section') : undefined;
+    }
+
     set open(val) {
         if (val) {
             this.setAttribute('open', '');
@@ -45,8 +58,20 @@ const INDEX = class extends HTMLElement {
     set disabled(val) {
         if (val) {
             this.setAttribute('disabled', '');
+            this.shadowRoot.querySelector('.welcome-logo').style.cursor = 'text'
+            delay(2000).then(() => {
+                this.style.visibility = 'hidden'
+            })
+
         } else {
             this.removeAttribute('disabled');
+            this.shadowRoot.querySelector('.welcome-logo').style.cursor = 'pointer'
+            this.style.visibility = 'visible'
+            // this.style.opacity = 1
+            // delay(2000).then(() => {
+            //
+            // })
+
         }
     }
     get disabled() {

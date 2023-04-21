@@ -2,19 +2,24 @@
 import { activeClass } from '../../../this/index.mjs'
 export default (self) => {
     return new Promise(async (resolve, reject) => {
+        self.section = '0_0'
+        self.dataset.id = '0'
+        self.style.visibility = 'hidden'
 
         resolve({
             click: (event) => {
-                let menu = self.getRootNode().querySelector('welcome-menu')
-                menu = menu.querySelector(`.${activeClass}`)
-                // console.log('dddddddddddddddddddd', menu, parseInt(menu.dataset.id, 10) )
+                if(self.disable) return
+                // let welcomeMenu = self.getRootNode().querySelector('welcome-menu')
+                // const activeMenu = welcomeMenu.querySelector(`.${activeClass}`)
+
                 window.dispatchEvent(new CustomEvent('change-views', {
                     bubbles: true,
                     composed: true,
                     detail: {
-                        id: menu.dataset.id,
+                        id: self.dataset.id,
                         type: 'transform',
-                        action: `to`
+                        action: `to`,
+                        section: self.section
                     }
                 }));
             },

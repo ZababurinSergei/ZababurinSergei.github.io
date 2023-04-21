@@ -6,7 +6,7 @@ import actions from './actions/index.mjs'
 const COMPONENT = 'fer-scroll'
 const INDEX = class extends HTMLElement {
     static get observedAttributes() {
-        return ['disabled', 'open'];
+        return ['disabled', 'open', 'section'];
     }
     _doRender() {
 
@@ -28,6 +28,19 @@ const INDEX = class extends HTMLElement {
             }
         }
     }
+
+    set section(val) {
+        if (val || val === 0) {
+            this.setAttribute('section', val);
+        } else {
+            this.removeAttribute('section');
+        }
+    }
+
+    get section() {
+        return this.hasAttribute('section') ? this.getAttribute('section') : undefined;
+    }
+
     set open(val) {
         if (val) {
             this.setAttribute('open', '');

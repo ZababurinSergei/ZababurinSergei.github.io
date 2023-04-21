@@ -16,14 +16,18 @@ export const initSections = (self) => {
         let buttons = self.querySelectorAll('fer-button')
         let sections = self.assignedSlot.closest('div').querySelectorAll('.slider')
         let welcomeSections = self.getRootNode().querySelectorAll('welcome-section')
+        let ferScroll = self.getRootNode().querySelector('fer-scroll')
+        let welcomeLogo = self.getRootNode().querySelector('welcome-logo')
         buttons[0].classList.add(activeClass)
+        welcomeLogo.style.opacity = '0'
+        // welcomeLogo.style.visibility = 'hidden'
+        // welcomeLogo.disabled = true
 
         welcomeSections.forEach(section => {
             if (section.hasAttribute('children')) {
                 childrentId = section.getAttribute('children');
                 children = section.shadowRoot.querySelectorAll('section[class*="_children"]')
                 section.setAttribute('children', `${children.length}_0`);
-                console.log('item welcomeSections item', section)
             }
         })
 
@@ -73,7 +77,6 @@ export const initSections = (self) => {
         }
         const activeButton = (event) => {
             for (let item of buttons) {
-                console.log('event.detail.id', event.detail.id  - 1, item.dataset.id)
                 const id = parseInt(event.detail.id, 10) - 1 >= 0 ? parseInt(event.detail.id, 10) : 0
                 if ( id === parseInt(item.dataset.id, 10)) {
                     item.classList.add(activeClass)
@@ -108,8 +111,6 @@ export const initSections = (self) => {
             if(id !== 4 ) {
                 image.style.mixBlendMode = 'multiply'
             }
-            // console.log('ssssssssssssssssssssssssssss ssssssssssssssssss', id)
-
         }
 
         resolve({
@@ -124,7 +125,9 @@ export const initSections = (self) => {
                 const id = parseInt(event.detail.id, 10)
                 const section = getWelcomeSection(currentId)
 
-                console.log('CURRENT ID', currentId)
+                welcomeLogo.section = `${id}_0`
+                welcomeLogo.dataset.id = id
+                ferScroll.section = id
                 const description = section.shadowRoot.querySelector('.first-page')?.querySelector('.content')
 
                 let isNextCurrent = false
@@ -257,7 +260,14 @@ export const initSections = (self) => {
                     activeButton(event)
                     activeAnimationMenu(currentId, id)
 
-                    console.log('ssssssssssssssssssssssssssssssss', currentId, id)
+                    if(id === 0 ) {
+                        welcomeLogo.style.opacity = '0'
+                        welcomeLogo.disabled = true
+                    } else {
+                        welcomeLogo.style.opacity = '1'
+                        welcomeLogo.disabled = false
+                    }
+
                     if (id !== currentId) {
                         const isNext = (id - 1) === currentId || (id + 1) === currentId
                         const isBack = currentId >= id

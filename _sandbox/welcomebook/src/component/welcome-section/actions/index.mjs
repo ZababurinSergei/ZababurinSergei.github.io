@@ -224,6 +224,22 @@ export default (self) => {
         }
 
         resolve({
+            click: (event) => {
+                if(event.target.tagName === 'LI' ) {
+                    let welcomeMenu = self.getRootNode().querySelector('welcome-menu')
+                    const activeMenu = welcomeMenu.querySelector(`.${activeClass}`)
+                    window.dispatchEvent(new CustomEvent('change-views', {
+                        bubbles: true,
+                        composed: true,
+                        detail: {
+                            id: activeMenu.dataset.id,
+                            type: 'transform',
+                            action: `to`,
+                            section: event.target.dataset.id
+                        }
+                    }));
+                }
+            },
             animationstart: (event) => {
                 animationCount.increment()
                 const count = animationCount.get()

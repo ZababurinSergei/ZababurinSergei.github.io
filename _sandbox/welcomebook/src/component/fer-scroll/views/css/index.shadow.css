@@ -2,12 +2,13 @@
 	position: fixed;
 	bottom: 15vh;
 	left: 48.5vw;
-	z-index: 10000;
+	z-index: 15;
 }
 
 .welcome__scroll {
 	position: absolute;
 	top: 30%;
+	z-index: 15;
 	/*bottom: -55%;*/
 	/*left: 58%;*/
 }

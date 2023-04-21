@@ -35,6 +35,7 @@ dialog {
 
 :root {
     --main: #00A0A8;
+    --main-color: #00A0A8;
     --main-height: 100vh;
     /*Text color*/
     --text-color-100per: #333333;
