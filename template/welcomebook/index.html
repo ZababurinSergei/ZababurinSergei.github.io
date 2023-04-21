@@ -1,6 +1,7 @@
 <template id="welcomebook">
     <body>
     <div class="welcome__book">
+        <slot name="welcome-header"></slot>
         <slot name="welcome-logo"></slot>
         <slot name="fer-scroll"></slot>
         <slot name="welcome-menu"></slot>
@@ -79,6 +80,48 @@
         </div>
     </div>
 
+    <welcome-header slot="welcome-header">
+        <img class='welcome__logo' src="./this/icons/logo.svg"/>
+        <div class="welcome__wrapper">
+            <div class="welcome__link">
+                <!--                    <img class="" src="./this/img/icon/button.svg"/>-->
+            </div>
+        </div>
+    </welcome-header>
+
+    <welcome-logo slot="welcome-logo">
+        <div class="welcome-logo">
+            <div class="square-buttom">
+                <p class="square-title">больше</p>
+            </div>
+        </div>
+        <ul>
+            <li data-id="1_0">Структура компании</li>
+            <li data-id="1_1">Мы занимаемся</li>
+            <li data-id="1_2">Наши ценности</li>
+            <!--                            <li data-id="1_3">График работы</li>-->
+            <!--                            <li data-id="1_4">Дресс-код</li>-->
+            <!--                            <li data-id="1_5">Переговорные комнаты</li>-->
+            <!--                            <li data-id="1_6">Зарплата</li>-->
+            <!--                            <li data-id="1_7">Отпуск</li>-->
+            <!--                            <li data-id="1_8">Обед</li>-->
+            <!--                            <li data-id="1_9">Прочие радости</li>-->
+        </ul>
+    </welcome-logo>
+
+
+    <fer-scroll
+            data-css-shadow="arrow"
+            slot="fer-scroll"
+    >
+        <div class="arrow">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </fer-scroll>
+
+
     <welcome-menu slot="welcome-menu">
         <div class="container">
             <div class="slider">
@@ -139,42 +182,9 @@
         </fer-button>
     </welcome-menu>
 
-    <welcome-logo slot="welcome-logo">
-        <div class="welcome-logo">
-            <div class="square-buttom">
-                <p class="square-title">больше</p>
-            </div>
-        </div>
-        <ul>
-            <li data-id="1_0">Структура компании</li>
-            <li data-id="1_1">Мы занимаемся</li>
-            <li data-id="1_2">Наши ценности</li>
-            <!--                            <li data-id="1_3">График работы</li>-->
-            <!--                            <li data-id="1_4">Дресс-код</li>-->
-            <!--                            <li data-id="1_5">Переговорные комнаты</li>-->
-            <!--                            <li data-id="1_6">Зарплата</li>-->
-            <!--                            <li data-id="1_7">Отпуск</li>-->
-            <!--                            <li data-id="1_8">Обед</li>-->
-            <!--                            <li data-id="1_9">Прочие радости</li>-->
-        </ul>
-    </welcome-logo>
-
-
-    <fer-scroll
-            data-css-shadow="arrow"
-            slot="fer-scroll"
-    >
-        <div class="arrow">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </fer-scroll>
-
     <welcome-section data-id="0" children slot="welcome-section-0">
         <div class='parallax'>
             <img src='./this/img/north_tower.png'/>
-            <slot name="welcome-header"></slot>
         </div>
         <div class='teaser'>
             <div class='first-page'>
@@ -256,15 +266,6 @@
                 </div>
             </section>
         </div>
-
-        <welcome-header slot="welcome-header">
-            <img class='welcome__logo' src="./this/icons/logo.svg"/>
-            <div class="welcome__wrapper">
-                <div class="welcome__link">
-                    <!--                    <img class="" src="./this/img/icon/button.svg"/>-->
-                </div>
-            </div>
-        </welcome-header>
     </welcome-section>
 
     <welcome-section data-id="1" slot="welcome-section-1">
