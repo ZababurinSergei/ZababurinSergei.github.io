@@ -535,7 +535,7 @@ export const welcomebook = (mount = {}) => {
                             welcomeLogo.dataset.id = id.array[0]
                             welcomeLogo.section = `${id.array[0]}_0`
                             ferScroll.section = id.array[0]
-
+                            ferScroll.class = `fer-scroll_${id.array[0]}`
                             ferScroll.style.setProperty("--color", '#ffffff');
                             const welcomeLogoOutSide = welcomeLogo.shadowRoot.querySelector('.welcome-logo')
                             const squareButtom = welcomeLogo.shadowRoot.querySelector('.square-buttom')
