@@ -7,12 +7,18 @@ dotenv.config()
 
 //1846
 //375
-const dir = 'services/welcomebook/src'
+let dir = './public'
 const rootWidthDesktop = 1920
 const rootWidthMobile = 375
 
 
-//
+let src, i = process.argv.indexOf("--src");
+
+if(i>-1) {
+    dir = process.argv[i+1];
+}
+
+console.log('ssssssssssssssssssss', dir)
 gulp.task('px2vw', function () {
     // console.time("⚡ [gulp] Done");
 
@@ -36,10 +42,10 @@ gulp.task('px2vw', function () {
     ];
 
 
-    let result = gulp.src([`./${dir}/**/*.css`])
+    let result = gulp.src([`${dir}/**/*.css`])
         .pipe(postcss(processors))
         .pipe(postcss([ autoprefixer()]))
-        .pipe(gulp.dest(`./${dir}`));
+        .pipe(gulp.dest(`${dir}`));
 
     // console.timeEnd("⚡ [gulp] Done");
 
@@ -69,10 +75,10 @@ gulp.task('vw2px', function () {
         })
     ];
  
-    let out = gulp.src([`./${dir}/**/*.css`], { sourcemaps: true })
+    let out = gulp.src([`${dir}/**/*.css`], { sourcemaps: true })
         .pipe(postcss(processors))
         .pipe(postcss([ autoprefixer()]))
-        .pipe(gulp.dest(`./${dir}`), { sourcemaps: true });
+        .pipe(gulp.dest(`${dir}`), { sourcemaps: true });
 
     // console.timeEnd("⚡ [gulp] Done");
 

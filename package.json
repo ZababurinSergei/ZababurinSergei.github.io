@@ -11,8 +11,10 @@
     "asbuild": "npm run asbuild:debug && npm run asbuild:release",
     "virtualDom": "nodemon --config nodemon.react.json esbuild.config.mjs",
     "test": "node tests",
-    "px2vw": "gulp px2vw",
-    "vw2px": "gulp vw2px"
+    "px2vw:welcomebook": "gulp px2vw --src ./services/welcomebook/src",
+    "vw2px:welcomebook": "gulp vw2px --src ./services/welcomebook/src",
+    "px2vw:this": "gulp px2vw --src ./public",
+    "vw2px:this": "gulp vw2px --src ./public"
   },
   "keywords": [],
   "author": "",

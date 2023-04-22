@@ -412,7 +412,7 @@ export const welcomebook = (mount = {}) => {
                             activeSection.style.display = 'flex'
                             welcomeBody.style.display = 'none'
                             // document.body.style.overflow = 'overlay'
-                            welcomeLogo.style.top = 'calc(var(--main-height) - 6.5vw)'
+                            welcomeLogo.style.top = 'calc(100% - 6.5vw)'
                             welcomeLogo.style.left = 'unset'
                             welcomeLogo.style.right = '5%'
                             // const color = getComputedStyle(ferScroll).getPropertyValue('--color');
@@ -544,7 +544,7 @@ export const welcomebook = (mount = {}) => {
                             welcomeLogoOutSide.style.border = '0.20833vw solid #ffffff'
                             squareButtom.style.background = '#ffffff'
 
-                            welcomeLogo.style.top = 'calc(var(--main-height) - 12.3vw)'
+                            welcomeLogo.style.top = 'calc(100% - 12.3vw)'
                             welcomeLogo.style.left = '49.67%'
                             welcomeLogo.style.right = 'unset'
                             welcomeLogo.shadowRoot.querySelector('.square-title').textContent = 'Больше'

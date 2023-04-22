@@ -1,6 +1,6 @@
 :host {
 	position: fixed;
-	top: calc(var(--main-height) - 12.3vw);
+	top: calc(100% - 12.3vw);
 	left: 49.67%;
 	z-index: 15;
 	width: 0.05208vw;

@@ -1,7 +1,6 @@
 /*@import '/components/terminal/modules/xterm/css/xterm.css';*/
 :host {
-    --substrate-width-min: 10vw;
-    --substrate-width-max: 14vw;
+    --substrate-pr-width: 14vw;
     width: 100%;
     margin: auto
 }
@@ -15,10 +14,7 @@
     overflow-y: auto;
 }
 
-#property {
-    height: -moz-max-content;
-    height: max-content;
-}
+
 
 api-button {
     cursor: pointer;
@@ -49,33 +45,32 @@ p {
 .main-center {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(3.3vw, auto) 1fr;
-    /* margin-bottom: 1vw; */
-    /* gap: 0.5vw; */
+    grid-template-rows: 14.4vh  1fr 9.4vh;
 }
 
 .grid__footer, .grid__header, .grid__body {
     display: grid;
+    position: relative;
     gap: 1vw;
     /*height: inherit;*/
 }
 
 .grid__header {
-    grid-template-columns: minmax(var(--substrate-width-min), var(--substrate-width-max)) 1fr minmax(var(--substrate-width-min), var(--substrate-width-max));
+    grid-template-columns: var(--substrate-pr-width) 1fr var(--substrate-pr-width);
     grid-template-rows: 5.9vw;
     margin-bottom: 1.46262vw;
 }
 
 .grid__body {
-    grid-template-columns: minmax(var(--substrate-width-min), var(--substrate-width-max)) 1fr minmax(var(--substrate-width-min), var(--substrate-width-max));
-    grid-template-rows: minmax(32.1vh, 1fr);
+    grid-template-columns: var(--substrate-pr-width) 1fr var(--substrate-pr-width);
+    grid-template-rows: 56.25vw;
     min-height: 62.5vh;
     overflow: hidden;
 }
 
 .grid__footer {
-    grid-template-columns: minmax(var(--substrate-width-min), var(--substrate-width-max)) 1fr minmax(var(--substrate-width-min), var(--substrate-width-max));
-    grid-template-rows: 6.2vh;
+    grid-template-columns: var(--substrate-pr-width) 1fr var(--substrate-pr-width);
+    grid-template-rows: 100%;
     gap: 0;
 
 }
@@ -129,13 +124,32 @@ p {
     cursor: pointer;
 }
 
-#substrate {
-    grid-column: 2 / 3;
+#relation {
+    grid-column: 1 / 2;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: overlay;
 }
 
-#relation {
-    /*background: #F5F7FA;*/
-    background: #1e5bb6;
+#substrate {
+    grid-column: 2 / 3;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+#property {
+    grid-column: 3 / 4;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    width: 100%;
     overflow: overlay;
 }
 
@@ -180,7 +194,7 @@ p {
 section div#substrate {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     /* height: 100vh; */
     /*gap: 1vw;*/
 }
