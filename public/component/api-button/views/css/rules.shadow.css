@@ -6,15 +6,17 @@
 .rules-relation_container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.9375vw;
-    background: #6E8FB0;
+    background: rgb(110, 143, 176);
     border-radius: 1.04167vw 0px 0px 1.04167vw;
     align-items: center;
-    height: 5vw;
-    width: min(10.41667vw, 15.20833vw);
+    height: 4vw;
+    width: min(10.4167vw, 15.2083vw);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease 0s;
+    box-sizing: border-box;
+    padding-left: 1vw;
 }
 
 .rules-relation_container_img {

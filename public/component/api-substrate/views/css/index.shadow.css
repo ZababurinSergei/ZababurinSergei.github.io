@@ -132,6 +132,9 @@ p {
     left: 0;
     width: 100%;
     overflow: overlay;
+    background: #10c0ff2e;
+    box-sizing: border-box;
+    padding: 0.5vw 0;
 }
 
 #substrate {
