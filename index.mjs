@@ -75,7 +75,7 @@ if(process.env.SANDBOX === 'true') {
 }
 
 app.use('/template',express.static(`${__dirname}/template`));
-app.use(express.static(`${__dirname}/public`));
+app.use(express.static(`${__dirname}/docs`));
 app.use('/services',express.static(`${__dirname}/services`));
 
 
@@ -86,7 +86,7 @@ app.use('/services',express.static(`${__dirname}/services`));
 // app.use(express.static(`${__dirname}/services/welcomebook/src`));
 
 app.get(`/*`, async (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, '/public/index.html'));
+    res.status(200).sendFile(path.join(__dirname, '/docs/index.html'));
 })
 
 //https://jira-node.github.io/class/src/jira.js~JiraApi.html
