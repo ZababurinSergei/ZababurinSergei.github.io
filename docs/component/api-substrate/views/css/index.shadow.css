@@ -132,7 +132,6 @@ p {
     left: 0;
     width: 100%;
     overflow: overlay;
-    background: #10c0ff2e;
     box-sizing: border-box;
     padding: 0.5vw 0;
 }
@@ -221,5 +220,5 @@ api-dex {
 
 .grid__footer_property, .grid__footer_relation {
     border-top: 0.1vw solid rgba(118, 148, 244, 0.45);
-    background: var(--api-footer_propert_relation);
+    /*background: var(--api-footer_propert_relation);*/
 }

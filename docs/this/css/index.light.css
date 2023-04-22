@@ -3,8 +3,9 @@ body {
     padding-left: 0.4vw;
     padding-right: 0.4vw;
     box-sizing: border-box;
-    /*background: rgba(238, 32, 204, 0.57);*/
+    background: rgb(1 23 10 / 11%);
 }
+
 .dialog {
     position: absolute;
     top: 0;
