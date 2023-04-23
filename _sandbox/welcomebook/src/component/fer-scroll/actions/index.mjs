@@ -27,7 +27,7 @@ export default (self) => {
                 if (normalizedTime < 1) {
                     window.requestAnimationFrame(step);
                 } else {
-                    console.log('################################################')
+                    console.log('end scroll')
                     self.scrollIntoView({block: "start", behavior: "smooth"});
                     // image.style.backgroundPositionY = 'unset'
                 }
