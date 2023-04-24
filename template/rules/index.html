@@ -290,15 +290,6 @@
         </fer-form>
         <fer-table slot="fer-table_0_0">
             <div class="auction-data">
-<!--                <div class="auction-data__header_date"> Aug 21,2021 - sep 21, 2021</div>-->
-<!--                <div class="auction-data__create_new">-->
-<!--                    <slot name="link_create"></slot>-->
-<!--                </div>-->
-<!--                <div class="auction-data__nav">-->
-<!--                    <slot name="odd_rows" name="link_create"></slot>-->
-<!--                    <slot name="even_rows" name="link_create"></slot>-->
-<!--                    <slot name="all_rows" name="link_create"></slot>-->
-<!--                </div>-->
                 <div class="auction-data__table">
                     <div class="auction-data__table_header">
                         <div class="auction-data__table_header_td">Data</div>
@@ -308,7 +299,7 @@
                         <div class="auction-data__table_header_td">Summary 4</div>
                         <div class="auction-data__table_header_td">Summary 5</div>
                     </div>
-                    <div class="auction-data__table_body empty-box"></div>
+                    <div class="auction-data__table_body"></div>
                     <div class="auction-data__table_footer">
                         <input class="auction-data__table_footer_td" name="assetId"/>
                         <input class="auction-data__table_footer_td" name="timestamp"/>
@@ -319,34 +310,6 @@
                     </div>
                 </div>
             </div>
-            <fer-link
-                    slot="link_create"
-                    to="/new"
-                    data-type="button"
-            >
-                <p class="auction-data__header_button">Create New</p>
-            </fer-link>
-            <fer-link slot="odd_rows" to="/odd">
-                <p
-                        class="auction-data__header_button"
-                >
-                    odd
-                </p>
-            </fer-link>
-            <fer-link slot="even_rows" to="/even">
-                <p
-                        class="auction-data__header_button"
-                >
-                    even
-                </p>
-            </fer-link>
-            <fer-link slot="all_rows" to="/all">
-                <p
-                        class="auction-data__header_button"
-                >
-                    all
-                </p>
-            </fer-link>
         </fer-table>
     </welcome-section>
 
