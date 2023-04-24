@@ -110,7 +110,7 @@ export const config = {
     }]
 }
 
-export const store = {
+export const link = {
     substrate: config.link.map(item => item.to)
 }
 

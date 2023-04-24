@@ -1,9 +1,9 @@
-import { store, normalizePathName, eventsName, task } from '../../../../this/index.mjs'
+import { link, normalizePathName, eventsName, task } from '../../../../this/index.mjs'
 
 export default async (self, actions) => {
     return {
         init: () => {
-            for(let pathname of  store.substrate) {
+            for(let pathname of  link.substrate) {
                 task.get(true, 'await', '5', '', pathname, async (object) => {
                     console.log(`   🟢 PROPERTY ROUTER ${object.relation}`)
 

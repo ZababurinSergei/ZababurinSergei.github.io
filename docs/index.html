@@ -39,6 +39,7 @@
 <!--<script type="module" src="/static/html/components/api-processor/api-processor.mjs"></script>-->
 <!--<script type="module" src="/static/html/components/api-button/api-button.mjs"></script>-->
 <script type="module">
+    import { store } from './this/store/index.mjs'
     import main from './main.mjs'
     // import mkb from '/mkb/build/index.mjs'
     import { loadHTML } from './this/index.mjs'
@@ -55,6 +56,8 @@
         mountPoint: document.body
     }
 
+    store.set('mount_self', mountPointSystem)
+
     main(mountPointSystem).then(react => console.log('🟣 NODE 🟣')).catch((e) => { console.log('ERROR', e) });
 
     const mountPoint = {
@@ -62,6 +65,8 @@
         template: template,
         mountPoint: document.querySelector('.dialog'),
     }
+
+    store.set('mount_rules', mountPoint)
 
     const images = template.content.querySelectorAll('img')
 

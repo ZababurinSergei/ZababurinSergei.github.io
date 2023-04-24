@@ -337,101 +337,145 @@
             <div class="auction-data">
                 <div class="auction-data__table">
                     <div class="auction-data__table_header">
-                        <div class="auction-data__table_header_td">Data</div>
-                        <div class="auction-data__table_header_td">Summary 1</div>
-                        <div class="auction-data__table_header_td">Summary 2</div>
-                        <div class="auction-data__table_header_td">Summary 3</div>
-                        <div class="auction-data__table_header_td">Summary 4</div>
-                        <div class="auction-data__table_header_td">Summary 5</div>
+                        <div class="auction-data__table_header_td">Описание</div>
+                        <div class="auction-data__table_header_td">Версия схемы</div>
+                        <div class="auction-data__table_header_td">Версия правила</div>
+                        <div class="auction-data__table_header_td background-transparent"></div>
+                        <div class="auction-data__table_header_td background-transparent">
+                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+                        </div>
                     </div>
                     <div class="auction-data__table_body"></div>
                     <div class="auction-data__table_footer">
-                        <input class="auction-data__table_footer_td" name="assetId"/>
-                        <input class="auction-data__table_footer_td" name="timestamp"/>
                         <input class="auction-data__table_footer_td" name="description"/>
-                        <input class="auction-data__table_footer_td" name="name"/>
-                        <input class="auction-data__table_footer_td" name="proofs"/>
-                        <input class="auction-data__table_footer_td" name="sender"/>
+                        <input class="auction-data__table_footer_td" name="schema_version"/>
+                        <input class="auction-data__table_footer_td" name="rules_version"/>
                     </div>
                 </div>
             </div>
         </fer-table>
     </welcome-section>
 
-    <welcome-section data-id="2" slot="welcome-section-2">
-        <div class='parallax image-backgrorootNodeund'>
-            <img class="image-scale" src='./this/img/pg3.png'/>
-        </div>
-        <img class="image-scale opacity" src='./this/img/pg3.png'/>
-        <div class='teaser'>
-            <div class='content'>
-                <div class="description-without-background-item-2">
-                    <div class="description-page-section-2">
-                        <p class="text-offset description-about-resources">КОРПОРАТИВНАЯ КУЛЬТУРА</p>
-                        <ul class="text-offset description-ul-2">
-                            <li data-id="2_0">Обращение к коллегам</li>
-                            <li data-id="2_1">Лого, официальные бланки, реквизиты</li>
-                            <li data-id="2_2">Программа рекомендаций</li>
-                            <!--                            <li data-id="2_3">Корпоративные праздники</li>-->
-                        </ul>
-                    </div>
+    <welcome-section
+        data-id="2"
+        data-css-shadow="rules_0_0"
+        slot="welcome-section-2"
+    >
+        <div class='images'></div>
+        <div class='body'>
+            <div class="container">
+                <div>
+                    <slot name="fer-table_2_0"></slot>
                 </div>
             </div>
         </div>
+
+        <fer-table
+                data-template="table_2_0"
+                slot="fer-table_2_0"
+        >
+            <div class="auction-data">
+                <div class="auction-data__table">
+                    <div class="auction-data__table_header">
+                        <div class="auction-data__table_header_td">ID</div>
+                        <div class="auction-data__table_header_td">Описание</div>
+                        <div class="auction-data__table_header_td">Версия манифеста</div>
+                        <div class="auction-data__table_header_td">Версия схемы</div>
+                        <div class="auction-data__table_header_td">Регион</div>
+                        <div class="auction-data__table_header_td">Статус</div>
+                        <div class="auction-data__table_header_td background-transparent"></div>
+                        <div class="auction-data__table_header_td background-transparent">
+                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+                        </div>
+                    </div>
+                    <div class="auction-data__table_body"></div>
+                    <div class="auction-data__table_footer">
+                        <input class="auction-data__table_footer_td empty background-transparent" name="id"/>
+                        <input class="auction-data__table_footer_td" name="description"/>
+                        <input class="auction-data__table_footer_td" name="version_manifest"/>
+                        <input class="auction-data__table_footer_td" name="version_schema"/>
+                        <input class="auction-data__table_footer_td" name="region"/>
+                        <input class="auction-data__table_footer_td" name="status"/>
+                    </div>
+                </div>
+            </div>
+        </fer-table>
     </welcome-section>
 
-    <welcome-section data-id="3" slot="welcome-section-3">
-        <div class='parallax image-background'>
-            <img class="image-scale" src='./this/img/pg4.png'/>
-        </div>
-        <img class="image-scale opacity" src='./this/img/pg4.png'/>
-        <div class='teaser'>
-            <div class='content'>
-                <div class="description-without-background-item-3">
-                    <div class="description-page">
-                        <p class="text-offset description-about-resources description-about-resources-4">ИНФОРМАЦИЯ О
-                            РЕСУРСАХ И ДОКУМЕНТАХ</p>
-                        <ul class="text-offset description-ul-3">
-                            <!--                            <li data-id="2_0">CRM ресурсы</li>-->
-                            <li data-id="3_0">Почта</li>
-                            <li data-id="3_1">Принтер и сканер</li>
-                            <li data-id="3_2">Техническое оборудование</li>
-                            <!--                            <li data-id="2_4">Корпоративная онлайн библиотека</li>-->
-                            <!--                            <li data-id="2_5">Заказ канцелярии</li>-->
-                            <!--                            <li data-id="2_6">Пропускная система</li>-->
-                        </ul>
-                    </div>
+    <welcome-section
+            data-id="3"
+            data-css-shadow="rules_0_0"
+            slot="welcome-section-3"
+    >
+        <div class='images'></div>
+        <div class='body'>
+            <div class="container">
+                <div>
+                    <slot name="fer-table_3_0"></slot>
                 </div>
             </div>
         </div>
+
+        <fer-table
+            data-template="table_3_0"
+            slot="fer-table_3_0"
+        >
+            <div class="auction-data">
+                <div class="auction-data__table">
+                    <div class="auction-data__table_header">
+                        <div class="auction-data__table_header_td">Название</div>
+                        <div class="auction-data__table_header_td">Описание</div>
+                        <div class="auction-data__table_header_td background-transparent"></div>
+                        <div class="auction-data__table_header_td background-transparent">
+                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+                        </div>
+                    </div>
+                    <div class="auction-data__table_body"></div>
+                    <div class="auction-data__table_footer">
+                        <input class="auction-data__table_footer_td" name="name"/>
+                        <input class="auction-data__table_footer_td" name="description"/>
+                    </div>
+                </div>
+            </div>
+        </fer-table>
     </welcome-section>
 
     <welcome-section
             data-id="4"
             slot="welcome-section-4"
-            data-css-shadow="index-cat"
-            data-css-light="index-cat"
+            data-css-shadow="rules_0_0"
     >
-        <div class='parallax image-backgrorootNodeund'>
-            <img class="image-scale" src='./this/img/pg32.png'/>
-        </div>
-        <img class="image-scale opacity" src='./this/img/pg32.png'/>
-        <div class='teaser'>
-            <div class='content'>
-                <div class="description-without-background-item-2">
-                    <div class="description-page-section-2">
-                        <p class="text-offset description-about-resources"></p>
-                        <template>
-                            <ul class="text-offset description-ul-2">
-                                <li data-id="2_0">Обращение к коллегам</li>
-                                <li data-id="2_1">Лого, официальные бланки, реквизиты</li>
-                                <li data-id="2_2">Программа рекомендаций</li>
-                            </ul>
-                        </template>
-                    </div>
+        <div class='images'></div>
+        <div class='body'>
+            <div class="container">
+                <div>
+                    <slot name="fer-table_4_0"></slot>
                 </div>
             </div>
         </div>
+
+        <fer-table
+                data-template="table_3_0"
+                slot="fer-table_4_0"
+        >
+            <div class="auction-data">
+                <div class="auction-data__table">
+                    <div class="auction-data__table_header">
+                        <div class="auction-data__table_header_td">Название</div>
+                        <div class="auction-data__table_header_td">Описание</div>
+                        <div class="auction-data__table_header_td background-transparent"></div>
+                        <div class="auction-data__table_header_td background-transparent">
+                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+                        </div>
+                    </div>
+                    <div class="auction-data__table_body"></div>
+                    <div class="auction-data__table_footer">
+                        <input class="auction-data__table_footer_td" name="name"/>
+                        <input class="auction-data__table_footer_td" name="description"/>
+                    </div>
+                </div>
+            </div>
+        </fer-table>
     </welcome-section>
 
     <welcome-section data-id="5" slot="welcome-section-5">
