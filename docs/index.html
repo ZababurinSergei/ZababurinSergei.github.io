@@ -56,7 +56,6 @@
 
     main(mountPointSystem).then(react => console.log('🟣 NODE 🟣')).catch((e) => { console.log('ERROR', e) });
 
-
     const mountPoint = {
         pathname: `/services/${Service}/src`,
         template: template,
@@ -71,6 +70,6 @@
         images[i].src = url.pathname
     }
 
-    rules(mountPoint)
+    rules(mountPoint).then(api => {})
 </script>
 </html>
