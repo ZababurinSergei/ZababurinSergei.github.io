@@ -13,6 +13,8 @@
     "test": "node tests",
     "px2vw:welcomebook": "gulp px2vw --src ./services/welcomebook/src",
     "vw2px:welcomebook": "gulp vw2px --src ./services/welcomebook/src",
+    "px2vw:rules": "gulp px2vw --src ./services/rules/src",
+    "vw2px:rules": "gulp vw2px --src ./services/rules/src",
     "px2vw:this": "gulp px2vw --src ./docs",
     "vw2px:this": "gulp vw2px --src ./docs"
   },

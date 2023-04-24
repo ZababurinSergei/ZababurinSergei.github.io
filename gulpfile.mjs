@@ -7,10 +7,9 @@ dotenv.config()
 
 //1846
 //375
-let dir = './public'
+let dir = './docs'
 const rootWidthDesktop = 1920
 const rootWidthMobile = 375
-
 
 let src, i = process.argv.indexOf("--src");
 
@@ -18,7 +17,7 @@ if(i>-1) {
     dir = process.argv[i+1];
 }
 
-console.log('ssssssssssssssssssss', dir)
+console.log('path: ', dir)
 gulp.task('px2vw', function () {
     // console.time("⚡ [gulp] Done");
 

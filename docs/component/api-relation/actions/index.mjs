@@ -7,7 +7,6 @@ export default (self) => {
         menu.innerHTML = ''
         for(let list of taskRelation.events[self.tagName]) {
             for(let event in list) {
-                console.log('ssssssssssss',list[event])
                 menu.insertAdjacentHTML('beforeend', `
                 <api-button
                     data-role="aside"
@@ -26,7 +25,6 @@ export default (self) => {
                    
                 </api-button>
             `)
-
             }
         }
 
