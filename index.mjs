@@ -70,7 +70,7 @@ if(process.env.SANDBOX === 'true') {
     app.use('/rules', express.static(`${__dirname}/_sandbox/rules/src`));
 } else {
     // app.use('/welcomebook', express.static(`${__dirname}/services/welcomebook/this`));
-    // app.use('/rules', express.static(`${__dirname}/services/rules/src`));
+    app.use('/rules', express.static(`${__dirname}/services/rules/src`));
     app.use('/welcomebook', express.static(`${__dirname}/services/welcomebook/src`));
 }
 
