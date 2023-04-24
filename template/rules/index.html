@@ -79,15 +79,6 @@
         </div>
     </div>
 
-    <welcome-header slot="welcome-header">
-<!--        <img class='welcome__logo' src="./this/icons/logo.svg"/>-->
-        <div class="welcome__wrapper">
-            <div class="welcome__link">
-                <!--                    <img class="" src="./this/img/icon/button.svg"/>-->
-            </div>
-        </div>
-    </welcome-header>
-
     <fer-scroll
             data-css-shadow="arrow"
             slot="fer-scroll"
@@ -172,7 +163,7 @@
                 data-type="welcome-menu"
                 data-css-shadow="menu"
         >
-            <p>Приветствие</p>
+            <p>Схемы</p>
         </fer-button>
 
         <fer-button
@@ -181,7 +172,7 @@
                 data-type="welcome-menu"
                 data-css-shadow="menu"
         >
-            <p>О компании</p>
+            <p>Правила</p>
 
         </fer-button>
 
@@ -191,7 +182,7 @@
                 data-type="welcome-menu"
                 data-css-shadow="menu"
         >
-            <p>КОРПОРАТИВНАЯ КУЛЬТУРА</p>
+            <p>Манифесты</p>
         </fer-button>
 
         <fer-button
@@ -200,7 +191,7 @@
                 data-type="welcome-menu"
                 data-css-shadow="menu"
         >
-            <p>Ресурсы и документы</p>
+            <p>Регион</p>
         </fer-button>
 
         <fer-button
@@ -209,7 +200,7 @@
                 data-type="welcome-menu"
                 data-css-shadow="menu"
         >
-            <p>Спасибо!</p>
+            <p>Домен</p>
         </fer-button>
     </welcome-menu>
 
@@ -221,20 +212,60 @@
     >
         <div class='images'></div>
         <div class='body'>
-            <slot name="fer-table"></slot>
+            <div class="container">
+                <div class="navigation">
+                <slot name="welcome-menu_0_0"></slot>
+                </div>
+                <div>
+
+                </div>
+                <div>
+                    <slot name="fer-table_0_0"></slot>
+                </div>
+            </div>
         </div>
 
-        <fer-table slot="fer-table">
+        <div
+            data-exclusion
+            slot="welcome-menu_0_0"
+        >
+
+            <fer-hash
+                data-id="0"
+                data-hash="general"
+                data-type="rules_0_0"
+                data-css-shadow="rules_0_0"
+            >
+                <p>Основное</p>
+            </fer-hash>
+            <fer-hash
+                    data-id="1"
+                    data-type="rules_0_0"
+                    data-hash="verification"
+                    data-css-shadow="rules_0_0"
+            >
+                <p>Верификация</p>
+            </fer-hash>
+            <fer-hash
+                    data-id="2"
+                    data-hash="execution"
+                    data-type="rules_0_0"
+                    data-css-shadow="rules_0_0"
+            >
+                <p>Применение</p>
+            </fer-hash>
+        </div>
+        <fer-table slot="fer-table_0_0">
             <div class="auction-data">
-                <div class="auction-data__header_date"> Aug 21,2021 - sep 21, 2021</div>
-                <div class="auction-data__create_new">
-                    <slot name="link_create"></slot>
-                </div>
-                <div class="auction-data__nav">
-                    <slot name="odd_rows" name="link_create"></slot>
-                    <slot name="even_rows" name="link_create"></slot>
-                    <slot name="all_rows" name="link_create"></slot>
-                </div>
+<!--                <div class="auction-data__header_date"> Aug 21,2021 - sep 21, 2021</div>-->
+<!--                <div class="auction-data__create_new">-->
+<!--                    <slot name="link_create"></slot>-->
+<!--                </div>-->
+<!--                <div class="auction-data__nav">-->
+<!--                    <slot name="odd_rows" name="link_create"></slot>-->
+<!--                    <slot name="even_rows" name="link_create"></slot>-->
+<!--                    <slot name="all_rows" name="link_create"></slot>-->
+<!--                </div>-->
                 <div class="auction-data__table">
                     <div class="auction-data__table_header">
                         <div class="auction-data__table_header_td">Data</div>
