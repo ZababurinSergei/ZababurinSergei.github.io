@@ -80,7 +80,7 @@
     </div>
 
     <welcome-header slot="welcome-header">
-        <img class='welcome__logo' src="./this/icons/logo.svg"/>
+<!--        <img class='welcome__logo' src="./this/icons/logo.svg"/>-->
         <div class="welcome__wrapper">
             <div class="welcome__link">
                 <!--                    <img class="" src="./this/img/icon/button.svg"/>-->
@@ -213,90 +213,77 @@
         </fer-button>
     </welcome-menu>
 
-    <welcome-section data-id="0" children slot="welcome-section-0">
-        <div class='parallax'>
-            <img src='./this/img/north_tower.png'/>
+    <welcome-section
+            data-id="0"
+            data-css-shadow="rules_0_0"
+            children
+            slot="welcome-section-0"
+    >
+        <div class='images'></div>
+        <div class='body'>
+            <slot name="fer-table"></slot>
         </div>
-        <div class='teaser'>
-            <div class='first-page'>
-                <div class="description">
-                    <div class="image-general">
-                        <img class="image-general-src" src='./this/img/general/index.png'/>
+
+        <fer-table slot="fer-table">
+            <div class="auction-data">
+                <div class="auction-data__header_date"> Aug 21,2021 - sep 21, 2021</div>
+                <div class="auction-data__create_new">
+                    <slot name="link_create"></slot>
+                </div>
+                <div class="auction-data__nav">
+                    <slot name="odd_rows" name="link_create"></slot>
+                    <slot name="even_rows" name="link_create"></slot>
+                    <slot name="all_rows" name="link_create"></slot>
+                </div>
+                <div class="auction-data__table">
+                    <div class="auction-data__table_header">
+                        <div class="auction-data__table_header_td">Data</div>
+                        <div class="auction-data__table_header_td">Summary 1</div>
+                        <div class="auction-data__table_header_td">Summary 2</div>
+                        <div class="auction-data__table_header_td">Summary 3</div>
+                        <div class="auction-data__table_header_td">Summary 4</div>
+                        <div class="auction-data__table_header_td">Summary 5</div>
                     </div>
-                    <div class="content">
-                        <p class="description-title">Привет!</p>
-                        <p class="description-title">Мы рады приветствовать тебя в команде</p>
-                        <h1>Цифромед</h1>
-                        <div class="description-content">
-                            <p class="description-text">
-                                Мы знаем, что в первое время у тебя может возникнуть масса самых разнообразных вопросов
-                                о
-                                Компании, ее структуре, особенностях организации работы, перспективах роста и многом
-                                другом.
-                                Каждый из нас задавал себе подобные вопросы, когда начинал свою карьеру в Компании и мы
-                                понимаем, как важно получить на них своевременные и полные ответы.
-                            </p>
-                            <p class="description-text">
-                                Для того, чтобы ты смог быстрее освоиться в нашей Компании и уверенно ориентироваться в
-                                новой
-                                обстановке, мы подготовили Welcome Book. В нем содержится вся необходимая в первые
-                                месяцы
-                                работы
-                                информация, даны ответы на многие важные вопросы и полезные рекомендации по успешному
-                                прохождению испытательного срока и скорейшей адаптации на новом месте.
-                            </p>
-                            <p class="description-content-end">
-                                Желаем тебе успехов
-                            </p>
-                            <p class="description-content-end-last">
-                                и будем рады оказать поддержку в нужную минуту!
-                            </p>
-                        </div>
+                    <div class="auction-data__table_body empty-box"></div>
+                    <div class="auction-data__table_footer">
+                        <input class="auction-data__table_footer_td" name="assetId"/>
+                        <input class="auction-data__table_footer_td" name="timestamp"/>
+                        <input class="auction-data__table_footer_td" name="description"/>
+                        <input class="auction-data__table_footer_td" name="name"/>
+                        <input class="auction-data__table_footer_td" name="proofs"/>
+                        <input class="auction-data__table_footer_td" name="sender"/>
                     </div>
                 </div>
             </div>
-
-            <section class="welcome-section_children_0">
-                <div class='teaser'>
-                    <div class='first-page'>
-                        <div class="description section-item_0">
-                            <div class="content width-649 textAlign-left">
-                                <p class="description-title title-item_0"> Уважаемый коллега!</p>
-                                <div class="description-content textAlign-left">
-                                    <p class="description-text text-style">
-                                        Мы рады видеть тебя в нашей команде. Наша компания реализует масштабные
-                                        федеральные
-                                        и региональные проекты. Их успех во многом связан с людьми, которые работают в
-                                        Цифромеде.
-                                    </p>
-                                    <p class="description-text description-text-width description-text-margin-unset">
-                                        Наши совместные действия, сплоченность и преданность общему делу позволяют
-                                        компании
-                                        развиваться, достигать амбициозных целей. Мы ценим талант каждого сотрудника, и
-                                        разделяем общие ценности нашей команды.
-
-                                    </p>
-                                    <p class="description-text description-text-width-2 description-text-margin-unset">
-                                        Надеемся, что наша компания станет важной
-                                        составляющей твоего личностного и профессионального роста.
-
-                                    </p>
-                                    <p class="description-content-end end-font-style textAlign-left">
-                                        Добро пожаловать в команду!
-                                    </p>
-                                    <p class="description-content-end end-font-style-general textAlign-left">
-                                        Владимир Пасынков
-                                    </p>
-                                    <p class="description-content-end end-font-style-general-name textAlign-left">
-                                        Генеральный директор
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+            <fer-link
+                    slot="link_create"
+                    to="/new"
+                    data-type="button"
+            >
+                <p class="auction-data__header_button">Create New</p>
+            </fer-link>
+            <fer-link slot="odd_rows" to="/odd">
+                <p
+                        class="auction-data__header_button"
+                >
+                    odd
+                </p>
+            </fer-link>
+            <fer-link slot="even_rows" to="/even">
+                <p
+                        class="auction-data__header_button"
+                >
+                    even
+                </p>
+            </fer-link>
+            <fer-link slot="all_rows" to="/all">
+                <p
+                        class="auction-data__header_button"
+                >
+                    all
+                </p>
+            </fer-link>
+        </fer-table>
     </welcome-section>
 
     <welcome-section data-id="1" slot="welcome-section-1">

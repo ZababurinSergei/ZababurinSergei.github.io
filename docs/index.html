@@ -42,8 +42,11 @@
     // import mkb from '/mkb/build/index.mjs'
     import { loadHTML } from './this/index.mjs'
     let parser = new DOMParser()
-    const template = parser.parseFromString(await loadHTML('/template/welcomebook/index.html'), 'text/html').querySelector('template')
-    import { welcomebook } from '/services/welcomebook/src/main.mjs'
+    const Service = 'rules'
+    const template = parser.parseFromString(await loadHTML(`/template/${Service}/index.html`), 'text/html').querySelector('template')
+
+    const { rules } = await import(`/services/${Service}/src/main.mjs`)
+    // const { welcomebook } = await import(`/services/${Service}/src/main.mjs`)
 
     const mountPointSystem = {
         pathname: '.',
@@ -55,14 +58,9 @@
 
 
     const mountPoint = {
-        pathname: '/services/welcomebook/src',
+        pathname: `/services/${Service}/src`,
         template: template,
         mountPoint: document.querySelector('.dialog'),
-        CSSVariables: {
-            root: {
-                '--main-height': '100%'
-            }
-        }
     }
 
     const images = template.content.querySelectorAll('img')
@@ -73,6 +71,6 @@
         images[i].src = url.pathname
     }
 
-    welcomebook(mountPoint)
+    rules(mountPoint)
 </script>
 </html>
