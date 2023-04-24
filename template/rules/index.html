@@ -258,8 +258,8 @@
             </fer-hash>
         </div>
         <fer-form
-                data-css-shadow="rules_0_0"
-                slot="fer-form_input"
+            data-css-shadow="rules_0_0"
+            slot="fer-form_input"
         >
             <div class="container">
                 <div class="input">
@@ -290,25 +290,26 @@
                 <p>Сохранить</p>
             </fer-button>
         </fer-form>
-        <fer-table slot="fer-table_0_0">
+        <fer-table
+                data-template="table_0_0"
+                slot="fer-table_0_0"
+        >
             <div class="auction-data">
                 <div class="auction-data__table">
                     <div class="auction-data__table_header">
-                        <div class="auction-data__table_header_td">Data</div>
-                        <div class="auction-data__table_header_td">Summary 1</div>
-                        <div class="auction-data__table_header_td">Summary 2</div>
-                        <div class="auction-data__table_header_td">Summary 3</div>
-                        <div class="auction-data__table_header_td">Summary 4</div>
-                        <div class="auction-data__table_header_td">Summary 5</div>
+                        <div class="auction-data__table_header_td">Домен</div>
+                        <div class="auction-data__table_header_td">Название</div>
+                        <div class="auction-data__table_header_td">Версия схемы</div>
+                        <div class="auction-data__table_header_td background-transparent"></div>
+                        <div class="auction-data__table_header_td background-transparent">
+                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+                        </div>
                     </div>
                     <div class="auction-data__table_body"></div>
                     <div class="auction-data__table_footer">
-                        <input class="auction-data__table_footer_td" name="assetId"/>
-                        <input class="auction-data__table_footer_td" name="timestamp"/>
-                        <input class="auction-data__table_footer_td" name="description"/>
+                        <input class="auction-data__table_footer_td" name="domain"/>
                         <input class="auction-data__table_footer_td" name="name"/>
-                        <input class="auction-data__table_footer_td" name="proofs"/>
-                        <input class="auction-data__table_footer_td" name="sender"/>
+                        <input class="auction-data__table_footer_td" name="version"/>
                     </div>
                 </div>
             </div>
@@ -329,7 +330,10 @@
             </div>
         </div>
 
-        <fer-table slot="fer-table_1_0">
+        <fer-table
+                data-template="table_1_0"
+                slot="fer-table_1_0"
+        >
             <div class="auction-data">
                 <div class="auction-data__table">
                     <div class="auction-data__table_header">

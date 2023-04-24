@@ -1,5 +1,3 @@
-import {loadHTML} from '../index.mjs'
-
 let components = new Map();
 
 components.set('default', [{
