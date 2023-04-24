@@ -214,10 +214,10 @@
         <div class='body'>
             <div class="container">
                 <div class="navigation">
-                <slot name="welcome-menu_0_0"></slot>
+                    <slot name="welcome-menu_0_0"></slot>
                 </div>
                 <div>
-
+                    <slot name="fer-form_input"></slot>
                 </div>
                 <div>
                     <slot name="fer-table_0_0"></slot>
@@ -255,6 +255,39 @@
                 <p>Применение</p>
             </fer-hash>
         </div>
+        <fer-form
+                data-css-shadow="rules_0_0"
+                slot="fer-form_input"
+        >
+            <div class="container">
+                <div class="input">
+                    <label for="schema"></label>
+                    <input id="schema" placeholder="Схема"/>
+                </div>
+                <div class="input">
+                    <label for="region"></label>
+                    <input id="region" placeholder="Регион"/>
+                </div>
+                <div class="input">
+                    <label for="version"></label>
+                    <input id="version" placeholder="Версия"/>
+                </div>
+            </div>
+            <fer-button
+                    data-type="fer-form"
+                    data-id="cancel"
+                    slot="fer-form__cancel"
+            >
+                <p>Отмена</p>
+            </fer-button>
+            <fer-button
+                    data-type="fer-form"
+                    data-id="save"
+                    slot="fer-form__save"
+            >
+                <p>Сохранить</p>
+            </fer-button>
+        </fer-form>
         <fer-table slot="fer-table_0_0">
             <div class="auction-data">
 <!--                <div class="auction-data__header_date"> Aug 21,2021 - sep 21, 2021</div>-->
