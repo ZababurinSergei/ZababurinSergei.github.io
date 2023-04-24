@@ -1,0 +1,6 @@
+; [submodule "services/welcomebook/src"]
+; 	path = services/welcomebook/src
+; 	url = https://github.com/ZababurinSergei/welcomebook.git
+; [submodule "services/rules/src"]
+; 	path = services/rules/src
+; 	url = https://github.com/ZababurinSergei/rules.git
