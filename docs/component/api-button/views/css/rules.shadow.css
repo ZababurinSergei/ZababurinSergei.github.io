@@ -44,8 +44,12 @@
     background: white;
     transition: all 0.3s ease;
 }
+.rules-relation_container_name.active {
+   color: #435F7B;
+    transition: all 0.3s ease;
+}
 
-.rules-relation_container_img.active, .rules-relation_container_name.active {
-    filter: invert(35%) sepia(5%) saturate(3255%) hue-rotate(169deg) brightness(96%) contrast(87%);
+.rules-relation_container_img.active {
+    filter: invert(36%) sepia(5%) saturate(4314%) hue-rotate(169deg) brightness(87%) contrast(78%);
     transition: all 0.3s ease;
 }
