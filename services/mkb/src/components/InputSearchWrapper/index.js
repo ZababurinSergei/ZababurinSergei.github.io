@@ -20,7 +20,6 @@ const InputSearchWrapper = memo(({className, axis, onSetCode}) => {
     const [grayNotes, setGrayNotes] = useState();
 
     useEffect(() => {
-        console.log('ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', link)
         let grayArrayChild = [];
         if (axis.scaleEntity && axis.scaleEntity.length > 0) {
             axis.scaleEntity.map(entityScale => {
