@@ -6,7 +6,7 @@ body {
     background: #F5F7FA;
 }
 
-.dialog {
+.service {
     position: absolute;
     top: 0;
     left: 0;
@@ -14,7 +14,7 @@ body {
     height: 100%;
 }
 
-.dialog > pre {
+.service > pre {
     display: flex;
     flex-direction: column;
     align-items: center;

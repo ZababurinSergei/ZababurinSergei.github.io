@@ -21,8 +21,12 @@
           type="image/png">
 </head>
 <body>
-    <div class="modal" slot="modal"></div>
-    <div class="dialog" slot="dialog"></div>
+    <div class="service" slot="service"></div>
+    <fer-dialog>
+        <dialog>
+            <p>Greetings, one and all!</p>
+        </dialog>
+    </fer-dialog>
 </body>
 <style>
     html {
@@ -34,10 +38,7 @@
         padding: 0;
     }
 </style>
-<!--<script type="module" src="/static/html/components/api-substrate/api-substrate.mjs"></script>-->
-<!--<script type="module" src="/static/html/components/api-time/api-time.mjs"></script>-->
-<!--<script type="module" src="/static/html/components/api-processor/api-processor.mjs"></script>-->
-<!--<script type="module" src="/static/html/components/api-button/api-button.mjs"></script>-->
+
 <script type="module">
     import { store } from './this/store/index.mjs'
     import main from './main.mjs'
@@ -63,7 +64,7 @@
     const mountPoint = {
         pathname: `/services/${Service}/src`,
         template: template,
-        mountPoint: document.querySelector('.dialog'),
+        mountPoint: document.querySelector('.service'),
     }
 
     store.set('mount_rules', mountPoint)

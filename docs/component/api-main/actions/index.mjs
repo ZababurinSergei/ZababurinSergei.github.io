@@ -23,8 +23,8 @@ export default (self) => {
         let slot_TabExplorer = document.createElement('slot')
         let slot_api_processor = document.createElement('slot')
         slot_api_processor.name = 'api-processor'
-        div_dialog.slot = 'dialog'
-        slot_dialog.name = 'dialog'
+        div_dialog.slot = 'service'
+        slot_dialog.name = 'service'
 
         if (window.location.pathname.startsWith('/node')) {
             slot_header.name = 'header_base'
