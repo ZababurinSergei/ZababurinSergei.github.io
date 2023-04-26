@@ -45,11 +45,11 @@
     // import mkb from '/mkb/build/index.mjs'
     import { loadHTML } from './this/index.mjs'
     let parser = new DOMParser()
-    const Service = 'rules'
+    // const Service = 'rules'
+    const Service = 'welcomebook'
     const template = parser.parseFromString(await loadHTML(`/template/${Service}/index.html`), 'text/html').querySelector('template')
 
-    const { rules } = await import(`/services/${Service}/src/main.mjs`)
-    // const { welcomebook } = await import(`/services/${Service}/src/main.mjs`)
+    const service = (await import(`/services/${Service}/src/main.mjs`))['default']
 
     const mountPointSystem = {
         pathname: '.',
@@ -77,6 +77,7 @@
         images[i].src = url.pathname
     }
 
-    rules(mountPoint).then(api => {})
+    service(mountPoint).then(api => {})
+    // rules(mountPoint).then(api => {})
 </script>
 </html>

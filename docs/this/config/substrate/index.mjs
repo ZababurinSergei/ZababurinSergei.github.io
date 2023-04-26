@@ -101,11 +101,11 @@ export const config = {
 
     link: [{
         to:"/",
-        title: "Markdown",
+        title: "Rules",
         className: "auction-data__header_button"
     }, {
-        to:"/json",
-        title: "Json",
+        to:"/welcomebook",
+        title: "Welcomebook",
         className: "auction-data__header_button"
     }]
 }
