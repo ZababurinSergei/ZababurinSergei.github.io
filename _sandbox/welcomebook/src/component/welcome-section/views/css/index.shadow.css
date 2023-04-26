@@ -382,7 +382,7 @@ ul[class*="description-ul"] {
 	line-height: 1.45833rem;
 	top: 58%;
 	left: 118%;
-	width: 19.0625vw;
+	width: min-content;
 	padding-left: 0;
 	margin: 0;
 
