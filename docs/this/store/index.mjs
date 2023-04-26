@@ -146,4 +146,6 @@ function store(key, data) {
 for (var a in Store.prototype) store[a] = Store.prototype[a];
 
 export { store }
-export default store;
+export default {
+    description: 'store => '
+};
