@@ -226,7 +226,7 @@ var Rnd = /** @class */ (function (_super) {
         });
     };
     Rnd.prototype.onDrag = function (e, data) {
-        // debugger
+        // 
         if (!this.props.onDrag)
             return;
         // console.log(' ==== DRAG ====')

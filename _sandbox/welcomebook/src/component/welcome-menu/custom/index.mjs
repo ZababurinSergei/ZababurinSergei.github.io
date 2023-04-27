@@ -161,7 +161,7 @@ export const initSections = (self) => {
                                 }
                             }
                         } else {
-                            debugger
+                            
                             section.setAttribute('children', `${children.length}_1`);
                             childrentId[0] = parseInt(children.length, 10)
                             childrentId[1] = 1

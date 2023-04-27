@@ -24,7 +24,7 @@ const INDEX =  class extends HTMLDialogElement {
       console.assert(false, `надо определить свойство ${path} в стейте`, {
         state: this._state
       })
-      debugger
+      
     } else {
       if (this._state[path] !== value) {
         this._state[path] = value;

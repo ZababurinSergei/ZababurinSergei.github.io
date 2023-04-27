@@ -5,7 +5,6 @@ export const verification = (self, path, value) => {
         console.assert(false, `надо определить свойство ${path} в стейте`, {
             state: self._state
         })
-        debugger
     } else {
         if (self._state[path] !== value) {
             self._state[path] = value;

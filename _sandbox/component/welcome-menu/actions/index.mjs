@@ -35,7 +35,7 @@ export default (self) => {
                 }
             },
             ferButton: async (event) => {
-                debugger
+                
                 method.activeAnimation(event)
                 const gap = 26
                 const fontSize = 30
