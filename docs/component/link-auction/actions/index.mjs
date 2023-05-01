@@ -11,7 +11,6 @@ export default (self) => {
             link.classList.add(activeClass)
         }
 
-
         resolve({
             popstate: (event) => {
                 if (event.detail) {

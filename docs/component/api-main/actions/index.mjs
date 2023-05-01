@@ -40,6 +40,8 @@ export default (self) => {
             slot_header.name = 'api-contributing'
         } else if (window.location.pathname.startsWith('/json')) {
             slot_header.name = 'api-json'
+        } else if (window.location.pathname === '/') {
+            slot_header.name = 'api-json'
         } else {
             console.warn('необрабатываемый путь', window.location.pathname)
         }
@@ -64,6 +66,7 @@ export default (self) => {
 
         resolve({
             popstate: (event)=> {
+                debugger
                 let soltNames = ['header_base', 'TabAccounts', 'TabSend', 'TabDapps', 'TabSharding', 'TabSharding', 'TabExplorer']
 
                 if (event.detail && event.detail.pathname) {
@@ -73,6 +76,7 @@ export default (self) => {
                         case "/":
                             for (let i = 0; i < slots.length; ++i) {
                                 slots[i].name = i === 0 ? 'api-processor' : ''
+                                console.log('@@@@@@@@----@@@@@@@@', slots[i])
                             }
                             break
                         case "/jira":

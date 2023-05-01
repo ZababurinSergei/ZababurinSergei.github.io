@@ -40,15 +40,15 @@
 </style>
 
 <script type="module">
-    import { store } from './this/store/index.mjs'
-    import main from './main.mjs'
+    import { store } from '/this/store/index.mjs'
+    import main from '/main.mjs'
+    import { loadHTML } from '/this/index.mjs'
     // import mkb from '/mkb/build/index.mjs'
-    import { loadHTML } from './this/index.mjs'
-    let parser = new DOMParser()
     // const Service = 'rules'
+
+    let parser = new DOMParser()
     const Service = 'welcomebook'
     const template = parser.parseFromString(await loadHTML(`/template/${Service}/index.html`), 'text/html').querySelector('template')
-
     const service = (await import(`/services/${Service}/src/main.mjs`))['default']
 
     const mountPointSystem = {
@@ -73,7 +73,7 @@
 
     for(let i =0 ; i < images.length; ++i) {
         let url = new URL(images[i].src)
-        url.pathname = `${mountPoint.pathname}${url.pathname}`
+        url.pathname = `${mountPoint.pathname}${url.pathname.slice(url.pathname.indexOf('/this'))}`
         images[i].src = url.pathname
     }
 

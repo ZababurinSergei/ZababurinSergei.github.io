@@ -86,6 +86,7 @@ app.use('/services',express.static(`${__dirname}/services`));
 // app.use(express.static(`${__dirname}/services/welcomebook/src`));
 
 app.get(`/*`, async (req, res) => {
+    // console.log('index ----- index', __dirname)
     res.status(200).sendFile(path.join(__dirname, '/docs/index.html'));
 })
 

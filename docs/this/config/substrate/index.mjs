@@ -100,11 +100,15 @@ export const config = {
     }],
 
     link: [{
-        to:"/",
+        to:"/service/rules",
         title: "Rules",
         className: "auction-data__header_button"
-    }, {
-        to:"/welcomebook",
+    },{
+        to:"/",
+        title: "Main",
+        className: "auction-data__header_button"
+    },{
+        to:"/service/welcomebook",
         title: "Welcomebook",
         className: "auction-data__header_button"
     }]

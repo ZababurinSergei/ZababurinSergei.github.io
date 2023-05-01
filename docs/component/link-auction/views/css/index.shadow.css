@@ -101,7 +101,7 @@ p.auction-data__header_button {
     user-select: none
 }
 
-p.auction-link__active {
+p.active {
     text-shadow: rgb(0, 0, 0, 0.3) 0 0 1.5vw;
     background: firebrick;
 }
