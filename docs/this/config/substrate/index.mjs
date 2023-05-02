@@ -45,28 +45,33 @@ export const taskRelation = {
         'API-RELATION': [{
             Schema: {
                 type: 'aside',
+                service: 'rules',
                 name: 'Схемы',
-                icon: './this/icons/schema.svg'
+                icon: '/this/icons/schema.svg'
             },
             Rules: {
                 type: 'aside',
+                service: 'rules',
                 name: 'Правила',
-                icon: './this/icons/rules.svg'
+                icon: '/this/icons/rules.svg'
             },
             Manifest: {
                 type: 'aside',
+                service: 'rules',
                 name: 'Манифесты',
-                icon: './this/icons/manifest.svg'
+                icon: '/this/icons/manifest.svg'
             },
             Region: {
                 type: 'aside',
+                service: 'rules',
                 name: 'Регион',
-                icon: './this/icons/region.svg'
+                icon: '/this/icons/region.svg'
             },
             Domain: {
                 type: 'aside',
+                service: 'rules',
                 name: 'Домен',
-                icon: './this/icons/domain.svg'
+                icon: '/this/icons/domain.svg'
             }
         }]
     }
