@@ -1,7 +1,29 @@
 // import React from "../../../../index.mjs";
+import { store, loadHTML } from '../../../this/index.mjs'
+let parser = new DOMParser()
+const template = document.createElement('template')
+const templateNext = document.createElement('template')
+const Rules = 'rules'
+const templateRules = parser.parseFromString(await loadHTML(`/template/${Rules}/index.html`), 'text/html').querySelector('template')
+const serviceRules = (await import(`/services/${Rules}/src/main.mjs`))['default']
+const imagesRules = templateRules.content.querySelectorAll('img')
+const mountPointRules = {
+    pathname: `/services/${Rules}/src`,
+    template: templateRules,
+    mountPoint: document.querySelector('.service-next'),
+}
+
+store.set('mount_rules', mountPointRules)
+
+for(let i =0 ; i < imagesRules.length; ++i) {
+    let url = new URL(imagesRules[i].src)
+    url.pathname = `${mountPointRules.pathname}${url.pathname.slice(url.pathname.indexOf('/this'))}`
+    imagesRules[i].src = url.pathname
+}
 
 export default (self) => {
     return new Promise(async (resolve, reject) => {
+
 
         let Context = {
             test: (setName) => {
@@ -65,7 +87,7 @@ export default (self) => {
         // window.addEventListener('popstate', self.events);
 
         resolve({
-            popstate: (event)=> {
+            popstate: async (event)=> {
                 // debugger
                 let soltNames = ['header_base', 'TabAccounts', 'TabSend', 'TabDapps', 'TabSharding', 'TabSharding', 'TabExplorer']
 
@@ -74,13 +96,23 @@ export default (self) => {
 
                     switch (event.detail.pathname) {
                         case "/":
-                            slot_dialog.name = 'service'
+                            // slot_dialog.name = 'service'
                             break
                         case "/service/rules":
-                            slot_dialog.name = 'rules'
+                            const rules = templateNext.querySelector('.service-next')
+                            template.appendChild(document.querySelector('.service'))
+
+                            console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', rules)
+                            if(rules !== null) {
+                                document.body.appendChild(rules)
+                            } else {
+                                serviceRules(mountPointRules).then(api => {})
+                            }
                             break
                         case "/service/welcomebook":
-                            slot_dialog.name = 'service'
+                            templateNext.appendChild(document.querySelector('.service-next'))
+                            const welcomebook = template.querySelector('.service')
+                            document.body.appendChild(welcomebook)
                             break
                         case "/jira":
                             for (let i = 0; i < slots.length; ++i) {

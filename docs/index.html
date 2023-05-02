@@ -22,7 +22,7 @@
 </head>
 <body>
     <div class="service" slot="service"></div>
-    <div class="rules" slot="rules"></div>
+    <div class="service-next" slot="service"></div>
     <fer-dialog>
         <dialog>
             <div class="content"></div>
@@ -46,13 +46,13 @@
     import { loadHTML } from '/this/index.mjs'
     // import mkb from '/mkb/build/index.mjs'
     const Service = 'welcomebook'
-    const Rules = 'rules'
+    // const Rules = 'rules'
 
     let parser = new DOMParser()
     const template = parser.parseFromString(await loadHTML(`/template/${Service}/index.html`), 'text/html').querySelector('template')
-    const templateRules = parser.parseFromString(await loadHTML(`/template/${Rules}/index.html`), 'text/html').querySelector('template')
+    // const templateRules = parser.parseFromString(await loadHTML(`/template/${Rules}/index.html`), 'text/html').querySelector('template')
     const service = (await import(`/services/${Service}/src/main.mjs`))['default']
-    const serviceRules = (await import(`/services/${Rules}/src/main.mjs`))['default']
+    // const serviceRules = (await import(`/services/${Rules}/src/main.mjs`))['default']
 
     const mountPointSystem = {
         pathname: '.',
@@ -70,17 +70,17 @@
         mountPoint: document.querySelector('.service'),
     }
 
-    const mountPointRules = {
-        pathname: `/services/${Rules}/src`,
-        template: templateRules,
-        mountPoint: document.querySelector('.rules'),
-    }
+    // const mountPointRules = {
+    //     pathname: `/services/${Rules}/src`,
+    //     template: templateRules,
+    //     mountPoint: document.querySelector('.rules'),
+    // }
 
     store.set('mount_welcomebook', mountPoint)
-    store.set('mount_rules', mountPointRules)
+    // store.set('mount_rules', mountPointRules)
 
     const images = template.content.querySelectorAll('img')
-    const imagesRules = templateRules.content.querySelectorAll('img')
+    // const imagesRules = templateRules.content.querySelectorAll('img')
 
     for(let i =0 ; i < images.length; ++i) {
         let url = new URL(images[i].src)
@@ -88,13 +88,13 @@
         images[i].src = url.pathname
     }
 
-    for(let i =0 ; i < imagesRules.length; ++i) {
-        let url = new URL(imagesRules[i].src)
-        url.pathname = `${mountPointRules.pathname}${url.pathname.slice(url.pathname.indexOf('/this'))}`
-        imagesRules[i].src = url.pathname
-    }
+    // for(let i =0 ; i < imagesRules.length; ++i) {
+    //     let url = new URL(imagesRules[i].src)
+    //     url.pathname = `${mountPointRules.pathname}${url.pathname.slice(url.pathname.indexOf('/this'))}`
+    //     imagesRules[i].src = url.pathname
+    // }
 
     service(mountPoint).then(api => {})
-    serviceRules(mountPointRules).then(api => {})
+    // serviceRules(mountPointRules).then(api => {})
 </script>
 </html>
