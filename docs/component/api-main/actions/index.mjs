@@ -74,10 +74,13 @@ export default (self) => {
 
                     switch (event.detail.pathname) {
                         case "/":
-                            // for (let i = 0; i < slots.length; ++i) {
-                            //     slots[i].name = i === 0 ? 'api-processor' : ''
-                            //     console.log('@@@@@@@@----@@@@@@@@', slots[i])
-                            // }
+                            slot_dialog.name = 'service'
+                            break
+                        case "/service/rules":
+                            slot_dialog.name = 'rules'
+                            break
+                        case "/service/welcomebook":
+                            slot_dialog.name = 'service'
                             break
                         case "/jira":
                             for (let i = 0; i < slots.length; ++i) {
