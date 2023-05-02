@@ -105,12 +105,12 @@ export const config = {
     }],
 
     link: [{
-        to:"/service/rules",
-        title: "Rules",
-        className: "auction-data__header_button"
-    },{
         to:"/",
         title: "Main",
+        className: "auction-data__header_button"
+    },{
+        to:"/service/rules",
+        title: "Rules",
         className: "auction-data__header_button"
     },{
         to:"/service/welcomebook",
