@@ -94,11 +94,7 @@ const INDEX =  class extends HTMLElement {
   }
 }
 
-try {
-  customElements.define( COMPONENT, INDEX );
-} catch (e) {
-  console.error('error',e)
-}
+if(customElements.get(COMPONENT) === undefined) { customElements.define(COMPONENT, INDEX ) };
 
 export default {
   component: COMPONENT,

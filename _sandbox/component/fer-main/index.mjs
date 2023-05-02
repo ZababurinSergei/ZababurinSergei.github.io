@@ -50,11 +50,7 @@ const INDEX =  class extends HTMLElement {
   }
 }
 
-try {
-  customElements.define( COMPONENT, INDEX );
-} catch (e) {
-  console.error('error',e)
-}
+if(customElements.get(COMPONENT) === undefined) {}
 export default {
   component: 'fer-main',
   description: 'Преобразование markdown в json, html в json, фильтрация json',
