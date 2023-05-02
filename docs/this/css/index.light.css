@@ -6,7 +6,7 @@ body {
     background: #F5F7FA;
 }
 
-.service {
+.service, .rules {
     position: absolute;
     top: 0;
     left: 0;
