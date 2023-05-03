@@ -23,7 +23,6 @@ const entryPoints = [path.resolve(__dirname, 'src/index.tsx')]
 const outdir = path.resolve(__dirname, 'public/this/virualDom')
 const outfile = path.resolve(__dirname, 'public/this/virualDom/index.mjs')
 
-
 fs.emptyDirSync(outdir);
 
 console.time("⚡ [esbuild] Done");

@@ -84,7 +84,7 @@ export const Coding = ({ ismobileleftmenu, setmobileleftmenu }) => {
     setDiseases(() => filterResultSearch);
   }, [infoForFilter]);
 
-  const isMkb = false
+  const isMkb = true
   return (
       <>
       {isMkb ? (

@@ -407,7 +407,7 @@ export function Layout({
         setChildElsewhere(!isChildElsewhere)
     }
     // if(treeViews.current)
-    const isMKB = false
+    const isMKB = true
 
     if(!isMKB && treeViews.current !== null) {
         const tree = treeViews.current.assignedNodes()[0]

@@ -21,6 +21,15 @@ for(let i =0 ; i < imagesRules.length; ++i) {
     imagesRules[i].src = url.pathname
 }
 
+
+
+import MKB from '/services/mkb/build/index.mjs'
+import lightCSS from '/services/mkb/build/index.css' assert {type: "css"}
+
+document.adoptedStyleSheets = [...document.adoptedStyleSheets, lightCSS];
+
+// const shadow = document.body.attachShadow({mode: "open"});
+
 export default (self) => {
     return new Promise(async (resolve, reject) => {
 

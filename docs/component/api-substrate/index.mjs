@@ -7,11 +7,9 @@ const INDEX = class extends HTMLElement {
     _doRender() {
 
     }
-
     getState(path) {
         return this._state[path];
     }
-
     setState(path, value) {
         if (!this._state.hasOwnProperty(path)) {
             alert(`надо определить свойство ${path} в стейте`)

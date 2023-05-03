@@ -1190,7 +1190,7 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                 </div>)}
 
 <slot name="grid__footer"></slot>
-{/* <slot name="system"></slot> */}
+{/*<slot name="system"></slot>*/}
 {/* <slot name="header_base"></slot> */}
 {/* <slot name="TabAccounts"></slot> */}
 {/* <slot name="TabSend"></slot> */}
