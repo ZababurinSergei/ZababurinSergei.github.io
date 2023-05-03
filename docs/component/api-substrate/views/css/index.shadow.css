@@ -1,6 +1,6 @@
 /*@import '/components/terminal/modules/xterm/css/xterm.css';*/
 :host {
-    --substrate-pr-width: 14vw;
+    --substrate-pr-width: 12vw;
     width: 100%;
     margin: auto
 }
@@ -64,6 +64,7 @@ p {
     position: absolute;
     top: 0px;
     left: 0px;
+    width: 100%;
 }
 
 .grid__header {
@@ -75,8 +76,9 @@ p {
 .grid__body {
     grid-template-columns: var(--substrate-pr-width) 1fr var(--substrate-pr-width);
     grid-template-rows: 100%;
-    min-height: 100%;
+    /*min-height: 100%;*/
     overflow: hidden;
+    margin-top: 5rem;
 }
 
 .grid__footer {

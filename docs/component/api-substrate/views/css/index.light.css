@@ -40,10 +40,6 @@ api-footer a {
     text-decoration: none;
 }
 
-[slot="footer_substrate"] {
-     margin-left: 13vw;
-}
-
 lib-markdown {
     height: 30vw;
     width: 100%;
