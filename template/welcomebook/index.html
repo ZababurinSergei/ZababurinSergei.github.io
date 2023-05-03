@@ -146,20 +146,33 @@
             slot="welcome-menu"
     >
         <div class="container">
-            <div class="slider">
-                <div class="square"></div>
+            <div class="body-item_square">
+                <div class="square-buttom"></div>
             </div>
             <div class="body">
-                <slot name="button-0"></slot>
-                <slot name="button-1"></slot>
-                <slot name="button-2"></slot>
-                <slot name="button-3"></slot>
-                <slot name="button-4"></slot>
+                <div class="body-item">
+                    <slot name="button__0_0"></slot>
+                </div>
+                <div class="body-item">
+                    <slot name="button__0_1"></slot>
+                </div>
+                <div class="body-item">
+                    <slot name="button__1"></slot>
+                </div>
+                <div class="body-item">
+                    <slot name="button__2"></slot>
+                </div>
+                <div class="body-item">
+                    <slot name="button__3"></slot>
+                </div>
+                <div class="body-item">
+                    <slot name="button__4"></slot>
+                </div>
             </div>
         </div>
         <fer-button
                 data-services-path="welcomebook"
-                slot="button-0"
+                slot="button__0_0"
                 data-id="0__0_0"
                 data-type="welcome-menu"
                 data-css-shadow="menu"
@@ -168,7 +181,7 @@
         </fer-button>
         <fer-button
                 data-services-path="welcomebook"
-                slot="button-0"
+                slot="button__0_1"
                 data-id="0__0_1"
                 data-type="welcome-menu"
                 data-css-shadow="menu"
@@ -177,7 +190,7 @@
         </fer-button>
         <fer-button
                 data-services-path="welcomebook"
-                slot="button-1"
+                slot="button__1"
                 data-id="1"
                 data-type="welcome-menu"
                 data-css-shadow="menu"
@@ -188,7 +201,7 @@
 
         <fer-button
                 data-services-path="welcomebook"
-                slot="button-2"
+                slot="button__2"
                 data-id="2"
                 data-type="welcome-menu"
                 data-css-shadow="menu"
@@ -198,7 +211,7 @@
 
         <fer-button
                 data-services-path="welcomebook"
-                slot="button-3"
+                slot="button__3"
                 data-id="3"
                 data-type="welcome-menu"
                 data-css-shadow="menu"
@@ -208,7 +221,7 @@
 
         <fer-button
                 data-services-path="welcomebook"
-                slot="button-4"
+                slot="button__4"
                 data-id="4"
                 data-type="welcome-menu"
                 data-css-shadow="menu"
