@@ -17,7 +17,7 @@ export default (self) => {
                     class="api-relation__relation_button"
                 >
                 <div class="rules-relation_container">
-                    <img class="rules-relation_container_img" src="${list[event].icon}"/>
+                    ${list[event].icon}
                     <p class="rules-relation_container_name">
                        ${list[event].name}
                     </p>
