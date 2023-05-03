@@ -1,9 +1,10 @@
 /*https://codepen.io/sarazond/pen/LYGbwj*/
 body {
-    padding-left: 0.4vw;
-    padding-right: 0.4vw;
+    /*padding-left: 0.4vw;*/
+    /*padding-right: 0.4vw;*/
     box-sizing: border-box;
     background: #F5F7FA;
+    padding: 0;
 }
 
 .service, .rules {
