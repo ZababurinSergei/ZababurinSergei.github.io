@@ -54,6 +54,13 @@ p {
     gap: 1vw;
 }
 
+.grid__main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+}
+
 .grid__header {
     grid-template-columns: var(--substrate-pr-width) 1fr var(--substrate-pr-width);
     grid-template-rows: 5.9vw;

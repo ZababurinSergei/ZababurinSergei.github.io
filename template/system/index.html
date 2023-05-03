@@ -7,45 +7,47 @@
         <section id="system">
             <div class="main-top"></div>
             <div id="shadow" class="main-center">
-                <div slot ="grid__header" class="grid__header">
-                    <div class="grid__header_relation">
-                        <slot name="header_relation"></slot>
-                    </div>
-                    <div class="grid__header_substrate">
-                        <slot name="header_substrate"></slot>
-                    </div>
-                    <div class="grid__header_property">
-                        <slot name="header_property"></slot>
-                    </div>
-                </div>
-                <div slot ="grid__body" class="grid__body">
-                    <div id="relation">
-                        <slot name="body_relation"></slot>
-                    </div>
-                    <div id="substrate">
-                        <div class="body_before">
-                            <slot name="body_before"></slot>
+                <div class="grid__main" slot ="grid__main">
+                    <div slot ="grid__header" class="grid__header">
+                        <div class="grid__header_relation">
+                            <slot name="header_relation"></slot>
                         </div>
-                        <div class="body_main">
-                            <slot name="body_substrate"></slot>
+                        <div class="grid__header_substrate">
+                            <slot name="header_substrate"></slot>
                         </div>
-                        <div class="body_after">
-                            <slot name="body_after"></slot>
+                        <div class="grid__header_property">
+                            <slot name="header_property"></slot>
                         </div>
                     </div>
-                    <div id="property">
-                        <slot name="body_property"></slot>
+                    <div slot ="grid__body" class="grid__body">
+                        <div id="relation">
+                            <slot name="body_relation"></slot>
+                        </div>
+                        <div id="substrate">
+                            <div class="body_before">
+                                <slot name="body_before"></slot>
+                            </div>
+                            <div class="body_main">
+                                <slot name="body_substrate"></slot>
+                            </div>
+                            <div class="body_after">
+                                <slot name="body_after"></slot>
+                            </div>
+                        </div>
+                        <div id="property">
+                            <slot name="body_property"></slot>
+                        </div>
                     </div>
-                </div>
-                <div slot ="grid__footer" class="grid__footer">
-                    <div class="grid__footer_relation">
-                        <slot name="footer_relation"></slot>
-                    </div>
-                    <div class="grid__footer_substrate">
-                        <slot name="footer_substrate"></slot>
-                    </div>
-                    <div class="grid__footer_property">
-                        <slot name="footer_property"></slot>
+                    <div slot ="grid__footer" class="grid__footer">
+                        <div class="grid__footer_relation">
+                            <slot name="footer_relation"></slot>
+                        </div>
+                        <div class="grid__footer_substrate">
+                            <slot name="footer_substrate"></slot>
+                        </div>
+                        <div class="grid__footer_property">
+                            <slot name="footer_property"></slot>
+                        </div>
                     </div>
                 </div>
             </div>

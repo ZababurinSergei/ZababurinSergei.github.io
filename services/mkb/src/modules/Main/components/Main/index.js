@@ -451,16 +451,17 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
             </ModalWindow>
             {!isMkb ? (
                 <>
-                    <slot
-                        name="fer-default"
-                    ></slot>
-                    <slot
-                        name="domain-entity"
-                    ></slot>
-                    <slot
-                        ref={slotMain}
-                        name="grid__body"
-                    ></slot>
+                    <slot name={'grid__main'}></slot>
+                    {/*<slot*/}
+                    {/*    name="fer-default"*/}
+                    {/*></slot>*/}
+                    {/*<slot*/}
+                    {/*    name="domain-entity"*/}
+                    {/*></slot>*/}
+                    {/*<slot*/}
+                    {/*    ref={slotMain}*/}
+                    {/*    name="grid__body"*/}
+                    {/*></slot>*/}
                 </>
             ):(
             <div
