@@ -55,10 +55,13 @@ p {
 }
 
 .grid__main {
-    display: flex;
+    display: grid;
     flex-direction: column;
     flex-grow: 1;
     height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
 .grid__header {

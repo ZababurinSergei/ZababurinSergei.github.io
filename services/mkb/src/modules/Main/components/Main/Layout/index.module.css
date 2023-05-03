@@ -421,6 +421,7 @@ hr {
 .conceptPage {
     width: 100%;
     max-width: 65.49296vw;
+    position: relative;
 }
 
 @media all and (min-width: 768px) and (max-width: 1368px) {
