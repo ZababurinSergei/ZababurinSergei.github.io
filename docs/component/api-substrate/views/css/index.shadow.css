@@ -52,7 +52,6 @@ p {
     display: grid;
     position: relative;
     gap: 1vw;
-    /*height: inherit;*/
 }
 
 .grid__header {
@@ -63,8 +62,8 @@ p {
 
 .grid__body {
     grid-template-columns: var(--substrate-pr-width) 1fr var(--substrate-pr-width);
-    grid-template-rows: 56.25vw;
-    min-height: 62.5vh;
+    grid-template-rows: 100%;
+    min-height: 100%;
     overflow: hidden;
 }
 
