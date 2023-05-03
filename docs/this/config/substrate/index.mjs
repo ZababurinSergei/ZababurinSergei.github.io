@@ -106,7 +106,7 @@ export const config = {
 
     link: [{
         to:"/",
-        title: "Main",
+        title: "Browser",
         className: "auction-data__header_button"
     },{
         to:"/service/rules",
