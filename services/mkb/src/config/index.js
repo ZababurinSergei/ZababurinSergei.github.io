@@ -76,7 +76,7 @@ export const adminLinkNames = process.env.REACT_APP_MAIN_THEME !== 'true' ? [{
     link: '/admin/update',
 }];
 
-export const name = 'ФЭР';
+export const name = 'НСИ';
 
 export const profile = {
   singIn: 'Вход для сотрудников',

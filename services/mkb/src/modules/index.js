@@ -20,11 +20,11 @@ let routesAll = [{
     breadcrumb: "Информация"
 },{
     icon: 'mkb11',
-    title: 'ФЭР',
+    title: 'НСИ',
     module: 'Main',
     path: '/*',
     Body: Body,
-    breadcrumb: 'ФЭР'
+    breadcrumb: 'НСИ'
 },{
     icon: 'mkb11',
     title: 'Админ Панель',
@@ -56,11 +56,11 @@ let routesAll = [{
     breadcrumb: "Информация"
 },{
     icon: 'mkb11',
-    title: 'ФЭР',
+    title: 'НСИ',
     module: 'Main',
     path: '/testing/*',
     Body: Body,
-    breadcrumb: 'ФЭР'
+    breadcrumb: 'НСИ'
 },{
     icon: 'mkb11',
     title: 'Админ Панель',
@@ -117,11 +117,11 @@ const routes = [{
         breadcrumb: "Информация"
     },{
         icon: 'mkb11',
-        title: 'ФЭР',
+        title: 'НСИ',
         module: 'Main',
         path: '/*',
         Body: Body,
-        breadcrumb: 'ФЭР'
+        breadcrumb: 'НСИ'
     },{
         icon: 'mkb11',
         title: 'Инструмент кодирования',
@@ -139,11 +139,11 @@ const routes = [{
         breadcrumb: "МКБ-11"
     },{
         icon: 'mkb11',
-        title: 'ФЭР',
+        title: 'НСИ',
         module: 'Main',
         path: '/testing/*',
         Body: Body,
-        breadcrumb: 'ФЭР'
+        breadcrumb: 'НСИ'
     }];
 
 let result = routesAll
