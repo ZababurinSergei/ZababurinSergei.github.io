@@ -11,8 +11,10 @@
 p, a {
     margin: 0px;
     padding: 0px;
-    font-size: 2.4rem;
+    /*font-size: 2.4rem;*/
     color: rgba(var(--colorT), var(--colorT), var(--colorT), 0.5);
     text-decoration: none;
-    transform: translateX(17rem);
+    /*transform: translateX(17rem);*/
+    font-size: 1.8rem;
+    transform: translateX(10rem);
 }

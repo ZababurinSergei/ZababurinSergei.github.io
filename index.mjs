@@ -57,6 +57,16 @@ app.use(proxy('https://mkb11-compose-dev.digitalms.ru', {
     }
 }));
 
+// app.use(proxy('http://localhost', {
+//     limit: '5mb',
+//     filter: function(req) {
+//         const data = ['/v1/'].some(path => req.path.includes(path))
+//         return true
+//     }
+// }));
+
+
+
 app.use(proxy('localhost:8080', {
     limit: '5mb',
     filter: function(req) {

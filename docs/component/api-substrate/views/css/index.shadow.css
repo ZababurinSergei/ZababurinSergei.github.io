@@ -48,7 +48,7 @@ p {
     grid-template-rows: 14.4vh  1fr 9.4vh;
 }
 
-.grid__footer, .grid__header, .grid__body {
+.grid__footer, .grid__header {
     display: grid;
     position: relative;
     gap: 1vw;
@@ -57,7 +57,7 @@ p {
 .grid__main {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 18rem 1fr 6rem;
+    grid-template-rows: min-content 1fr min-content;
     flex-direction: column;
     flex-grow: 1;
     height: 100%;
@@ -73,12 +73,19 @@ p {
     margin-bottom: 1.46262vw;
 }
 
-.grid__body {
+[class*="grid__body"] {
+    display: grid;
     grid-template-columns: var(--substrate-pr-width) 1fr var(--substrate-pr-width);
     grid-template-rows: 100%;
     /*min-height: 100%;*/
+    position: relative;
+    gap: 1vw;
     overflow: hidden;
     margin-top: 5rem;
+}
+
+[class*="--margin-top_0"] {
+    margin-top: 0!important;
 }
 
 .grid__footer {
