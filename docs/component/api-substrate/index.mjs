@@ -50,7 +50,9 @@ const INDEX = class extends HTMLElement {
         super()
         this.controller = {}
         this._isOnload = false;
-        this._state = {};
+        this._state = {
+            mkb: null
+        };
         this._doRender = this._doRender.bind(this);
         init(this).then(self => (self._isOnload = true)).catch(error => console.warn('error', error))
     }

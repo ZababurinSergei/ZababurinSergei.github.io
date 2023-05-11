@@ -23,6 +23,8 @@ export default (self) => {
         let mkb = await MKB(virtualDom, shadow)
 
         mkb[virtualDom].app.props.root = {}
+        mkb[virtualDom].app.props.root.render = mkb.render
+        // self.setState('mkb', mkb)
 
         mkb.render(mkb[virtualDom].app);
 

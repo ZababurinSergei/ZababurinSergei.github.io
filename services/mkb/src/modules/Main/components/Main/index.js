@@ -28,6 +28,7 @@ import analytics from '@src/utilites/analytics'
 import { useLocalStorage } from '@src/hooks/useLocalStorage';
 import { UserContext } from '@src/App';
 import routes from '../../../../modules'
+import { renderToStaticMarkup } from 'react-dom/server';
 
 const HEIGHT_HEADER = 64
 const HEIGHT_FOOTER = 80
@@ -65,8 +66,10 @@ const getHeight = (conceptPage) => {
     return delta < 0 ? heightWindow - delta : heightWindow
 }
 
+
 export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleftmenu, isCodingPage = false, setCodingModal, codeDiseaseChoice }) => {
     const [isICDLatest, setICDLatest] = useState(false);
+    const [isMkb, setIsMkb] = useState(false);
     const [activeClass, setActiveClass] = useState(false);
     const location = useLocation();
     const dispatch = useDispatch();
@@ -101,6 +104,7 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
     const [isExclusionsFromAboveLevels, setExclusionsFromAboveLevels] = useState([]);
     const [anonUser, setAnonUser] = useLocalStorage('__anon_id', undefined);
     const {userInfo} = useContext(UserContext);
+    // const dataContext = useContext(UserContext);
 
     const onClickHelpHandler = (event) => {
         const user = !isEmpty(userInfo) ? userInfo.email : anonUser
@@ -417,57 +421,13 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
         }, "4000")
     }
 
-    // const isMkb = routes.some(item => {
-    //     const path = item.path.replace('/*','')
-    //     return path.length === 0
-    //         ? window.location.pathname === '/'
-    //         : window.location.pathname.startsWith(path)
-    // })
-    const isMkb = false;
+    const renderPage = () => {
 
-    return (
-        <Layout
-            type={type}
-            uri={uri}
-            ismobileleftmenu={ismobileleftmenu}
-            setmobileleftmenu={setmobileleftmenu}
-            conceptPage={conceptPage}
-            updatePage={setUpdate}
-            className={className}
-            currentTocData={currentTocData}
-            setAncestor={setAncestor}
-        >
-            <div
-                className={style.banner}
-            >
-                {!!userInfo && !isEmpty(userInfo?.roles) && userInfo?.roles.includes('mkb_admin') && (process.env.REACT_APP_MAIN_THEME === 'true') && type !== 'window' && isICDLatest &&
-                    <Notification />}
-            </div>
-            <ModalWindow
-                setModal={setModal}
-                isModal={isModal}
-            >
-                <PostCoordination/>
-            </ModalWindow>
-            {!isMkb ? (
-                <>
-                    <slot name={'grid__main'}></slot>
-                    {/*<slot*/}
-                    {/*    name="fer-default"*/}
-                    {/*></slot>*/}
-                    {/*<slot*/}
-                    {/*    name="domain-entity"*/}
-                    {/*></slot>*/}
-                    {/*<slot*/}
-                    {/*    ref={slotMain}*/}
-                    {/*    name="grid__body"*/}
-                    {/*></slot>*/}
-                </>
-            ):(
+        return(
             <div
                 ref={conceptPage}
                 className={style.content}
-                >
+            >
                 {type === 'window' &&
                     <div  className={style.containerTitle_coding}>
                         <div
@@ -490,17 +450,17 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                         </a>
                     </p>}
 
-                    {isCodingPage && <CopyLine setCodingModal={setCodingModal} codeDiseaseChoice={codeDiseaseChoice} />}
+                {isCodingPage && <CopyLine setCodingModal={setCodingModal} codeDiseaseChoice={codeDiseaseChoice} />}
 
                 {type !== 'window' &&
-                                    <>
-                                        <div className={style.titlePage}>
-                                            {`${page.code ? page.code : ''} ${page.title}`}
-                                        </div>
-                                        <div className={style.subTitlePage}>
-                                            {page.subTitle}
-                                        </div>
-                                    </>
+                    <>
+                        <div className={style.titlePage}>
+                            {`${page.code ? page.code : ''} ${page.title}`}
+                        </div>
+                        <div className={style.subTitlePage}>
+                            {page.subTitle}
+                        </div>
+                    </>
                 }
 
                 {page.ancestor &&
@@ -515,27 +475,27 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                                 <ul className={style.ul}>
                                     {page.ancestor.map((item, index) => {
                                         return (
-                                        <li
-                                            key={idKey()}
-                                            className={style.li}
-                                            style={{
-                                                marginLeft: 8 * (index + 1)
-                                            }}
-                                        >
-                                            <div
-                                                className={style.link}
-                                                onClick={() => {
-                                                    let data = item
-                                                    if(type === 'window') {
-                                                        data.id = data.id.replace('page/','')
-                                                    }
-                                                    onUpdateTocHandler(data)
+                                            <li
+                                                key={idKey()}
+                                                className={style.li}
+                                                style={{
+                                                    marginLeft: 8 * (index + 1)
                                                 }}
                                             >
-                                                {item.title}
-                                            </div>
-                                        </li>
-                                    )})}
+                                                <div
+                                                    className={style.link}
+                                                    onClick={() => {
+                                                        let data = item
+                                                        if(type === 'window') {
+                                                            data.id = data.id.replace('page/','')
+                                                        }
+                                                        onUpdateTocHandler(data)
+                                                    }}
+                                                >
+                                                    {item.title}
+                                                </div>
+                                            </li>
+                                        )})}
                                 </ul>
                                 <div
                                     className={`${style.title_ancessor}`}
@@ -568,9 +528,9 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                                             }
 
                                             onUpdateTocHandler({
-                                                id: id
-                                            }
-                                        )}}
+                                                    id: id
+                                                }
+                                            )}}
                                     >
                                         {page.ancestor[page.ancestor.length - 1].title}
                                     </div>
@@ -611,9 +571,9 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                         <ul className={style.ul}>
                             {page.exclusion.map(item => {
                                 return (
-                                <li key={idKey()} className={style.li}>
-                                    {item.title}
-                                    <span className={style.link}>
+                                    <li key={idKey()} className={style.li}>
+                                        {item.title}
+                                        <span className={style.link}>
                                         <Link
                                             to={href.transform(new URL(item.id).pathname, 'page')}
                                             className={style.link}
@@ -621,8 +581,8 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                                             ({item.code})
                                         </Link>
                                     </span>
-                                </li>
-                            )})}
+                                    </li>
+                                )})}
                         </ul>
                     </div>
                 ) : ''}
@@ -1188,7 +1148,68 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                             </ul>
                         </div>
                     </>}
-                </div>)}
+            </div>
+        )
+    }
+
+    useEffect(() => {
+        if(window.location.pathname === '/') {
+            // const node = ()
+            var content = renderToStaticMarkup(renderPage());
+            console.log('===================== $$$$$$$$$$$$$$$$$$$$$$ =====================',  content)
+            // console.log('@@@@@@ WINDOW LOCATION @@@@@@@@@@@', renderPage())
+            setIsMkb(true)
+        } else {
+            setIsMkb(false)
+        }
+    }, [window.location.pathname])
+
+    return (
+        <Layout
+            type={type}
+            uri={uri}
+            ismobileleftmenu={ismobileleftmenu}
+            setmobileleftmenu={setmobileleftmenu}
+            conceptPage={conceptPage}
+            updatePage={setUpdate}
+            className={className}
+            currentTocData={currentTocData}
+            setAncestor={setAncestor}
+        >
+            <div
+                className={style.banner}
+            >
+                {!!userInfo && !isEmpty(userInfo?.roles) && userInfo?.roles.includes('mkb_admin') && (process.env.REACT_APP_MAIN_THEME === 'true') && type !== 'window' && isICDLatest &&
+                    <Notification />}
+            </div>
+            <ModalWindow
+                setModal={setModal}
+                isModal={isModal}
+            >
+                <PostCoordination/>
+            </ModalWindow>
+            {!isMkb ? (
+                <>
+                    <slot
+                        ref={slotMain}
+                        name={'grid__main'}
+                    ></slot>
+                    {/*<slot*/}
+                    {/*    name="fer-default"*/}
+                    {/*></slot>*/}
+                    {/*<slot*/}
+                    {/*    name="domain-entity"*/}
+                    {/*></slot>*/}
+                    {/*<slot*/}
+                    {/*    ref={slotMain}*/}
+                    {/*    name="grid__body"*/}
+                    {/*></slot>*/}
+                </>
+            ):(
+                <slot
+                    ref={slotMain}
+                    name={'grid__main'}
+                ></slot>)}
 
 <slot name="grid__footer"></slot>
 {/*<slot name="system"></slot>*/}

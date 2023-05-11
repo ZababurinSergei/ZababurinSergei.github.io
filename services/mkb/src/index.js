@@ -87,6 +87,7 @@ export default (symbol, mountPoint) => {
 
             const root = ReactDOM.createRoot(mountPoint.querySelector('#root'));
             let styles = document.head.querySelectorAll('style')
+
             for (const style of styles) {
                 mountPoint.appendChild(style)
             }
