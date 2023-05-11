@@ -573,20 +573,43 @@
             slot="welcome-section_1_0"
     >
         <div class='section_content'>
-            <div class='hasAnimation section_content_item_0'>
-                <div class='section_content_header'>
-                    <p class='section_content_header_p_left'></p>
-                    <p class='section_content_header_p'>Единая цифровая платформа</p>
-                    <p class='section_content_header_p_right'></p>
+            <div>
+                <slot name="welcome-diagram-0"></slot>
+            </div>
+<!--            <div class='section_content_item_img_1_0'></div>-->
+        </div>
+
+        <welcome-diagram slot="welcome-diagram-0">
+            <div class='section_content_body_ecp_1_0'>
+                <div class='section_content_body_diagram'>
+                    <div class="diagram_section_0">
+                        <img class="diagram_section_0_img" src="./this/img/diagram/section/s_0.svg"/>
+                    </div>
+                    <div class="diagram_section_1">
+                        <img class="diagram_section_0_img" src="./this/img/diagram/section/s_1.svg"/>
+                    </div>
+                    <div class="diagram_section_2">
+                        <img class="diagram_section_0_img" src="./this/img/diagram/section/s_2.svg"/>
+                    </div>
+                    <div class="diagram_section_3">
+                        <img class="diagram_section_0_img" src="./this/img/diagram/section/s_3.svg"/>
+                    </div>
+                    <div class="diagram_section_4">
+                        <img class="diagram_section_0_img" src="./this/img/diagram/section/s_4.svg"/>
+                    </div>
+                    <div class="diagram_section_5">
+                        <img class="diagram_section_0_img" src="./this/img/diagram/section/s_5.svg"/>
+                    </div>
                 </div>
-                <div class='section_content_body--center'>
-                    <p class='section_content_body_p  notFound has-animation'>
-                        РАЗДЕЛ в разработке
-                    </p>
+                <div class='section_content_body_ecp_list_1_0'>
+                    <h3>ЕЦП. МИС</h3>
+                    <p>медицинская</p>
+                    <p>информационная система</p>
+                    <p>цифровое решение</p>
+                    <p>для медицинских организаций</p>
                 </div>
             </div>
-            <div class='section_content_item_img_1_0'></div>
-        </div>
+        </welcome-diagram>
     </welcome-section>
 
     <welcome-section
