@@ -1,0 +1,49 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body { 
+  background: radial-gradient(rgba(161, 222, 240, 0.75), rgba(64, 129, 147, 0.75)), url(https://i.imgur.com/3JZchqt.png), url(https://i.imgur.com/9kxBTzr.jpg);
+  text-align: center; 
+  font-family: Open Sans, sans-serif;
+  margin: 2rem;
+}
+svg {
+	transform: rotate(-90deg);
+	color: #333;
+	background: currentcolor;
+	border-radius: 50%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+label { 
+	display: block;
+	font-size: 2rem;
+  font-weight: 900;
+	}
+#pie {
+	fill: currentcolor;
+	stroke: hsl(0,0%,50%);
+	stroke-width: 50;
+	stroke-dasharray: 0 158; 
+  transition:stroke-dasharray 2s;
+}
+#readout {
+	width: 25%;
+	margin: 2rem auto; 
+	position: relative;
+  height: 0;
+	padding-top: 25%; 
+}
+#utilslider {
+	width: 20%;
+}
+output { 
+	position: absolute;
+	color: #fff;
+	font-size: 3rem;
+	text-align: center;
+	z-index: 10;
+	width: 100%;
+	left: 0;
+	top: calc(50% - 2rem);
+}
