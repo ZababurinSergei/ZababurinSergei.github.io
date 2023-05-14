@@ -163,13 +163,13 @@
         <div class='body--padding_70px_100px'>
             <div class="container">
                 <div class="navigation">
-                    <slot name="welcome-menu_0_0"></slot>
+<!--                    <slot name="welcome-menu_0_0"></slot>-->
                 </div>
                 <div>
-                    <slot name="fer-form_input"></slot>
+<!--                    <slot name="fer-form_input"></slot>-->
                 </div>
                 <div>
-                    <slot name="fer-table_0_0"></slot>
+                    <slot name="fer-table_0"></slot>
                 </div>
             </div>
         </div>
@@ -244,8 +244,9 @@
         </fer-form>
         <fer-table
                 data-services-path="rules"
-                data-template="table_0_0"
-                slot="fer-table_0_0"
+                data-template="table_0"
+                data-id="0_0"
+                slot="fer-table_0"
         >
             <div class="auction-data">
                 <div class="auction-data__table">
@@ -279,15 +280,16 @@
         <div class='body--padding_70px_100px'>
             <div class="container">
                 <div>
-                    <slot name="fer-table_1_0"></slot>
+                    <slot name="fer-table_1"></slot>
                 </div>
             </div>
         </div>
 
         <fer-table
                 data-services-path="rules"
-                data-template="table_1_0"
-                slot="fer-table_1_0"
+                data-template="table_1"
+                data-id="1_0"
+                slot="fer-table_1"
         >
             <div class="auction-data">
                 <div class="auction-data__table">
@@ -323,15 +325,16 @@
         <div class='body--padding_70px_100px'>
             <div class="container">
                 <div>
-                    <slot name="fer-table_2_0"></slot>
+                    <slot name="fer-table_2"></slot>
                 </div>
             </div>
         </div>
 
         <fer-table
                 data-services-path="rules"
-                data-template="table_2_0"
-                slot="fer-table_2_0"
+                data-template="table_2"
+                data-id="2_0"
+                slot="fer-table_2"
         >
             <div class="auction-data">
                 <div class="auction-data__table">
@@ -371,15 +374,16 @@
         <div class='body--padding_70px_100px'>
             <div class="container">
                 <div>
-                    <slot name="fer-table_3_0"></slot>
+                    <slot name="fer-table_3"></slot>
                 </div>
             </div>
         </div>
 
         <fer-table
                 data-services-path="rules"
-                data-template="table_3_0"
-                slot="fer-table_3_0"
+                data-template="table_3"
+                data-id="3_0"
+                slot="fer-table_3"
         >
             <div class="auction-data">
                 <div class="auction-data__table">
@@ -411,15 +415,16 @@
         <div class='body--padding_70px_100px'>
             <div class="container">
                 <div>
-                    <slot name="fer-table_4_0"></slot>
+                    <slot name="fer-table_4"></slot>
                 </div>
             </div>
         </div>
 
         <fer-table
                 data-services-path="rules"
-                data-template="table_3_0"
-                slot="fer-table_4_0"
+                data-template="table_3"
+                data-id="4_0"
+                slot="fer-table_4"
         >
             <div class="auction-data">
                 <div class="auction-data__table">
@@ -440,5 +445,44 @@
             </div>
         </fer-table>
     </welcome-section>
+
+
+    <welcome-section
+            data-services-path="welcomebook"
+            data-css-shadow="section"
+            data-id="0_0"
+            slot="welcome-section_1_0"
+    >
+        <div class='section_content'>
+            <div class='hasAnimation section_content_item_0'>
+                CONTENT 0_0
+
+            </div>
+        </div>
+    </welcome-section>
+
+    <welcome-section
+            data-services-path="welcomebook"
+            data-css-shadow="section"
+            data-id="1_0"
+            slot="welcome-section_1_0"
+    >
+        <div class='section_content'>
+            <div class='hasAnimation section_content_item_0'>
+                CONTENT 1_0
+
+            </div>
+        </div>
+    </welcome-section>
+
+    <div slot="welcome-animation" class="animation">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
     </body>
 </template>
