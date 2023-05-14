@@ -54,9 +54,9 @@
             <div class="main-bottom"> </div>
         </section>
 
-        <api-header data-template slot="header_relation">Relation</api-header>
-        <api-header data-template slot="header_substrate">Link</api-header>
-        <api-header data-template slot="header_property">Property</api-header>
+        <api-header data-template slot="header_relation"></api-header>
+        <api-header data-template slot="header_substrate"></api-header>
+        <api-header data-template slot="header_property"></api-header>
         <api-relation slot="body_relation">
             <section id="api-relation">
                 <div class="api-relation">
@@ -72,26 +72,8 @@
                 </div>
             </section>
         </api-property>
-        <api-footer slot="footer_relation">
-            <div class="footer-time">
-                <slot name="footer_relation_time"></slot>
-            </div>
-            <api-time slot="footer_relation_time">
-                <p class="timer">Relation</p>
-            </api-time>
-        </api-footer>
-        <api-footer slot="footer_substrate">
-                <p class="grid__footer_substrate_title">Zababurin Sergey</p>
-                <p class="grid__footer_substrate_mail">Email: <a href="mailto:zababurins@vk.com">zababurins@vk.com</a></p>
-                <p class="grid__footer_substrate_tel">Phone: <a href="tel:+79531437072">+7 953-143-70-72</a></p>
-        </api-footer>
-        <api-footer slot="footer_property">
-            <div class="footer-time">
-                <slot name="footer_property_time"></slot>
-            </div>
-            <api-time slot="footer_property_time">
-                <p class="timer">Property</p>
-            </api-time>
-        </api-footer>
+        <api-footer slot="footer_relation"></api-footer>
+        <api-footer data-attachShadow slot="footer_substrate"></api-footer>
+        <api-footer slot="footer_property"></api-footer>
     </api-substrate>
 </template>

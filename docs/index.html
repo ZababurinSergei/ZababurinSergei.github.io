@@ -45,6 +45,16 @@
     import main from '/main.mjs'
     import { loadHTML } from '/this/index.mjs'
 
+    store.set('service', {
+        system: {
+            header: true,
+            relation: true,
+            body: true,
+            property: true,
+            footer: true
+        }
+    })
+
     const mountPointSystem = {
         pathname: '.',
         pathTemplate: 'system',

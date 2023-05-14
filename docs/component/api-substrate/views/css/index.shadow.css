@@ -232,13 +232,3 @@ api-dex {
     gap: 0.5vw;
 }
 
-.grid__footer_substrate {
-    border-bottom: 0.1vw solid rgba(118, 148, 244, 0.45);
-    border-left: 0.1vw solid rgba(118, 148, 244, 0.45);
-    border-right: 0.1vw solid rgba(118, 148, 244, 0.45);
-}
-
-.grid__footer_property, .grid__footer_relation {
-    border-top: 0.1vw solid rgba(118, 148, 244, 0.45);
-    /*background: var(--api-footer_propert_relation);*/
-}
