@@ -163,9 +163,6 @@
         <div class='body--padding_70px_100px'>
             <div class="container">
                 <div>
-                    <slot name="fer-form_input"></slot>
-                </div>
-                <div>
                     <slot name="fer-table_0"></slot>
                 </div>
             </div>
@@ -253,14 +250,20 @@
         <div class='images'></div>
         <div class='body--padding_70px_100px'>
             <div class="container">
-                <div class="navigation">
-                    <slot name="welcome-menu_0_0"></slot>
+                <div class="conteiner__fer-manifest">
+                    <div class="navigation">
+                        <slot name="welcome-menu_0_0"></slot>
+                    </div>
+                    <div class="description__manifest">
+                        <slot name="fer-form_input"></slot>
+                    </div>
                 </div>
                 <div>
                     <slot name="fer-table_2"></slot>
                 </div>
             </div>
         </div>
+
 
         <div
                 data-exclusion
@@ -294,6 +297,36 @@
                 <p>Применение</p>
             </fer-hash>
         </div>
+        <fer-form
+                data-services-path="rules"
+                data-css-shadow="rules_0_0"
+                slot="fer-form_input"
+        >
+            <div class="container__manifest">
+                <div class="info__fer-front">
+                    <div class="input">
+                        <label for="schema">Схема</label>
+                        <input id="schema" placeholder="1"/>
+                    </div>
+                    <div class="input">
+                        <label for="region">Регион</label>
+                        <input id="region" placeholder="showcase.booking mo 1.1.2"/>
+                    </div>
+                    <div class="input">
+                        <label for="version">Версия</label>
+                        <input id="version" placeholder="1.1.2"/>
+                    </div>
+                </div>
+
+                <div class="editor__manifest">
+                    <textarea
+                            placeholder="Описание"
+                            class="fer-codemirror-description--margin-bottom_12px"
+                    ></textarea>
+                </div>
+            </div>
+
+        </fer-form>
         <fer-table
                 data-services-path="rules"
                 data-template="table_2"
@@ -462,7 +495,7 @@
                     data-css-shadow="rules_0_0"
                     slot="fer-form_0_0"
             >
-                <div class="container">
+                <div class="container__schema">
                     <div class="input">
                         <label for="schema">Схема</label>
                         <input id="schema" placeholder="1"/>
@@ -593,7 +626,7 @@
                 data-css-shadow="rules_0_0"
                 slot="fer-form_0_0"
         >
-            <div class="container">
+            <div class="container__schema">
                 <div class="input">
                     <label for="schema">Схема</label>
                     <input id="schema" placeholder="1"/>
