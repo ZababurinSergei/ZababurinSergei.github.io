@@ -162,11 +162,8 @@
         <div class='images'></div>
         <div class='body--padding_70px_100px'>
             <div class="container">
-                <div class="navigation">
-<!--                    <slot name="welcome-menu_0_0"></slot>-->
-                </div>
                 <div>
-<!--                    <slot name="fer-form_input"></slot>-->
+                    <slot name="fer-form_input"></slot>
                 </div>
                 <div>
                     <slot name="fer-table_0"></slot>
@@ -174,38 +171,6 @@
             </div>
         </div>
 
-        <div
-                data-exclusion
-                slot="welcome-menu_0_0"
-        >
-            <fer-hash
-                    data-services-path="rules"
-                    data-id="0"
-                    data-hash="general"
-                    data-type="rules_0_0"
-                    data-css-shadow="rules_0_0"
-            >
-                <p>Основное</p>
-            </fer-hash>
-            <fer-hash
-                    data-services-path="rules"
-                    data-id="1"
-                    data-type="rules_0_0"
-                    data-hash="verification"
-                    data-css-shadow="rules_0_0"
-            >
-                <p>Верификация</p>
-            </fer-hash>
-            <fer-hash
-                    data-services-path="rules"
-                    data-id="2"
-                    data-hash="execution"
-                    data-type="rules_0_0"
-                    data-css-shadow="rules_0_0"
-            >
-                <p>Применение</p>
-            </fer-hash>
-        </div>
         <fer-table
                 data-services-path="rules"
                 data-template="table_0"
@@ -288,12 +253,47 @@
         <div class='images'></div>
         <div class='body--padding_70px_100px'>
             <div class="container">
+                <div class="navigation">
+                    <slot name="welcome-menu_0_0"></slot>
+                </div>
                 <div>
                     <slot name="fer-table_2"></slot>
                 </div>
             </div>
         </div>
 
+        <div
+                data-exclusion
+                slot="welcome-menu_0_0"
+        >
+            <fer-hash
+                    data-services-path="rules"
+                    data-id="0"
+                    data-hash="general"
+                    data-type="rules_0_0"
+                    data-css-shadow="rules_0_0"
+            >
+                <p>Основное</p>
+            </fer-hash>
+            <fer-hash
+                    data-services-path="rules"
+                    data-id="1"
+                    data-type="rules_0_0"
+                    data-hash="verification"
+                    data-css-shadow="rules_0_0"
+            >
+                <p>Верификация</p>
+            </fer-hash>
+            <fer-hash
+                    data-services-path="rules"
+                    data-id="2"
+                    data-hash="execution"
+                    data-type="rules_0_0"
+                    data-css-shadow="rules_0_0"
+            >
+                <p>Применение</p>
+            </fer-hash>
+        </div>
         <fer-table
                 data-services-path="rules"
                 data-template="table_2"
