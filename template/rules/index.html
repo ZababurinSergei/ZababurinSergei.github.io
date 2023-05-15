@@ -251,7 +251,7 @@
         <div class='body--padding_70px_100px'>
             <div class="container--justify-content_space-between">
                 <div class="wrapper__rules-manifest">
-                    <div class="conteiner__fer-manifest">
+                    <div class="conteiner__fer-manifest" style="display: none">
                         <div class="navigation">
                             <slot name="welcome-menu_0_0"></slot>
                         </div>
@@ -260,14 +260,14 @@
                         </div>
                     </div>
                     <div class="table__fer-rules">
-                        <p class="title__rules_manifest">Правила</p>
+                        <p class="title__rules_manifest" style="display: none">Правила</p>
                         <slot name="fer-table_2"></slot>
-                        <div class="manifest-button__add">
+                        <div class="manifest-button__add" style="display: none">
                             <slot name="manifest-button__add"></slot>
                         </div>
                     </div>
                 </div>
-                <div class="menu__fer-rules">
+                <div class="menu__fer-rules" style="display: none">
                     <div class="button_cancel">
                         <slot name="manifest-button__cancel"></slot>
                     </div>
