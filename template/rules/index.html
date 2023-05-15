@@ -489,138 +489,139 @@
         </fer-table>
     </welcome-section>
 
-        <welcome-section
-                data-services-path="rules"
-                data-css-shadow="rules_0_0"
-                data-id="0_0"
-                slot="welcome-section_0_0"
-        >
-            <div class='images'></div>
-            <div class='body--padding_70px_100px'>
-                <div class="container--flex-direction_row--gap_20px">
-                    <div class="main__fer-rules">
-                        <div class="data__fer-rules">
-                            <slot name="fer-form_0_0"></slot>
-                        </div>
-                        <div class="textEditor--flex-grow_1">
-                            <slot name="fer-codemirror"></slot>
-                        </div>
+    <welcome-section
+            data-services-path="rules"
+            data-css-shadow="rules_0_0"
+            data-id="0_0"
+            slot="welcome-section_0_0"
+    >
+        <div class='images'></div>
+        <div class='body--padding_70px_100px'>
+            <div class="container--flex-direction_row--gap_20px">
+                <div class="main__fer-rules">
+                    <div class="data__fer-rules">
+                        <slot name="fer-form_0_0"></slot>
                     </div>
-                    <div class="container__rules-front">
-                        <div class="textEditor-sidebar">
-                            <div class="wrapper__rules-front">
-                                <div class="fer-region">
-                                    <slot name="fer-region"></slot>
-                                </div>
-                                <div>
-                                    <p class="title__fer-rules">Ошибки проверки полей</p>
-                                    <slot name="fer-region-table"></slot>
-                                </div>
+                    <div class="textEditor--flex-grow_1">
+                        <slot name="fer-codemirror"></slot>
+                    </div>
+                </div>
+                <div class="container__rules-front">
+                    <div class="textEditor-sidebar">
+                        <div class="wrapper__rules-front">
+                            <div class="fer-region">
+                                <slot name="fer-region"></slot>
                             </div>
-                            <div class="wrapper__button-fer-rules">
-                                <div
-                                        class="button__fer-rules"
-                                        slot="fer-button"
-                                >
-                                    <slot name="fer-form__cancel"></slot>
-                                </div>
-                                <div
-                                        class="button__fer-rules"
-                                        slot="fer-button"
-                                >
-                                    <slot name="fer-form__save"></slot>
-                                </div>
+                            <div>
+                                <p class="title__fer-rules">Ошибки проверки полей</p>
+                                <slot name="fer-region-table"></slot>
+                            </div>
+                        </div>
+                        <div class="wrapper__button-fer-rules">
+                            <div
+                                    class="button__fer-rules"
+                                    slot="fer-button"
+                            >
+                                <slot name="fer-form__cancel"></slot>
+                            </div>
+                            <div
+                                    class="button__fer-rules"
+                                    slot="fer-button"
+                            >
+                                <slot name="fer-form__save"></slot>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <fer-form
-                    data-services-path="rules"
-                    data-css-shadow="rules_0_0"
-                    slot="fer-form_0_0"
-            >
-                <div class="container__schema">
-                    <div class="input">
-                        <label for="schema">Схема</label>
-                        <input id="schema" placeholder="1"/>
-                    </div>
-                    <div class="input">
-                        <label for="region">Регион</label>
-                        <input id="region" placeholder="showcase.booking mo 1.1.2"/>
-                    </div>
+        <fer-form
+                data-services-path="rules"
+                data-css-shadow="rules_0_0"
+                slot="fer-form_0_0"
+        >
+            <div class="container__schema">
+                <div class="input">
+                    <label for="schema">Схема</label>
+                    <input id="schema" placeholder="1"/>
                 </div>
-            </fer-form>
+                <div class="input">
+                    <label for="region">Регион</label>
+                    <input id="region" placeholder="showcase.booking mo 1.1.2"/>
+                </div>
+            </div>
+        </fer-form>
 
-            <fer-codemirror
-                    slot="fer-codemirror"
-                    data-services-path="rules"
-            >
-                <div class="codemirror-editor">
-                    <textarea class="fer-codemirror" id="fer-codemirror"></textarea>
-                </div>
-            </fer-codemirror>
+        <fer-codemirror
+                slot="fer-codemirror"
+                data-services-path="rules"
+        >
+            <div class="codemirror-editor">
+                <textarea class="fer-codemirror" id="fer-codemirror"></textarea>
+            </div>
+        </fer-codemirror>
 
-            <fer-region slot="fer-region">
-                <div class="input--margin-bottom_12px">
-                    <label for="version">Версия</label>
-                    <input id="version" placeholder="1.1.2"/>
-                </div>
-                <div class="input--margin-bottom_12px">
-                    <label for="title">Title</label>
-                    <input id="title" placeholder="Медицинская организация"/>
-                </div>
-                <textarea
-                        placeholder="Описание"
-                        class="fer-codemirror-description--margin-bottom_12px"
-                ></textarea>
-            </fer-region>
+        <fer-region slot="fer-region">
+            <div class="input--margin-bottom_12px">
+                <label for="version">Версия</label>
+                <input id="version" placeholder="1.1.2"/>
+            </div>
+            <div class="input--margin-bottom_12px">
+                <label for="title">Title</label>
+                <input id="title" placeholder="Медицинская организация"/>
+            </div>
+            <textarea
+                    placeholder="Описание"
+                    class="fer-codemirror-description--margin-bottom_12px"
+            ></textarea>
+        </fer-region>
 
-            <fer-table
-                    data-services-path="rules"
-                    data-template="table_0"
-                    data-id="0_0"
-                    slot="fer-region-table"
-            >
-                <div class="auction-data">
-                    <div class="auction-data__table --grid-template-rows_1.97917vw_1fr">
-                        <div class="auction-data__table_header">
-                            <div class="auction-data__table_header_td">Домен</div>
-                            <div class="auction-data__table_header_td">Название</div>
-                            <div class="auction-data__table_header_td">Версия схемы</div>
-                            <div class="auction-data__table_header_td background-transparent"></div>
-                            <div class="auction-data__table_header_td background-transparent menu-button">
-                                <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
-                            </div>
+        <fer-table
+                data-services-path="rules"
+                data-template="table_0"
+                data-event="region"
+                data-id="0_0"
+                slot="fer-region-table"
+        >
+            <div class="auction-data">
+                <div class="auction-data__table --grid-template-rows_1.97917vw_1fr">
+                    <div class="auction-data__table_header">
+                        <div class="auction-data__table_header_td">Домен</div>
+                        <div class="auction-data__table_header_td">Название</div>
+                        <div class="auction-data__table_header_td">Версия схемы</div>
+                        <div class="auction-data__table_header_td background-transparent"></div>
+                        <div class="auction-data__table_header_td background-transparent menu-button">
+                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
                         </div>
-                        <div class="auction-data__table_body"></div>
                     </div>
+                    <div class="auction-data__table_body"></div>
                 </div>
-            </fer-table>
+            </div>
+        </fer-table>
 
-            <fer-button
-                    data-css-shadow="rules"
-                    data-services-path="rules"
-                    data-type="fer-form"
-                    data-id="cancel"
-                    data-to="0"
-                    slot="fer-form__cancel"
-            >
-                <p class="cancel">Отмена</p>
-            </fer-button>
+        <fer-button
+                data-css-shadow="rules"
+                data-services-path="rules"
+                data-type="fer-form"
+                data-id="cancel"
+                data-to="0"
+                slot="fer-form__cancel"
+        >
+            <p class="cancel">Отмена</p>
+        </fer-button>
 
-            <fer-button
-                    data-css-shadow="rules"
-                    data-services-path="rules"
-                    data-type="fer-form"
-                    data-id="save"
-                    data-to="0"
-                    slot="fer-form__save"
-            >
-                <p class="save">Сохранить</p>
-            </fer-button>
-        </welcome-section>
+        <fer-button
+                data-css-shadow="rules"
+                data-services-path="rules"
+                data-type="fer-form"
+                data-id="save"
+                data-to="0"
+                slot="fer-form__save"
+        >
+            <p class="save">Сохранить</p>
+        </fer-button>
+    </welcome-section>
 
     <welcome-section
             data-services-path="rules"
