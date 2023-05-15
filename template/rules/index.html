@@ -171,7 +171,7 @@
         <fer-table
                 data-services-path="rules"
                 data-template="table_0"
-                data-id="0_0"
+                data-id="0"
                 slot="fer-table_0"
         >
             <div class="auction-data">
@@ -181,7 +181,7 @@
                         <div class="auction-data__table_header_td">Название</div>
                         <div class="auction-data__table_header_td">Версия схемы</div>
                         <div class="auction-data__table_header_td background-transparent"></div>
-                        <div class="auction-data__table_header_td background-transparent">
+                        <div class="auction-data__table_header_td background-transparent menu-button">
                             <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
                         </div>
                     </div>
@@ -214,7 +214,7 @@
         <fer-table
                 data-services-path="rules"
                 data-template="table_1"
-                data-id="1_0"
+                data-id="1"
                 slot="fer-table_1"
         >
             <div class="auction-data">
@@ -225,7 +225,7 @@
                         <div class="auction-data__table_header_td">Версия схемы</div>
                         <div class="auction-data__table_header_td">Версия правила</div>
                         <div class="auction-data__table_header_td background-transparent"></div>
-                        <div class="auction-data__table_header_td background-transparent">
+                        <div class="auction-data__table_header_td background-transparent menu-button">
                             <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
                         </div>
                     </div>
@@ -258,16 +258,20 @@
                         <slot name="fer-form_input"></slot>
                     </div>
                 </div>
-                <div>
+                <div class="table__fer-rules">
+                    <p class="title__rules_manifest">Правила</p>
                     <slot name="fer-table_2"></slot>
+                    <div class="manifest-button__add">
+                        <slot name="manifest-button__add"></slot>
+                    </div>
+
                 </div>
             </div>
         </div>
 
-
         <div
-                data-exclusion
-                slot="welcome-menu_0_0"
+            data-exclusion
+            slot="welcome-menu_0_0"
         >
             <fer-hash
                     data-services-path="rules"
@@ -321,16 +325,15 @@
                 <div class="editor__manifest">
                     <textarea
                             placeholder="Описание"
-                            class="fer-codemirror-description--margin-bottom_12px"
+                            class="fer-codemirror-description"
                     ></textarea>
                 </div>
             </div>
-
         </fer-form>
         <fer-table
                 data-services-path="rules"
                 data-template="table_2"
-                data-id="2_0"
+                data-id="2"
                 slot="fer-table_2"
         >
             <div class="auction-data">
@@ -343,7 +346,7 @@
                         <div class="auction-data__table_header_td">Регион</div>
                         <div class="auction-data__table_header_td">Статус</div>
                         <div class="auction-data__table_header_td background-transparent"></div>
-                        <div class="auction-data__table_header_td background-transparent">
+                        <div class="auction-data__table_header_td background-transparent menu-button">
                             <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
                         </div>
                     </div>
@@ -359,6 +362,37 @@
                 </div>
             </div>
         </fer-table>
+
+
+        <fer-button
+                data-css-shadow="rules"
+                data-services-path="rules"
+                data-type="fer-form"
+                data-id="cancel"
+                slot="manifest-button__add"
+        >
+            <p class="save">Добавить правило</p>
+        </fer-button>
+
+        <fer-button
+                data-css-shadow="rules"
+                data-services-path="rules"
+                data-type="fer-form"
+                data-id="cancel"
+                slot="manifest-button__cancel"
+        >
+            <p class="cancel">Отмена</p>
+        </fer-button>
+
+        <fer-button
+                data-css-shadow="rules"
+                data-services-path="rules"
+                data-type="fer-form"
+                data-id="save"
+                slot="manifest-button__save"
+        >
+            <p class="save">Сохранить</p>
+        </fer-button>
     </welcome-section>
 
     <welcome-section
@@ -379,7 +413,7 @@
         <fer-table
                 data-services-path="rules"
                 data-template="table_3"
-                data-id="3_0"
+                data-id="3"
                 slot="fer-table_3"
         >
             <div class="auction-data">
@@ -388,7 +422,7 @@
                         <div class="auction-data__table_header_td">Название</div>
                         <div class="auction-data__table_header_td">Описание</div>
                         <div class="auction-data__table_header_td background-transparent"></div>
-                        <div class="auction-data__table_header_td background-transparent">
+                        <div class="auction-data__table_header_td background-transparent menu-button">
                             <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
                         </div>
                     </div>
@@ -420,7 +454,7 @@
         <fer-table
                 data-services-path="rules"
                 data-template="table_3"
-                data-id="4_0"
+                data-id="4"
                 slot="fer-table_4"
         >
             <div class="auction-data">
@@ -429,7 +463,7 @@
                         <div class="auction-data__table_header_td">Название</div>
                         <div class="auction-data__table_header_td">Описание</div>
                         <div class="auction-data__table_header_td background-transparent"></div>
-                        <div class="auction-data__table_header_td background-transparent">
+                        <div class="auction-data__table_header_td background-transparent menu-button">
                             <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
                         </div>
                     </div>
@@ -534,7 +568,7 @@
             <fer-table
                     data-services-path="rules"
                     data-template="table_0"
-                    data-id="modal_0_0"
+                    data-id="0_0"
                     slot="fer-region-table"
             >
                 <div class="auction-data">
@@ -544,7 +578,7 @@
                             <div class="auction-data__table_header_td">Название</div>
                             <div class="auction-data__table_header_td">Версия схемы</div>
                             <div class="auction-data__table_header_td background-transparent"></div>
-                            <div class="auction-data__table_header_td background-transparent">
+                            <div class="auction-data__table_header_td background-transparent menu-button">
                                 <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
                             </div>
                         </div>
@@ -676,7 +710,7 @@
                         <div class="auction-data__table_header_td">Название</div>
                         <div class="auction-data__table_header_td">Версия схемы</div>
                         <div class="auction-data__table_header_td background-transparent"></div>
-                        <div class="auction-data__table_header_td background-transparent">
+                        <div class="auction-data__table_header_td background-transparent menu-button">
                             <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
                         </div>
                     </div>
