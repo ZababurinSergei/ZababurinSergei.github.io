@@ -249,22 +249,31 @@
     >
         <div class='images'></div>
         <div class='body--padding_70px_100px'>
-            <div class="container">
-                <div class="conteiner__fer-manifest">
-                    <div class="navigation">
-                        <slot name="welcome-menu_0_0"></slot>
+            <div class="container--justify-content_space-between">
+                <div class="wrapper__rules-manifest">
+                    <div class="conteiner__fer-manifest">
+                        <div class="navigation">
+                            <slot name="welcome-menu_0_0"></slot>
+                        </div>
+                        <div class="description__manifest">
+                            <slot name="fer-form_input"></slot>
+                        </div>
                     </div>
-                    <div class="description__manifest">
-                        <slot name="fer-form_input"></slot>
+                    <div class="table__fer-rules">
+                        <p class="title__rules_manifest">Правила</p>
+                        <slot name="fer-table_2"></slot>
+                        <div class="manifest-button__add">
+                            <slot name="manifest-button__add"></slot>
+                        </div>
                     </div>
                 </div>
-                <div class="table__fer-rules">
-                    <p class="title__rules_manifest">Правила</p>
-                    <slot name="fer-table_2"></slot>
-                    <div class="manifest-button__add">
-                        <slot name="manifest-button__add"></slot>
+                <div class="menu__fer-rules">
+                    <div class="button_cancel">
+                        <slot name="manifest-button__cancel"></slot>
                     </div>
-
+                    <div class="button_save">
+                        <slot name="manifest-button__save"></slot>
+                    </div>
                 </div>
             </div>
         </div>
