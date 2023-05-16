@@ -707,11 +707,8 @@
                     </div>
                 </div>
                 <div class="menu__fer-rules">
-                    <div class="button_cancel">
-                        <slot name="manifest-button__cancel"></slot>
-                    </div>
                     <div class="button_save">
-                        <slot name="manifest-button__save"></slot>
+                        <slot name="verification__button"></slot>
                     </div>
                 </div>
             </div>
@@ -817,6 +814,16 @@
                 </div>
             </div>
         </fer-table>
+
+        <fer-button
+                data-css-shadow="rules"
+                data-services-path="rules"
+                data-type="verification"
+                data-id="save"
+                slot="verification__button"
+        >
+            <p class="save">Верификация</p>
+        </fer-button>
 
 
         <fer-button
