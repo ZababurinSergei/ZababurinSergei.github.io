@@ -39,7 +39,7 @@ export default (self) => {
                 }
             },
             hashchange: (events) => {
-                console.log('HASH CHANGE', self.tagName)
+                // console.log('HASH CHANGE', self.tagName)
             }
         })
     })
