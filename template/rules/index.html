@@ -661,15 +661,22 @@
     >
         <div class='images'></div>
         <div class='body--padding_70px_100px'>
-            <div class="navigation">
-                <slot name="welcome-menu_0_0"></slot>
+            <div class="conteiner__fer-manifest">
+                <div class="navigation">
+                    <slot name="welcome-menu_0_0"></slot>
+                </div>
+                <div class="description__manifest">
+                    <slot name="fer-form_input"></slot>
+                </div>
             </div>
-            <div data-hash-content="#general" class="container--gap_20px--justify-content_space-between" style="display: none">
+            <div data-hash-content="#general" class="container--gap_20px--justify-content_space-between"
+                 style="display: none">
                 <div class="wrapper__rules-manifest">
-                    <div class="conteiner__fer-manifest">
-                        <div class="description__manifest">
-                            <slot name="fer-form_input"></slot>
-                        </div>
+                    <div class="editor__manifest">
+                        <textarea
+                                placeholder="Описание"
+                                class="fer-codemirror-description"
+                        ></textarea>
                     </div>
                     <div class="table__fer-rules">
                         <p class="title__rules_manifest">Правила</p>
@@ -741,13 +748,6 @@
                         <label for="version">Версия</label>
                         <input id="version" placeholder="1.1.2"/>
                     </div>
-                </div>
-
-                <div class="editor__manifest">
-                    <textarea
-                            placeholder="Описание"
-                            class="fer-codemirror-description"
-                    ></textarea>
                 </div>
             </div>
         </fer-form>
