@@ -403,11 +403,11 @@
                         <p
                                 class="text-offset description-text-item-4 text-2"
                         >
-                            Нам важно твое мнение о нем. Помоги нам сделать его лучше и полезнее для новых коллег. Ты
-                            можешь
-                            предложить новые разделы, ссылки или порекомендовать, что можно доработать или изменить. О
-                            своих
-                            предложениях ты можешь сообщить в HR отдел :)
+                            Нам важно твое мнение о нем. Помоги нам сделать его<br>
+                            лучше и полезнее для новых коллег. Ты можешь предложить<br>
+                            новые разделы, ссылки или порекомендовать, что можно <br>
+                            доработать или изменить. О своих предложениях ты<br>
+                            можешь сообщить в HR отдел :)
                         </p>
                     </div>
                     <secton class="description-feedback">
@@ -419,14 +419,16 @@
 
         <welcome-feedback data-services-path="welcomebook" slot="welcome-feedback">
             <div class="container">
-                <div class="container-name">
-                    <label for="name">Имя</label>
-                    <input type="text" id="name"/>
-                    <img class="feedback-icon" src="./this/icons/input_name.svg">
-                </div>
-                <div class="container-information">
+                <div class="wrapper">
+                    <div class="container-name">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name"/>
+                        <img class="feedback-icon" src="./this/icons/input_name.svg">
+                    </div>
+                    <div class="container-information">
                     <textarea placeholder="Добавьте ваши комментарии..."
                               class="container-information-textarea"></textarea>
+                    </div>
                 </div>
                 <div class="form__buttons">
                     <slot name="fer-form__cancel"></slot>
