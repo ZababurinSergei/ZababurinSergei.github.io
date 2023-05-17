@@ -575,7 +575,7 @@
                     <p class='section_content_header_p'>Единая цифровая платформа</p>
                     <p class='section_content_header_p_right'></p>
                 </div>
-                <div class='section_content_body'>
+                <div class='section_content_body--justify-content_center'>
                     <slot name="welcome-diagram-0"></slot>
                 </div>
             </div>
@@ -714,33 +714,110 @@
                   <slot name="description"></slot>
                 </div>
             </div>
-            <div data-exclusion  class='description__welcome-diagram_1_1'>
-                <h3>ЕЦП. МИС</h3>
-                <p>медицинская</p>
-                <p>информационная система</p>
-                <p>цифровое решение</p>
-                <p>для медицинских организаций</p>
-            </div>
-            <div data-exclusion class='description__welcome-diagram_1_1'>
-                <h3>ЛИС</h3>
-                <p>Весна</p>
-            </div>
-            <div data-exclusion class='description__welcome-diagram_1_1'>
-                <h3>Телемедицина</h3>
-                <p>медицинская</p>
-            </div>
-            <div data-exclusion class='description__welcome-diagram_1_1'>
-                <h3>СМП</h3>
-                <p>медицинская</p>
-            </div>
-            <div data-exclusion class='description__welcome-diagram_1_1'>
-                <h3>Онкология</h3>
-                <p>медицинская</p>
-            </div>
-            <div data-exclusion class='description__welcome-diagram_1_1'>
-                <h3>МИС</h3>
-                <p>медицинская</p>
-            </div>
+            <welcome-description
+                    data-services-path="welcomebook"
+                    class='description__welcome-diagram_1_1'
+            >
+                <h3 class="diagramm-title">ЕЦП. РАДИОЛОГИЯ</h3>
+                <p class="paragraph--link--margin-bottom_16px">
+                    программный продукт для автоматизации<br>
+                    работы с архивом медицинских<br>
+                    изображений, создания централизованной<br>
+                    радиологической <br>
+                    и кардиологической служб
+                </p>
+                <p class="paragraph">Реализация систем кросс проверки качества <br>
+                    расшифровки снимков, в том числе <br>
+                    на основе технологии ИИ
+                </p>
+            </welcome-description>
+
+            <welcome-description
+                    data-services-path="welcomebook"
+                    class='description__welcome-diagram_1_1'
+            >
+                <h3 class="diagramm-title">ЕЦП. ЛИС</h3>
+                <p class="paragraph--link--margin-bottom_16px">
+                    лабораторная <br>
+                    информационная система
+                </p>
+                <p class="paragraph">
+                    автоматизация полного цикла<br>
+                    лабораторных исследований
+                </p>
+            </welcome-description>
+
+            <welcome-description
+                    data-services-path="welcomebook"
+                    class='description__welcome-diagram_1_1'
+            >
+                <h3 class="diagramm-title">ЕЦП. ТЕЛЕМЕДИЦИНА</h3>
+                <p class="paragraph--link--margin-bottom_16px">
+                    платформа проведения телемедицинских <br>
+                    консультаций в формате врач-врач, врач-<br>
+                    пациент, а также врачебного консилиума
+                </p>
+                <p class="paragraph--margin-bottom_16px">
+                    На базе платформы возможно создание <br>
+                    единого городского телемедицинского <br>
+                    центра, в том числе распределенного.<br>
+                </p>
+                <p class="paragraph">
+                    Платформа позволяет подключать <br>
+                    дистанционные устройства <br>
+                    по контролю за здоровьем.
+                </p>
+            </welcome-description>
+
+            <welcome-description
+                    data-services-path="welcomebook"
+                    class='description__welcome-diagram_1_1'
+            >
+                <h3 class="diagramm-title">ЕЦП. СМП</h3>
+                <p class="paragraph--link--margin-bottom_16px">
+                    скорая медицинская помощь
+                </p>
+                <p class="paragraph">
+                    управление скорой и неотложной <br>
+                    медицинской помощью, в том <br>
+                    числе санитарной авиации.
+                </p>
+            </welcome-description>
+
+            <welcome-description
+                    data-services-path="welcomebook"
+                    class='description__welcome-diagram_1_1'
+            >
+                <h3 class="diagramm-title">ЭКОСИСТЕМА СЕРВИСОВ ОНКОЛОГИЯ</h3>
+                <p class="paragraph--link--margin-bottom_16px">
+                    экосистема - набор одновременно<br>
+                    независимых и взаимодополняющих<br>
+                    сервисов, созданных на основе <br>
+                    единой методологии:
+                </p>
+
+                <p class="paragraph">
+                    •  Консилиум<br>
+                    •  Медикаментозные назначения<br>
+                    •  Мобильное приложение пациента
+                </p>
+            </welcome-description>
+
+            <welcome-description
+                    data-services-path="welcomebook"
+                    class='description__welcome-diagram_1_1'
+            >
+                <h3 class="diagramm-title">ЕЦП. МИС</h3>
+                <p class="paragraph--link--margin-bottom_16px">
+                    медицинская <br>
+                    информационная система
+                </p>
+
+                <p class="paragraph">
+                    цифровое решение <br>
+                    для медицинских организаций
+                </p>
+            </welcome-description>
         </welcome-diagram>
     </welcome-section>
 
