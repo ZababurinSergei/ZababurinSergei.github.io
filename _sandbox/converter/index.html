@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Converter</title>
+</head>
+<body>
+<input class="pixel" type="number"/>
+<div class="out"></div>
+
+<label>PX</label>
+<p class="pixel">TEST PIXEL !!!!!!!!!!!</p>
+<label>VW</label>
+<p class="vw">TEST PIXEL !!!!!!!!!!!</p>
+<!--<label>VMIN</label>-->
+<!--<p class="vmin">TEST PIXEL</p>-->
+<label>REM</label>
+<p class="rem">TEST PIXEL !!!!!!!!!!!</p>
+
+</body>
+<style>
+
+html {
+    font-size: 62.5%;
+}
+
+.pixel {
+    font-size: 16px;
+}
+
+.rem {
+    font-size: 1.6rem;
+}
+
+</style>
+<script type="module">
+    import {size, pixelToVW, pixelToVMIN, vwToPixel} from './convert/convert.mjs'
+
+    const out = document.querySelector('.out')
+    const pixel = document.querySelector('.pixel')
+    const vwDiv = document.querySelector('.vw')
+    const vminDiv = document.querySelector('.vmin')
+
+    pixel.addEventListener('input', (event) => {
+        out.textContent = `${event.target.value}`
+    })
+
+    const vmin = pixelToVMIN(16)
+    const vw = pixelToVW(16)
+
+    console.log('ssssssssss', {
+        px: '16',
+        vw: vw,
+        vwToPixel:  vwToPixel(1.638)
+    })
+
+    vwDiv.style.fontSize = `${vw}vw`
+    // vminDiv.style.fontSize = `${vmin}vw`
+
+    pixel.value = 16
+</script>
+</html>
