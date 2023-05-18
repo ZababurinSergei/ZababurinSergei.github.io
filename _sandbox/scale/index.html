@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+</head>
+<body>
+<h2>Animating scale without effecting child elements</h2>
+
+<main>
+    <div class="animate-two">
+        <p>Animate :before of box with scale</p>
+    </div>
+</main>
+</body>
+<style>
+
+    p {
+        color: #fff;
+        padding: 0.2em;
+    }
+
+    div {
+        width: 100px;
+        height: 100px;
+        margin: 100px;
+        position: relative;
+        transform-origin: 0 0;
+        transition: all 8s;
+    }
+
+
+
+    div:before {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        background: red;
+        transform-origin: 0 0;
+        transition: all 8s;
+    }
+
+
+    body:hover .animate-two:before {
+        transform: scale(2);
+    }
+
+</style>
+</html>
