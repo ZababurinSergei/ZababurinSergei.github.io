@@ -8,7 +8,7 @@ dotenv.config()
 //1846
 //375
 let dir = './docs'
-const rootWidthDesktop = 1920
+const rootWidthDesktop = 2080
 const rootWidthMobile = 375
 
 let src, i = process.argv.indexOf("--src");
