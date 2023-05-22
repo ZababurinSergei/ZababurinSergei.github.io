@@ -13,17 +13,15 @@ export default async (config) => {
         lightCSS
     } = await import(`${pathname}/this/index.mjs`)
 
-    const components = ['api-relation', 'api-property', 'api-substrate', 'api-footer', 'api-time', 'api-header', 'api-button', 'api-main', 'link-auction']
+    const components = ['auction-tabs','auction-auth', 'api-relation', 'api-property', 'api-substrate', 'api-footer', 'api-time', 'api-header', 'api-button', 'api-main', 'link-auction']
 
     for (let i = 0; i < components.length; ++i) {
         import(`${pathname}/component/${components[i]}/index.mjs`)
     }
 
     let parser = new DOMParser()
-
     const template = parser.parseFromString(await loadHTML(`/template/${pathTemplate}/index.html`), 'text/html').querySelector('template')
     const images = template.content.querySelectorAll('img')
-
     for(let i =0 ; i < images.length; ++i) {
         let url = new URL(images[i].src)
         url.pathname = `${mountPoint.pathname}${url.pathname}`
