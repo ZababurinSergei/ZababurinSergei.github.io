@@ -7,14 +7,16 @@
       shadowRoot.innerHTML = `
       <style>
         :host {
-          display: flex;
-          flex-direction: column;
-          width: min-content;
-          font-family: var(--font-family, 'Roboto Slab');
-          contain: content;
-          min-width: var(--min-width, 20.1vw);
-          margin: auto;
-          /*max-width: var(--max-width, 20.1vw);*/
+            display: flex;
+            flex-direction: column;
+            width: min-content;
+            font-family: var(--font-family, 'Roboto Slab');
+            contain: content;
+            min-width: var(--min-width, 20.1vw);
+            margin: auto;
+            position: fixed;
+            top: 1vw;
+            left: calc(50% - 16vw);
         }
 
         :host(section) {
@@ -78,6 +80,8 @@
           font-weight: 600;
           background: white;
           box-shadow: none;
+          border-radius: var(--border-radius);
+          border: 0.1vw solid rgba(0, 0, 0, 0.1);
         }
 
         #tabs ::slotted(:focus) {

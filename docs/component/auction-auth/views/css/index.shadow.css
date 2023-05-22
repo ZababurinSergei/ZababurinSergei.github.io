@@ -70,17 +70,17 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 1vw;
+	margin-top: 0.5vw;
 }
 
 .auction-auth__wallet {
 	display: flex;
 	flex-direction: column;
 	width: 32vw;
-	box-shadow: 0 0 2vw .2vw rgba(0, 0, 0, .1);
-	border-radius: var(--border-radius);
 	padding: 2vw;
 	box-sizing: border-box;
-	margin: 1.5vw auto
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.1vw 0.2vw;
+	border-radius: var(--border-radius);
 }
 
 .auction-auth__wallet_title {
@@ -150,7 +150,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	width: 32vw;
-	box-shadow: 0 0 2vw .2vw rgba(0, 0, 0, .1);
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.1vw 0.2vw;
 	border-radius: var(--border-radius);
 	padding: 2vw;
 	box-sizing: border-box;
@@ -183,7 +183,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	width: 32vw;
-	box-shadow: 0 0 2vw .2vw rgba(0, 0, 0, .1);
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.1vw 0.2vw;
 	border-radius: var(--border-radius);
 	padding: 2vw;
 	box-sizing: border-box;
@@ -251,7 +251,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	width: 32vw;
-	box-shadow: 0 0 2vw .2vw rgba(0, 0, 0, .1);
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.1vw 0.2vw;
 	border-radius: var(--border-radius);
 	padding: 2vw;
 	box-sizing: border-box;
@@ -294,9 +294,9 @@ body {
 	display: flex;
 	flex-direction: column;
 	width: 32vw;
-	box-shadow: 0 0 2vw .2vw rgba(0, 0, 0, .1);
+	box-shadow: 0 0 0.1vw .2vw rgba(0, 0, 0, .1);
 	border-radius: var(--border-radius);
-	padding: 2vw;
+	padding: 1vw;
 	box-sizing: border-box;
 }
 
