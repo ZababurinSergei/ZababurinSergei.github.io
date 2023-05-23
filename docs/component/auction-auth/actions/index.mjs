@@ -32,13 +32,14 @@ export const actions = (self) => {
                 privateFile = file
                 statusPrivate.textContent = ''
                 statusPrivate.textContent = 'upload'
-
+                event.currentTarget.value = ""
                 // const pass = event.currentTarget.value
                 // let name = 'welcomebook'
                 // let type = 'W'
                 try {
                     sys.wallet.data.private = await account.open(privateFile, '12Fd44g735')
                     if (account.address(sys.wallet.data.private.seed) === '3PDkQJtrbwtU5vt5V365YDRAL7QwLECGRLX') {
+                        sys.wallet.data.private = ''
                         window.dispatchEvent(new CustomEvent('login', {
                             bubbles: true,
                             composed: true,
