@@ -426,29 +426,28 @@
                         <img class="feedback-icon" src="./this/icons/input_name.svg">
                     </div>
                     <div class="container-information">
-                    <textarea placeholder="Добавьте ваши комментарии..."
-                              class="container-information-textarea"></textarea>
+                        <textarea
+                            placeholder="Добавьте ваши комментарии..."
+                            class="container-information-textarea"
+                        ></textarea>
                     </div>
                 </div>
                 <div class="form__buttons">
-                    <slot name="fer-form__cancel"></slot>
                     <slot name="fer-form__save"></slot>
                 </div>
             </div>
-
+<!--            <fer-button-->
+<!--                    data-services-path="welcomebook"-->
+<!--                    data-type="fer-form"-->
+<!--                    data-id="cancel"-->
+<!--                    slot="fer-form__cancel"-->
+<!--                    data-css-shadow="welcome"-->
+<!--                <p class="cancel">Отмена</p>-->
+<!--            </fer-button>-->
             <fer-button
                     data-services-path="welcomebook"
                     data-type="fer-form"
-                    data-id="cancel"
-                    slot="fer-form__cancel"
-                    data-css-shadow="welcome"
-            >
-                <p class="cancel">Отмена</p>
-            </fer-button>
-            <fer-button
-                    data-services-path="welcomebook"
-                    data-type="fer-form"
-                    data-id="save"
+                    data-id="feedback-save"
                     slot="fer-form__save"
                     data-css-shadow="welcome"
             >
@@ -984,9 +983,9 @@
                             </div>
                         </div>
 
-                        <div data-id="4" class='section_content_card --padding_40px--item-4--height_4'>
+                        <div data-id="4" class='section_content_card --padding_40px_0--item-4--height_4'>
                             <div data-id="4" class='section_content_card_top_3 image-description--image-4'>
-                                <p class='section_content_card_top_logo_3'>ЕЦК</p>
+                                <p class='section_content_card_top_logo_3'>Единый <br> цифровой контур</p>
                             </div>
                             <div data-id="4" class='section_content_card_bottom data-description--opacity_4--translateY_4--width_4--height_4--left_4--top_4'>
                                 <p class="paragraph-description-section-content_1_2--margin-bottom_30px">

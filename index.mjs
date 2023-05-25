@@ -49,10 +49,22 @@ let corsOptions = {
     }
 }
 
-app.use(proxy('https://mkb11-compose-dev.digitalms.ru', {
+// app.use(proxy('https://mkb11-compose-dev.digitalms.ru', {
+//     limit: '5mb',
+//     filter: function(req) {
+//         const data = ['/v1/'].some(path => req.path.includes(path))
+//         return data
+//     }
+// }));
+
+
+app.use(proxy('http://svc-fer-dev.helpms.ru:3333', {
     limit: '5mb',
     filter: function(req) {
-        const data = ['/v1/'].some(path => req.path.includes(path))
+        const data = ['/v1/'].some(path => req.path.startsWith(path))
+        if(data) {
+            console.log('ddddddddddd', req.path)
+        }
         return data
     }
 }));
@@ -64,8 +76,6 @@ app.use(proxy('https://mkb11-compose-dev.digitalms.ru', {
 //         return true
 //     }
 // }));
-
-
 
 app.use(proxy('localhost:8080', {
     limit: '5mb',
