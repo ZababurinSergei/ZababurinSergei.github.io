@@ -7,7 +7,7 @@ export default async (self, actions) => {
             link.addEventListener('click', actions.click)
             window.addEventListener('popstate', actions.popstate);
         },
-        termminate: () => {
+        terminate: () => {
             link.removeEventListener('click', actions.click)
             window.removeEventListener('popstate', actions.popstate);
         }

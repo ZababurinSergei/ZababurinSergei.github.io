@@ -5,7 +5,7 @@ export default async (self, actions) => {
         init: () => {
             timer.init(self.shadowRoot.querySelector('.timer'))
         },
-        termminate: () => {
+        terminate: () => {
             timer.terminate()
         }
     }

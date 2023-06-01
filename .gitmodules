@@ -4,3 +4,6 @@
 ; [submodule "services/rules/src"]
 ; 	path = services/rules/src
 ; 	url = https://github.com/ZababurinSergei/rules.git
+[submodule "metrics/dockprom"]
+	path = metrics/dockprom
+	url = https://github.com/stefanprodan/dockprom

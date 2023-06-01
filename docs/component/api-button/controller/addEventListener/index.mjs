@@ -10,7 +10,7 @@ export default async (self, actions) => {
                 window.document.addEventListener(`${self.dataset.type}_${self.dataset.role}`, actions.customEvents);
             }
         },
-        termminate: () => {
+        terminate: () => {
             link.removeEventListener('click', self.push)
             window.removeEventListener('popstate', self.events);
 

@@ -3,7 +3,7 @@ export default async (self, actions) => {
         init: () => {
 
         },
-        termminate: () => {
+        terminate: () => {
 
         }
     }

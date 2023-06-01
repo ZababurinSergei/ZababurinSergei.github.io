@@ -26,7 +26,7 @@ export default async (self, actions) => {
                 })
             }
         },
-        termminate: () => {
+        terminate: () => {
 
         }
     }

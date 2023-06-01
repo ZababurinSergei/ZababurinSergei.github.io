@@ -12,7 +12,7 @@ export default async (self, actions) => {
             password?.addEventListener('input', actions.input)
 
         },
-        termminate: () => {
+        terminate: () => {
             privateKey?.removeEventListener('change', actions.change)
             publicKey?.removeEventListener('change', actions.change)
             stageKey?.removeEventListener('change', actions.change)

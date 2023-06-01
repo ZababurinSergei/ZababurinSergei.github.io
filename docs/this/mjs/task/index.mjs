@@ -72,7 +72,7 @@ export default {
             self.insertAdjacentHTML(state.insert, `<p>${emoji('moon')[0][0]} ${relation}</p>`)
             state.count = state.count + 1
         }
-        console.log(`💥`, relation)
+        // console.log(`💥`, relation)
         return heap(view, 'await', color, {property, substrate}, relation, callback, self)
     },
     list: (view, property, color, substrate, relation, callback) => {

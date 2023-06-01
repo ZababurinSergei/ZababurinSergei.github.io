@@ -3,7 +3,7 @@ export default async (self, actions) => {
         init: () => {
             window.addEventListener('popstate', actions.popstate);
         },
-        termminate: () => {
+        terminate: () => {
 
         }
     }

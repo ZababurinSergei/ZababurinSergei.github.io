@@ -1,4 +1,5 @@
 // https://www.typescriptlang.org/docs/handbook/jsx.html
+// For troubleshooting, set the log level to DiagLogLevel.DEBUG
 import path from "path";
 let __dirname = path.dirname(process.argv[1]);
 import express from "express";
@@ -8,11 +9,34 @@ import compression from "compression";
 import proxy from "express-http-proxy";
 import * as dotenv from 'dotenv'
 import JiraApi from 'jira-client';
+// import promBundle from 'express-prom-bundle';
+// import createMetricsPlugin from 'apollo-metrics';
+// import { register } from "prom-client";
 dotenv.config()
 
 let whitelist = ['http://localhost:3000', 'http://localhost:9876','https://web3-monopoly.web.app','http://localhost:8886','https://zababurinsv.github.io','https://zababurinsv.github.io/monopoly/','http://localhost:8887','http://localhost:8888','http://localhost:6040','https://xart-3e938.firebaseapp.com','https://xart-3e938.web.app','https://universitykids.ru','https://vashi-faili.web.app','https://vashi-faili.web.app',  'https://www.universitykids.ru', 'https://tuning-fork.firebaseapp.com','http://localhost:8888','https://jainagul-tezekbaeva.firebaseapp.com','https://tezekbaeva.firebaseapp.com','http://localhost:6112']
 
 let app = express();
+
+// const aggregatorRegistry = new AggregatorRegistry();
+// register for prometheus aggregation
+// app.get('/metrics', async (_, res) => {
+//     const metrics = await getAggregateMetrics();
+//     res.set('Content-Type', aggregatorRegistry.contentType);
+//     res.send(metrics.metrics());
+// });
+// metrics for graphql requests
+// const apolloMetricsPlugin = createMetricsPlugin(register);
+// metrics for rest requests
+// app.use(
+//     promBundle({
+//         autoregister: false, // disable /metrics for single workers
+//         includeMethod: true,
+//         includeStatusCode: true,
+//         includePath: true,
+//         promRegistry: register,
+//     }),
+// );
 app.use(compression())
 
 const jira = new JiraApi({
@@ -29,6 +53,8 @@ const queue = new Enqueue({
     maxSize: 200,
     timeout: 30000
 });
+
+console.log('__dirname', __dirname)
 
 app.use(await cors({ credentials: true }));
 app.use(queue.getMiddleware());
@@ -56,6 +82,14 @@ let corsOptions = {
 //         return data
 //     }
 // }));
+
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+app.get("/rolldice", (req, res) => {
+    res.send(getRandomNumber(1, 6).toString());
+});
 
 
 app.use(proxy('http://svc-fer-dev.helpms.ru:3333', {
