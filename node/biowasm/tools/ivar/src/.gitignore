@@ -1,0 +1,13 @@
+*~
+.DS_Store
+trim_primer_quality
+**/.snakemake/*
+GPATH
+GRTAGS
+GTAGS
+*.pyc
+**/.dSYM/*
+.dSYM/*
+**/.deps/*
+**/*.o
+Makefile

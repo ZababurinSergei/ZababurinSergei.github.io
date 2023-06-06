@@ -1,0 +1,59 @@
+import mongoose from "mongoose";
+import manufacturers from "./manufacturers.js";
+const DataTypesMongoose = mongoose.Schema.Types;
+
+/*
+String
+Number:
+Boolean:
+DocumentArray:
+Subdocument:
+Buffer:
+Array:
+Date:
+ObjectId:
+Mixed:
+Decimal:
+Decimal128:
+Map:
+Oid:
+Object:
+Bool:
+ObjectID:
+ */
+
+let DataTypes = {
+  INTEGER: DataTypesMongoose.Number,
+  STRING: DataTypesMongoose.String,
+  TEXT: DataTypesMongoose.String,
+  DATE: DataTypesMongoose.Date,
+};
+
+const as_comments = new mongoose.Schema({
+  comment_id: {
+    type: DataTypes.INTEGER,
+    unique: true,
+    index: true,
+    required: true
+  },
+  posted_by: {
+    type: DataTypes.INTEGER,
+    required: true,
+  },
+  posted_by_name: {
+    type: DataTypes.STRING,
+    maxLength: 30,
+    required: true,
+  },
+  comment: {
+    type: DataTypes.TEXT,
+    required: true,
+  },
+  post_time: {
+    type: DataTypes.DATE,
+    required: true,
+  }
+});
+
+export default as_comments;
+// export default mongoose.model('as_comments', as_comments);

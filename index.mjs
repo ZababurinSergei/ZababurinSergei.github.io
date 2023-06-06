@@ -9,9 +9,7 @@ import compression from "compression";
 import proxy from "express-http-proxy";
 import * as dotenv from 'dotenv'
 import JiraApi from 'jira-client';
-// import promBundle from 'express-prom-bundle';
-// import createMetricsPlugin from 'apollo-metrics';
-// import { register } from "prom-client";
+import fs from 'node:fs/promises'
 dotenv.config()
 
 let whitelist = ['http://localhost:3000', 'http://localhost:9876','https://web3-monopoly.web.app','http://localhost:8886','https://zababurinsv.github.io','https://zababurinsv.github.io/monopoly/','http://localhost:8887','http://localhost:8888','http://localhost:6040','https://xart-3e938.firebaseapp.com','https://xart-3e938.web.app','https://universitykids.ru','https://vashi-faili.web.app','https://vashi-faili.web.app',  'https://www.universitykids.ru', 'https://tuning-fork.firebaseapp.com','http://localhost:8888','https://jainagul-tezekbaeva.firebaseapp.com','https://tezekbaeva.firebaseapp.com','http://localhost:6112']
@@ -96,9 +94,6 @@ app.use(proxy('http://svc-fer-dev.helpms.ru:3333', {
     limit: '5mb',
     filter: function(req) {
         const data = ['/v1/'].some(path => req.path.startsWith(path))
-        if(data) {
-            console.log('ddddddddddd', req.path)
-        }
         return data
     }
 }));
@@ -164,6 +159,11 @@ app.use(queue.getErrorMiddleware())
 const port = (process.env.PORT)
     ? process.env.PORT
     : 3001
+
+process.on('SIGINT', function() {
+    process.exit(0);
+});
+
 app.listen(port ,() => {
     console.log('pid: ', process.pid)
     console.log('listening on http://localhost:'+ port);

@@ -1,0 +1,30 @@
+<script src="https://biowasm.com/cdn/v3/aioli.js"></script>
+<script type="module">
+// Need base module for sed since it needs `reinit: true` (needs reinit so 
+// it can be called multiple times in a row)
+const CLI = await new Aioli(["base/1.0.0", {
+    tool: "sed",
+    version: "4.8",
+    reinit: true
+}]);
+
+// Create mock data
+await CLI.mount({
+	name: "test.fastq",
+	data: "@read1\nACGTACGACTAGCAG\n+\nJJJJJJJJJJJJJJJ\n@read2\nACGATCATACCAGCA\n+\nJJJJJJJJJJJJJJJ\n"
+});
+
+// Simple find/replace
+const output = await CLI.exec("sed s/GACT/----/ test.fastq");
+document.getElementById("output").innerHTML = output;
+
+// Convert FASTQ to FASTA (from https://github.com/stephenturner/oneliners#awk--sed-for-bioinformatics)
+const fasta = await CLI.exec("sed -n 1~4s/^@/>/p;2~4p test.fastq");
+document.getElementById("fasta").innerHTML = fasta;
+</script>
+
+<h4>Simple find and replace:</h4>
+<pre id="output">Loading...</pre>
+
+<h4>Convert FASTQ to FASTA one-liner:</h4>
+<pre id="fasta">Loading...</pre>

@@ -1,0 +1,54 @@
+{
+  "name": "mongo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Zababurin Sergey",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zababurinsv/server-mongo.git"
+  },
+  "keywords": [
+    "mongo"
+  ],
+  "bugs": {
+    "url": "https://github.com/zababurinsv/server-mongo/issues"
+  },
+  "homepage": "https://github.com/zababurinsv/server-mongo#readme",
+  "type": "module",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "enqueue": "^1.0.2",
+    "express": "^4.17.1",
+    "express-enqueue": "^1.0.0",
+    "is-empty": "^1.2.0",
+    "mongoose": "^6.0.13",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6"
+  },
+  "scripts": {
+    "server-mongo": "nodemon --experimental-json-modules server.js",
+    "deploy": "git status && git add -A && git commit -am 'update' && git push",
+    "gulp-watch-slyle": "gulp gulp-watch-slyle",
+    "kill;3003": "kill $(lsof -t -i:3003)"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/register": "^7.16.0",
+    "nodemon": "^2.0.15",
+    "yargs": "^17.2.1",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^5.0.0",
+    "dotenv": "^10.0.0",
+    "node-sass": "^6.0.1",
+    "plugin-error": "^1.0.1"
+  }
+}

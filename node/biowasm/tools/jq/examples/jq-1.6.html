@@ -1,0 +1,24 @@
+<script src="https://biowasm.com/cdn/v3/aioli.js"></script>
+<script type="module">
+const CLI = await new Aioli(["jq/1.6"]);
+
+// Create mock JSON file
+// await CLI.mount({
+// 	name: "test.json",
+// 	data: JSON.stringify([{some:{data: {test: 'data'}}}, {some: {data: "there"}}])
+// });
+
+CLI.stdin = JSON.stringify([{some:{data: {test: 'data'}}}, {some: {data: "there"}}]);
+
+CLI.stdin = JSON.stringify([{some:{data: {test: 'data2'}}}, {some: {data: "there"}}]);
+// Retrieve JSON subset (note that we use an array of inputs to properly escape the arguments)
+//   -M to disable colors
+//   -r to output in raw format
+//   -c to output in compressed format
+const output = await CLI.exec("jq", ['-M','-r','-c','.[0].some.data']);
+
+document.getElementById("output").innerHTML = output;
+</script>
+
+<h4>Output of <code>jq</code>:</h4>
+<pre id="output">Loading...</pre>

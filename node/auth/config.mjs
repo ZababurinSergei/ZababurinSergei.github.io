@@ -1,0 +1,4 @@
+export default {
+    GITHUB_KEY:'3179800bb03ac3c4b275',
+    GITHUB_SECRET:'8df5f2b5d577757a14bc09323f82c916646f8be5'
+}

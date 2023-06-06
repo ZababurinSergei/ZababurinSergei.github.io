@@ -1,0 +1,17 @@
+<!--http://ice1.somafm.com/seventies-128-aac-->
+<template>
+    <div class="audio-newkind">
+        <div class="audio-newkind__control">
+            <form class="audio-newkind__form">
+                <input type="radio" class="audio-newkind__radio" id="senventies" name="radio-selection" value="http://localhost:8082/stream" checked>
+                <label for="senventies"><span></span>70's Radio</label>
+                <input type="radio" class="audio-newkind__radio" id="eighties" name="radio-selection" value="http://localhost:4444/storage/audio/streem">
+                <label for="eighties"><span></span>80's Radio</label>
+                <input type="radio" class="audio-newkind__radio" id="deep-space" name="radio-selection" value="http://localhost:4444/storage/audio/streem">
+                <label for="deep-space"><span></span>Deep Space</label>
+            </form>
+            <button class="audio-newkind__btn" id="start">Start Audio</button>
+        </div>
+        <canvas id="oscilloscope"></canvas>
+    </div>
+</template>

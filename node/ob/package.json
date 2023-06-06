@@ -1,0 +1,19 @@
+{
+  "name": "@workspace/ob",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean:git": "find ./src -name \".git\" -exec rm -rf '{}' +;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zababurinsv/workspace-ob.git"
+  },
+  "author": "Zababurin Sergey",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/zababurinsv/workspace-ob/issues"
+  },
+  "homepage": "https://github.com/zababurinsv/workspace-ob#readme"
+}

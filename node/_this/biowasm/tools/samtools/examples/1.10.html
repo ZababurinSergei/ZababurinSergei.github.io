@@ -1,0 +1,13 @@
+<script src="https://biowasm.com/cdn/v3/aioli.js"></script>
+<script type="module">
+const CLI = await new Aioli(["samtools/1.10"]);
+
+// Show reads from toy.sam. Try replacing "-f 16" with "-f 0".
+const file = "/samtools/examples/toy.sam";
+const output = await CLI.exec(`samtools view -f 16 ${file}`);
+
+document.getElementById("output").innerHTML = output;
+</script>
+
+<h4>Output of <code>samtools view</code>:</h4>
+<pre id="output">Loading...</pre>

@@ -1,6 +1,10 @@
 # Welcomebook
 
-
+```json
+{
+  "start": "nodemon --import ./instrumentation.mjs --config nodemon.server.json index.mjs",
+}
+```
 
 ## Getting started
 

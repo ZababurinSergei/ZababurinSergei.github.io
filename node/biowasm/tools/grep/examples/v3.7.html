@@ -1,0 +1,18 @@
+<script src="https://biowasm.com/cdn/v3/aioli.js"></script>
+<script type="module">
+const CLI = await new Aioli(["grep/3.7"]);
+
+// Create sample file
+await CLI.mount({
+	name: "data.txt",
+	data: "hello\ngood\nand\ngreat\nmorning\n"
+});
+
+// Retrieve lines that start with g
+const output = await CLI.exec("grep ^g data.txt");
+
+document.getElementById("output").innerHTML = output;
+</script>
+
+<h4>Output of <code>grep ^g data.txt</code>:</h4>
+<pre id="output">Loading...</pre>

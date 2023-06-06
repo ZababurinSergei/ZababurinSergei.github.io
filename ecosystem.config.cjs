@@ -4,9 +4,10 @@ module.exports = {
     "script": "npm",
     "args": "start",
     "namespace": "work",
-    "cwd": "/home/sergei/Desktop/work/Welcomebook",
     "watch": false,
     "node_args": "",
+    "instances" : "3",
+    "exec_mode" : "cluster",
     "merge_logs": true,
     "env_production": {
       "NODE_ENV": "production"
