@@ -1,7 +1,7 @@
 module.exports = {
   apps : [{
     "name": "welcomebook",
-    "script": "npm",
+    "script": "index.mjs",
     "args": "start",
     "namespace": "work",
     "watch": false,

@@ -7,3 +7,9 @@
 [submodule "metrics/dockprom"]
 	path = metrics/dockprom
 	url = https://github.com/stefanprodan/dockprom
+[submodule "JavaScripture"]
+	path = JavaScripture
+	url = https://github.com/nkronlage/JavaScripture.git
+[submodule "services/docs"]
+	path = services/docs
+	url = https://github.com/nkronlage/JavaScripture.git

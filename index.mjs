@@ -1,7 +1,9 @@
 // https://www.typescriptlang.org/docs/handbook/jsx.html
 // For troubleshooting, set the log level to DiagLogLevel.DEBUG
 import path from "path";
-let __dirname = path.dirname(process.argv[1]);
+// let __dirname = path.dirname(process.argv[1]);
+let __dirname = process.cwd();
+
 import express from "express";
 import cors from "cors";
 import Enqueue from "express-enqueue";
@@ -89,7 +91,6 @@ app.get("/rolldice", (req, res) => {
     res.send(getRandomNumber(1, 6).toString());
 });
 
-
 app.use(proxy('http://svc-fer-dev.helpms.ru:3333', {
     limit: '5mb',
     filter: function(req) {
@@ -110,16 +111,14 @@ app.get(`/metrics`, async (req, res) => {
     // console.log('index ----- index', __dirname)
     res.status(200).send(`# HELP pm2_up Is the process runningZ
 # TYPE pm2_up gauge
-pm2_up{id="0",name="pm2-prom-module",instance="0",interpreter="node",node_version="19.4.0"} 1
 pm2_up{id="1",name="pm2-metrics",instance="0",interpreter="node",node_version="19.4.0"} 1
-pm2_up{id="2",name="pm2-datadog",instance="0",interpreter="node",node_version="19.4.0"} 1
 pm2_up{id="3",name="welcomebook",instance="0",interpreter="node",node_version="19.4.0"} 0
 pm2_up{id="4",name="welcomebook",instance="1",interpreter="node",node_version="19.4.0"} 0
 pm2_up{id="5",name="welcomebook",instance="2",interpreter="node",node_version="19.4.0"} 0
 
 # HELP pm2_up Is the process runningZ
 # TYPE pm2_up gauge
-POST{id="0",name="api",instance="0",url="http://svc-fer-dev.helpms.ru:3333/v1/rule/save", interpreter="node",node_version="19.4.0"} 0`);
+POST{id="0",name="api",instance="0",url="http://localhost:3333/newkind/save", interpreter="node",node_version="19.4.0"} 0`);
 })
 
 app.use(proxy('localhost:8080', {
@@ -134,9 +133,17 @@ if(process.env.SANDBOX === 'true') {
     app.use('/', express.static(`${__dirname}/_sandbox/welcomebook/src`));
     app.use('/rules', express.static(`${__dirname}/_sandbox/rules/src`));
 } else {
-    // app.use('/welcomebook', express.static(`${__dirname}/services/welcomebook/this`));
     app.use('/rules', express.static(`${__dirname}/services/rules/src`));
     app.use('/welcomebook', express.static(`${__dirname}/services/welcomebook/src`));
+
+    app.use('/terminal', express.static(`${__dirname}/services/terminal/src`, {
+        setHeaders: function (res, path, stat) {
+            res.set('Cross-Origin-Embedder-Policy', 'require-corp');
+            res.set('Cross-Origin-Opener-Policy', 'same-origin');
+        }
+    }))
+    // app.use('/terminal', express.static(`${__dirname}/services/terminal/src`));
+    app.use('/docs', express.static(`${__dirname}/services/docs/docs`));
 }
 
 app.use('/template',express.static(`${__dirname}/template`));

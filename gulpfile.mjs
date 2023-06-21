@@ -25,7 +25,7 @@ gulp.task('px2vw', function () {
         pxtoviewport({
             unitToConvert: 'px',
             propList: ['*'],
-            unitPrecision: 5,          
+            unitPrecision: 5,
             viewportWidth: rootWidthDesktop,
             viewportUnit: 'vw',
             fontViewportUnit: 'vw',

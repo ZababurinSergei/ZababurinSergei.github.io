@@ -5,6 +5,7 @@ export { task }
 export { idKey } from './idKey/index.mjs'
 export { isEmpty } from './isEmpty/isEmpty.mjs'
 export { emoji } from './emoji/index.mjs'
+// export { metrics, HistogramChart, LineChart, ScatterChart, Chart } from './metrics/index.mjs'
 export default {
     desciption: 'loader for utilities'
 }
