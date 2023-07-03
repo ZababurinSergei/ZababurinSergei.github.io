@@ -570,16 +570,24 @@
                     <div class="textEditor--flex-grow_1">
                         <slot name="fer-codemirror"></slot>
                     </div>
+                    <div>
+                        <slot name="fer-rules-table"></slot>
+                    </div>
                 </div>
                 <div class="container__rules-front">
                     <div class="textEditor-sidebar">
                         <div class="wrapper__rules-front">
-                            <div class="fer-region">
-                                <slot name="fer-region"></slot>
-                            </div>
                             <div class="validator__rules-front">
                                 <p class="title__fer-rules">Валидаторы</p>
                                 <slot name="fer-tree"></slot>
+                            </div>
+                            <div class="validator__rules-front">
+                                <p class="title__fer-rules">Схема</p>
+                                <slot name="fer-tree__schema"></slot>
+                            </div>
+                            <div class="schema__rules-front">
+                                <p class="title__fer-rules">Событие</p>
+                                <slot name="fer-codemirror__events"></slot>
                             </div>
                         </div>
                         <div class="wrapper__button-fer-rules">
@@ -606,15 +614,17 @@
                 data-css-shadow="rules_0_0"
                 slot="fer-form_0_0"
         >
-            <div class="container__schema">
-                <div class="input">
-                    <label for="id">Id</label>
-                    <input id="id" placeholder="1" readonly/>
+            <div class="container">
+                <div class="container__schema">
+                    <div class="input">
+                        <label for="name">Cхема</label>
+                        <input id="name" placeholder="Схема" readonly/>
+                    </div>
                 </div>
-                <div class="input">
-                    <label for="name">Название схемы</label>
-                    <input id="name" placeholder="Схема Мо" readonly/>
-                </div>
+                <textarea
+                  placeholder="Описание"
+                  class="fer-codemirror-description--margin-bottom_12px"
+                ></textarea>
             </div>
         </fer-form>
 
@@ -627,27 +637,43 @@
             </div>
         </fer-codemirror>
 
-        <fer-region slot="fer-region">
-            <div class="input--margin-bottom_12px">
-                <label for="version">Версия</label>
-                <input id="version" placeholder="1.1.2" readonly/>
+
+        <div slot="fer-codemirror__schema">
+            <textarea>
+                asdasdasda
+            </textarea>
+        </div>
+
+        <fer-codemirror
+          slot="fer-codemirror__events"
+          data-services-path="rules"
+        >
+            <div class="codemirror-editor">
+                <textarea class="fer-codemirror" id="fer-codemirror__events"></textarea>
             </div>
-            <textarea
-                    placeholder="Описание"
-                    class="fer-codemirror-description--margin-bottom_12px"
-            ></textarea>
-        </fer-region>
+        </fer-codemirror>
+
+<!--        <fer-region slot="fer-region">-->
+<!--            <div class="input&#45;&#45;margin-bottom_12px">-->
+<!--                <label for="version">Версия</label>-->
+<!--                <input id="version" placeholder="1.1.2" readonly/>-->
+<!--            </div>-->
+<!--            <textarea-->
+<!--                    placeholder="Описание"-->
+<!--                    class="fer-codemirror-description&#45;&#45;margin-bottom_12px"-->
+<!--            ></textarea>-->
+<!--        </fer-region>-->
 
         <fer-tree slot="fer-tree">
             <div
-                    id="tree"
+                id="tree"
             ></div>
         </fer-tree>
         <fer-table
                 data-services-path="rules"
                 data-template="table_0"
                 data-id="modal_0_0"
-                slot="fer-region-table"
+                slot="fer-rules-table"
         >
             <div class="auction-data">
                 <div class="auction-data__table --grid-template-rows_1.97917vw_1fr">
@@ -657,6 +683,29 @@
                         <div class="auction-data__table_header_td">Версия схемы</div>
                         <div class="auction-data__table_header_td background-transparent"></div>
                         <div class="auction-data__table_header_td background-transparent menu-button">
+                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+                        </div>
+                    </div>
+                    <div class="auction-data__table_body"></div>
+                </div>
+            </div>
+        </fer-table>
+
+        <fer-table
+          data-services-path="rules"
+          data-template="table_0"
+          data-event="region"
+          data-id="1_0"
+          slot="fer-region-table"
+        >
+            <div class="auction-data">
+                <div class="auction-data__table --grid-template-rows_1.97917vw_1fr">
+                    <div class="auction-data__table_header">
+                        <div class="auction-data__table_header_td">Код</div>
+                        <div class="auction-data__table_header_td">Сообщение</div>
+                        <div class="auction-data__table_header_td">Как исправить</div>
+                        <div class="auction-data__table_header_td background-transparent"></div>
+                        <div  data-event="rules" class="auction-data__table_header_td background-transparent menu-button">
                             <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
                         </div>
                     </div>

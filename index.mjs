@@ -196,6 +196,7 @@ if(process.env.SANDBOX === 'true') {
     app.use('/', express.static(`${__dirname}/_sandbox/welcomebook/src`));
     app.use('/rules', express.static(`${__dirname}/_sandbox/rules/src`));
 } else {
+    app.use('/services', express.static(`${__dirname}/services`));
     app.use('/rules', express.static(`${__dirname}/services/rules/src`));
     app.use('/welcomebook', express.static(`${__dirname}/services/welcomebook/src`));
     app.use('/blockchain', express.static(`${__dirname}/services/blockchain/src`));

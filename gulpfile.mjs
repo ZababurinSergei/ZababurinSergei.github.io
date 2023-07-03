@@ -8,16 +8,21 @@ dotenv.config()
 //1920
 //375
 let dir = './docs'
-const rootWidthDesktop = 2080
+let rootWidthDesktop = 2080
 const rootWidthMobile = 375
 
 let src, i = process.argv.indexOf("--src");
+let width, j = process.argv.indexOf("--rootWidthDesktop");
 
 if(i>-1) {
     dir = process.argv[i+1];
 }
 
-console.log('path: ', dir)
+if(j>-1) {
+    rootWidthDesktop = process.argv[j+1];
+}
+
+console.log('path: ', dir, "rootWidthDesktop: ", rootWidthDesktop)
 gulp.task('px2vw', function () {
     // console.time("⚡ [gulp] Done");
 
@@ -25,7 +30,7 @@ gulp.task('px2vw', function () {
         pxtoviewport({
             unitToConvert: 'px',
             propList: ['*'],
-            unitPrecision: 3,
+            unitPrecision: 2,
             viewportWidth: rootWidthDesktop,
             viewportUnit: 'vw',
             fontViewportUnit: 'vw',
