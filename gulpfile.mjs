@@ -5,7 +5,7 @@ import autoprefixer from 'autoprefixer'
 import * as dotenv from 'dotenv'
 dotenv.config()
 
-//1846
+//1920
 //375
 let dir = './docs'
 const rootWidthDesktop = 2080
@@ -25,7 +25,7 @@ gulp.task('px2vw', function () {
         pxtoviewport({
             unitToConvert: 'px',
             propList: ['*'],
-            unitPrecision: 5,
+            unitPrecision: 3,
             viewportWidth: rootWidthDesktop,
             viewportUnit: 'vw',
             fontViewportUnit: 'vw',

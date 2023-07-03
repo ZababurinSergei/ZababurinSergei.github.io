@@ -1,0 +1,233 @@
+/*@import '/components/terminal/modules/xterm/css/xterm.css';*/
+:host {
+    --substrate-pr-width: 12vw;
+    width: 100%;
+    margin: auto
+}
+
+#system, #shadow {
+    height: 100vh;
+}
+
+#relation {
+    grid-column: 1 / 2;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: overlay;
+    box-sizing: border-box;
+    padding: 0.5vw 0;
+}
+
+#substrate {
+    grid-column: 2 / 3;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+#property {
+    grid-column: 3 / 4;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    width: 100%;
+    overflow: overlay;
+}
+
+#total {
+    min-height: 0;
+}
+
+api-dex {
+    display: flex;
+    flex-direction: revert;
+    width: 100%;
+    gap: 0.5vw;
+}
+
+section div#substrate {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+p {
+    margin: 0!important;
+}
+
+api-button {
+    cursor: pointer;
+    /*padding: 0.3vw 0.8vw;*/
+    background: #f7abab61;
+    border-radius: 0.3vw;
+    height: 1.7vw;
+    padding: 0;
+    width: 3vw;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+api-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5vw;
+}
+
+[class*="system"] {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+[class*="main-center"] {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 14.4vh  1fr 9.4vh;
+}
+
+[class*="grid__footer"], [class*="grid__header"] {
+    display: grid;
+    position: relative;
+    gap: 1vw;
+}
+
+[class*="grid__main"] {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr min-content;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+[class*="grid__header"] {
+    grid-template-columns: var(--substrate-pr-width) 1fr var(--substrate-pr-width);
+    grid-template-rows: 5.9vw;
+    margin-bottom: 1.46262vw;
+}
+
+[class*="--header_unset"] {
+
+}
+
+[class*="grid__body"] {
+    display: grid;
+    grid-template-columns: var(--substrate-pr-width) 1fr var(--substrate-pr-width);
+    grid-template-rows: 100%;
+    position: relative;
+    gap: 1vw;
+    overflow: hidden;
+    margin-top: 5rem;
+}
+
+[class*="--property_unset"] {
+    display: grid;
+    grid-template-columns: var(--substrate-pr-width) 1fr;
+}
+
+[class*="--margin-top_0"] {
+    margin-top: 0!important;
+}
+
+[class*="grid__footer"] {
+    grid-template-columns: var(--substrate-pr-width) 1fr var(--substrate-pr-width);
+    grid-template-rows: 100%;
+    gap: 0;
+}
+
+[class*="grid__header_relation"] {
+    /* margin: 0 0 0 1vw; */
+}
+
+[class*="grid__header_property"] {
+    /* margin: 0 1vw 0 0; */
+}
+
+[class*="grid__header_relation"], [class*="grid__header_property"], [class*="grid__header_substrate"] {
+    display: flex;
+    align-self: center;
+    border-top: 0.1vw solid rgba(118, 148, 244, 0.45);
+    border-bottom: 0.1vw solid rgba(118, 148, 244, 0.45);
+    padding: 0.5vw 0;
+    gap: 0.5vw;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: -webkit-fill-available;
+    box-sizing: border-box;
+}
+
+[class*="substrate__header"] {
+    grid-column: 2 / 3;
+    margin: 0 0.5vw;
+}
+
+[class*="term"] {
+    max-height: 12vw;
+    flex-grow: 1;
+}
+
+[class*="substrate__header"] {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    justify-content: space-evenly;
+}
+
+[class*="property-main_item"] {
+    cursor: pointer;
+}
+
+[class*="body_main"] {
+    position: relative;
+    min-height: auto;
+    height: -moz-max-content;
+    height: max-content;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+[class*="body_main"] div {
+    width: 100%;
+}
+
+[class*="main-top"], [class*="main-bottom"] {
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+[class*="main-bottom"] {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    border-bottom: none;
+}
+
+[class*="grid__footer_substrate"] {
+    border-bottom: 0.1vw solid rgba(118, 148, 244, 0.45);
+    border-left: 0.1vw solid rgba(118, 148, 244, 0.45);
+    border-right: 0.1vw solid rgba(118, 148, 244, 0.45);
+}
+
+[class*="grid__footer_property"], [class*="grid__footer_relation"] {
+    border-top: 0.1vw solid rgba(118, 148, 244, 0.45);
+}

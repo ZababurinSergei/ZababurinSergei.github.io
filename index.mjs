@@ -3,7 +3,7 @@
 import path from "path";
 // let __dirname = path.dirname(process.argv[1]);
 let __dirname = process.cwd();
-
+import nodemailer from 'nodemailer'
 import express from "express";
 import cors from "cors";
 import Enqueue from "express-enqueue";
@@ -17,6 +17,37 @@ dotenv.config()
 let whitelist = ['http://localhost:3000', 'http://localhost:9876','https://web3-monopoly.web.app','http://localhost:8886','https://zababurinsv.github.io','https://zababurinsv.github.io/monopoly/','http://localhost:8887','http://localhost:8888','http://localhost:6040','https://xart-3e938.firebaseapp.com','https://xart-3e938.web.app','https://universitykids.ru','https://vashi-faili.web.app','https://vashi-faili.web.app',  'https://www.universitykids.ru', 'https://tuning-fork.firebaseapp.com','http://localhost:8888','https://jainagul-tezekbaeva.firebaseapp.com','https://tezekbaeva.firebaseapp.com','http://localhost:6112']
 
 let app = express();
+
+
+/*
+Host : "mail.digitalms.ru",
+
+Username : "techmailhr",
+
+Password : "%hbHhsxk3e8auM7y",
+
+To : 'them@website.com',
+
+From : "hr@digitalms.ru",
+
+Subject : "This is the subject",
+
+Body : "And this is the body",
+
+Port : 587
+
+
+ */
+const transporter = nodemailer.createTransport({
+    host: "mail.digitalms.ru",
+    port: 587,
+    secure: false,
+    auth: {
+        // TODO: replace `user` and `pass` values from <https://forwardemail.net>
+        user: "techmailhr",
+        pass:  "%hbHhsxk3e8auM7y"
+    }
+});
 
 // const aggregatorRegistry = new AggregatorRegistry();
 // register for prometheus aggregation
@@ -37,8 +68,9 @@ let app = express();
 //         promRegistry: register,
 //     }),
 // );
-app.use(compression())
 
+app.use(compression())
+app.use(express.json());
 const jira = new JiraApi({
     protocol: process.env.JIRA_protocol,
     host: process.env.JIRA_host,
@@ -121,6 +153,37 @@ pm2_up{id="5",name="welcomebook",instance="2",interpreter="node",node_version="1
 POST{id="0",name="api",instance="0",url="http://localhost:3333/newkind/save", interpreter="node",node_version="19.4.0"} 0`);
 })
 
+
+app.post(`/smtp_client`, async (req, res) => {
+    try {
+        // console.log('@@@@@@@@@@@@@@@@@@2', req.body)
+        console.log('SEND EMAIL', {
+            from: '"Welcome Book feedback" <welcomebook@digitalms.ru>',
+            to: "hr@digitalms.ru",
+            subject: "Welcome Book feedback",
+            html: `<b>${req.body.mail.message}</b>`
+        })
+
+        const info = await transporter.sendMail({
+            from: '"Welcome Book feedback" <welcomebook@digitalms.ru>',
+            to: "zababurins@vk.com",
+            subject: "Welcome Book feedback",
+            html: `<b>${req.body.mail.message}</b>`
+        });
+
+        console.log('RESPONSE FROM SMTP HOST', info)
+        res.status(200).send({
+            status: true,
+            message: info
+        })
+    }catch (e) {
+        res.send({
+            status: false,
+            message: ''
+        })
+    }
+})
+
 app.use(proxy('localhost:8080', {
     limit: '5mb',
     filter: function(req) {
@@ -135,7 +198,9 @@ if(process.env.SANDBOX === 'true') {
 } else {
     app.use('/rules', express.static(`${__dirname}/services/rules/src`));
     app.use('/welcomebook', express.static(`${__dirname}/services/welcomebook/src`));
-
+    app.use('/blockchain', express.static(`${__dirname}/services/blockchain/src`));
+    app.use('/newkind', express.static(`${__dirname}/services/newkind/src`));
+    app.use('/elite', express.static(`${__dirname}/services/elite/src`));
     app.use('/terminal', express.static(`${__dirname}/services/terminal/src`, {
         setHeaders: function (res, path, stat) {
             res.set('Cross-Origin-Embedder-Policy', 'require-corp');
@@ -158,6 +223,62 @@ app.use('/services',express.static(`${__dirname}/services`));
 // app.use(express.static(`${__dirname}/services/welcomebook/src`));
 
 
+app.post(`/mail`, async (req, res) => {
+    console.log('index ----- index', req.body.mail.message)
+    // let info = {}
+    // try {
+    //     info = await transporter.sendMail({
+    //         from:'<WelcomeBook@digitalms.ru>',
+    //         to: "m.ivanova@digitalms.ru",
+    //         subject: "Welcome Book",
+    //         text: req.body.mail.message
+    //     });
+    //     console.log("Message sent: %s", info.messageId);
+    //
+    //     res.status(200).send({
+    //         status: true,
+    //         message: info
+    //     })
+    // } catch (e) {
+    //     console.log("Message sent: %s", info.messageId);
+        // res.status(400).send({
+        //     status: false,
+        //     message: e
+        // })
+        // console.log('eeeeeeeeeeee', e)
+    // }
+    // const info = await transporter.sendMail({
+    //     from:'"Welcome Book feedback" <hr@digitalms.ru>',
+    //     to: "zababurins@vk.com",
+    //     subject: "Welcome Book feedback",
+    //     text: req.body.mail.message
+    // });
+
+
+    const info = await transporter.sendMail({
+        from:'"Welcome Book feedback"',
+        to: "hr@digitalms.ru",
+        subject: "Welcome Book feedback",
+        html: `<b>${req.body.mail.message}</b>`
+    });
+
+    res.status(200).send({
+        status: true,
+        message: info
+    })
+
+ // to: "m.ivanova@digitalms.ru",
+
+    // const info = await transporter.sendMail({
+    //     from:'Welcome Book 👻',
+    //     to: "zababurins@vk.com",
+    //     subject: "Welcome Book",
+    //     text: req.body.mail.message
+    // });
+    // hr@digitalms.ru
+//them@website.com
+
+})
 
 app.get(`/*`, async (req, res) => {
     // console.log('index ----- index', __dirname)

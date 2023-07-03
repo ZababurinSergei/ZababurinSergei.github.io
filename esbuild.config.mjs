@@ -19,12 +19,28 @@ for (const k in process.env) {
     }
 }
 
-const entryPoints = [path.resolve(__dirname, 'src/index.tsx')]
-const outdir = path.resolve(__dirname, 'public/this/virualDom')
-const outfile = path.resolve(__dirname, 'public/this/virualDom/index.mjs')
+const config = {
+    entryPoints: 'services/welcomebook/src/index.mjs',
+    outdir: 'services/welcomebook/src',
+    outfile: 'services/welcomebook/src/bundle.mjs'
+}
 
-fs.emptyDirSync(outdir);
 
+
+const entryPoints = [path.resolve(__dirname, config.entryPoints)]
+const outdir = path.resolve(__dirname, config.outdir)
+const outfile = path.resolve(__dirname, config.outfile)
+
+
+// const entryPoints = [path.resolve(__dirname, '_sandbox/simple-peer/index.js')]
+// const outdir = path.resolve(__dirname, '_sandbox/simple-peer')
+// const outfile = path.resolve(__dirname, '_sandbox/simple-peer/index.mjs')
+
+// const entryPoints = [path.resolve(__dirname, 'src/index.tsx')]
+// const outdir = path.resolve(__dirname, 'public/this/virualDom')
+// const outfile = path.resolve(__dirname, 'public/this/virualDom/index.mjs')
+
+//fs.emptyDirSync(outdir);
 console.time("⚡ [esbuild] Done");
 try {
     const buildParams = {

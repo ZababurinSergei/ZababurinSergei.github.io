@@ -21,6 +21,9 @@
             <section class='slider parallax-container-off' data-id="4">
                 <slot name="welcome-section-4"></slot>
             </section>
+            <section class='slider parallax-container-off' data-id="5">
+                <slot name="welcome-section-5"></slot>
+            </section>
         </div>
         <div
                 data-id="0"
@@ -70,6 +73,7 @@
                 <slot name="button-2"></slot>
                 <slot name="button-3"></slot>
                 <slot name="button-4"></slot>
+                <slot name="button-5"></slot>
             </div>
         </div>
         <fer-button
@@ -126,6 +130,17 @@
                 data-css-shadow="menu"
         >
             <p>Домен</p>
+        </fer-button>
+
+        <fer-button
+          data-services-path="rules"
+          slot="button-5"
+          data-event="Mapping"
+          data-id="5"
+          data-type="welcome-menu"
+          data-css-shadow="menu"
+        >
+            <p>Маппинг</p>
         </fer-button>
     </welcome-menu>
 
@@ -192,19 +207,18 @@
         </div>
 
         <fer-table
-                data-services-path="rules"
-                data-template="table_1"
-                data-id="1"
-                data-to="1_0"
-                slot="fer-table_1"
+            data-services-path="rules"
+            data-template="table_1_1"
+            data-id="1"
+            data-to="1_0"
+            slot="fer-table_1"
         >
             <div class="auction-data">
                 <div class="auction-data__table">
                     <div class="auction-data__table_header">
                         <div class="auction-data__table_header_td">id</div>
                         <div class="auction-data__table_header_td">Описание</div>
-                        <div class="auction-data__table_header_td">Версия схемы</div>
-                        <div class="auction-data__table_header_td">Версия правила</div>
+                        <div class="auction-data__table_header_td">схема</div>
                         <div class="auction-data__table_header_td background-transparent"></div>
                         <div class="auction-data__table_header_td background-transparent menu-button">
                             <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
@@ -215,7 +229,6 @@
                         <input class="auction-data__table_footer_td empty background-transparent" name="id"/>
                         <input class="auction-data__table_footer_td" name="description"/>
                         <input class="auction-data__table_footer_td" name="schema_version"/>
-                        <input class="auction-data__table_footer_td" name="rules_version"/>
                     </div>
                 </div>
             </div>
@@ -277,7 +290,7 @@
     <welcome-section
             data-services-path="rules"
             data-id="3"
-            data-to="3_0"
+            data-to="_"
             data-css-shadow="rules_0_0"
             slot="welcome-section-3"
     >
@@ -320,31 +333,76 @@
     <welcome-section
             data-services-path="rules"
             data-id="4"
-            data-to="4_0"
+            data-to="_"
             slot="welcome-section-4"
             data-css-shadow="rules_0_0"
     >
+
+                <div class='images'></div>
+                <div class='body--padding_70px_100px'>
+                    <div class="container">
+                        <div>
+                            <slot name="fer-table_4"></slot>
+                        </div>
+                    </div>
+                </div>
+
+                <fer-table
+                  data-services-path="rules"
+                  data-template="table_3"
+                  data-id="0"
+                  data-to="_"
+                  slot="fer-table_4"
+                >
+                    <div class="auction-data">
+                        <div class="auction-data__table">
+                            <div class="auction-data__table_header --table_3">
+                                <div class="auction-data__table_header_td">Название</div>
+                                <div class="auction-data__table_header_td">Описание</div>
+                                <div class="auction-data__table_header_td background-transparent"></div>
+                                <div class="auction-data__table_header_td background-transparent menu-button">
+                                    <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+                                </div>
+                            </div>
+                            <div class="auction-data__table_body"></div>
+                            <div class="auction-data__table_footer">
+                                <input class="auction-data__table_footer_td" name="name"/>
+                                <input class="auction-data__table_footer_td" name="description"/>
+                            </div>
+                        </div>
+                    </div>
+                </fer-table>
+    </welcome-section>
+
+    <welcome-section
+      data-services-path="rules"
+      data-id="5"
+      data-to="5_0"
+      slot="welcome-section-5"
+      data-css-shadow="rules_0_0"
+    >
+
         <div class='images'></div>
         <div class='body--padding_70px_100px'>
             <div class="container">
                 <div>
-                    <slot name="fer-table_4"></slot>
+                    <slot name="fer-table_5"></slot>
                 </div>
             </div>
         </div>
 
         <fer-table
-                data-services-path="rules"
-                data-template="table_3"
-                data-id="4"
-                data-to="4_0"
-                slot="fer-table_4"
+          data-services-path="rules"
+          data-template="table_3"
+          data-id="5"
+          data-to="5_0"
+          slot="fer-table_5"
         >
             <div class="auction-data">
                 <div class="auction-data__table">
                     <div class="auction-data__table_header --table_3">
-                        <div class="auction-data__table_header_td">Название</div>
-                        <div class="auction-data__table_header_td">Описание</div>
+                        <div class="auction-data__table_header_td">Регион</div>
+                        <div class="auction-data__table_header_td">Версия схемы</div>
                         <div class="auction-data__table_header_td background-transparent"></div>
                         <div class="auction-data__table_header_td background-transparent menu-button">
                             <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>

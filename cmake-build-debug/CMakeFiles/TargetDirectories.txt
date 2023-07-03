@@ -1,3 +1,3 @@
-/home/sergei/Desktop/system/cmake-build-debug/CMakeFiles/system.dir
-/home/sergei/Desktop/system/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/sergei/Desktop/system/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/CMakeFiles/system.dir
+/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/CMakeFiles/rebuild_cache.dir
