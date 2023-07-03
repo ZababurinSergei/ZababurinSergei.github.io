@@ -1,1 +1,0 @@
-export const ON_SUBMIT: (...args: any[]) => void = (...args: any[]) => {};
