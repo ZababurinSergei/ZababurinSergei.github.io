@@ -6,3 +6,4 @@ package-lock.json
 .vscode/
 services
 node/
+_sandbox/
