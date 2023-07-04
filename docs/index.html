@@ -199,6 +199,7 @@
 <!--    </section>-->
 <!--</auction-tabs>-->
     <div class="service" slot="service"></div>
+    <div class="service-next" slot="service"></div>
     <fer-dialog>
         <dialog>
             <div class="content"></div>
@@ -218,8 +219,8 @@
 </style>
 
 <script type="module">
-    // import Tabs from '/component/auction-tabs/index.mjs'
-    // import Auth from '/component/auction-auth/index.mjs'
+    import Tabs from '/component/auction-tabs/index.mjs'
+    import Auth from '/component/auction-auth/index.mjs'
     import { store } from '/this/index.mjs'
     import main from '/main.mjs'
     import { loadHTML } from '/this/index.mjs'
