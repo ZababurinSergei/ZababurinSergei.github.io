@@ -567,11 +567,16 @@
                     <div class="data__fer-rules">
                         <slot name="fer-form_0_0"></slot>
                     </div>
-                    <div class="textEditor--flex-grow_1">
-                        <slot name="fer-codemirror"></slot>
-                    </div>
-                    <div>
-                        <slot name="fer-rules-table"></slot>
+                    <div class="wrapper__container">
+                        <div class="textEditor--flex-grow_1">
+                            <slot name="fer-rule-description"></slot>
+                        </div>
+                        <div class="textEditor--flex-grow_1">
+                            <slot name="fer-codemirror"></slot>
+                        </div>
+                        <div>
+                            <slot name="fer-rules-table"></slot>
+                        </div>
                     </div>
                 </div>
                 <div class="container__rules-front">
@@ -590,19 +595,20 @@
                                 <slot name="fer-codemirror__events"></slot>
                             </div>
                         </div>
-                        <div class="wrapper__button-fer-rules">
-                            <div
-                                    class="button__fer-rules"
-                                    slot="fer-button"
-                            >
-                                <slot name="fer-form__cancel"></slot>
-                            </div>
-                            <div
-                                    class="button__fer-rules"
-                                    slot="fer-button"
-                            >
-                                <slot name="fer-form__save"></slot>
-                            </div>
+                    </div>
+
+                    <div class="wrapper__button-fer-rules">
+                        <div
+                          class="button__fer-rules"
+                          slot="fer-button"
+                        >
+                            <slot name="fer-form__cancel"></slot>
+                        </div>
+                        <div
+                          class="button__fer-rules"
+                          slot="fer-button"
+                        >
+                            <slot name="fer-form__save"></slot>
                         </div>
                     </div>
                 </div>
@@ -621,13 +627,18 @@
                         <input id="name" placeholder="Схема" readonly/>
                     </div>
                 </div>
-                <textarea
-                  placeholder="Описание"
-                  class="fer-codemirror-description--margin-bottom_12px"
-                ></textarea>
             </div>
         </fer-form>
 
+        <div
+            data-exclusion
+            slot="fer-rule-description"
+        >
+                 <textarea
+                   placeholder="Описание"
+                   class="fer-codemirror-description--margin-bottom_12px"
+                 ></textarea>
+        </div>
         <fer-codemirror
                 slot="fer-codemirror"
                 data-services-path="rules"
