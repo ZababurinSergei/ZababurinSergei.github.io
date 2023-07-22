@@ -76,12 +76,12 @@ padding-left: 0.48754vw;
 
 .rotateArrowActive_FromAboveLevels {
     transform: rotate(90deg);
-    transition: 0.25s linear;
+    transition: transform 0.25s linear;
 }
 
 .rotateArrowActive {
     transform: rotate(180deg);
-    transition: 0.25s linear;
+    transition: transform 0.25s linear;
 }
 
 .selectListWrapper {

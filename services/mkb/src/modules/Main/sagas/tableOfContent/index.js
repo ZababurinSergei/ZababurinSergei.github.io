@@ -27,6 +27,8 @@ export function* fetchChapterWorker({ payload: { pathname, type, cb } }) {
   try {
     const dataChapter = yield select(getChapters);
 
+    console.log('!!!!!!!!!!!!!!!!!!!!! ===================', dataChapter)
+
     if(!isEmpty(dataChapter) && ((window.location.pathname === '/' || window.location.pathname === `${process.env.PUBLIC_URL}`) || window.location.pathname === `${process.env.PUBLIC_URL}/`)) {
       yield call(cb, null, { data: dataChapter, expand: [1] });
     } else {
