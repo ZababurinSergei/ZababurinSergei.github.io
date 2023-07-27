@@ -273,7 +273,7 @@
             <div class="auction-data">
                 <div class="auction-data__table">
                     <div class="auction-data__table_header">
-                        <div class="auction-data__table_header_td">ID</div>
+                        <div class="auction-data__table_header_td">id</div>
                         <div class="auction-data__table_header_td">Описание</div>
                         <div class="auction-data__table_header_td">Версия манифеста</div>
                         <div class="auction-data__table_header_td">Версия схемы</div>
@@ -361,7 +361,7 @@
                 <fer-table
                   data-services-path="rules"
                   data-template="table_3"
-                  data-id="0"
+                  data-id="4"
                   data-to="_"
                   slot="fer-table_4"
                 >
@@ -1038,7 +1038,7 @@
                     <div class="data__fer-rules">
                         <slot name="fer-form_0_0"></slot>
                     </div>
-                    <div class="textEditor--flex-grow_1">
+                    <div class="textEditor --height_852px">
                         <slot name="fer-codemirror"></slot>
                     </div>
                 </div>
@@ -1094,15 +1094,16 @@
           data-services-path="rules"
         >
             <div class="codemirror-editor">
+                <p class="codemirror-title">Код</p>
                 <textarea class="fer-codemirror" id="fer-codemirror"></textarea>
             </div>
         </fer-codemirror>
 
         <fer-region slot="fer-region">
             <div class="welcome-section_5_0__fer-region">
-                <h2 class="welcome-section_5_0__fer-region_title">Правила</h2>
+                <h2 class="welcome-section_5_0__fer-region_title">Маппинг</h2>
                 <div class="welcome-section_5_0__fer-region_container">
-                    <div class="input welcome-section_5_0__table_source">
+                    <div class="input welcome-section_5_0__table_source activeInput">
                         <label for="title">Таблица источник</label>
                         <input id="title" placeholder="" />
                     </div>
@@ -1122,22 +1123,22 @@
                 <div class="auction-data">
                     <div class="auction-data__table --width_92.3%">
                         <div class="auction-data__table_header">
-                            <div class="auction-data__table_header_td">Kind</div>
-                            <div class="auction-data__table_header_td">Type</div>
-                            <div class="auction-data__table_header_td">Source</div>
-                            <div class="auction-data__table_header_td">Description</div>
+                            <div class="auction-data__table_header_td">Поле источника</div>
+                            <div class="auction-data__table_header_td">Тип поля источника</div>
+                            <div class="auction-data__table_header_td">Поле назначения</div>
+                            <div class="auction-data__table_header_td">Тип поля назначения</div>
                             <div class="auction-data__table_header_td background-transparent"></div>
                             <div class="auction-data__table_header_td background-transparent menu-button">
                                 <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
                             </div>
                         </div>
                         <div class="auction-data__table_body"></div>
-                        <div class="auction-data__table_footer">
-                            <input class="auction-data__table_footer_td" name="kind"/>
-                            <input class="auction-data__table_footer_td" name="type"/>
-                            <input class="auction-data__table_footer_td" name="source"/>
-                            <input class="auction-data__table_footer_td" name="description"/>
-                        </div>
+<!--                        <div class="auction-data__table_footer">-->
+<!--                            <input class="auction-data__table_footer_td" name="kind"/>-->
+<!--                            <input class="auction-data__table_footer_td" name="type"/>-->
+<!--                            <input class="auction-data__table_footer_td" name="source"/>-->
+<!--                            <input class="auction-data__table_footer_td" name="description"/>-->
+<!--                        </div>-->
                     </div>
                 </div>
             </fer-table>

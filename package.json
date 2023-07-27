@@ -26,8 +26,8 @@
     "vw2px:welcomebook": "gulp vw2px --src ./services/welcomebook/src",
     "px2vw:rules": "gulp px2vw --src ./services/rules/src --rootWidthDesktop 1920",
     "vw2px:rules": "gulp vw2px --src ./services/rules/src --rootWidthDesktop 1920",
-    "px2vw:system": "gulp px2vw --src ./services/syatem/src",
-    "vw2px:syatem": "gulp vw2px --src ./services/syatem/src",
+    "px2vw:system": "gulp px2vw --src ./services/system/src --rootWidthDesktop 1920",
+    "vw2px:system": "gulp vw2px --src ./services/system/src --rootWidthDesktop 1920",
     "px2vw:this": "gulp px2vw --src ./docs",
     "vw2px:this": "gulp vw2px --src ./docs",
     "================== PM ==================": "",
@@ -97,6 +97,7 @@
     "@opentelemetry/api": "^1.4.1",
     "@opentelemetry/auto-instrumentations-node": "^0.38.0",
     "@opentelemetry/exporter-metrics-otlp-proto": "^0.41.0",
+    "@opentelemetry/exporter-prometheus": "^0.41.0",
     "@opentelemetry/exporter-trace-otlp-http": "^0.41.0",
     "@opentelemetry/exporter-trace-otlp-proto": "^0.41.0",
     "@opentelemetry/exporter-zipkin": "^1.15.0",
@@ -110,7 +111,6 @@
     "@opentelemetry/sdk-trace-base": "^1.15.0",
     "@opentelemetry/sdk-trace-node": "^1.15.0",
     "@opentelemetry/semantic-conventions": "^1.15.0",
-    "@opentelemetry/exporter-prometheus": "^0.41.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^4.18.2",
@@ -121,5 +121,8 @@
     "nodemailer": "^6.9.4",
     "pm2": "^5.3.0",
     "vfile": "^6.0.1"
+  },
+  "peerDependencies": {
+    "postcss": "^8.4.27"
   }
 }
