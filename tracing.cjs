@@ -7,7 +7,6 @@ const { PeriodicExportingMetricReader, ConsoleMetricExporter, MeterProvider } = 
 const { PrometheusExporter } = require('@opentelemetry/exporter-prometheus');
 const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-proto');
 
-
 const init = (serviceName, environment) => {
     const options = {port: 9464};
     const exporter = new PrometheusExporter(options);
