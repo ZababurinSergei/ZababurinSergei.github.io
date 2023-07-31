@@ -430,19 +430,20 @@
     </welcome-section>
 
     <welcome-section
-            data-services-path="rules"
-            data-css-shadow="rules_0_0"
-            data-id="0_0"
-            data-to="0"
-            slot="welcome-section_0_0"
+        data-services-path="rules"
+        data-css-shadow="rules_0_0"
+        data-id="0_0"
+        data-to="0"
+        slot="welcome-section_0_0"
     >
         <div class='images'></div>
-        <div class='body--padding_70px_100px'>
-            <div class="container--flex-direction_row--gap_20px">
+        <div class='body--padding_70px_100px--gap_24px'>
+            <div class="data__fer-rules">
+                <slot name="fer-form_0_0"></slot>
+                <slot name="fer-region_0"></slot>
+            </div>
+            <div class="container--flex-direction_row--gap_24px">
                 <div class="main__fer-rules">
-                    <div class="data__fer-rules">
-                        <slot name="fer-form_0_0"></slot>
-                    </div>
                     <div class="textEditor--flex-grow_1">
                         <slot name="fer-codemirror"></slot>
                     </div>
@@ -451,10 +452,9 @@
                     <div class="textEditor-sidebar">
                         <div class="wrapper__rules-front">
                             <div class="fer-region">
-                                <slot name="fer-region"></slot>
+                                <slot name="fer-region_1"></slot>
                             </div>
                             <div class="fer-region__table_list">
-                                <p class="title__fer-rules">Ошибки проверки полей</p>
                                 <slot name="fer-region-table"></slot>
                             </div>
                         </div>
@@ -499,47 +499,62 @@
                 data-services-path="rules"
         >
             <div class="codemirror-editor">
+                <p class="codemirror-title">Код</p>
                 <textarea class="fer-codemirror" id="fer-codemirror"></textarea>
             </div>
         </fer-codemirror>
 
-        <fer-region slot="fer-region">
-            <div class="input--margin-bottom_12px">
+        <fer-region class="fer-region_0" slot="fer-region_0">
+            <div class="input" readonly>
                 <label for="version">Версия</label>
                 <input id="version" placeholder="Введите версию" readonly/>
             </div>
-            <div class="input--margin-bottom_12px">
-                <label for="title">Title</label>
+            <div class="input --flex-grow_1">
+                <label for="title">Заголовок</label>
                 <input id="title" placeholder=""/>
             </div>
+        </fer-region>
+
+        <fer-region slot="fer-region_1">
             <textarea
-                    placeholder="Описание"
-                    class="fer-codemirror-description--margin-bottom_12px"
+              placeholder="Описание"
+              class="fer-codemirror-description--margin-bottom_12px"
             ></textarea>
         </fer-region>
 
-        <fer-table
-                data-services-path="rules"
-                data-template="table_0"
-                data-event="region"
-                data-id="0_0"
-                slot="fer-region-table"
-        >
-            <div class="auction-data">
-                <div class="auction-data__table --grid-template-rows_1.97917vw_1fr">
-                    <div class="auction-data__table_header">
-                        <div class="auction-data__table_header_td">Код</div>
-                        <div class="auction-data__table_header_td">Сообщение</div>
-                        <div class="auction-data__table_header_td">Как исправить</div>
-                        <div class="auction-data__table_header_td background-transparent"></div>
-                        <div  data-event="rules" class="auction-data__table_header_td background-transparent menu-button">
-                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
-                        </div>
+        <fer-region slot="fer-region-table">
+            <div class="welcome-section_5_0__fer-region">
+                <h2 class="welcome-section_5_0__fer-region_title">Ошибки проверки полей</h2>
+                <div class="welcome-section_5_0__fer-region_container">
+                    <div class="welcome-section_5_0__fer-region_table">
+                        <slot name="fer-region-table"></slot>
                     </div>
-                    <div class="auction-data__table_body"></div>
                 </div>
             </div>
-        </fer-table>
+
+            <fer-table
+              data-services-path="rules"
+              data-template="table_0"
+              data-event="region"
+              data-id="0_0"
+              slot="fer-region-table"
+            >
+                <div class="auction-data">
+                    <div class="auction-data__table --grid-template-rows_1.97917vw_1fr">
+                        <div class="auction-data__table_header">
+                            <div class="auction-data__table_header_td">Код</div>
+                            <div class="auction-data__table_header_td">Сообщение</div>
+                            <div class="auction-data__table_header_td">Как исправить</div>
+                            <div class="auction-data__table_header_td background-transparent"></div>
+                            <div  data-event="rules" class="auction-data__table_header_td background-transparent menu-button">
+                                <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+                            </div>
+                        </div>
+                        <div class="auction-data__table_body"></div>
+                    </div>
+                </div>
+            </fer-table>
+        </fer-region>
 
         <fer-button
                 data-css-shadow="rules"
@@ -630,7 +645,7 @@
         >
             <div class="container">
                 <div class="container__schema">
-                    <div class="input">
+                    <div class="input --width_414px">
                         <label for="name">Cхема</label>
                         <input id="name" placeholder="Схема" readonly />
                     </div>
@@ -644,10 +659,14 @@
         >
             <div class="flex-container">
                 <div class="textEditor--min-height_10dvh">
-                 <textarea
-                   placeholder="Описание"
-                   class="fer-region_1_0-description"
-                 ></textarea>
+<!--                 <textarea-->
+<!--                   placeholder="Описание"-->
+<!--                   class="fer-region_1_0-description"-->
+<!--                 ></textarea>-->
+                    <textarea
+                      placeholder="Описание"
+                      class="fer-codemirror-description--margin-bottom_12px"
+                    ></textarea>
                 </div>
                 <div class="textEditor--flex-grow_1--min-height_20dvh">
                     <slot name="fer-codemirror"></slot>
@@ -663,8 +682,14 @@
               id="rule"
               data-services-path="rules"
             >
-                <div class="codemirror-editor_rule">
-                    <textarea class="fer-codemirror" id="codemirror-editor_rule"></textarea>
+
+<!--                <div class="codemirror-editor_rule">-->
+<!--                    <p class="codemirror-title">Правило</p>-->
+<!--                    <textarea class="fer-codemirror" id="codemirror-editor_rule"></textarea>-->
+<!--                </div>-->
+                <div class="codemirror-editor">
+                    <p class="codemirror-title">Правило</p>
+                    <textarea class="fer-codemirror" id="fer-codemirror"></textarea>
                 </div>
             </fer-codemirror>
 
@@ -696,6 +721,10 @@
           id="theFact"
           data-services-path="rules"
         >
+<!--            <div class="codemirror-editor">-->
+<!--                <p class="codemirror-title">Правило</p>-->
+<!--                <textarea class="fer-codemirror" id="fer-codemirror"></textarea>-->
+<!--            </div>-->
             <div class="codemirror-editor">
                 <textarea class="fer-codemirror" id="fer-codemirror__events"></textarea>
             </div>
