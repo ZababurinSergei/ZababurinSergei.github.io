@@ -608,7 +608,6 @@
                                 <div class="data-rule-jsonSchema"></div>
                             </div>
                             <div class="schema__rules-front">
-                                <p class="title__fer-rules">Событие</p>
                                 <slot name="fer-codemirror__events"></slot>
                             </div>
                         </div>
@@ -721,11 +720,8 @@
           id="theFact"
           data-services-path="rules"
         >
-<!--            <div class="codemirror-editor">-->
-<!--                <p class="codemirror-title">Правило</p>-->
-<!--                <textarea class="fer-codemirror" id="fer-codemirror"></textarea>-->
-<!--            </div>-->
             <div class="codemirror-editor">
+                <p class="codemirror-title">Объект проверки</p>
                 <textarea class="fer-codemirror" id="fer-codemirror__events"></textarea>
             </div>
         </fer-codemirror>
@@ -809,8 +805,11 @@
                     <slot name="fer-form_input"></slot>
                 </div>
             </div>
-            <div data-hash-content="#general" class="container--gap_20px--justify-content_space-between"
-                 style="display: none">
+            <div
+              data-hash-content="#general"
+              class="container--gap_20px--justify-content_space-between"
+              style="display: none"
+            >
                 <div class="wrapper__rules-manifest">
                     <div class="editor__manifest">
                         <textarea
@@ -818,12 +817,8 @@
                                 class="fer-codemirror-description"
                         ></textarea>
                     </div>
-                    <div class="table__fer-rules">
-                        <p class="title__rules_manifest">Правила</p>
+                    <div class="table__fer-rules_manifest">
                         <slot name="fer-table_2_0"></slot>
-                        <div class="manifest-button__add">
-                            <slot name="manifest-button__add"></slot>
-                        </div>
                     </div>
                 </div>
                 <div class="menu__fer-rules">
@@ -836,44 +831,66 @@
                 </div>
             </div>
 
-            <div data-hash-content="#verification" class="container--gap_20px--justify-content_space-between"
-                 style="display: none">
-                <div class="wrapper__rules-manifest">
-                    <div class="table__fer-rules">
-                        <slot name="fer-table_2_1"></slot>
-                        <div class="manifest-button__add">
-                            <slot name="manifest-button__add"></slot>
+            <div
+              data-hash-content="#verification"
+              class="container--gap_20px--justify-content_space-between"
+              style="display: none"
+            >
+                <div class="wrapper__rules-manifest_verification">
+                    <div class="manifest__verification">
+                        <div class="theFact">
+                            <slot name="verification_theFact"></slot>
+                        </div>
+                        <div class="schema">
+                            <slot name="verification_schema"></slot>
                         </div>
                     </div>
+                    <div class="table__fer-rules_verification">
+                        <slot name="fer-table_2_1"></slot>
+                    </div>
                 </div>
-                <div class="menu__fer-rules--margin-right_6.20833vw">
+
+                <div class="menu__fer-rules_verification">
+                    <div class="button_cancel">
+                        <slot name="manifest-button_verification__cancel"></slot>
+                    </div>
+                    <div class="button_apply">
+                        <slot name="manifest-button_verification__apply"></slot>
+                    </div>
                     <div class="button_save">
                         <slot name="verification__button"></slot>
                     </div>
-                </div>
-            </div>
 
-            <div data-hash-content="#execution" class="container--gap_20px--justify-content_space-between"
-                 style="display: none">
-                <div class="wrapper__rules-manifest">
-                    <div class="table__fer-rules">
-                        <slot name="fer-table_2_2"></slot>
-                        <div class="manifest-button__add">
-                            <slot name="manifest-button__add"></slot>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu__fer-rules">
-                    <div class="button_cancel">
-                        <slot name="manifest-button__cancel"></slot>
-                    </div>
-                    <div class="button_save">
-                        <slot name="manifest-button__save"></slot>
-                    </div>
+                    <!--                <div class="button_save">-->
+                    <!--                    <slot name="verification__button"></slot>-->
+                    <!--                </div>-->
+                    <!--                <div class="button_save">-->
+                    <!--                    <slot name="verification__button"></slot>-->
+                    <!--                </div>-->
                 </div>
             </div>
         </div>
 
+        <fer-codemirror
+          slot="verification_theFact"
+          id="theFact"
+          data-services-path="rules"
+        >
+            <div class="codemirror-editor">
+                <p class="codemirror-title">Объект проверки</p>
+                <textarea class="fer-codemirror" id="fer-codemirror__verification_theFact"></textarea>
+            </div>
+        </fer-codemirror>
+        <fer-codemirror
+          slot="verification_schema"
+          id="theFact"
+          data-services-path="rules"
+        >
+            <div class="codemirror-editor">
+                <p class="codemirror-title">Схема</p>
+                <textarea class="fer-codemirror" id="fer-codemirror__verification_schema"></textarea>
+            </div>
+        </fer-codemirror>
         <fer-hash
                 data-services-path="rules"
                 data-id="h_0"
@@ -895,16 +912,6 @@
         >
             <p>Верификация</p>
         </fer-hash>
-        <fer-hash
-                data-services-path="rules"
-                data-id="h_2"
-                data-hash="execution"
-                data-type="rules_0_0"
-                data-css-shadow="rules_0_0"
-                slot="welcome-menu_0_0"
-        >
-            <p>Применение</p>
-        </fer-hash>
 
         <fer-form
                 data-services-path="rules"
@@ -913,24 +920,29 @@
         >
             <div class="container__manifest">
                 <div class="info__fer-front">
-                    <div class="input">
+                    <div class="input --width_414px">
                         <label for="schema">Схема</label>
                         <input id="schema" placeholder="showcase.booking 1.0.0" readonly/>
                     </div>
-                    <div class="input">
-                        <label for="region">Регион</label>
+                    <div class="input --width_414px">
+                        <label for="region">Субъект</label>
                         <input id="region" placeholder="Регион" readonly/>
                     </div>
-                    <div class="input">
+                    <div class="input --width_414px">
                         <label for="version">Версия</label>
-                        <input id="version" placeholder="1.0.0" readonly/>
+                        <input id="version" placeholder="Версия" readonly/>
+                    </div>
+                    <div class="input --width_414px">
+                        <label for="status">Версия</label>
+                        <input id="status" placeholder="Статус" readonly/>
                     </div>
                 </div>
             </div>
         </fer-form>
+
         <fer-table
                 data-services-path="rules"
-                data-template="table_4"
+                data-template="table_1_1"
                 data-id="2_0"
                 data-to="2"
                 slot="fer-table_2_0"
@@ -941,14 +953,16 @@
                         <div class="auction-data__table_header_td">id</div>
                         <div class="auction-data__table_header_td">Описание</div>
                         <div class="auction-data__table_header_td">Версия схемы</div>
-                        <div class="auction-data__table_header_td">Версия правила</div>
+                        <div class="auction-data__table_header_td background-transparent"></div>
+                        <div class="auction-data__table_header_td background-transparent menu-button">
+                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+                        </div>
                     </div>
                     <div class="auction-data__table_body"></div>
                     <div class="auction-data__table_footer">
                         <input class="auction-data__table_footer_td empty background-transparent" name="id"/>
                         <input class="auction-data__table_footer_td" name="description"/>
                         <input class="auction-data__table_footer_td" name="schema_version"/>
-                        <input class="auction-data__table_footer_td" name="rules_version"/>
                     </div>
                 </div>
             </div>
@@ -965,15 +979,40 @@
             <p class="save">Верификация</p>
         </fer-button>
 
+<!--        <fer-button-->
+<!--                data-css-shadow="rules"-->
+<!--                data-services-path="rules"-->
+<!--                data-type="add"-->
+<!--                data-id="add_rules"-->
+<!--                data-section="2_0"-->
+<!--                slot="manifest-button__add"-->
+<!--        >-->
+<!--            <p class="add">Добавить правило</p>-->
+<!--        </fer-button>-->
+
+
         <fer-button
-                data-css-shadow="rules"
-                data-services-path="rules"
-                data-type="add"
-                data-id="add_rules"
-                data-section="2_0"
-                slot="manifest-button__add"
+          data-css-shadow="rules"
+          data-services-path="rules"
+          data-type="apply"
+          data-to="2"
+          data-id="apply_rules"
+          data-section="2_0"
+          slot="manifest-button_verification__apply"
         >
-            <p class="add">Добавить правило</p>
+            <p class="apply">Применить</p>
+        </fer-button>
+
+        <fer-button
+          data-css-shadow="rules"
+          data-services-path="rules"
+          data-type="cancel"
+          data-to="2"
+          data-id="cancel_rules"
+          data-section="2_0"
+          slot="manifest-button_verification__cancel"
+        >
+            <p class="cancel">Отменить применение</p>
         </fer-button>
 
         <fer-button
@@ -1011,12 +1050,12 @@
                     <div class="auction-data__table_header">
                         <div class="auction-data__table_header_td">Дата</div>
                         <div class="auction-data__table_header_td">Версия валидатора</div>
-                        <div class="auction-data__table_header_td">Результаты модификаций</div>
+                        <div class="auction-data__table_header_td">Результаты верификаций</div>
                         <div class="auction-data__table_header_td">Ошибки</div>
-                        <div class="auction-data__table_header_td background-transparent"></div>
-                        <div class="auction-data__table_header_td background-transparent menu-button">
+<!--                        <div class="auction-data__table_header_td background-transparent"></div>-->
+<!--                        <div class="auction-data__table_header_td background-transparent menu-button">-->
 <!--                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>-->
-                        </div>
+<!--                        </div>-->
                     </div>
                     <div class="auction-data__table_body"></div>
                     <div class="auction-data__table_footer">
