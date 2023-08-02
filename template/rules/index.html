@@ -509,17 +509,22 @@
                 <label for="version">Версия</label>
                 <input id="version" placeholder="Введите версию" readonly/>
             </div>
-            <div class="input --flex-grow_1">
+            <div class="input --flex-grow_1 --outline">
                 <label for="title">Заголовок</label>
                 <input id="title" placeholder=""/>
             </div>
         </fer-region>
 
         <fer-region slot="fer-region_1">
-            <textarea
-              placeholder="Описание"
-              class="fer-codemirror-description--margin-bottom_12px"
-            ></textarea>
+            <div class="textEditor">
+                <label class="label_for_description" for="rules_schema">Описание</label>
+                <textarea
+                  id="rules_schema"
+                  placeholder=""
+                  class="fer-codemirror-description--margin-bottom_12px"
+                ></textarea>
+            </div>
+
         </fer-region>
 
         <fer-region slot="fer-region-table">
@@ -658,19 +663,19 @@
         >
             <div class="flex-container">
                 <div class="textEditor--min-height_10dvh">
-<!--                 <textarea-->
-<!--                   placeholder="Описание"-->
-<!--                   class="fer-region_1_0-description"-->
-<!--                 ></textarea>-->
+
+                    <label class="label_for_description" for="rules_label">Описание</label>
                     <textarea
+                      id="rules_label"
                       placeholder="Описание"
                       class="fer-codemirror-description--margin-bottom_12px"
                     ></textarea>
                 </div>
-                <div class="textEditor--flex-grow_1--min-height_20dvh">
+                <div class="textEditor--flex-grow_1--min-height_20dvh--codemirror">
                     <slot name="fer-codemirror"></slot>
                 </div>
-                <div>
+                <div class="rules_error_table">
+                    <label class="rules_error_table_label">Ошибки</label>
                     <slot name="fer-rules-table"></slot>
                 </div>
             </div>
@@ -681,11 +686,6 @@
               id="rule"
               data-services-path="rules"
             >
-
-<!--                <div class="codemirror-editor_rule">-->
-<!--                    <p class="codemirror-title">Правило</p>-->
-<!--                    <textarea class="fer-codemirror" id="codemirror-editor_rule"></textarea>-->
-<!--                </div>-->
                 <div class="codemirror-editor">
                     <p class="codemirror-title">Правило</p>
                     <textarea class="fer-codemirror" id="fer-codemirror"></textarea>
@@ -812,7 +812,9 @@
             >
                 <div class="wrapper__rules-manifest">
                     <div class="editor__manifest">
+                        <label class="label_for_description" for="manifest_label">Описание</label>
                         <textarea
+                                id="manifest_label"
                                 placeholder="Описание"
                                 class="fer-codemirror-description"
                         ></textarea>
@@ -922,19 +924,19 @@
                 <div class="info__fer-front">
                     <div class="input --width_414px">
                         <label for="schema">Схема</label>
-                        <input id="schema" placeholder="showcase.booking 1.0.0" readonly/>
+                        <input id="schema" placeholder="" readonly/>
                     </div>
                     <div class="input --width_414px">
                         <label for="region">Субъект</label>
-                        <input id="region" placeholder="Регион" readonly/>
+                        <input id="region" placeholder="" readonly/>
                     </div>
                     <div class="input --width_414px">
                         <label for="version">Версия</label>
-                        <input id="version" placeholder="Версия" readonly/>
+                        <input id="version" placeholder="" readonly/>
                     </div>
-                    <div class="input --width_414px">
-                        <label for="status">Версия</label>
-                        <input id="status" placeholder="Статус" readonly/>
+                    <div class="status input --width_414px">
+                        <label for="status">Статус</label>
+                        <input id="status" placeholder="" readonly/>
                     </div>
                 </div>
             </div>
@@ -1147,13 +1149,13 @@
         >
             <div class="container__schema">
                 <div class="input">
-                    <label for="schemaId">Название схемы</label>
+                    <label for="schemaId">Идентификатор схемы</label>
                     <input id="schemaId" placeholder="showcase.booking" readonly/>
                 </div>
-                <div class="input">
-                    <label for="version">Версия</label>
-                    <input id="version" placeholder="1.0.0" readonly/>
-                </div>
+<!--                <div class="input">-->
+<!--                    <label for="version">Версия</label>-->
+<!--                    <input id="version" placeholder="1.0.0" readonly/>-->
+<!--                </div>-->
             </div>
         </fer-form>
 
