@@ -92,6 +92,14 @@ export const modules = async (app) => {
         next();
     });
 
+    app.get(`/daap`, (req, res, next) => {
+        next();
+    });
+
+    app.get(`/wallet`, (req, res, next) => {
+        next();
+    });
+
 // app.set('etag', false)
 // const traceExporter = new ConsoleSpanExporter();
 
@@ -183,7 +191,7 @@ POST{id="0",name="api",instance="0",url="http://localhost:3333/newkind/save", in
     });
 
     app.post(`/*`, async (req, res) => {
-        console.log('==== POST ====', req);
+        console.log('==== POST ====', req.path);
     });
 
     app.use(proxy('localhost:8080', {
@@ -196,6 +204,8 @@ POST{id="0",name="api",instance="0",url="http://localhost:3333/newkind/save", in
 
     app.use('/checklist', express.static(`${__dirname}/services/checklist/src`));
     app.use('/rules', express.static(`${__dirname}/services/rules/src`));
+    app.use('/dapp', express.static(`${__dirname}/services/dapp/src`));
+    app.use('/wallet', express.static(`${__dirname}/services/wallet/src`));
     app.use('/welcomebook', express.static(`${__dirname}/services/welcomebook/src`));
     app.use('/blockchain', express.static(`${__dirname}/services/blockchain/src`));
     app.use('/newkind', express.static(`${__dirname}/services/newkind/src`));

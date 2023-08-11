@@ -54,7 +54,6 @@ gulp.task('px2vw', function () {
         })
     ];
 
-
     let result = gulp.src([`${dir}/**/*.${media}.css`])
         .pipe(postcss(processors))
         .pipe(postcss([ autoprefixer()]))
@@ -152,6 +151,75 @@ gulp.task('vh2px', function () {
             exclude: [/(\/|\\)node_modules(\/|\\)/],
             landscape: false,
             landscapeUnit: 'vh',
+            landscapeWidth: rootWidthMobile
+        })
+    ];
+
+    let out = gulp.src([`${dir}/**/*.${media}.css`], { sourcemaps: true })
+        .pipe(postcss(processors))
+        .pipe(postcss([ autoprefixer()]))
+        .pipe(gulp.dest(`${dir}`), { sourcemaps: true });
+
+    // console.timeEnd("⚡ [gulp] Done");
+
+    return out
+});
+
+
+
+gulp.task('px2rem', function () {
+    // console.time("⚡ [gulp] Done");
+
+    let processors = [
+        pxtoviewport({
+            unitToConvert: 'px',
+            propList: ['*'],
+            unitPrecision: 2,
+            viewportWidth: rootWidthDesktop,
+            viewportUnit: 'rem',
+            fontViewportUnit: 'rem',
+            selectorBlackList: [],
+            minPixelValue: 0.1,
+            mediaQuery: true,
+            replace: true,
+            exclude: [/(\/|\\)node_modules(\/|\\)/],
+            landscape: false,
+            landscapeUnit: 'vw',
+            landscapeWidth: rootWidthMobile
+        })
+    ];
+
+
+    let result = gulp.src([`${dir}/**/*.${media}.css`])
+        .pipe(postcss(processors))
+        .pipe(postcss([ autoprefixer()]))
+        .pipe(gulp.dest(`${dir}`));
+
+    // console.timeEnd("⚡ [gulp] Done");
+
+    return result
+});
+
+
+
+gulp.task('rem2px', function () {
+    // console.time("⚡ [gulp] Done");
+
+    let processors = [
+        pxtoviewport({
+            unitToConvert: 'rem',
+            propList: ['*'],
+            unitPrecision: 0,
+            viewportWidth: 10000/rootWidthDesktop,
+            viewportUnit: 'px',
+            fontViewportUnit: 'px',
+            selectorBlackList: [],
+            minPixelValue: 0.001,
+            mediaQuery: true,
+            replace: true,
+            exclude: [/(\/|\\)node_modules(\/|\\)/],
+            landscape: false,
+            landscapeUnit: 'rem',
             landscapeWidth: rootWidthMobile
         })
     ];
