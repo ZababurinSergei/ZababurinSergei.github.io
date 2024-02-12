@@ -1,8 +1,3 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable prefer-const */
-/* eslint-disable no-param-reassign */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-cycle */
 import { search } from './index';
 /**
  * Get search results on the coding page.

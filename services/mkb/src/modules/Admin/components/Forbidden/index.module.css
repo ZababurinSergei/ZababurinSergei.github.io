@@ -10,31 +10,31 @@
 }
 
 img {
-    margin-bottom: 1.95016vw;
+    margin-bottom: 36px;
 }
 
 .title {
     color: var(--black-100per);
-    font-size: 1.30011vw;
-    line-height: 1.73348vw;
+    font-size: 24px;
+    line-height: 32px;
     font-weight: 600;
-    margin-bottom: 1.08342vw;
+    margin-bottom: 20px;
 }
 
 .subtitle {
     color: var(--black-100per);
-    font-size: 0.97508vw;
-    line-height: 1.30011vw;
+    font-size: 18px;
+    line-height: 24px;
     font-weight: 600;
-    margin-bottom: 1.08342vw;
+    margin-bottom: 20px;
 }
 
 .contacts {
     color: var(--black-100per);
-    font-size: 0.97508vw;
-    line-height: 1.30011vw;
+    font-size: 18px;
+    line-height: 24px;
     font-weight: 600;
-    margin-bottom: 1.08342vw;
+    margin-bottom: 20px;
 }
 
 .contacts span {

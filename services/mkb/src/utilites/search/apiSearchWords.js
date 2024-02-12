@@ -1,10 +1,6 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable consistent-return */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
 import axios from '@src/utilites/API';
-import useLinks from './links';
+import * as links from './links';
+import {search} from './index';
 
 /**
  * @description Getting an entity by word.
@@ -12,7 +8,6 @@ import useLinks from './links';
  * @returns {Promise<{config: , data: object[]|[], headers: object, request: object, status: number, statusText: string}>} Object with response axios.
 */
 export async function apiSearchWords(word) {
-	const links = useLinks()
 	try {
 		// const scale = search.getArrayIdScaleEntity(arraySubTree)
 		const body = getBodyForApiSearchWords(word);

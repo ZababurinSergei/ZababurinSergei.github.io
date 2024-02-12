@@ -1,12 +1,5 @@
-/* eslint-disable no-unsafe-finally */
-/* eslint-disable prefer-const */
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-cycle */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
 import axios from '@src/utilites/API';
-import useLinks from './links';
+import * as links from './links';
 import {search} from './index';
 /**
  * @description Getting an entity by code to search in postcoordination
@@ -15,7 +8,6 @@ import {search} from './index';
  * @returns {object[]|[]} - Array with list of entities wich code equiles or an empty array when there is no match for the code
 */
 export async function apiSearchCodeCoord(code, arraySubTree) {
-	const links = useLinks()
 	let result = [];
 	try {
 		const scale = search.getArrayIdScaleEntity(arraySubTree)

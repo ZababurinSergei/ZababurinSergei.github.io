@@ -84,65 +84,59 @@ export const Coding = ({ ismobileleftmenu, setmobileleftmenu }) => {
     setDiseases(() => filterResultSearch);
   }, [infoForFilter]);
 
-  const isMkb = true
   return (
-      <>
-      {isMkb ? (
-          <div className={style.wrapper}>
-              <div className={style.inputContainer}>
-                  <InputSearch
-                      className={style}
-                      inputValue={inputValue}
-                      typeInputSearch={typeInputSearch}
-                      wordForAddBySearchInInput={wordForAddBySearchInInput}
-                  >
-                      {!isMobile &&
-                          <Breadcrumbs className={style} />
-                      }
+    <div className={style.wrapper}>
+      <div className={style.inputContainer}>
+        <InputSearch
+            className={style}
+            inputValue={inputValue}
+            typeInputSearch={typeInputSearch}
+            wordForAddBySearchInInput={wordForAddBySearchInInput}
+        >
+          {!isMobile &&
+              <Breadcrumbs className={style} />
+          }
 
-                  </InputSearch>
-                  <div className={style.choiceCode}>{codeDisease}</div>
-              </div>
-              {/* <CopyLine/> */}
-              {isEmptyData &&
-                  <div className={style.contentContainer}>
-                      <div className={style.wordList}>
-                          <WordList words={words} addWordFromWordList={addWordFromWordList} />
-                      </div>
-                      <div
-                          className={
-                              isCloseFilter
-                                  ? `${style.resultSearch} ${style.closeFilter}`
-                                  : `${style.resultSearch}`
-                          }
-                      >
-                          <ResultSearch
-                              diseases={diseases}
-                              codeDiseaseChoice={codeDiseaseChoice}
-                              ismobileleftmenu={ismobileleftmenu}
-                              setmobileleftmenu={setmobileleftmenu}
-                              isCloseFilter={isCloseFilter}
-                          />
-                      </div>
-                      <div
-                          className={
-                              isCloseFilter
-                                  ? `${style.filters} ${style.closeFilter}`
-                                  : `${style.filters}`
-                          }
-                      >
-                          <Filters
-                              dataFilter={dataFilter}
-                              getParamsFilter={getParamsFilter}
-                              openCloseFilter={openCloseFilter}
-                          />
-                      </div>
-                  </div>}
-          </div>
-      ): (
-          <slot name={'welcome'}></slot>
-      )}
-  </>);
+        </InputSearch>
+        <div className={style.choiceCode}>{codeDisease}</div>
+      </div>
+				{/* <CopyLine/> */}
+      {isEmptyData &&
+          <div className={style.contentContainer}>
+            <div className={style.wordList}>
+              <WordList words={words} addWordFromWordList={addWordFromWordList} />
+            </div>
+						<div
+							className={
+								isCloseFilter
+									? `${style.resultSearch} ${style.closeFilter}`
+									: `${style.resultSearch}`
+							}
+						>
+              <ResultSearch
+								diseases={diseases}
+								codeDiseaseChoice={codeDiseaseChoice}
+								ismobileleftmenu={ismobileleftmenu}
+								setmobileleftmenu={setmobileleftmenu}
+								isCloseFilter={isCloseFilter}
+              />
+            </div>
+					<div
+						className={
+							isCloseFilter
+								? `${style.filters} ${style.closeFilter}`
+								: `${style.filters}`
+						}
+					>
+						<Filters
+							dataFilter={dataFilter}
+							getParamsFilter={getParamsFilter}
+							openCloseFilter={openCloseFilter}
+						/>
+            </div>
+          </div>}
+    </div>
+  );
 };
 
 export default Coding;

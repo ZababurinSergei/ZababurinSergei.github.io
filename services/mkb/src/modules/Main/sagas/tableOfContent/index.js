@@ -27,8 +27,6 @@ export function* fetchChapterWorker({ payload: { pathname, type, cb } }) {
   try {
     const dataChapter = yield select(getChapters);
 
-    console.log('!!!!!!!!!!!!!!!!!!!!! ===================', dataChapter)
-
     if(!isEmpty(dataChapter) && ((window.location.pathname === '/' || window.location.pathname === `${process.env.PUBLIC_URL}`) || window.location.pathname === `${process.env.PUBLIC_URL}/`)) {
       yield call(cb, null, { data: dataChapter, expand: [1] });
     } else {
@@ -62,15 +60,11 @@ export function* fetchChapterWorker({ payload: { pathname, type, cb } }) {
       let currentObject = {}
       let destinationFoundationChildElsewhere = []
 
-      
-      if((
-          pathname.pathname !== '/'
-          && window.location.pathname !== '/'
-          && !window.location.pathname.startsWith('/coding') 
-          && !window.location.pathname.startsWith('/testing')
-          && !window.location.pathname.startsWith('/node')
-          && !window.location.pathname.startsWith('/testing/coding')
-        ) || type === "window") {
+      if((window.location.pathname !== '/'
+          && window.location.pathname !== '/coding'
+          && window.location.pathname !== '/testing'
+          && window.location.pathname !== '/testing/coding'
+          && window.location.pathname !== '/testing/') || type === "window") {
 
         let path = ''
         if(type !== 'window') {
@@ -183,6 +177,7 @@ export function* fetchChapterWorker({ payload: { pathname, type, cb } }) {
         }
         addChild(data.children[0].children, tree[count])
       }
+
 
       let result = yield call(flattenTree, data);
 

@@ -1,9 +1,9 @@
 .tree-node__branch, .tree-node__leaf {
-   font-size: 0.65005vw;
+   font-size: 12px;
    padding-left: 0px;
    display: flex;
    align-items: center;
-   margin-bottom: 0.65005vw;
+   margin-bottom: 12px;
    cursor: pointer;
 }
 

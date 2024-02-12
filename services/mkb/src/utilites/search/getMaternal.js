@@ -1,15 +1,5 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable no-prototype-builtins */
-/* eslint-disable prefer-const */
-/* eslint-disable prefer-template */
-/* eslint-disable consistent-return */
-/* eslint-disable arrow-body-style */
-/* eslint-disable no-else-return */
-/* eslint-disable no-param-reassign */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-cycle */
 import { search } from '.';
-import useLinks from './links';
+import * as links from './links';
 
 export async function getMaternal(objects) {
   const res = await Promise.all(
@@ -44,7 +34,6 @@ export async function getMaternal(objects) {
 
 // замена запроса для получения линейных ссылок
 function changeUrlForGetLinearization(linksArray) {
-	const links = useLinks();
   return linksArray.map(link => {
     const entityId = link.match(/\d{0,15}$/);
     return `${links.URL_PREF_LINEAR}${entityId}`;
@@ -53,8 +42,7 @@ function changeUrlForGetLinearization(linksArray) {
 
 // замена ссылки на содержание
 async function getEntitiesInMaternal(array) {
-	try {
-		const links = useLinks();
+  try {
     const resultRequests = await Promise.allSettled(
       array.map(async link => {
         const response = await search.api.apiGetEntityLin(link);

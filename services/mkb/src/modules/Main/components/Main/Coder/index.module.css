@@ -4,14 +4,14 @@
     flex-direction: row;
     flex-grow: 1;
     align-self: center;
-    justify-content: flex-end;
+    justify-content: end;
 }
 
 .postCoordinationCodeList > p {
     color: var(--red-100per);
-    font-size: 0.7584vw;
-    margin: 0 0.21668vw 0 0;
-    left: -1.67931vw;
+    font-size: 14px;
+    margin: 0 4px 0 0;
+    left: -31px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,8 +21,8 @@
     cursor: pointer;
     left: 0;
     font-weight: 500;
-    font-size: 0.7584vw;
-    line-height: 1.08342vw;
+    font-size: 14px;
+    line-height: 20px;
     word-break: break-word;
 }
 

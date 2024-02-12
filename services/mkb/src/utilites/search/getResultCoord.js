@@ -1,11 +1,4 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prefer-const */
-/* eslint-disable no-param-reassign */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-cycle */
 import { search } from './index';
-
 export async function getResultCoord(value, scale = [], fields = []) {
 	value = value.trim();
 	// получаем данные по поиску

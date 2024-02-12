@@ -1,7 +1,6 @@
 import { Body } from '../components/Body'
-import config from '../config/modules'
 
-let routesAll = [{
+const routesAll = [{
     icon: 'mkb11',
     title: 'Инструмент кодирования',
     path: '/coding/*',
@@ -11,6 +10,11 @@ let routesAll = [{
     title: 'Декодирование',
     path: '/decoding/*',
     breadcrumb: "Декодирование"
+},{
+    icon: 'mkb11',
+    title: 'МКБ-11',
+    path: '/page/*',
+    breadcrumb: "МКБ-11"
 },{
     icon: 'mkb11',
     title: 'Информация',
@@ -70,28 +74,6 @@ let routesAll = [{
     breadcrumb: "Админ Панель",
 }];
 
-if(!config.Breadcrumbs.v1) {
-    routesAll.push({
-        icon: 'mkb11',
-        title: 'МКБ-11',
-        path: '/page',
-        breadcrumb: "СТРАНИЦА"
-    })
-
-    routesAll.push({
-        icon: 'mkb11',
-        title: 'МКБ-11',
-        path: '/page/*',
-        breadcrumb: ""
-    })    
-} else {
-    routesAll.push({
-        icon: 'mkb11',
-        title: 'МКБ-11',
-        path: '/page/*',
-        breadcrumb: "МКБ-11"
-    })
-}
 
 const routes = [{
         icon: 'mkb11',
@@ -147,9 +129,7 @@ const routes = [{
     }];
 
 let result = routesAll
-
 if(process.env.REACT_APP_MAIN_THEME !== 'true') {
     result = routes
 }
-
 export default result;

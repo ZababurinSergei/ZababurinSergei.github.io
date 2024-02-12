@@ -39,7 +39,7 @@ const buildParams = {
   entryPoints: ["src/index.js"],
   outfile: './build/index.mjs',
   format: "esm",
-  loader: { ".js": "jsx", ".json": "json", ".png": "file", ".jpeg": "file", ".jpg": "file", ".svg": "file", ".woff": "file" },
+  loader: { ".js": "jsx", ".json": "json", ".png": "file", ".jpeg": "file", ".jpg": "file", ".svg": "file", ".gif": "file",  ".woff": "file" },
   color: true,
   minify: true,
   bundle: true,
@@ -47,7 +47,6 @@ const buildParams = {
   mainFields : [ 'module' , 'main' ],
   define,
   logLevel: "error",
-  external: ["*.gif"],
   plugins: [
     aliasPlugin({
       '@src': path.resolve(__dirname, './src')
@@ -59,7 +58,7 @@ const buildParams = {
     }),
     cssModulesPlugin({
       localsConvention: "dashes",
-      inject: true,
+      inject: 'body',
       generateScopedName: (name, filename, css) => {
         let prefix = path.dirname(filename).split('/')
         prefix = prefix[prefix.length - 1]
@@ -67,14 +66,14 @@ const buildParams = {
       },
       generateTsFile: true
     }),
-    // copyStaticFiles({
-    //   src: './public',
-    //   dest: './build',
-    //   dereference: true,
-    //   errorOnExist: false,
-    //   preserveTimestamps: true,
-    //   recursive: true,
-    // })
+    copyStaticFiles({
+      src: './src/fonts',
+      dest: './build/',
+      dereference: true,
+      errorOnExist: false,
+      preserveTimestamps: true,
+      recursive: true,
+    })
   ]
 };
 

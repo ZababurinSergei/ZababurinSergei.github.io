@@ -7,7 +7,6 @@ import isEmpty from '../../utilites/isEmpty'
 import style from './index.module.css'
 import analytics from '../../utilites/analytics'
 import { useLocalStorage } from '@src/hooks/useLocalStorage';
-import config from '../../config/modules'
 
 export const Breadcrumbs = (props) => {
     const className = props.className ? props.className : {}
@@ -31,62 +30,31 @@ export const Breadcrumbs = (props) => {
                          </Link>
                     )
                 } else {
-                    if(!config.Breadcrumbs.v1) {
-                        ///////////////// NEW Breadcrumbs /////////////////
-                        if(breadcrumbs.length === 2) {
-                            if(!breadcrumb.key.startsWith('/testing')) {
-                                breadcrumb.props.children = breadcrumb.props.children.replace('СТРАНИЦА', 'МКБ11')
-                                return (
-                                    <Link key={idKey()} to={breadcrumb.key}>
-                                        {breadcrumb.key === '/' ? (<>
-                                            {breadcrumb}
-                                        </>) :(<>
-                                            /{breadcrumb}
-                                        </>)}
-                                    </Link>)
-                            }
-                        } else if(breadcrumbs.length === 3) {
-                            if(!breadcrumb.key.startsWith('/testing')) {
-                                return (
-                                    <Link key={idKey()} to={breadcrumb.key}>
-                                        {breadcrumb.key === '/' ? (<>
-                                            {breadcrumb}/МКБ11
-                                        </>) :(<>
-                                            /{breadcrumb}
-                                        </>)}
-                                    </Link>
-                                )
-                            }
+                    if(breadcrumbs.length === 2) {
+                        if(breadcrumb.key !== '/testing') {
+                            return (
+                                <Link key={idKey()} to={breadcrumb.key}>
+                                    {breadcrumb.key === '/' ? (<>
+                                        {breadcrumb}/МКБ11
+                                    </>) :(<>
+                                        /{breadcrumb}
+                                    </>)}
+                                </Link>
+                            )
                         }
-                    } else {
-                        ///////////////// CURRENT Breadcrumbs /////////////////
-                        if(breadcrumbs.length === 2) {
-                            if(breadcrumb.key !== '/testing') {
-                                return (
-                                    <Link key={idKey()} to={breadcrumb.key}>
-                                        {breadcrumb.key === '/' ? (<>
-                                            {breadcrumb}/МКБ11
-                                        </>) :(<>
-                                            /{breadcrumb}
-                                        </>)}
-                                    </Link>
-                                )
-                            }
-                        } else if(breadcrumbs.length === 3) {
-                            if(breadcrumb.key !== '/testing') {
-                                return (
-                                    <Link key={idKey()} to={breadcrumb.key}>
-                                        {breadcrumb.key === '/' ? (<>
-                                            {breadcrumb}/МКБ11
-                                        </>) :(<>
-                                            /{breadcrumb}
-                                        </>)}
-                                    </Link>
-                                )
-                            }
+                    } else if(breadcrumbs.length === 3) {
+                        if(breadcrumb.key !== '/testing') {
+                            return (
+                                <Link key={idKey()} to={breadcrumb.key}>
+                                    {breadcrumb.key === '/' ? (<>
+                                        {breadcrumb}/МКБ11
+                                    </>) :(<>
+                                        /{breadcrumb}
+                                    </>)}
+                                </Link>
+                            )
                         }
                     }
-                   
                     return (
                         <Link key={idKey()} to={breadcrumb.key}>
                             {breadcrumb.key === '/' && <>{breadcrumb}/МКБ11</>}

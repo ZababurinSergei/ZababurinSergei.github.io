@@ -8,84 +8,84 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/sergei/Desktop/work/Welcomebook/cmake-build-debug"/>
+				<Option working_dir="/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="system">
-				<Option output="/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/system" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sergei/Desktop/work/Welcomebook/cmake-build-debug"/>
+				<Option output="/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/system" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/11"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
-					<Add directory="/usr/include/c++/11/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/../../../../include/c++/13.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/../../../../include/c++/13.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/../../../../include/c++/13.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 system"/>
-					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 system"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="system/fast">
-				<Option output="/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/system" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sergei/Desktop/work/Welcomebook/cmake-build-debug"/>
+				<Option output="/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/system" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/11"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
-					<Add directory="/usr/include/c++/11/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/../../../../include/c++/13.2.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/../../../../include/c++/13.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/../../../../include/c++/13.2.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 system/fast"/>
-					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 system/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/sergei/Desktop/work/Welcomebook/cmake-build-debug"/>
+				<Option working_dir="/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/sergei/Desktop/work/Welcomebook/cmake-build-debug"/>
+				<Option working_dir="/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/sergei/Desktop/work/Welcomebook/main.cpp">
+		<Unit filename="/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/main.cpp">
 			<Option target="system"/>
 		</Unit>
-		<Unit filename="/home/sergei/Desktop/work/Welcomebook/CMakeLists.txt">
+		<Unit filename="/var/run/media/sergei/fadca261-dc1e-46d4-a073-b2da1cfa9007/home/sergei/Desktop/work/Welcomebook/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

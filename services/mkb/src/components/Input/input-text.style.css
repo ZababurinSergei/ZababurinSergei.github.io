@@ -1,12 +1,12 @@
 .input-text__wrapper {
 	/*min-width: 416px;*/
 	/*min-height: 52px;*/
-	width: 22.53521vw;
-	height: 2.8169vw;
+	width: 416px;
+	height: 52px;
 	display: inline-flex;
-	border: 0.05417vw solid var(--black-10per);
-	border-radius: 0.21668vw;
-	padding: 0 0.86674vw;
+	border: 1px solid var(--black-10per);
+	border-radius: 4px;
+	padding: 0 16px;
 	align-items: center;
 	outline: none;
 	cursor: pointer;
@@ -16,12 +16,12 @@
 }
 
 .input-text {
-	width: 19.33911vw;
-	height: 1.30011vw;
+	width: 357px;
+	height: 24px;
 	font-family: 'Golos 14pt Regular 14x20';
 	font-weight: 400;
 	letter-spacing: -0.01em;
-	font-size: 0.7584vw;
+	font-size: 14px;
 	outline: none;
 	border: none;
 	cursor: pointer;
@@ -32,14 +32,9 @@
     font-family: 'Golos 14pt Regular 14x20';
     font-weight: 400;
     letter-spacing: -0.01em;
-    font-size: 0.7584vw;
+    font-size: 14px;
     transition: all .2s ease;
     color: var(--black-35per);
-}
-
-.input-text::-moz-placeholder {
-  font-family: 'Golos 14pt Regular 14x20';
-  color: var(--black-35per);
 }
 
 .input-text::placeholder {
@@ -48,16 +43,16 @@
 }
 
 .input-text__wrapper:hover {
-	border: 0.05417vw solid var(--black-15per);
+	border: 1px solid var(--black-15per);
     outline: none;
-	border-radius: 0.21668vw;
+	border-radius: 4px;
 	cursor: pointer;
 }
 
 .input-text__wrapper:focus {
-	border: 0.05417vw solid var(--blue-50per);
+	border: 1px solid var(--blue-50per);
   outline: none;
-	border-radius: 0.21668vw;
+	border-radius: 4px;
 	cursor: text;
 }
 
@@ -68,55 +63,48 @@
 }
 
 .input-text__wrapper:has(.input-text:focus) {
-	border: 0.05417vw solid var(--blue-50per);
+	border: 1px solid var(--blue-50per);
   outline: none;
-	border-radius: 0.21668vw;
+	border-radius: 4px;
 }
 
 .input-text:focus + .label-text {
-	transform: translateY(-0.81257vw);
+	transform: translateY(-15px);
 	font-family: 'Golos 11pt Regular 11x14';
 	font-weight: 400;
-	font-size: 0.59588vw;
-}
-
-.input-text:not(:-moz-placeholder-shown) + .label-text {
-	transform: translateY(-0.81257vw);
-	font-family: 'Golos 11pt Regular 11x14';
-	font-weight: 400;
-	font-size: 0.59588vw;
+	font-size: 11px;
 }
 
 .input-text:not(:placeholder-shown) + .label-text {
-	transform: translateY(-0.81257vw);
+	transform: translateY(-15px);
 	font-family: 'Golos 11pt Regular 11x14';
 	font-weight: 400;
-	font-size: 0.59588vw;
+	font-size: 11px;
 }
 
 .input-text__wrapper.input-error {
-	border: 0.05417vw solid var(--red-100per);
+	border: 1px solid var(--red-100per);
   outline: none;
-	border-radius: 0.21668vw;
+	border-radius: 4px;
 	position: relative;
 }
 .input-text__wrapper.input-error::after {
 	content: "Это значение некорректно";
 	color: var(--red-100per);
 	font-family: 'Golos 12pt Medium 12x18';
-    font-size: 0.65005vw;
+    font-size: 12px;
     font-weight: 500;
-	margin-top: 0.27086vw;
+	margin-top: 5px;
 	position: absolute;
-	bottom: -1.08342vw;
-	left: -0.05417vw;
+	bottom: -20px;
+	left: -1px;
 
 }
 
 .input-text__signature-error {
   color: var(--red-100per);
 	font-family: 'Golos 12pt Medium 12x18';
-  font-size: 0.65005vw;
+  font-size: 12px;
   font-weight: 500;
-	margin-top: 0.27086vw;
+	margin-top: 5px;
 }

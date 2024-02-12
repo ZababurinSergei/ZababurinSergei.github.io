@@ -1,25 +1,25 @@
 .container {
-    width: 30.33586vw;
+    width: 560px;
     height: 90vh;
 }
 
 .title {
-    padding-bottom: 1.51679vw;
+    padding-bottom: 28px;
 }
 
 .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 3.90033vw;
+    height: 72px;
     align-items: center;
     box-sizing: border-box;
-    padding: 0 1.73348vw;
+    padding: 0 32px;
 }
 
 .titleHeader, .title {
     font-weight: 600;
-    font-size: 0.97508vw;
+    font-size: 18px;
 }
 
 .icon {
@@ -27,19 +27,19 @@
 }
 
 .body {
-    padding: 1.30011vw 1.73348vw;
+    padding: 24px 32px;
 }
 
 .paragraph {
-    font-size: 0.7584vw;
-    line-height: 1.08342vw;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 .ul {
-    margin-left: 0.97508vw;
+    margin-left: 18px;
 }
 
 .li {
-    font-size: 0.7584vw;
-    line-height: 1.08342vw;
+    font-size: 14px;
+    line-height: 20px;
 }

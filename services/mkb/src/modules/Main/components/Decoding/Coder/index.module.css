@@ -5,8 +5,8 @@
 
 .postCoordinationCodeList > p {
     color: var(--red-100per);
-    font-size: 0.7584vw;
-    margin: 0 0.21668vw 0 0;
+    font-size: 14px;
+    margin: 0 4px 0 0;
 }
 
 .code {

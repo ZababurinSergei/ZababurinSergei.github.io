@@ -1,5 +1,3 @@
-/* eslint-disable import/no-duplicates */
-/* eslint-disable import/no-cycle */
 import { apiGetEntityLin } from './apiGetEntityLin';
 import { apiGetChild } from './apiGetChild';
 import { apiSearchWords } from './apiSearchWords';
@@ -36,40 +34,40 @@ import { changeUriForGetLinearization } from './searchWords';
 import { makeRedWords } from './makeRedWords';
 
 export const decoder = {
-  searchCode,
-  validationCode,
+  searchCode: searchCode,
+  validationCode: validationCode,
 };
 
 export const search = {
-  searchWords,
-  getResult,
-  getPerinatal,
-  getMaternal,
-  getRed,
-  getRedFields,
-  getChangeWords,
-  filterChapter,
-  changeUriForGetLinearization,
-	getArrayIdScaleEntity,
-	getResultForAdvancedSearch,
-	searchWordsFields,
-	searchWordsCodeCoord,
-	getResultCoord,
-	getResultWithVX,
-	searchWordsCodeWithVX,
-	makeRedWords,
-	searchWordsMain,
-	getResultMain,
-	getRedMainSearch,
-	getDescendantsMain,
+  searchWords: searchWords,
+  getResult: getResult,
+  getPerinatal: getPerinatal,
+  getMaternal: getMaternal,
+  getRed: getRed,
+  getRedFields: getRedFields,
+  getChangeWords: getChangeWords,
+  filterChapter: filterChapter,
+  changeUriForGetLinearization: changeUriForGetLinearization,
+	getArrayIdScaleEntity: getArrayIdScaleEntity,
+	getResultForAdvancedSearch: getResultForAdvancedSearch,
+	searchWordsFields: searchWordsFields,
+	searchWordsCodeCoord: searchWordsCodeCoord,
+	getResultCoord: getResultCoord,
+	getResultWithVX: getResultWithVX,
+	searchWordsCodeWithVX: searchWordsCodeWithVX,
+	makeRedWords: makeRedWords,
+	searchWordsMain: searchWordsMain,
+	getResultMain: getResultMain,
+	getRedMainSearch: getRedMainSearch,
+	getDescendantsMain: getDescendantsMain,
   api: {
-    apiSearchWords,
-    apiGetEntityLin,
-    apiGetChild,
-		apiSearchCode,
-		apiSearchWordsFields,
-		apiSearchWordsCoord,
-		apiSearchWordsMain,
-		apiSearchCodeCoord,
+    apiSearchWords: apiSearchWords,
+    apiGetEntityLin: apiGetEntityLin,
+    apiGetChild: apiGetChild,
+		apiSearchCode: apiSearchCode,
+		apiSearchWordsFields: apiSearchWordsFields,
+		apiSearchWordsCoord: apiSearchWordsCoord,
+		apiSearchWordsMain: apiSearchWordsMain,
+		apiSearchCodeCoord: apiSearchCodeCoord,
   },
 };

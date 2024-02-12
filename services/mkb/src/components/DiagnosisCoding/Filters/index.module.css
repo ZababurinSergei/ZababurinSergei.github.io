@@ -2,14 +2,14 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	width: 13.86782vw;
+	width: 256px;
 }
 
 .selectListWrapper {
 	display: flex;
 	align-items: center;
-	margin: 0.7584vw 0 0.43337vw;
-	justify-content: flex-end;
+	margin: 14px 0 8px;
+	justify-content: end;
 }
 
 .text {
@@ -18,8 +18,8 @@
 	text-decoration: none;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 0.7584vw;
-	line-height: 1.08342vw;
+	font-size: 14px;
+	line-height: 20px;
 	display: flex;
 	align-items: center;
 	text-align: center;
@@ -53,8 +53,8 @@
 }
 
 .rotateArrow {
-	width: 1.30011vw;
-	height: 1.30011vw;
+	width: 24px;
+	height: 24px;
 	transition: 0.25s linear;
 	cursor: pointer;
 }
@@ -69,7 +69,7 @@
 }
 
 .filterBox {
-	margin-top: 1.40845vw;
+	margin-top: 26px;
 	box-sizing: border-box;
 	/* height: 535px; */
 	height: 69vh;

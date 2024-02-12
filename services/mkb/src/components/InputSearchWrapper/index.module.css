@@ -10,17 +10,17 @@
 
 .modalWrapperHeader {
 	background-color: var(--white-100per);
-	height: 3.25027vw;
-	box-shadow: 0px 0.10834vw 0.43337vw rgba(0, 31, 141, 0.40);
-	border-radius: 0.21668vw;
+	height: 60px;
+	box-shadow: 0px 2px 8px rgba(0, 31, 141, 0.40);
+	border-radius: 4px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 0.48754vw 0;
+	padding: 0 9px 0;
 }
 
 .modalText {
-margin-left: 0.43337vw;
+margin-left: 8px;
 }
 
 /* .crossDeleteWrapper {
@@ -38,5 +38,5 @@ margin-left: 0.43337vw;
 
 .modalResultSearchNullWrapper {
 	position: relative;
-	top: -3.25027vw;
+	top: -60px;
 }

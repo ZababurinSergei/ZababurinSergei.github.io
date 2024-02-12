@@ -5,16 +5,16 @@
 .postCoordinationData {
     display: flex;
     flex-direction: row;
-    gap: 1.13759vw;
-    font-size: 0.7584vw;
-    margin-bottom: 1.08342vw;
-    margin-top: 1.08342vw;
+    gap: 21px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .postCoordinationCode {
     display: flex;
     flex-direction: row;
-    font-size: 0.7584vw;
+    font-size: 14px;
 }
 
 .postCoordinationCode {
@@ -26,28 +26,28 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    gap: 0.65005vw;
+    gap: 12px;
 }
 
 .postCoordinationCodeItemActive::after {
     content: "";
     position: absolute;
-    width: 1.40845vw;
-    height: calc(100% + 2.00433vw);
-    left: -2.60022vw;
-    top: -0.97508vw;
-    border-left: 0.05417vw solid var(--black-10per);
+    width: 26px;
+    height: calc(100% + 2vw);
+    left: -48px;
+    top: -1vw;
+    border-left: 1px solid var(--black-10per);
 }
 
 .postCoordinationCodeTitle::after {
     content: "";
     position: absolute;
-    width: 1.40845vw;
+    width: 26px;
     height: 100%;
-    left: -1.95016vw;
-    top: -0.43337vw;
-    border-left: 0.05417vw solid var(--black-10per);
-    border-bottom: 0.05417vw solid var(--black-10per);
+    left: -36px;
+    top: -8px;
+    border-left: 1px solid var(--black-10per);
+    border-bottom: 1px solid var(--black-10per);
 }
 
 .editorItem {
@@ -58,25 +58,25 @@
 .editorItemSecond {
     display: flex;
     flex-direction: column;
-    margin-left: 5.20043vw;
+    margin-left: 96px;
 }
 
 .editorButton {
     cursor: pointer;
-    height: 1.30011vw;
+    height: 24px;
 }
 
 .editorDescription {
     /* color: var(--blue-100per); */
-    font-size: 0.65005vw;
+    font-size: 12px;
 }
 
 .itemAxisData {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0.43337vw 0 0.43337vw 0;
-    gap: 0.97508vw;
+    padding: 8px 0 8px 0;
+    gap: 18px;
 }
 
 .itemAxisDataSecond {
@@ -85,22 +85,22 @@
 
 .itemAxisWarning {
     color: red;
-    padding: 0.43337vw 0 0 0;
+    padding: 8px 0 0 0;
 }
 
 .postCoordinationCodeTitle {
     color: var(--blue-100per);
     font-weight: 500;
-    font-size: 0.7584vw;
-    margin-top: 0.65005vw;
-    margin-bottom: 0.65005vw;
+    font-size: 14px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     position: relative;
     margin-left: 0;
 }
 
 .postCoordinationCodeItem {
     position: relative;
-    margin-left: 0.65005vw;
+    margin-left: 12px;
 }
 
 
@@ -108,11 +108,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.97508vw;
-    margin-top: 1.08342vw;
+    gap: 18px;
+    margin-top: 20px;
 }
 
 .postCoordinationIcon {
-    height: 1.19177vw;
+    height: 22px;
     cursor: pointer;
 }

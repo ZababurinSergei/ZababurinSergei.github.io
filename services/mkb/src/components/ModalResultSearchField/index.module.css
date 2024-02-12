@@ -1,26 +1,26 @@
 .mainWrapper {
-	width: 27.35645vw;
-	height: 21.93933vw;
-	padding: 0.43337vw 0 0.43337vw;
+	width: 505px;
+	height: 405px;
+	padding: 8px 0 8px;
 	background: #ffffff;
-	box-shadow: 0px 0.10834vw 0.43337vw rgba(0, 31, 141, 0.14);
-	border-radius: 0.43337vw;
+	box-shadow: 0px 2px 8px rgba(0, 31, 141, 0.14);
+	border-radius: 8px;
   position: absolute;
-  top: 2.97941vw;
+  top: 55px;
   left: 0px;
 	z-index: 12;
 	overflow: auto;
 }
 
 .extendWrapper {
-	width: 22.53521vw;
-	height: 17.87649vw;
-	padding: 0.43337vw 0 0.43337vw;
+	width: 416px;
+	height: 330px;
+	padding: 8px 0 8px;
 	background: #ffffff;
-	box-shadow: 0px 0.10834vw 0.43337vw rgba(0, 31, 141, 0.14);
-	border-radius: 0.43337vw;
+	box-shadow: 0px 2px 8px rgba(0, 31, 141, 0.14);
+	border-radius: 8px;
   position: absolute;
-  top:2.97941vw;
+  top:55px;
   left: 0px;
 	z-index: 12;
 	overflow: auto;
@@ -28,34 +28,34 @@
 	font-family: 'Golos 14pt Regular 14x20';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 0.7584vw;
-	line-height: 1.08342vw;
+	font-size: 14px;
+	line-height: 20px;
 	letter-spacing: -0.01em;
 }
 
 .postcoordinationWrapper {
-	width: 22.53521vw;
-	height: 17.87649vw;
-	padding: 0.43337vw 0 0.43337vw;
+	width: 416px;
+	height: 330px;
+	padding: 8px 0 8px;
 	background: #ffffff;
-	box-shadow: 0px 0.10834vw 0.43337vw rgba(0, 31, 141, 0.14);
-	border-radius: 0.43337vw;
+	box-shadow: 0px 2px 8px rgba(0, 31, 141, 0.14);
+	border-radius: 8px;
   position: absolute;
-  top:2.97941vw;
+  top:55px;
   left: 0px;
 	z-index: 12;
 	overflow: auto;
 }
 
 .extendWrapper {
-	width: 22.53521vw;
-	height: 17.87649vw;
-	padding: 0.43337vw 0 0.43337vw;
+	width: 416px;
+	height: 330px;
+	padding: 8px 0 8px;
 	background: #ffffff;
-	box-shadow: 0px 0.10834vw 0.43337vw rgba(0, 31, 141, 0.14);
-	border-radius: 0.43337vw;
+	box-shadow: 0px 2px 8px rgba(0, 31, 141, 0.14);
+	border-radius: 8px;
   position: absolute;
-  top:2.97941vw;
+  top:55px;
   left: 0px;
 	z-index: 12;
 	overflow: auto;
@@ -63,20 +63,20 @@
 	font-family: 'Golos 14pt Regular 14x20';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 0.7584vw;
-	line-height: 1.08342vw;
+	font-size: 14px;
+	line-height: 20px;
 	letter-spacing: -0.01em;
 }
 
 .postcoordinationWrapper {
-	width: 22.53521vw;
-	height: 17.87649vw;
-	padding: 0.43337vw 0 0.43337vw;
+	width: 416px;
+	height: 330px;
+	padding: 8px 0 8px;
 	background: #ffffff;
-	box-shadow: 0px 0.10834vw 0.43337vw rgba(0, 31, 141, 0.14);
-	border-radius: 0.43337vw;
+	box-shadow: 0px 2px 8px rgba(0, 31, 141, 0.14);
+	border-radius: 8px;
   position: absolute;
-  top:2.97941vw;
+  top:55px;
   left: 0px;
 	z-index: 12;
 	overflow: auto;

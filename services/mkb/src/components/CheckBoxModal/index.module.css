@@ -13,17 +13,17 @@
 .checkbox + label::before {
   content: '';
   display: inline-block;
-  width: 1.08342vw;
-  height: 1.08342vw;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
   flex-grow: 0;
-  border: 0.05417vw solid #adb5bd;
-  border-radius: 0.21668vw;
+  border: 1px solid #adb5bd;
+  border-radius: 4px;
   margin-right: 0.5em;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 50% 50%;
-  margin-left: 0.16251vw;
+  margin-left: 3px;
 }
 
 .checked {

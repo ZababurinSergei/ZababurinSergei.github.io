@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "serverURL": "http://localhost:3333/parse",
+      "appId": "welcomebook",
+      "masterKey": "welcomebook_1984",
+      "appName": "welcomebook"
+    }
+  ]
+}

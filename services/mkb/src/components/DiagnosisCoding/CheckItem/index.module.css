@@ -1,25 +1,25 @@
 .wrapper {
-	height: 1.35428vw;
+	height: 25px;
 	display: flex;
 	justify-content: space-between;
-	margin-top: 0.16251vw;
-	margin-right: 0.92091vw;
+	margin-top: 3px;
+	margin-right: 17px;
 }
 
 .checkBox {
-	margin-right: 0.54171vw;
+	margin-right: 10px;
 }
 
 .circleVoid {
-	margin-right: 0.43337vw;
+	margin-right: 8px;
 }
 
 .checkTitle {
 font-family: 'Golos 9pt Regular 9x12';
 font-style: normal;
 font-weight: 400;
-font-size: 0.48754vw;
-line-height: 0.65005vw;
+font-size: 9px;
+line-height: 12px;
 display: flex;
 align-items: center;
 color: var(--black-100per);

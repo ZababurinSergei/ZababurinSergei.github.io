@@ -92,7 +92,7 @@ export function analyticsPluginMkb(userConfig) {
       }
 
       // TODO change http://172.17.0.2:9600 to public stat collector API
-      if(window.location.origin !== 'http://localhost:3000') {
+      if(!window.location.origin.startsWith('http://localhost')) {
         axios.post('/mms/stats', analyticsObj)
       } else {
         console.log('Статистика: ', analyticsObj)

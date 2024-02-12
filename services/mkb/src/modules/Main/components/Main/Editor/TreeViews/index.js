@@ -419,7 +419,7 @@ export const TreeViews = ({ type, allToc, className, forceUpdate, setForceUpdate
                     <div
                         {...getNodeProps()}
                         style={{
-                            paddingLeft: isChildren ? `${(1.3 * (level - 1) + 1.3)}vw` : `${(1.3 * (level - 1))}vw`
+                            paddingLeft: isChildren ? (28 * (level - 1) + 29) : (28 * (level - 1))
                         }}>
                         {isLoadingItem ? (<Spinner />) : (
                             <TreeSVG

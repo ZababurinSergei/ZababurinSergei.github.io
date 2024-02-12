@@ -4,9 +4,9 @@ import { Footer } from './Footer'
 import style from './index.module.css'
 
 export const Body = ({ type, className = {}, ismobileleftmenu, setmobileleftmenu, children }) => {
+
     return (
         <>
-            <slot name="modal"></slot>
             {type !== 'window' &&
                 <Header
                     className={style}

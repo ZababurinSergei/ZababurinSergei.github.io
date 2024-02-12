@@ -466,7 +466,7 @@ export const Decoding = () => {
                     <div className={style.resultSearch}>
                         <div className={style.switcherBlock}>
                             <div className={style.wrapperSw}>
-                                <div className={style.titleSw}>Скопировать в виде строки</div>
+                                <div className={style.title_string}>Скопировать в виде строки</div>
                                     <label className={style.switch} >
                                         <input type="checkbox" ref={checkRef} onChange={onChangeChecking}/>
                                         <span className={`${style.slider} ${style.round}`}></span>
@@ -672,10 +672,6 @@ export const Decoding = () => {
                                     />
                                     Внимание!
                                 </div>
-                                <RedСross
-                                    className={style}
-                                    color={'white'}
-                                />
                             </div>
                             <div
                                 className={style.errorMessageContainer_content}

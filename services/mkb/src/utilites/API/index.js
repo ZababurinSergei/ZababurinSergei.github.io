@@ -78,12 +78,12 @@ class ApiService {
 }
 
 export const getApi = () => {
-  let api = JSON.parse(localStorage.getItem('mkb_api'))
-  if(api !== null) {
-    return api.api.current
-  } else {
-    console.error('Должна быть запись в localstorage')
-  }
+  const {
+    api: {
+      current: api
+    }
+  } = JSON.parse(localStorage.getItem('mkb_api'))
+  return api
 }
 
 export const getToken = () => {

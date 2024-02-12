@@ -1,51 +1,47 @@
+import style from './index.module.css';
 import './index.css';
+import { search } from '../../../../../utilites/search';
+import { checkList } from '../../../../../config';
 import React, {useState, useEffect, useRef, useLayoutEffect, useCallback} from 'react';
 import {useDispatch, useSelector, useStore} from 'react-redux';
-import style from './index.module.css';
-import scrollContent from './scroll.module.css';
-import { isMobile, isTablet } from "react-device-detect";
-import {useNavigate} from "react-router-dom";
-import {search} from '../../../../../utilites/search';
-import {checkList} from '../../../../../config';
-import {tocActions} from '../../../reducers/tableOfContent';
-import {TreeViews} from './TreeViews';
-import {ModalWindow} from '../../../../../components/modal';
+
+import { tocActions } from '../../../reducers/tableOfContent';
+import { TreeViews } from './TreeViews';
+import { ModalWindow } from '../../../../../components/modal';
 import InputSearch from '../../../../../components/InputSearch';
 import InputSearchExtend from '../../../../../components/InputSearchExtend';
+
 import CrossHelp from '../../../../../components/img/CrossHelp/CrossHelp';
 import Close from '../../../../../components/img/Close';
-import {IconEye} from './Icons/IconEye';
-import {IconColspan} from './Icons/IconColspan';
-import {ExtendedSearch} from '../../../../../components/modal/template';
+import { IconEye } from './Icons/IconEye';
+import { IconColspan } from './Icons/IconColspan';
+import { ExtendedSearch } from '../../../../../components/modal/template';
+
+// import ModalResultSearchField from '../../../../../components/ModalResultSearchField';
 import ModalResultSearch from '../../../../../components/ModalResultSearch';
 import ModalResultSearchNull from '../../../../../components/ModalResultSearchNull';
+
 import {Breadcrumbs} from '../../../../../components/Breadcrumbs'
-import {SideBar} from '../../../../../components/img/SideBar'
+import { SideBar } from '../../../../../components/img/SideBar'
+import {isDesktop, isMobile, isTablet} from "react-device-detect";
+
 import CheckBoxModal from '../../../../../components/CheckBoxModal';
 import {idKey} from "../../../../../utilites/idKey";
-import {getApi} from '../../../../../utilites/API'
-import {SecondButton} from '../../../../../components/Button/Button';
-import ResultSearchField from '../../../../../components/ResultSearchField';
-import {config} from '../../../../../config/modules'
-import routers from "../../../.."
 
-export function Layout({
-                           setAncestor,
-                           currentTocData,
-                           className = {},
-                           type,
-                           uri,
-                           children,
-                           updatePage,
-                           conceptPage,
-                           ismobileleftmenu,
-                           setmobileleftmenu
-                       }) {
+import {getApi} from '../../../../../utilites/API'
+import {useNavigate} from "react-router-dom";
+import { SecondButton } from '../../../../../components/Button/Button';
+import ResultSearchField from '../../../../../components/ResultSearchField';
+
+const HEIGHT_HEADER = 20;
+const HEIGHT_FOOTER = 30;
+const HEIGHT_HEADER_FOOTER = HEIGHT_HEADER + HEIGHT_FOOTER;
+
+export const Layout = ({ setAncestor, currentTocData, className = {}, type, uri, children, updatePage, conceptPage, ismobileleftmenu, setmobileleftmenu}) => {
     const navigate = useNavigate();
     const aside = useRef(null)
     const tocPage = useRef(null);
     const useLayoutContainer = useRef(null);
-    const treeViews = useRef(null);
     const [isChildElsewhere, setChildElsewhere] = useState(true)
     const chapters = useSelector(state => state.icd.toc.chapter)
     const dispatch = useDispatch();
@@ -58,14 +54,14 @@ export function Layout({
     const [checked, setChecked] = useState([]);
     const API_DATA = getApi()
     const [toc, setToc] = useState([{
-        children: [1],
+        children:[1],
         id: 0,
-        name: "",
+        name:"",
         parent: null
     }, {
         id: 1,
         parent: 0,
-        link: `/v1/icd/release/11/${API_DATA.Release}/mms`
+        link:`/v1/icd/release/11/${API_DATA.Release}/mms`
     }
     ]);
 
@@ -74,8 +70,8 @@ export function Layout({
     const [isMainModalResultSearchNull, setIsMainModalResultSearchNull] = useState(false);
 
     const [isExtendModalResultSearch, setIsExtendModalResultSearch] = useState(false);
-    const [infoExtendModalResultSearch, setInfoExtendModalResultSearch] = useState();
-    const [classContentShort, setClassContentShort] = useState('');
+		const [infoExtendModalResultSearch, setInfoExtendModalResultSearch] = useState();
+		const [classContentShort, setClassContentShort] = useState('');
 
     useEffect(() => {
         if (isMainModalResultSearch) {
@@ -90,30 +86,18 @@ export function Layout({
             href: window.location.href
         }
 
-        if (window.location.pathname.startsWith('/coding')
-            || window.location.pathname.startsWith('/testing/coding')) {
+        if(window.location.pathname === '/coding'
+            ||  window.location.pathname === '/coding/'
+            ||  window.location.pathname === '/testing/coding'
+            ||  window.location.pathname === '/testing/coding/') {
             request.pathname = uri
             request.href = `${window.location.origin}${uri}`
-        }
-
-        const {pathname} = window.location
-
-        if (!routers.some(item => {
-            const path = item.path.replace('/*', '')
-            return path.length !== 0 && pathname.startsWith(path)
-
-        })) {
-            const url = new URL(window.location.href)
-            url.pathname = '/'
-            url.search = ''
-            url.hash = ''
-            request = url
         }
 
         dispatch(
             tocActions.fetchChapter({
                 pathname: request,
-                type,
+                type: type,
                 cb: (error, content) => {
                     if (error) {
                         console.log('error', error)
@@ -129,29 +113,28 @@ export function Layout({
     }, []);
 
     useEffect(() => {
-
-        if (currentTocData) {
-            const currentID = currentTocData.pathname.substring(currentTocData.pathname.lastIndexOf('/') + 1)
-            const items = aside.current.querySelectorAll('[data-id]')
-            for (let i = 0; i < items.length; ++i) {
-                const item = items[i].querySelector('.isActive')
-                if (item !== null) {
+        if(currentTocData) {
+            let currentID = currentTocData.pathname.substring(currentTocData.pathname.lastIndexOf('/') + 1)
+            let items = aside.current.querySelectorAll('[data-id]')
+            for(let i = 0; i < items.length; ++i) {
+                let item = items[i].querySelector('.isActive')
+                if(item !== null) {
                     item.classList.remove('isActive')
                 }
             }
 
             let index = 0
             const current = chapters.find((item, i) => {
-                if (item.link) {
-                    if (item.link.indexOf(currentID) !== -1) {
-                        index = i
-                        return true
-                    }
+              if(item.link) {
+                  if(item.link.indexOf(currentID) !== -1) {
+                      index = i
+                      return  true
+                  }
 
-                    return false
-                }
-                    return false
-
+                  return false
+              } else {
+                  return false
+              }
             })
 
             setAncestor(false)
@@ -160,7 +143,7 @@ export function Layout({
     }, [currentTocData]);
 
     const setState = () => {
-        if (isOpenSearch) {
+        if(isOpenSearch) {
             dialog.current.classList.add("selected")
             dialog.current.classList.remove("dismiss")
         } else {
@@ -176,7 +159,7 @@ export function Layout({
 
     const resultMainSearch = async (value) => {
         try {
-            if (value) {
+            if(value) {
                 let response = [];
                 const responseWord = await search.getResultMain(value);
                 let responseCode;
@@ -212,36 +195,36 @@ export function Layout({
     const [inputExtendValue, setInputExtendValue] = useState('');
     const resultExtendSearch = (value) => {
         if (!value) {
-            setIsExtendModalResultSearch(false);
-            setInfoExtendModalResultSearch();
-            setClassContentShort('')
+          setIsExtendModalResultSearch(false);
+					setInfoExtendModalResultSearch();
+					setClassContentShort('')
         } else {
             setInputExtendValue(value);
         }
     };
 
     const onClickCloseMainModalResultSearch = () => {
-        setIsMainModalResultSearch(false);
-        setInfoMainModalResultSearch();
-    };
+      setIsMainModalResultSearch(false);
+      setInfoMainModalResultSearch();
+		};
 
     const onClickCloseExtendModalResultSearch = () => {
-        setIsExtendModalResultSearch(false);
-        setInfoExtendModalResultSearch();
-        setClassContentShort('');
+      setIsExtendModalResultSearch(false);
+			setInfoExtendModalResultSearch();
+			setClassContentShort('');
     };
 
     const onclickHandler = async () => {
         try {
             const response = await search.getResultForAdvancedSearch(inputExtendValue, checked);
             if (response && response.length > 0) {
-                setIsExtendModalResultSearch(true);
-                setInfoExtendModalResultSearch(response);
-                setClassContentShort('contentShort');
+              setIsExtendModalResultSearch(true);
+							setInfoExtendModalResultSearch(response);
+							setClassContentShort('contentShort');
             } else {
-                setIsExtendModalResultSearch(false);
-                setInfoExtendModalResultSearch();
-                setClassContentShort('');
+              setIsExtendModalResultSearch(false);
+							setInfoExtendModalResultSearch();
+							setClassContentShort('');
             }
         } catch (err) {
             console.log(err);
@@ -252,13 +235,13 @@ export function Layout({
             try {
                 const response = await search.getResultForAdvancedSearch(inputExtendValue, checked);
                 if (response && response.length > 0) {
-                    setIsExtendModalResultSearch(true);
-                    setInfoExtendModalResultSearch(response);
-                    setClassContentShort('contentShort');
+                  setIsExtendModalResultSearch(true);
+									setInfoExtendModalResultSearch(response);
+									setClassContentShort('contentShort');
                 } else {
-                    setIsExtendModalResultSearch(false);
-                    setInfoExtendModalResultSearch();
-                    setClassContentShort('');
+                  setIsExtendModalResultSearch(false);
+									setInfoExtendModalResultSearch();
+									setClassContentShort('');
                 }
             } catch (err) {
                 console.log(err);
@@ -290,7 +273,7 @@ export function Layout({
         let updatedListRu = [...checkedRu];
 
         if (event.target.checked) {
-            switch (event.target.dataset.text) {
+            switch(event.target.dataset.text) {
                 case 'Название':
                     updatedList.push('FieldTitle');
                     updatedListRu.push('Название');
@@ -327,7 +310,7 @@ export function Layout({
                     break;
             }
         } else {
-            switch (event.target.dataset.text) {
+            switch(event.target.dataset.text) {
                 case 'Название':
                     updatedList.splice(checked.indexOf('FieldTitle'), 1);
                     updatedListRu.splice(checkedRu.indexOf('Название'), 1);
@@ -361,10 +344,12 @@ export function Layout({
 
 
     const checkedItems = checked.length
-        ? checked.reduce((total, item) => `${total  }, ${  item}`)
+        ? checked.reduce((total, item) => {
+            return total + ", " + item;
+        })
         : "";
 
-    const isChecked = (item) => (checked.includes(item) ? "checked-item" : "not-checked-item")
+    let isChecked = (item) => (checked.includes(item) ? "checked-item" : "not-checked-item")
 
     // let heightSize = 0
     //
@@ -373,8 +358,8 @@ export function Layout({
     // }
 
     useEffect(() => {
-        if (updateToc) {
-            if (!(toc[updateToc.id].children.length - 1)) {
+        if(updateToc) {
+            if(!(toc[updateToc.id].children.length - 1)) {
                 dispatch(
                     tocActions.fetchChildren({
                         type: 'chapter',
@@ -390,7 +375,9 @@ export function Layout({
                                 return;
                             }
 
-                            setToc(previous => [...content.data])
+                            setToc(previous => {
+                                return [...content.data]
+                            })
                         }
                     })
                 );
@@ -406,16 +393,6 @@ export function Layout({
     const onGrayDataHandler = (event) => {
         setChildElsewhere(!isChildElsewhere)
     }
-    // if(treeViews.current)
-    const isMKB = true
-
-    if(!isMKB && treeViews.current !== null) {
-        const tree = treeViews.current.assignedNodes()[0]
-        if(tree.setState) {
-            tree.setState('tree',toc)
-            tree.setState('expandedArray',expand)
-        }
-    }
 
     return (
         <div
@@ -427,11 +404,11 @@ export function Layout({
                     setModal={setModal}
                     isModal={isModal}
                 >
-                    <ExtendedSearch/>
+                    <ExtendedSearch />
                 </ModalWindow>
             ) : ''}
             {type !== 'window' &&
-                <div ref={dialog} className={style.dialog}>
+                <div ref={dialog} className={style.dialog} >
                     <div className={style.header}>
                         <div className={style.titleHeader}>Расширенный поиск</div>
                         <div
@@ -440,7 +417,7 @@ export function Layout({
                             <Close className={style.icon}/>
                         </div>
                     </div>
-                    <hr/>
+                    <hr />
                     <div className={style.searchContainer}>
                         <div className={style.searchEnhance}>
                             <div onKeyDown={onclickDownHandler} className={style.searchExtend}>
@@ -465,12 +442,10 @@ export function Layout({
                                 onClick={onClickHelpHandler}
                                 className={style.help}
                             >
-                                <CrossHelp className={style.crossHelp}/>
+                                <CrossHelp className={style.crossHelp} />
                             </div>
                         </div>
-                        <div className={style.searchWarning}>Пожалуйста, проверьте свойства, которые вы хотели бы
-                            включить в поиск
-                        </div>
+                        <div className={style.searchWarning}>Пожалуйста, проверьте свойства, которые вы хотели бы включить в поиск</div>
                         <div className={style.searchButton}>
                             <div
                                 onClick={onSelectAllHandler}
@@ -507,8 +482,8 @@ export function Layout({
                             ))}
                         </div>
                     </div>
-                    <div className={style.searchResultWrapper}>
-                        <SecondButton buttonLabel="Поиск" buttonHandler={onclickHandler} buttonCheckImg={false}/></div>
+                    <div  className={style.searchResultWrapper} >
+                        <SecondButton buttonLabel="Поиск" buttonHandler={onclickHandler} buttonCheckImg={false}/>				</div>
                 </div>
             }
             {ismobileleftmenu === 'true' &&
@@ -551,7 +526,7 @@ export function Layout({
                                 )}
                                 {isMainModalResultSearchNull && (
                                     <div>
-                                        <ModalResultSearchNull view='mainWrapper'/>
+                                        <ModalResultSearchNull  view='mainWrapper'/>
                                     </div>
                                 )}
                                 <div className={style.propertyTree}>
@@ -571,7 +546,7 @@ export function Layout({
                                         <input
                                             type="button"
                                         />
-                                        [ Расширенный поиск ]
+                                        {'[ Расширенный поиск ]'}
                                     </label>
                                 </div>
                             </div>
@@ -579,67 +554,52 @@ export function Layout({
                     }
                     <section
                         ref={tocPage}
-                        className={`${scrollContent.treeViews} ${style.treeViews} ${className.result_insert__layout_treeViews}`}
+                        className={`${style.treeViews} ${className.result_insert__layout_treeViews}`}
                     >
-                        {isMKB
-                            ? (<TreeViews
-                                type={type}
-                                data={toc}
-                                expand={expand}
-                                isChildElsewhere={isChildElsewhere}
-                                tocPage={tocPage}
-                                setUpdateToc={setUpdateToc}
-                                updatePage={updatePage}
-                                setToc={setToc}
-                                setExpand={setExpand}
-                                dataHtml={aside.current}
-                            />)
-                            : (<slot
-                                    ref={treeViews}
-                                    name="fer-tree"
-                                 />)}
-
-                    </section>
-                </aside>
-            }
-            <div
-                className={style.conceptPage}
-            >
-                <slot name="grid__header" />
-                {isMobile && !isTablet ? (
-                    <div
-                        style={{display: ismobileleftmenu === 'true' ? 'none' : 'flex'}}
-                        className={`
-                        ${scrollContent.content}
-                        ${config.Layout.content.header ? style.content__mkb_admin : style.content__mkb}
-                    `}
-                    >
-                        {children}
-                    </div>
-                ) : (
-                    <div className={`
-${scrollContent.content}
-${config.Layout.content.header ? style.content__mkb_admin : style.content__mkb}
-${className.result_insert_content}
-${style[classContentShort]}`
-                    }>
-                        {children}
-                    </div>
-                )}
-                <div className={style.resultSearch}>
-                    {isExtendModalResultSearch && (
-
-                        <ResultSearchField
+                        <TreeViews
+                            type={type}
+                            data={toc}
+                            expand={expand}
+                            isChildElsewhere={isChildElsewhere}
+                            tocPage={tocPage}
+                            setUpdateToc={setUpdateToc}
+                            updatePage={updatePage}
                             setToc={setToc}
                             setExpand={setExpand}
-                            setUpdateToc={setUpdateToc}
-                            view='extendWrapper'
-                            diseases={infoExtendModalResultSearch}
-                            close={onClickCloseExtendModalResultSearch}
+                            dataHtml={aside.current}
                         />
-                    )}
+                    </section>
+                </aside>
+				}
+				<div
+                    className={style.conceptPage}
+                >
+            {isMobile && !isTablet ? (
+                <div
+                    style={{display: ismobileleftmenu === 'true' ? 'none' : 'flex'}}
+                    className={style.content}
+                >
+                    { children }
                 </div>
-            </div>
+            ) : (
+                <div className={`${style.content} ${className.result_insert_content} ${style[classContentShort]}`}>
+                    { children }
+                </div>
+					)}
+					<div className={style.resultSearch}>
+						{isExtendModalResultSearch && (
+
+							<ResultSearchField
+								setToc={setToc}
+								setExpand={setExpand}
+								setUpdateToc={setUpdateToc}
+								view='extendWrapper'
+								diseases={infoExtendModalResultSearch}
+								close={onClickCloseExtendModalResultSearch}
+							/>
+						)}
+					</div>
+				</div>
 
         </div>)
 

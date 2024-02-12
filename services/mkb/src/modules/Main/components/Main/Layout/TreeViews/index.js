@@ -230,7 +230,7 @@ export const TreeViews = ({ dataHtml, setToc, setExpand, data, setUpdateToc, upd
                                     {...props}
                                     data-isactive={element.link === currentId}
                                     style={{
-                                        paddingLeft: `${(1.3 * (level - 1))}vw`
+                                        paddingLeft: (28 * (level - 1))
                                         // paddingLeft: isChildren ? (28 * (level - 1) + 29) : (28 * (level - 1))
                                     }}
                                 >
@@ -257,7 +257,7 @@ export const TreeViews = ({ dataHtml, setToc, setExpand, data, setUpdateToc, upd
                                 data-isactive={element.link === currentId}
                                 {...props}
                                 style={{
-                                    paddingLeft: `${(1.3 * (level - 1))}vw`
+                                    paddingLeft: (28 * (level - 1))
                                     // paddingLeft: isChildren ? (28 * (level - 1) + 29) : (28 * (level - 1))
                                 }}
                             >

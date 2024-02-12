@@ -8,12 +8,14 @@ const { PrometheusExporter } = require('@opentelemetry/exporter-prometheus');
 const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-proto');
 
 const init = (serviceName, environment) => {
+    console.log('_____ OpenTelemetry _____')
     const options = {port: 9464};
     const exporter = new PrometheusExporter(options);
 
     const exporterOptions = {
         url: 'http://localhost:9464/v1/traces'
     }
+
     const traceExporter = new OTLPTraceExporter(exporterOptions);
     // const sdk = new opentelemetry.NodeSDK({
     //     traceExporter,

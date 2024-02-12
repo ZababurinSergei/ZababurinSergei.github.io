@@ -4,19 +4,19 @@ export const system = {
     api: true
 }
 export const linkNames = process.env.REACT_APP_MAIN_THEME !== 'true' ? [{
-    name: process.env.REACT_APP_NAME === 'mkb' ? 'Браузер МКБ-11': 'Правила',
+    name: 'Браузер МКБ-11',
     link: '/'
 },{
-    name: process.env.REACT_APP_NAME === 'mkb' ? 'Инструмент кодирования': 'Welcome Book',
+    name: 'Инструмент кодирования',
     link: '/coding'
 },{
     name: 'Декодирование',
     link: '/decoding'
 }] : [{
-    name: process.env.REACT_APP_NAME === 'mkb' ? 'Браузер МКБ-11': 'Правила',
+    name: 'Браузер МКБ-11',
     link: '/'
 },{
-    name: process.env.REACT_APP_NAME === 'mkb' ? 'Инструмент кодирования': 'Welcome Book',
+    name: 'Инструмент кодирования',
     link: '/coding'
 },{
     name: 'Декодирование',
@@ -41,19 +41,19 @@ export const linkNames = process.env.REACT_APP_MAIN_THEME !== 'true' ? [{
 }];
 
 export const adminLinkNames = process.env.REACT_APP_MAIN_THEME !== 'true' ? [{
-    name: process.env.REACT_APP_NAME === 'mkb' ? 'Браузер МКБ-11': 'Правила',
+    name: 'Браузер МКБ-11',
     link: '/'
 },{
-    name: process.env.REACT_APP_NAME === 'mkb' ? 'Инструмент кодирования': 'Welcome Book',
+    name: 'Инструмент кодирования',
     link: '/coding'
 },{
     name: 'Декодирование',
     link: '/decoding'
 }] : [{
-    name: process.env.REACT_APP_NAME === 'mkb' ? 'Браузер МКБ-11': 'Правила',
+    name: 'Браузер МКБ-11',
     link: '/'
 },{
-    name: process.env.REACT_APP_NAME === 'mkb' ? 'Инструмент кодирования': 'Welcome Book',
+    name: 'Инструмент кодирования',
     link: '/coding'
 },{
     name: 'Декодирование',

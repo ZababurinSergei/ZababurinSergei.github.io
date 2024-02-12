@@ -7,3 +7,4 @@ package-lock.json
 services
 node/
 _sandbox/
+**/DATA-BROWSER

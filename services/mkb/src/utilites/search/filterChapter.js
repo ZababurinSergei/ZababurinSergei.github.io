@@ -1,7 +1,3 @@
-/* eslint-disable prefer-const */
-/* eslint-disable array-callback-return */
-/* eslint-disable no-prototype-builtins */
-/* eslint-disable import/prefer-default-export */
 export function filterChapter(diseases ) {
   let tableOfChapters = {
 		'isFull': false,

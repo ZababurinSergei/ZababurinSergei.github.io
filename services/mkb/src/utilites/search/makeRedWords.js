@@ -1,11 +1,3 @@
-/* eslint-disable no-prototype-builtins */
-/* eslint-disable no-lonely-if */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-useless-escape */
-/* eslint-disable prefer-regex-literals */
-/* eslint-disable prefer-template */
-/* eslint-disable prefer-const */
-/* eslint-disable import/prefer-default-export */
 export function makeRedWords(arrayObjects, word) {
 	let regExp;
 	let regExpSpecSimbol = new RegExp('[^\.a-zA-Z0-9а-яёА-ЯË\s,]', 'gi');

@@ -1,9 +1,3 @@
-/* eslint-disable guard-for-in */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable prefer-const */
-/* eslint-disable array-callback-return */
-/* eslint-disable arrow-body-style */
-/* eslint-disable import/prefer-default-export */
 // функция предназначена для отбора слов для Списка слов
 /**
  * Selection of words for the Word List.

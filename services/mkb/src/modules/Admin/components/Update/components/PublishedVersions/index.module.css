@@ -1,7 +1,7 @@
 .container {
-  padding: 1.08342vw;
-  border-radius: 0.43337vw;
-  border: 0.05417vw dashed var(--black-15per);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px dashed var(--black-15per);
   background: var(--green-10per);
 }
 
@@ -15,14 +15,14 @@
   align-items: baseline;
   width: 100%;
   justify-content: space-between;
-  margin-bottom: 0.54171vw;
+  margin-bottom: 10px;
 }
 
 .item .status {
   font-family: 'Golos 12pt Medium 12x18';
   font-weight: 400;
-  font-size: 0.65005vw;
-  line-height: 0.97508vw;
+  font-size: 12px;
+  line-height: 18px;
 	color: var(--black-35per);
 }
 
@@ -36,32 +36,32 @@
 
 .item .title {
   font-family: 'Golos 12pt Medium 12x18';
-  line-height: 1.08342vw;
+  line-height: 20px;
   color: var(--black-100per);
 }
 
 .item .subtitleGreen {
-  font-size: 0.65005vw;
+  font-size: 12px;
 	color: #37C570;
 }
 
 .item .subtitle {
-  font-size: 0.65005vw;
+  font-size: 12px;
 }
 
 .item .status {
   font-family: 'Golos 12pt Medium 12x18';
   font-weight: 400;
-  font-size: 0.65005vw;
-  line-height: 0.97508vw;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .actions {
   display: flex;
   font-family: 'Golos 12pt Medium 12x18';
-  font-size: 0.65005vw;
+  font-size: 12px;
   font-weight: 500;
-  line-height: 0.97508vw;
+  line-height: 18px;
 }
 
 .actions > div {
@@ -82,5 +82,5 @@
 }
 
 .actions > div:not(:last-child) {
-  margin-right: 0.86674vw;
+  margin-right: 16px;
 }

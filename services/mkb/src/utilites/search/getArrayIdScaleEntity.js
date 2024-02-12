@@ -1,8 +1,7 @@
-/* eslint-disable import/prefer-default-export */
 import * as links from './links'
 
 /**
- * Something type. Correct in future.
+ * Samething type. Correct in future.
  * @typedef {any} arrayScaleEntity
  */
 

@@ -5,8 +5,8 @@
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  padding: 1.08342vw 3.46696vw;
-  gap: 1.08342vw;
+  padding: 20px 64px;
+  gap: 20px;
   position: relative;
   overflow: auto;
 }
@@ -19,12 +19,12 @@
 }
 
 .aside {
-  width: min(27.30228vw, 27.30228vw);
-  min-width: 16.25135vw;
+  width: min(504px, 504px);
+  min-width: 300px;
 }
 
 .wrapper {
-  max-width: 16.90141vw;
+  max-width: 312px;
 }
 
 .asideMobile {
@@ -32,14 +32,14 @@
 }
 
 .info {
-  margin-bottom: 0.65005vw;
+  margin-bottom: 12px;
 }
 
 .content {
   background: white;
   flex-grow: 1;
   box-sizing: border-box;
-  padding: 1.08342vw 1.95016vw;
+  padding: 20px 36px;
   width: 100%;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .banner {
-  margin-bottom: 1.08342vw;
+  margin-bottom: 20px;
 }
 
 .adminCloseImg {
@@ -87,13 +87,13 @@
   }
 
   .titleMobile {
-    font-size: 0.81257vw;
+    font-size: 15px;
   }
 }
 
 @media all and (min-width: 768px) and (max-width: 1368px) {
  .container {
-   padding: 0.7584vw 0.43337vw;
+   padding: 14px 8px;
  }
 }
 

@@ -5,10 +5,9 @@ function Loupe({className}) {
 	return (
 		<div className={`loupe-img__wrapper ${className.img__wrapper}`}>
 			<svg
-				// width="15"
-				// height="15"
+				width="15"
+				height="15"
 				viewBox="0 0 15 15"
-				preserveAspectRatio="xMidYMid meet"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 			>

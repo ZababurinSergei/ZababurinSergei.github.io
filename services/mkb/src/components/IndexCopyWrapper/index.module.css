@@ -8,22 +8,22 @@
 
 .wrapper:hover::before {
 	position: absolute;
-	width: 9.2091vw;
-	height: 2.4377vw;
+	width: 170px;
+	height: 45px;
 	content: 'Скопировать результат декодирования';
-	top: -2.70856vw;
-	left: -3.90033vw;
+	top: -50px;
+	left: -72px;
 	font-family: 'Golos 14pt Regular 14x20';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 0.7584vw;
-	line-height: 1.08342vw;
+	font-size: 14px;
+	line-height: 20px;
 	/* or 150% */
 	letter-spacing: -0.01em;
 
 	background: var(--white-100per);
-	box-shadow: 0px 0.10834vw 0.43337vw rgba(0, 31, 141, 0.14);
-	border-radius: 0.43337vw;
+	box-shadow: 0px 2px 8px rgba(0, 31, 141, 0.14);
+	border-radius: 8px;
 
 	display: flex;
 	justify-content: center;

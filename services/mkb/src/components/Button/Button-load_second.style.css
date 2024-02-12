@@ -1,14 +1,14 @@
 .button__second-download {
-    width: 6.66306vw;
-    height: 2.16685vw;
-    min-width: 6.66306vw;
-    min-height: 2.16685vw;
-    padding: 0 1.24594vw 0 1.02925vw;
+    width: 123px;
+    height: 40px;
+    min-width: 123px;
+    min-height: 40px;
+    padding: 0 23px 0 19px;
     background: var(--white-100per);
-    border: 0.05417vw solid var(--black-10per);
-    border-radius: 0.21668vw;
+    border: 1px solid var(--black-10per);
+    border-radius: 4px;
     font-family: 'Golos 14pt Medium 14x20';
-    font-size: 0.7584vw;
+    font-size: 14px;
     color: var(--blue-100per);
     display: flex;
     justify-content: space-between;
@@ -21,9 +21,9 @@
 }
 
 .button__second-download:hover {
-  padding: 0 1.24594vw 0 1.02925vw;
+  padding: 0 23px 0 19px;
 	background: var(--blue-10per);
-	border: 0.05417vw solid var(--blue-50per);
+	border: 1px solid var(--blue-50per);
 	outline: none;
 
 }
@@ -33,9 +33,9 @@
 }
 
 .button__second-download:focus {
-  padding: 0 1.13759vw 0 0.92091vw;
+  padding: 0 21px 0 17px;
 	background: var(--white-100per);
-	border: 0.16251vw solid var(--blue-40per);
+	border: 3px solid var(--blue-40per);
 	outline: none;
 }
 
@@ -44,9 +44,9 @@
 }
 
 .button__second-download:active {
-  padding: 0 1.24594vw 0 1.02925vw;
+  padding: 0 23px 0 19px;
 	background: var(--blue-20per);
-	border: 0.05417vw solid var(--blue-120per);
+	border: 1px solid var(--blue-120per);
   outline: none;
 }
 
@@ -55,9 +55,9 @@
 }
 
 .button__second-download:disabled {
-  padding: 0 1.35428vw 0 1.13759vw;
+  padding: 0 25px 0 21px;
 	background: var(--black-5per);
-	outline: 0.05417vw solid var(--black-10per);
+	outline: 1px solid var(--black-10per);
 	color: var(--black-35per);
 }
 

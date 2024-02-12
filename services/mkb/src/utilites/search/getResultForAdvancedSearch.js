@@ -1,11 +1,7 @@
-/* eslint-disable prefer-const */
-/* eslint-disable no-param-reassign */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-cycle */
 import { search } from './index';
 
 /**
- * @description Getting advanced search results on the main page, taking into account the passed search parameter.
+ * @discription Getting advanced search results on the main page, taking into account the passed search parameter.
 Color highlighting words that match the search.
  * @param {string} value - Entered word.
  * @param {string[]} fields - Selected search fields.

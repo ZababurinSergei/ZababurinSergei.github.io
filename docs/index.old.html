@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>Main</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
+    <meta name="description" content="Welcome Book">
+    <meta property="og:site_name" content="markdown"/>
+    <meta property="og:locale" content="ru_RU"/>
+    <meta property="og:type" content="contract"/>
+    <meta property="og:title" content="markdown"/>
+    <meta property="og:description" content="markdown"/>
+    <meta property="og:url" content="https://zababurinsv.github.io/design/"/>
+    <meta property="og:image" content="https://i.imgur.com/pSrPUkJ.jpg"/>
+    <meta property="og:image:width" content="537"/>
+    <meta property="og:image:height" content="240"/>
+    <link rel="shortcut icon"
+          href="data:image/png;base64, AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbbv+DGW3/mRlt/5kZbf+ZGq6/hIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGa3/ohkt/7/Zbj//2S3/v9lt/6WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGm5/iRlt/74Zbj//2W4//9luP//Zbf++mi4/i4gIPciGhr24hsb9uwbG/bsGhr24CEh9xoAAAAAAAAAAAAAAABnuP5mZLf+/2W4//9luP//Zbj//2S3/v9muP5yGBj2rhMT9v8TE/b/ExP2/xMT9f8YGPWkAAAAAAAAAAAAAAAAb7z/BGW3/tZluP//Zbj//2W4//9lt/7gJzH3ShMT9f8TE/b/ExP2/xMT9v8TE/b/ExP1/CAg9joAAAAAAAAAAAAAAABmuP5GZLf+6GS3/uhkt/7oZbf+UhgY9YQSEvX/ExP2/xMT9v8TE/b/ExP2/xIS9f8aGvZ8AAAAAD4++gQgIPZ6IiL2hiIi9oYgIPZ8KCj5BAAAAAAtLfgUFBT17BMT9v8TE/b/ExP2/xMT9v8VFfXoLCz4DgAAAAAaGvZqEhL1/xMT9v8TE/b/EhL1/xsb9nIAAAAAAAAAABwc9m4SEvX/ExP2/xMT9v8SEvX/HR32ZAAAAAAnJ/gSFRX16hMT9v8TE/b/ExP2/xMT9v8UFPXuJyf4Fp2xlAKNnqUYLC/mfhYW83ATE/VuFxf1aDc3+gIAAAAAGBj1fhIS9f8TE/b/ExP2/xMT9v8TE/b/ExP1/xkZ9YaGn3yIhZ57/4Wee/+Gn3yKAAAAAAAAAAAAAAAAAAAAACMj9zYTE/X8ExP2/xMT9v8TE/b/ExP2/xMT9f9JUshihZ57+IaffP+Gn3z/hZ579oigfiYAAAAAAAAAAAAAAAAAAAAAGBj1oBIS9f8TE/b/ExP2/xMT9f8YGPWmiKB+PIWee/+Gn3z/hp98/4Wee/+HoH06AAAAAAAAAAAAAAAAAAAAACUl9xgVFfXOExP11BMT9dQUFPXQJib3HgAAAACGn3ymhp98/4affP+Gn3ymAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiKB+EIihf0CIoX9AiKB+EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AADg/wAA4MMAAOCBAADggQAA8QEAAOeBAADDwwAAgf8AAIAPAACBDwAAgQ8AAMMPAAD//wAA//8AAA=="
+          type="image/png">
+</head>
+<body>
+
+<!--<auction-tabs-->
+<!--        data-services-path="main"-->
+<!--&gt;-->
+<!--    <a slot="title" selected >LogIn</a>-->
+<!--    <a slot="title">SingUp</a>-->
+<!--    <section>-->
+<!--        <auction-auth-->
+<!--                data-services-path="main"-->
+<!--        >-->
+<!--            <div class="auction-auth">-->
+<!--                <div class="auction-auth__wallet">-->
+<!--                    <h2 class="auction-auth__wallet_title">Login</h2>-->
+<!--                    <div class="auction-auth__wallet_content">-->
+<!--                        Set a single password for all your-->
+<!--                        <a-->
+<!--                                href="https://zababurinsv.github.io"-->
+<!--                                text-decoration="none"-->
+<!--                                referrerpolicy="strict-origin"-->
+<!--                                target="_blank"-->
+<!--                                class="auction-auth__wallet_content_link"-->
+<!--                        >-->
+<!--                            zArt-->
+<!--                        </a>-->
+<!--                        accounts.-->
+<!--                    </div>-->
+<!--                    <div class="auction-auth__create">-->
+<!--                        <label for="auction-auth__create_private">-->
+<!--                            <h3>Private</h3>-->
+<!--                            <div class="auction-auth__create_menu">-->
+<!--                                <div class="auction-auth__create_menu_button">Upload</div>-->
+<!--                                <div class="auction-auth__create_menu_status">The file is not selected.</div>-->
+<!--                            </div>-->
+<!--                        </label>-->
+<!--                        <input id="auction-auth__create_private" type="file">-->
+<!---->
+<!--                        <label style="display: none" for="auction-auth__create_public">-->
+<!--                            <h3>Public</h3>-->
+<!--                            <div class="auction-auth__create_menu">-->
+<!--                                <div class="auction-auth__create_menu_button">Upload</div>-->
+<!--                                <div class="auction-auth__create_menu_status">The file is not selected.</div>-->
+<!--                            </div>-->
+<!--                        </label>-->
+<!--                        <input style="display: none" id="auction-auth__create_public" type="file">-->
+<!---->
+<!--                        <label style="display: none" for="auction-auth__create_stage">-->
+<!--                            <h3>Stage</h3>-->
+<!--                            <div class="auction-auth__create_menu">-->
+<!--                                <div class="auction-auth__create_menu_button">Upload</div>-->
+<!--                                <div class="auction-auth__create_menu_status">The file is not selected.</div>-->
+<!--                            </div>-->
+<!--                        </label>-->
+<!--                        <input style="display: none" id="auction-auth__create_stage" type="file">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div style="display: none" class="auction-auth__password">-->
+<!--                    <div class="auction-auth__password_item">-->
+<!--                        <label for="auction-auth__password_item_create">-->
+<!--                            password-->
+<!--                        </label>-->
+<!--                        <div class="auction-auth__password_input">-->
+<!--                            <input class="auction-auth__password_input_self" id="auction-auth__password_item_create" type="password">-->
+<!--                            <div class="auction-auth__password_item_create">-->
+<!--                                <svg viewBox="0 0 14 14" class="auction-auth__password_input_svg">-->
+<!--                                    <path fill="currentColor" fill-rule="evenodd" d="M7 2C3.818 2 1.1 3.866 0 6.5 1.1 9.134 3.818 11 7 11s5.9-1.866 7-4.5C12.9 3.866 10.182 2 7 2zm0 7.5c-1.756 0-3.182-1.344-3.182-3s1.426-3 3.182-3 3.182 1.344 3.182 3-1.426 3-3.182 3zm0-4.8c-1.056 0-1.91.804-1.91 1.8S5.945 8.3 7 8.3s1.91-.804 1.91-1.8S8.055 4.7 7 4.7z"></path>-->
+<!--                                </svg>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </auction-auth>-->
+<!--    </section>-->
+<!--    <section>-->
+<!--        <auction-auth-->
+<!--                data-services-path="main"-->
+<!--        >-->
+<!--            <div class="auction-auth">-->
+<!--                <div class="auction-auth__account">-->
+<!--                    <div class="auction-auth__account_item">-->
+<!--                        <label class="auction-auth__account_item_label" for="auction-auth__account_name">Name Wallet</label>-->
+<!--                        <input class="auction-auth__account_item_input" id="auction-auth__account_name" type="text" placeholder="Enter name for wallet">-->
+<!--                    </div>-->
+<!--                    <div class="auction-auth__account_item">-->
+<!--                        <label class="auction-auth__account_item_label" for="auction-auth__account_type">Select Type</label>-->
+<!--                        <select class="auction-auth__account_item_input" id="auction-auth__account_type">-->
+<!--                            <option selected value="T">Test Net</option>-->
+<!--                            <option value="W">Main Net</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="auction-auth__password">-->
+<!--                    <div class="auction-auth__password_item">-->
+<!--                        <label for="auction-auth__password_item_create">-->
+<!--                            Create password (must be at least 8 characters)-->
+<!--                        </label>-->
+<!--                        <div class="auction-auth__password_input">-->
+<!--                            <input class="auction-auth__password_input_self" id="auction-auth__password_item_create" type="password">-->
+<!--                            <div class="auction-auth__password_item_create">-->
+<!--                                <svg viewBox="0 0 14 14" class="auction-auth__password_input_svg">-->
+<!--                                    <path fill="currentColor" fill-rule="evenodd" d="M7 2C3.818 2 1.1 3.866 0 6.5 1.1 9.134 3.818 11 7 11s5.9-1.866 7-4.5C12.9 3.866 10.182 2 7 2zm0 7.5c-1.756 0-3.182-1.344-3.182-3s1.426-3 3.182-3 3.182 1.344 3.182 3-1.426 3-3.182 3zm0-4.8c-1.056 0-1.91.804-1.91 1.8S5.945 8.3 7 8.3s1.91-.804 1.91-1.8S8.055 4.7 7 4.7z"></path>-->
+<!--                                </svg>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="auction-auth__password_item">-->
+<!--                        <label for="auction-auth__password_item_confirm">Confirm password</label>-->
+<!--                        <div class="auction-auth__password_input">-->
+<!--                            <input class="auction-auth__password_input_self" id="auction-auth__password_item_confirm" type="password">-->
+<!--                            <div class="auction-auth__password_item_confirm">-->
+<!--                                <svg viewBox="0 0 14 14" class="auction-auth__password_input_svg">-->
+<!--                                    <path fill="currentColor" fill-rule="evenodd" d="M7 2C3.818 2 1.1 3.866 0 6.5 1.1 9.134 3.818 11 7 11s5.9-1.866 7-4.5C12.9 3.866 10.182 2 7 2zm0 7.5c-1.756 0-3.182-1.344-3.182-3s1.426-3 3.182-3 3.182 1.344 3.182 3-1.426 3-3.182 3zm0-4.8c-1.056 0-1.91.804-1.91 1.8S5.945 8.3 7 8.3s1.91-.804 1.91-1.8S8.055 4.7 7 4.7z"></path>-->
+<!--                                </svg>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="auction-auth__policy">-->
+<!--                    <div class="auction-auth__policy_item">-->
+<!--                        <label class="auction-auth__policy_item_label" for="policy-privacy">-->
+<!--                            <div class="auction-auth__policy_item_checked">-->
+<!--                                <svg viewBox="0 0 14 14" class="policy-privacy-svg">-->
+<!--                                    <g fill="currentColor" fill-rule="evenodd">-->
+<!--                                        <path fill="currentColor" d="M10.315 3.5L5.56 8.176 3.68 6.333 2.5 7.492 5.56 10.5l5.94-5.842z"></path>-->
+<!--                                    </g>-->
+<!--                                </svg>-->
+<!--                            </div>-->
+<!--                            <span class="auction-auth__policy_item_span">I have read and agree with the&nbsp;</span>-->
+<!---->
+<!--                            <input type="checkbox" id="policy-privacy" style="display: none">-->
+<!--                        </label>-->
+<!--                        <a href="https://waves.exchange/files/Privacy_Policy_Waves.Exchange.pdf" style="text-decoration:none; "  referrerpolicy="strict-origin" target="_blank" class="policy-privacy-href">Privacy policy</a>-->
+<!--                    </div>-->
+<!--                    <div class="auction-auth__policy_item">-->
+<!--                        <label class="auction-auth__policy_item_label" for="policy-terms">-->
+<!--                            <div class="auction-auth__policy_item_checked">-->
+<!--                                <svg viewBox="0 0 14 14" class="policy-terms-svg" display="none">-->
+<!--                                    <g fill="currentColor" fill-rule="evenodd">-->
+<!--                                        <path fill="currentColor" d="M10.315 3.5L5.56 8.176 3.68 6.333 2.5 7.492 5.56 10.5l5.94-5.842z"></path>-->
+<!--                                    </g>-->
+<!--                                </svg>-->
+<!--                            </div>-->
+<!--                            <span class="auction-auth__policy_item_span">I have read and agree with the&nbsp;</span>-->
+<!--                            <input type="checkbox" id="policy-terms" style="display: none">-->
+<!--                        </label>-->
+<!--                        <a href="https://waves.exchange/files/Terms_Of_Use_Waves.Exchange.pdf" style="text-decoration:none;"  referrerpolicy="strict-origin" target="_blank" class="policy-terms-href">Terms and Conditions</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="auction-auth__login">-->
+<!--                    <div class="auction-auth__login_item">-->
+<!--                        <input class="auction-auth__login_item_button" id="auction-auth__login_item_button" type="button" value="Create">-->
+<!--                        <label class="auction-auth__login_item_label"  for="auction-auth__login_item_button">-->
+<!--                            <span>Attention!</span>-->
+<!--                            <div>The data is only stored on your computer.</div>-->
+<!--                        </label>-->
+<!--                    </div>-->
+<!--                    <div class="auction-auth__login_item">-->
+<!--                        <div class="auction-auth__login_item_visit">-->
+<!--                            If you had an account, visit-->
+<!--                            <a href="https://waves.exchange" text-decoration="none" referrerpolicy="strict-origin" target="_blank" class="login-postview-href">-->
+<!--                                zArt-->
+<!--                            </a>-->
+<!--                            to restore it.-->
+<!--                        </div>-->
+<!--                        <div class="auction-auth__login_item_connect">-->
+<!--                            <div>await</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </auction-auth>-->
+<!--    </section>-->
+<!--</auction-tabs>-->
+    <div class="service" slot="service"></div>
+    <div class="service-next" slot="service"></div>
+    <fer-dialog>
+        <dialog>
+            <div class="content"></div>
+        </dialog>
+    </fer-dialog>
+</body>
+<style>
+    html {
+        font-family: "Raleway", serif;
+        font-size: 1vw
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<script type="module">
+    import Tabs from '/component/auction-tabs/index.mjs'
+    import Auth from '/component/auction-auth/index.mjs'
+    import { store } from '/this/index.mjs'
+    import main from '/main.mjs'
+    import { loadHTML } from '/this/index.mjs'
+
+    // const gauge = new metrics.Gauge({
+    //     name: 'memory_usage',
+    //     help: 'A gauge of the memory usage',
+    //     labels: ['foo']
+    // })
+
+    // Chart.registry.plugins.register(ChartDatasourcePrometheusPlugin);
+
+    // var myChart = new Chart(ctx, {
+    //     type: 'line',
+    //     plugins: [ChartDatasourcePrometheusPlugin],
+    //     options: {
+    //         plugins: {
+    //             'datasource-prometheus': {
+    //                 prometheus: {
+    //                     endpoint: "https://prometheus.demo.do.prometheus.io",
+    //                     baseURL: "/api/v1",   // default value
+    //                 },
+    //                 query: 'sum by (job) (go_gc_duration_seconds)',
+    //                 timeRange: {
+    //                     type: 'relative',
+    //
+    //                     from 12 hours ago to now
+                        // start: -12 * 60 * 60 * 1000,
+                        // end: 0,
+                    // },
+                // },
+            // },
+        // },
+    // });
+    // gauge.inc()
+    // gauge.inc(2, {foo: 'bar'})
+    // console.log('dddddddddddddd', gauge.collect())
+
+    const auctionTabs = document.body.querySelector('auction-tabs')
+
+    // window.addEventListener('login', async () => {
+    //     auctionTabs.style.display = 'none'
+        store.set('service', {
+            system: {
+                header: true,
+                relation: true,
+                body: true,
+                property: true,
+                footer: true
+            }
+        })
+
+        const mountPointSystem = {
+            pathname: '.',
+            pathTemplate: 'system',
+            mountPoint: document.body
+        }
+
+        store.set('mount_self', mountPointSystem)
+
+        main(mountPointSystem).then(react => console.log('🟣 NODE 🟣')).catch((e) => { console.log('ERROR', e) });
+
+        const Service = 'welcomebook'
+
+        const parser = new DOMParser()
+
+        const template = parser.parseFromString(await loadHTML(`/template/${Service}/index.html`), 'text/html').querySelector('template')
+
+        const service = (await import(`/services/${Service}/src/main.mjs`))['default']
+
+        const mountPoint = {
+            pathname: `/services/${Service}/src`,
+            template: template,
+            mountPoint: document.querySelector('.service'),
+        }
+
+        store.set('mount_welcomebook', mountPoint)
+
+        const images = template.content.querySelectorAll('img')
+
+        for(let i =0 ; i < images.length; ++i) {
+            let url = new URL(images[i].src)
+            url.pathname = `${mountPoint.pathname}${url.pathname.slice(url.pathname.indexOf('/this'))}`
+            images[i].src = url.pathname
+        }
+
+        // debugger
+        service(mountPoint).then(api => {})
+
+    // })
+</script>
+</html>

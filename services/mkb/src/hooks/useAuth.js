@@ -1,41 +1,53 @@
-import React, { useEffect, useState } from 'react';
 import { useLocalStorage } from '@src/hooks/useLocalStorage';
-import { getTokenPair, getUserInfo, getRefreshToken } from '@src/modules/api';
-import isEmpty from "../utilites/isEmpty";
+import { getRefreshToken, getTokenPair, getUserInfo } from '@src/modules/api';
+import { useEffect, useState } from 'react';
+import isEmpty from '../utilites/isEmpty';
 
 const signIn = () => {
-  const isPredProd = window.location.hostname.includes('rt-eu')
-  const isDevStand =
-    window.location.hostname.includes('digitalms') ||
-    window.location.hostname.includes('localhost');
-  let egiszUrl = ''
-   if(isPredProd) {
-     egiszUrl = 'https://ia-test.egisz.rosminzdrav.ru/realms/master/protocol/openid-connect/auth?response_type=code&client_id=mkb11_test&response_mode=query&redirect_uri=https%3A%2F%2Fmkb11.rt-eu.ru%2F'
-   } else {
-     egiszUrl = isDevStand
-         ? 'https://ia-test.egisz.rosminzdrav.ru/realms/dev/protocol/openid-connect/auth?response_type=code&client_id=mkb11_dev&response_mode=query&redirect_uri=https%3A%2F%2Fmkb11-compose-dev.digitalms.ru%2F'
-         : 'https://ia.egisz.rosminzdrav.ru/realms/master/protocol/openid-connect/auth?response_type=code&client_id=mkb11&response_mode=query&redirect_uri=https%3A%2F%2Fmkb11.egisz.rosminzdrav.ru%2F';
-   }
+  const isPredProd = window.location.hostname.includes(process.env.REACT_APP_PREFIX_PREDPROD);
+  const isProd = window.location.hostname.includes(process.env.REACT_APP_PREFIX_MASTER);
+  const isDev = window.location.hostname.includes(process.env.REACT_APP_PREFIX_DEV)
 
-    window.location.href = egiszUrl;
+  let egiszUrl = '';
+
+  if(isDev) {
+    egiszUrl = process.env.REACT_APP_EGISZ_URL_DEV_AUTH
+  }
+
+  if (isPredProd) {
+    egiszUrl = process.env.REACT_APP_EGISZ_URL_PREDPROD_AUTH
+  }
+
+  if (isProd) {
+    egiszUrl = process.env.REACT_APP_EGISZ_URL_MASTER_AUTH
+  }
+
+
+  window.location.href = egiszUrl;
 };
 
 export const logOut = () => {
-  const isPredProd = window.location.hostname.includes('rt-eu')
-  const isDevStand =
-    window.location.hostname.includes('digitalms') ||
-    window.location.hostname.includes('localhost');
-    let egiszUrlLogout = ''
+  const isPredProd = window.location.hostname.includes(process.env.REACT_APP_PREFIX_PREDPROD);
+  const isDev = window.location.hostname.includes(process.env.REACT_APP_PREFIX_DEV);
+  const isProd = window.location.hostname.includes(process.env.REACT_APP_PREFIX_MASTER);
 
-    if(isPredProd) {
-      egiszUrlLogout = "https://ia-test.egisz.rosminzdrav.ru/realms/master/protocol/openid-connect/logout?client_id=mkb11_test&redirect_uri=https%3A%2F%2Fmkb11.rt-eu.ru%2F"
-    } else {
-      egiszUrlLogout = isDevStand
-          ? 'https://ia-test.egisz.rosminzdrav.ru/realms/dev/protocol/openid-connect/logout?client_id=mkb11_dev&redirect_uri=https%3A%2F%2Fmkb11-compose-dev.digitalms.ru%2F'
-          : 'https://ia.egisz.rosminzdrav.ru/realms/master/protocol/openid-connect/logout?client_id=mkb11&redirect_uri=https%3A%2F%2Fmkb11.egisz.rosminzdrav.ru%2F';
-    }
+  let egiszUrlLogout = '';
 
-    window.location.href = egiszUrlLogout;
+  if(isDev) {
+    egiszUrlLogout = process.env.REACT_APP_EGISZ_URL_DEV_LOGOUT
+  }
+
+  if (isPredProd) {
+    egiszUrlLogout = process.env.REACT_APP_EGISZ_URL_PREDPROD_LOGOUT
+  }
+
+  if(isProd) {
+    egiszUrlLogout = process.env.REACT_APP_EGISZ_URL_MASTER_LOGOUT
+  }
+
+
+
+  window.location.href = egiszUrlLogout;
 };
 
 export const useAuth = () => {
@@ -48,17 +60,22 @@ export const useAuth = () => {
   );
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const refresh = window.localStorage.getItem('refreshToken')
-      if(!isEmpty(refresh)) {
-        getRefreshToken(refresh)
+    const interval = setInterval(
+      () => {
+        const refresh = window.localStorage.getItem('refreshToken');
+        if (!isEmpty(refresh)) {
+          getRefreshToken(refresh)
             .then(({ data }) => {
-              window.localStorage.setItem('accessToken',data.accessToken)
-              window.localStorage.setItem('refreshToken',data.accessToken)
+              window.localStorage.setItem('accessToken', data.accessToken);
+              window.localStorage.setItem('refreshToken', data.accessToken);
             })
-            .catch(error => { });
-      }
-    }, process.env.REACT_APP_CUSTOM_TOKEN_TTL ? process.env.REACT_APP_CUSTOM_TOKEN_TTL :  280000);
+            .catch(error => {});
+        }
+      },
+      process.env.REACT_APP_CUSTOM_TOKEN_TTL
+        ? process.env.REACT_APP_CUSTOM_TOKEN_TTL
+        : 280000,
+    );
 
     return () => clearInterval(interval);
   }, []);
@@ -109,7 +126,7 @@ export const useAuth = () => {
             setUserInfo(data.userinfo);
           })
           .catch(error => {
-            if(error.request.status !== 500) {
+            if (error.request.status !== 500) {
               console.log(error);
               setRefreshToken('');
               setUserInfo('');
@@ -122,7 +139,7 @@ export const useAuth = () => {
       } catch (error) {
         console.log(error);
       }
-    } 
+    }
     // else if (!refreshToken && !accessToken) {
     //   (process.env.NODE_ENV === 'production') && signIn();
     // }

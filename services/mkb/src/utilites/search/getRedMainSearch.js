@@ -1,12 +1,3 @@
-/* eslint-disable no-lonely-if */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-plusplus */
-/* eslint-disable no-useless-escape */
-/* eslint-disable array-callback-return */
-/* eslint-disable prefer-const */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prefer-regex-literals */
-/* eslint-disable import/prefer-default-export */
 export function getRedMainSearch(array, word) {
 	// const regexpArrayWord = new RegExp("[^а-яёА-ЯËa-zA-Z0-9]", "gi");
 	const regexpArrayWord = new RegExp(" +|-+|,+|_+|#+", "gi");

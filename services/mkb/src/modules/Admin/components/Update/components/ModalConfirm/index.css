@@ -23,13 +23,13 @@
 }
 
 .modal-content {
-  width: 27.08559vw;
+  width: 500px;
   background-color: #fff;
   transition: all 0.3s ease-in-out;
-  transform: translateY(-10.83424vw);
+  transform: translateY(-200px);
   /* border: 1px dashed var(--black-15per); */
   background: var(--black-10per);
-  border-radius: 0.21668vw;
+  border-radius: 4px;
 }
 
 .moveReason {
@@ -44,12 +44,12 @@
 }
 
 .modal.exit .modal-content {
-  transform: translateY(-10.83424vw);
+  transform: translateY(-200px);
 }
 
 .modal-footer.confirm {
   height: auto;
-  padding: 0 1.73348vw 0.86674vw 1.73348vw;
+  padding: 0 32px 16px 32px;
   justify-content: end;
 }
 
@@ -59,11 +59,11 @@
 
 .modal-body.confirm {
   /* padding: 10px; */
-  border-top: 0.05417vw solid #eee;
-  border-bottom: 0.05417vw solid #eee;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
   /* border: 1px dashed var(--black-15per); */
-  background: var(--white-100per);
-  padding: 1.73348vw 1.73348vw 0.86674vw 1.73348vw;
+  background: var(--white-100per); 
+  padding: 32px 32px 16px 32px; 
 }
 
 .modal-footer.confirm {

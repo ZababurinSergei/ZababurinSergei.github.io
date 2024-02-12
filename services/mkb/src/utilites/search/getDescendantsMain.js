@@ -1,15 +1,4 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable no-shadow */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable arrow-body-style */
-/* eslint-disable no-plusplus */
-/* eslint-disable prefer-const */
-/* eslint-disable no-prototype-builtins */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-unused-vars */
-/* eslint-disable consistent-return */
-/* eslint-disable import/no-cycle */
-import useLinks from './links';
+import * as links from './links';
 import { search } from './index';
 
 /*
@@ -25,7 +14,6 @@ import { search } from './index';
 */
 export async function getDescendantsMain(word, arrayObjects) {
 	try {
-		const links = useLinks();
 		const result = await Promise.allSettled(arrayObjects.map(async object => {
 			if (!object.descendants) return object;
 			const responseWithNewUri = changeArrayUriForGetLinearization(object.descendants);
@@ -55,7 +43,6 @@ function changeArrayUriForGetLinearization(data) {
 }
 
 export function changeUriForGetLinearization(obj) {
-	const links = useLinks();
   if (obj.uri.includes('other')) {
     return {
       ...obj,
@@ -74,8 +61,6 @@ export function changeUriForGetLinearization(obj) {
   };
 }
 function changeUriTermForGetLinearization(obj) {
-	const links = useLinks();
-
   if (obj.foundationReference) {
     return {
       ...obj,
@@ -89,11 +74,10 @@ function changeUriTermForGetLinearization(obj) {
 /**
  * @description Замена содержащихся в ответе поиска uri для поиска в базе данных по компоненту linearization.
  * @param {object[]} data - Массив объектов, полученный из api поиска c измененными uri.
- * @return {object[]} Массив объектов с добавлением свойства с ключем entity, содержащим категорию из базы данных.
+ * @return {object[]} Массив объектов с добалением свойства с ключем entity, содержащим категорию из базы данных.
  */
 async function getEntity(data) {
-	try {
-		const links = useLinks();
+  try {
     const resultRequests = await Promise.allSettled(
       data.map(async obj => {
         const response = await search.api.apiGetEntityLin(obj.uri);
@@ -112,8 +96,7 @@ async function getEntity(data) {
 }
 
 async function getEntityFound(data) {
-	try {
-		const links = useLinks();
+  try {
     const resultRequests = await Promise.allSettled(
       data.map(async obj => {        // const response = await axios.get(obj.uri, links.optionsGetEntity);
         const response = await search.api.apiGetEntityLin(obj.uriFound);
@@ -138,7 +121,6 @@ async function getEntityFound(data) {
  * @return {object[]} Массив объектов с уникальными entity.
  */
 function mapObjects(arrayObjects) {
-	const links = useLinks();
   let newArrayObjects = [];
   for (let i = 0; i < arrayObjects.length; i++) {
     let isCoincidence = false;
@@ -180,8 +162,7 @@ function deleteChapters(arrayObjects) {
  * @return {object[]} Массив объектов с уникальными entity без рубрик из глав V X и без рубрик без точки.
  */
 async function getChild(arrayObjects) {
-	try {
-		const links = useLinks();
+  try {
     const resultRequests = await Promise.allSettled(
       arrayObjects.map(async obj => {
         let data = obj;

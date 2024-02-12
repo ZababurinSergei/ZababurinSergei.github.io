@@ -1,11 +1,11 @@
 .profile-menu__wrapper {
-	width: 9.26327vw;
-	padding: 0.43337vw 0 0.43337vw;
+	width: 171px;
+	padding: 8px 0 8px;
 	background: #ffffff;
-	box-shadow: 0px 0.10834vw 0.43337vw rgba(0, 31, 141, 0.14);
-	border-radius: 0.43337vw;
+	box-shadow: 0px 2px 8px rgba(0, 31, 141, 0.14);
+	border-radius: 8px;
   	position: absolute;
-  	top: 1.89599vw;
-  	right: 0.7584vw;
+  	top: 35px;
+  	right: 14px;
 	z-index: 12;
 }

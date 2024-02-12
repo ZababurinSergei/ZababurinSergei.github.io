@@ -10,7 +10,7 @@ function LinkNav({ active, setActive, onClick, link, name, className = {} }) {
                     setActive(link)
                 }}
                 to={`${process.env.PUBLIC_URL}${link}`}
-                className={`link__navigation ${className.link__navigation} ${active === link ? 'isActiveLink': ''}`}
+                className={`link__navigation ${className.link__navigation} ${link.endsWith(active) ? 'isActiveLink': ''}`}
             >
                 { name }
             </Link>

@@ -1,9 +1,3 @@
-/* eslint-disable no-prototype-builtins */
-/* eslint-disable no-plusplus */
-/* eslint-disable array-callback-return */
-/* eslint-disable prefer-const */
-/* eslint-disable prefer-template */
-/* eslint-disable import/prefer-default-export */
 export function getRedFields(arrayObjects, word) {
   const regExp = new RegExp('(' + word + '[а-яёА-ЯË]*)', 'gi');
 	let arrayResult = [];

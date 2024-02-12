@@ -1,7 +1,7 @@
 .input-search__wrapper-dis {
 	display: inline-flex;
-	border-radius: 0.21668vw;
-	padding: 0.7584vw 0.86674vw;
+	border-radius: 4px;
+	padding: 14px 16px;
 	align-items: center;
 	outline: none;
 	background: var(--black-5per);
@@ -9,21 +9,21 @@
 }
 
 .input-search-dis {
-	width: 19.33911vw;
-	height: 1.30011vw;
+	width: 357px;
+	height: 24px;
 	border: none;
 	font-family: 'Golos 14pt Regular 14x20';
 	font-weight: 400;
 	letter-spacing: -0.01em;
-	font-size: 0.7584vw;
+	font-size: 14px;
 	outline: none;
 	background: var(--black-5per);
 }
 
 .input-search__icon-dis {
-	width: 0.81257vw;
-	height: 0.81257vw;
-	margin-right: 0.65005vw;
+	width: 15px;
+	height: 15px;
+	margin-right: 12px;
 	order: -1;
 }
 

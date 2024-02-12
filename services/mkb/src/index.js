@@ -5,6 +5,7 @@ import { available } from './modules/api'
 import web from '../package.json'
 import axios from '@src/utilites/API';
 import isEmpty from "./utilites/isEmpty";
+import './font.style.css';
 
 let Release = ''
 let Lang = ''

@@ -1,9 +1,3 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable no-shadow */
-/* eslint-disable prefer-const */
-/* eslint-disable no-unused-vars */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-cycle */
 import { search } from './index';
 
 export function getRed(arrayObjects, word) {

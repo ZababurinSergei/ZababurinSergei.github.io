@@ -1,15 +1,4 @@
-/* eslint-disable prefer-destructuring */
-/* eslint-disable no-lonely-if */
-/* eslint-disable no-prototype-builtins */
-/* eslint-disable consistent-return */
-/* eslint-disable array-callback-return */
-/* eslint-disable no-plusplus */
-/* eslint-disable prefer-const */
-/* eslint-disable no-param-reassign */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-cycle */
 import { search } from './index';
-
 export async function getResultMain(value, scale = [], fields = []) {
 	value = value.trim();
 	let dataSearch = await search.searchWordsMain(value, scale, fields);
@@ -81,7 +70,6 @@ export async function getResultMain(value, scale = [], fields = []) {
 	// arrayWithoutCode.map(object => {
 		getSortCode(object);
 		if (object.descendants) {
-			// eslint-disable-next-line consistent-return
 			object.descendants.sort((a, b) => {
 				if (a.code < b.code) return -1;
 				if (a.code > b.code) return 1;
@@ -117,7 +105,7 @@ function getSortCode(object) {
 	} else {
 
 		if (Array.isArray(object.descendants) && object.descendants.length > 0) {
-
+			
 			for (let i = 0; i < object.descendants.length; i++) {
 				if (object.descendants[i].hasOwnProperty('code')) {
 					sortCode = object.descendants[i].code[0];

@@ -1,10 +1,5 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable consistent-return */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
 import axios from '@src/utilites/API';
-import useLinks from './links';
+import * as links from './links';
 
 /**
  * @description Entity search by word for advanced search on the main page
@@ -13,7 +8,6 @@ import useLinks from './links';
  * @returns {object} Object with result of search
 */
 export async function apiSearchWordsFields(word, fields) {
-	const links = useLinks()
   try {
     const body = getBodyForApiSearchWords(word, fields);
     const response = await axios.post(
@@ -38,6 +32,6 @@ function getBodyForApiSearchWords(word, fields) {
     query: word,
     highlight: true,
     subTree: [],
-    fields,
+    fields: fields,
   };
 }

@@ -1,6 +1,6 @@
 :root {
     --expand: 113%;
-    --expand_mobile: 31.52763vw;
+    --expand_mobile: 582px;
 }
 
 .selected {
@@ -13,12 +13,22 @@
   -webkit-animation: slide-out 0.5s forwards;
 }
 
+
 @keyframes slide-in {
   0% {
     -webkit-transform: translateX(var(--expand));
   }
   100% {
     -webkit-transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    transform: translateX(var(--expand));
+  }
+  100% {
+    transform: translateX(0%);
   }
 }
 
@@ -31,18 +41,27 @@
   }
 }
 
+@-webkit-keyframes slide-out {
+  0% {
+    -webkit-transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(var(--expand));
+  }
+}
+
 input[type="checkbox"]:checked {
      accent-color: var(--blue-50per);
-    border-radius: 0.21668vw;
-    height: 1.08342vw;
-    width: 1.08342vw;
+    border-radius: 4px;
+    height: 20px;
+    width: 20px;
     cursor: pointer;
 }
 
 input[type="checkbox"] {
-    border-radius: 0.21668vw;
-    height: 1.08342vw;
-    width: 1.08342vw;
+    border-radius: 4px;
+    height: 20px;
+    width: 20px;
     cursor: pointer;
     accent-color: var(--blue-50per);
 }
@@ -53,7 +72,7 @@ input[type="checkbox"]:hover {
 
 .tooltip-container {
     left: 2rem!important;
-		max-width: 22.21018vw;
+		max-width: 410px;
 }
 
 .tooltip-container > .tooltip-arrow {
@@ -71,12 +90,30 @@ input[type="checkbox"]:hover {
         }
     }
 
+    @-webkit-keyframes slide-in {
+        0% {
+            transform: translateX(var(--expand_mobile));
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
     @keyframes slide-out {
         0% {
             transform: translateX(0%);
         }
         100% {
             transform: translateX(var(--expand_mobile));
+        }
+    }
+
+    @-webkit-keyframes slide-out {
+        0% {
+            -webkit-transform: translateX(0%);
+        }
+        100% {
+            -webkit-transform: translateX(var(--expand_mobile));
         }
     }
 }

@@ -1,10 +1,5 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable no-return-await */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
 import axios from '@src/utilites/API';
-import useLinks from './links';
+import * as links from './links'
 
 /**
  * @description Getting an entity from the linearezation table
@@ -12,6 +7,5 @@ import useLinks from './links';
  * @return {Promise<{config: object, data: object, headers: object, request: object, status: number, statusText: string}>} According to the URI, the essence is obtained.
 */
 export async function apiGetEntityLin(uri) {
-	const links = useLinks()
 	return await axios.get(uri, links.optionsGetEntity);
 };

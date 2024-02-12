@@ -5,10 +5,9 @@ function CrossDeleteId() {
 	return (
 		<div className={style.wrapper}>
 			<svg
-				// width="24"
-				// height="24"
+				width="24"
+				height="24"
 				viewBox="0 0 24 24"
-				preserveAspectRatio="xMidYMid meet"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 				id="svgCrossDeleteId"

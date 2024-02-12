@@ -366,6 +366,7 @@ export const Update = () => {
     });
   }, [moveReason, cachedConfig]);
 
+  console.log('@@@@@@@@ cachedConfig @@@@@@@@', cachedConfig)
   return (
     <div className={style.container}>
       <main className={style.content}>
@@ -376,7 +377,7 @@ export const Update = () => {
           title={'Ошибка'}
           onClose={() => setShowWarn(false)}
         />
-        {cachedConfig?.releaseState === 3 && cachedConfig?.firstBase ? (
+        {cachedConfig?.releaseState === 3 ? (
           <Modal
             title="Введите основание для отмены версии"
             onClose={() => {

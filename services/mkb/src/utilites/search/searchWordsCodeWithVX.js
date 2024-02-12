@@ -1,18 +1,5 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable no-shadow */
-/* eslint-disable no-param-reassign */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable arrow-body-style */
-/* eslint-disable no-plusplus */
-/* eslint-disable prefer-const */
-/* eslint-disable no-prototype-builtins */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-else-return */
-/* eslint-disable consistent-return */
-/* eslint-disable import/no-cycle */
+import * as links from './links';
 import { search } from './index';
-
-import useLinks from './links';
 
 export async function searchWordsCodeWithVX(value, scale, fields) {
   try {
@@ -36,7 +23,6 @@ export async function searchWordsCodeWithVX(value, scale, fields) {
 
 // замена запроса для получения фундаментальных болезней
 function changeUriForGetFoundation(data) {
-	const links = useLinks();
   return data.map(obj => ({
     ...obj,
     uriFound: `${links.URL_PREF_FOUND}${obj.entityId}`,
@@ -49,7 +35,6 @@ function changeArrayUriForGetLinearization(data) {
 }
 
 export function changeUriForGetLinearization(obj) {
-	const links = useLinks();
   if (obj.uri.includes('other')) {
     return {
       ...obj,
@@ -68,7 +53,6 @@ export function changeUriForGetLinearization(obj) {
   };
 }
 function changeUriTermForGetLinearization(obj) {
-	const links = useLinks();
   if (obj.foundationReference) {
     return {
       ...obj,

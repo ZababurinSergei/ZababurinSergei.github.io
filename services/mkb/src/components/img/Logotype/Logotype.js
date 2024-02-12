@@ -6,13 +6,12 @@ function Logotype() {
 	return (
 		<div className="logotype-img__wrapper">
 			<a
-				href={'https://fnsi.egisz.rosminzdrav.ru/'}
+				href={'https://nsi.rosminzdrav.ru/'}
 			>
 				<svg
-					// width="36"
-					// height="36"
+					width="36"
+					height="36"
 					viewBox="0 0 36 36"
-					preserveAspectRatio="xMidYMid meet"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
 				>

@@ -1,12 +1,5 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable no-unused-vars */
-/* eslint-disable consistent-return */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-cycle */
 import axios from '@src/utilites/API';
-import useLinks from './links';
+import * as links from './links';
 import {search} from './index';
 
 /**
@@ -18,15 +11,12 @@ import {search} from './index';
 */
 export async function apiSearchWordsMain(word, arraySubTree, _fields) {
 	try {
-		const links = useLinks()
-		console.log("🚀 ~ apiSearchWordsMain ~ links.URL_SEARCH_LINEAR:", links.URL_SEARCH_LINEAR)
 		const scale = search.getArrayIdScaleEntity(arraySubTree)
 		const body = getBodyForApiSearchWordsMain(word);
 		const response = await axios.post(
 			links.URL_SEARCH_LINEAR,
 			body
 		);
-		console.log("🚀 ~ apiSearchWordsMain ~ response:", response)
 		return response;
 	} catch (error) {
 		console.log(error);

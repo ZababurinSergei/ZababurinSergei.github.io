@@ -1,9 +1,9 @@
 .wrapper {
 	width: 100%;
 	display: flex;
-	align-items: flex-start;
-	padding-left: 0.86674vw;
-	padding-bottom: 0.65005vw;
+	align-items: start;
+	padding-left: 16px;
+	padding-bottom: 12px;
 	flex-direction: column;
 	cursor: pointer;
 	box-sizing: border-box;
@@ -12,15 +12,15 @@
 .diseaseTitle {
 	width: 100%;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: start;
 }
 
 .diseaseTitleBlue {
 	width: 100%;
 	background: rgba(0, 153, 255, 0.1);
-	border-radius: 0.21668vw;
+	border-radius: 4px;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: start;
 }
 
 .wrapper:hover {
@@ -32,13 +32,13 @@
 	font-family: 'Golos 14pt Regular 14x20';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 0.7584vw;
-	line-height: 1.08342vw;
+	font-size: 14px;
+	line-height: 20px;
 	letter-spacing: -0.01em;
-	margin-right: 0.48754vw;
+	margin-right: 9px;
 	text-align: center;
 	display: flex;
-	align-items: flex-start;
+	align-items: start;
 }
 
 .word {
@@ -46,8 +46,8 @@
 	font-family: 'Golos 14pt Regular 14x20';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 0.7584vw;
-	line-height: 1.08342vw;
+	font-size: 14px;
+	line-height: 20px;
 	letter-spacing: -0.01em;
 	/* margin-right: 9px; */
 	width: 100%;

@@ -1,13 +1,13 @@
 .button__main {
 	/* width: 91px; */
-	height: 2.16685vw;
+	height: 40px;
 	/* min-width: 91px; */
-	min-height: 2.16685vw;
-	padding: 0 1.35428vw;
+	min-height: 40px;
+	padding: 0 25px;
 	background: var(--blue-100per);
-	border-radius: 0.21668vw;
+	border-radius: 4px;
 	font-family: 'Golos 14pt Medium 14x20';
-	font-size: 0.7584vw;
+	font-size: 14px;
 	color: var(--white-100per);
   outline: none;
 	border: none;
@@ -24,7 +24,7 @@
 
 .button__main:focus {
 	background: var(--blue-50per);
-	border: 0.05417vw solid var(--blue-40per);
+	border: 1px solid var(--blue-40per);
 	outline: none;
 }
 

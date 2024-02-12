@@ -1,5 +1,5 @@
-import React from 'react'
 import style from './index.module.css'
+import StyleMap from '../../../img/StyleMap/StyleMap';
 
 export default () => {
 

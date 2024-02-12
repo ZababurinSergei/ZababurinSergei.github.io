@@ -1,13 +1,6 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable consistent-return */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-cycle */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
 import axios from '@src/utilites/API';
-import { search } from './index';
-import useLinks from './links';
-
+import * as links from './links';
+import {search} from './index';
 
 /**
  * @param {string} word - The word by which the entity will be searched
@@ -16,7 +9,6 @@ import useLinks from './links';
  * @returns {object} Object with result of search
 */
 export async function apiSearchWordsCoord(word, arraySubTree, fields) {
-	const links = useLinks()
 	try {
 		const scale = search.getArrayIdScaleEntity(arraySubTree)
 		// const scale = arraySubTree.map(scaleEntity => scaleEntity.id)
@@ -43,6 +35,6 @@ function getBodyForApiSearchWords(word, arraySubTree, fields) {
     query: word,
     highlight: false,
     subTree: arraySubTree,
-		fields,
+		fields: fields,
   };
 }

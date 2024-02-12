@@ -15,9 +15,9 @@ export const CanceledVersions = ({ reportList, remove, showMoveReason }) => {
 								Дата отмены
 								{' '}
 								{/* {new Date(Number(`${report.releaseStateUnix}000`)).getDate()}. */}
-								{new Date(Number(`${report.releaseStateUnix}000`)).getDate() + 1 < 10
-									? `0${new Date(Number(`${report.releaseStateUnix}000`)).getDate() + 1}`
-									: new Date(Number(`${report.releaseStateUnix}000`)).getDate() + 1}.
+								{new Date(Number(`${report.releaseStateUnix}000`)).getDate() < 10
+									? `0${new Date(Number(`${report.releaseStateUnix}000`)).getDate()}`
+									: new Date(Number(`${report.releaseStateUnix}000`)).getDate()}.
 								{new Date(Number(`${report.releaseStateUnix}000`)).getMonth() + 1 < 10
 									? `0${new Date(Number(`${report.releaseStateUnix}000`)).getMonth() + 1}`
 									: new Date(Number(`${report.releaseStateUnix}000`)).getMonth() + 1}.

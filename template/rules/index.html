@@ -6,7 +6,7 @@
         <slot name="welcome-menu"></slot>
         <slot name="welcome-animation"></slot>
         <div class="welcome-body">
-            <section class='slider parallax-container-on' data-id="0">
+            <section class='slider parallax-container-off' data-id="0">
                 <slot name="welcome-section-0"></slot>
             </section>
             <section class='slider parallax-container-off' data-id="1">
@@ -74,85 +74,87 @@
             data-css-shadow="rules_0_0"
             slot="welcome-menu"
     >
-        <div class="container">
-            <div class="slider">
-                <div class="square"></div>
+        <template>
+            <div class="container">
+                <div class="slider">
+                    <div class="square"></div>
+                </div>
+                <div class="body">
+                    <slot name="button-0"></slot>
+                    <slot name="button-1"></slot>
+                    <slot name="button-2"></slot>
+                    <slot name="button-3"></slot>
+                    <slot name="button-4"></slot>
+                    <slot name="button-5"></slot>
+                </div>
             </div>
-            <div class="body">
-                <slot name="button-0"></slot>
-                <slot name="button-1"></slot>
-                <slot name="button-2"></slot>
-                <slot name="button-3"></slot>
-                <slot name="button-4"></slot>
-                <slot name="button-5"></slot>
-            </div>
-        </div>
-        <fer-button
-                data-services-path="rules"
-                data-event="Schema"
-                slot="button-0"
-                data-id="0"
-                data-type="welcome-menu"
-                data-css-shadow="menu"
-        >
-            <p>Схемы</p>
-        </fer-button>
+            <fer-button
+              data-services-path="rules"
+              data-event="Schema"
+              slot="button-0"
+              data-id="0"
+              data-type="welcome-menu"
+              data-css-shadow="menu"
+            >
+                <p>Схемы</p>
+            </fer-button>
 
-        <fer-button
-                data-services-path="rules"
-                slot="button-1"
-                data-event="Rules"
-                data-id="1"
-                data-type="welcome-menu"
-                data-css-shadow="menu"
-        >
-            <p>Правила</p>
+            <fer-button
+              data-services-path="rules"
+              slot="button-1"
+              data-event="Rules"
+              data-id="1"
+              data-type="welcome-menu"
+              data-css-shadow="menu"
+            >
+                <p>Правила</p>
 
-        </fer-button>
+            </fer-button>
 
-        <fer-button
-                data-services-path="rules"
-                slot="button-2"
-                data-event="Manifest"
-                data-id="2"
-                data-type="welcome-menu"
-                data-css-shadow="menu"
-        >
-            <p>Манифесты</p>
-        </fer-button>
+            <fer-button
+              data-services-path="rules"
+              slot="button-2"
+              data-event="Manifest"
+              data-id="2"
+              data-type="welcome-menu"
+              data-css-shadow="menu"
+            >
+                <p>Манифесты</p>
+            </fer-button>
 
-        <fer-button
-                data-services-path="rules"
-                slot="button-3"
-                data-event="Region"
-                data-id="3"
-                data-type="welcome-menu"
-                data-css-shadow="menu"
-        >
-            <p>Регион</p>
-        </fer-button>
+            <fer-button
+              data-services-path="rules"
+              slot="button-3"
+              data-event="Region"
+              data-id="3"
+              data-type="welcome-menu"
+              data-css-shadow="menu"
+            >
+                <p>Название субъекта</p>
+            </fer-button>
 
-        <fer-button
-                data-services-path="rules"
-                slot="button-4"
-                data-event="Domain"
-                data-id="4"
-                data-type="welcome-menu"
-                data-css-shadow="menu"
-        >
-            <p>Домен</p>
-        </fer-button>
+            <fer-button
+              data-services-path="rules"
+              slot="button-4"
+              data-event="Domain"
+              data-id="4"
+              data-type="welcome-menu"
+              data-css-shadow="menu"
+            >
+                <p>Домен</p>
+            </fer-button>
 
-        <fer-button
-          data-services-path="rules"
-          slot="button-5"
-          data-event="Mapping"
-          data-id="5"
-          data-type="welcome-menu"
-          data-css-shadow="menu"
-        >
-            <p>Маппинг</p>
-        </fer-button>
+            <fer-button
+              data-services-path="rules"
+              slot="button-5"
+              data-event="Mapping"
+              data-id="5"
+              data-type="welcome-menu"
+              data-css-shadow="menu"
+            >
+                <p>Маппинг</p>
+            </fer-button>
+        </template>
     </welcome-menu>
 
     <welcome-section
@@ -162,43 +164,94 @@
             data-css-shadow="rules_0_0"
             slot="welcome-section-0"
     >
-        <div class='images'></div>
-        <div class='body--padding_70px_100px'>
-            <div class="container">
-                <div>
-                    <slot name="select"></slot>
-                    <slot name="fer-table_0"></slot>
+        <template>
+            <div class='images'></div>
+            <div class='body--padding_70px_100px'>
+                <div class="container">
+                    <div>
+                        <slot name="select"></slot>
+                        <slot name="fer-table_0"></slot>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <fer-table
-                data-services-path="rules"
-                data-template="table_0"
-                data-id="0"
-                data-to="0_0"
-                slot="fer-table_0"
-        >
-            <div class="auction-data">
-                <div class="auction-data__table">
-                    <div class="auction-data__table_header --table_0">
-                        <div class="auction-data__table_header_td">Домен</div>
-                        <div class="auction-data__table_header_td">Название</div>
-                        <div class="auction-data__table_header_td">Версия схемы</div>
-                        <div class="auction-data__table_header_td background-transparent"></div>
-                        <div class="auction-data__table_header_td background-transparent menu-button">
-                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+            <fer-table
+              data-services-path="rules"
+              data-template="table_0"
+              data-id="0"
+              data-to="0_0"
+              slot="fer-table_0"
+            >
+                <template>
+                    <div class="auction-data">
+                        <div class="auction-data__table">
+                            <div class="auction-data__table_header --table_0">
+                                <div class="auction-data__table_header_td">Название домена</div>
+                                <div class="auction-data__table_header_td">Название схемы</div>
+                                <div class="auction-data__table_header_td">Версия схемы</div>
+                                <div class="auction-data__table_header_td background-transparent"></div>
+                                <div class="auction-data__table_header_td background-transparent menu-button">
+                                    <img class="auction-data__table_header_img" src="/icons/table/plus.svg"/>
+                                </div>
+                            </div>
+                            <div class="auction-data__table_body"></div>
+                            <div class="auction-data__table_footer">
+                                <input class="auction-data__table_footer_td" name="domain"/>
+                                <input class="auction-data__table_footer_td" name="name"/>
+                                <input class="auction-data__table_footer_td" name="version"/>
+                            </div>
                         </div>
                     </div>
-                    <div class="auction-data__table_body"></div>
-                    <div class="auction-data__table_footer">
-                        <input class="auction-data__table_footer_td" name="domain"/>
-                        <input class="auction-data__table_footer_td" name="name"/>
-                        <input class="auction-data__table_footer_td" name="version"/>
+                    <div class="pagination">
+                        <slot name="table_0_pagination"></slot>
                     </div>
-                </div>
-            </div>
-        </fer-table>
+                    <fer-pagination
+                      data-services-path="rules"
+                      data-id="0"
+                      data-to="0_0"
+                      data-items-per-page="10"
+                      data-page="0"
+                      slot="table_0_pagination"
+                    >
+                        <template>
+                            <div class="pagination">
+                                <div class="first">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="12 6.414 19.293 13.707 20.707 12.293 12 3.586 3.293 12.293 4.707 13.707 12 6.414"/>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="previous">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="container"></div>
+                                <div class="next">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="last">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="12 6.414 19.293 13.707 20.707 12.293 12 3.586 3.293 12.293 4.707 13.707 12 6.414"/>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </template>
+                    </fer-pagination>
+                </template>
+            </fer-table>
+        </template>
     </welcome-section>
 
     <welcome-section
@@ -208,42 +261,95 @@
             data-css-shadow="rules_0_0"
             slot="welcome-section-1"
     >
-        <div class='images'></div>
-        <div class='body--padding_70px_100px'>
-            <div class="container">
-                <div>
-                    <slot name="fer-table_1"></slot>
+        <template>
+            <div class='images'></div>
+            <div class='body--padding_70px_100px'>
+                <div class="container">
+                    <div>
+                        <slot name="fer-table_1"></slot>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <fer-table
-            data-services-path="rules"
-            data-template="table_1_1"
-            data-id="1"
-            data-to="1_0"
-            slot="fer-table_1"
-        >
-            <div class="auction-data">
-                <div class="auction-data__table">
-                    <div class="auction-data__table_header">
-                        <div class="auction-data__table_header_td">id</div>
-                        <div class="auction-data__table_header_td">Описание</div>
-                        <div class="auction-data__table_header_td">схема</div>
-                        <div class="auction-data__table_header_td background-transparent"></div>
-                        <div class="auction-data__table_header_td background-transparent menu-button">
-                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+            <fer-table
+              data-services-path="rules"
+              data-template="table_1_1"
+              data-id="1"
+              data-to="1_0"
+              slot="fer-table_1"
+            >
+                <template>
+                    <div class="auction-data">
+                        <div class="auction-data__table">
+                            <div class="auction-data__table_header">
+                                <div class="auction-data__table_header_td">id</div>
+                                <div class="auction-data__table_header_td">Описание правила</div>
+                                <div class="auction-data__table_header_td">Идентификатор схемы</div>
+                                <div class="auction-data__table_header_td background-transparent"></div>
+                                <div class="auction-data__table_header_td background-transparent menu-button">
+                                    <img class="auction-data__table_header_img" src="/icons/table/plus.svg"/>
+                                </div>
+                            </div>
+                            <div class="auction-data__table_body"></div>
+                            <div class="auction-data__table_footer">
+                                <input class="auction-data__table_footer_td empty background-transparent" name="id"/>
+                                <input class="auction-data__table_footer_td" name="description"/>
+                                <input class="auction-data__table_footer_td" name="schema_version"/>
+                            </div>
                         </div>
                     </div>
-                    <div class="auction-data__table_body"></div>
-                    <div class="auction-data__table_footer">
-                        <input class="auction-data__table_footer_td empty background-transparent" name="id"/>
-                        <input class="auction-data__table_footer_td" name="description"/>
-                        <input class="auction-data__table_footer_td" name="schema_version"/>
+
+                    <div class="pagination">
+                        <slot name="table_1_pagination"></slot>
                     </div>
-                </div>
-            </div>
-        </fer-table>
+
+                    <fer-pagination
+                      data-services-path="rules"
+                      data-id="1"
+                      data-to="1_0"
+                      data-items-per-page="12"
+                      data-page="0"
+                      slot="table_1_pagination"
+                    >
+                        <template>
+                            <div class="pagination">
+                                <div class="first">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="12 6.414 19.293 13.707 20.707 12.293 12 3.586 3.293 12.293 4.707 13.707 12 6.414"/>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="previous">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="container"></div>
+                                <div class="next">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="last">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="12 6.414 19.293 13.707 20.707 12.293 12 3.586 3.293 12.293 4.707 13.707 12 6.414"/>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </template>
+                    </fer-pagination>
+                </template>
+            </fer-table>
+        </template>
     </welcome-section>
 
     <welcome-section
@@ -253,49 +359,102 @@
             data-css-shadow="rules_0_0"
             slot="welcome-section-2"
     >
-        <div class='images'></div>
-        <div class='body--padding_70px_100px'>
-            <div class="container--justify-content_space-between">
-                <div class="wrapper__rules-manifest">
-                    <div class="table__fer-rules">
-                        <slot name="fer-table_2"></slot>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <fer-table
-                data-services-path="rules"
-                data-template="table_2"
-                data-id="2"
-                data-to="2_0"
-                slot="fer-table_2"
-        >
-            <div class="auction-data">
-                <div class="auction-data__table">
-                    <div class="auction-data__table_header">
-                        <div class="auction-data__table_header_td">id</div>
-                        <div class="auction-data__table_header_td">Описание</div>
-                        <div class="auction-data__table_header_td">Версия манифеста</div>
-                        <div class="auction-data__table_header_td">Версия схемы</div>
-                        <div class="auction-data__table_header_td">Регион</div>
-                        <div class="auction-data__table_header_td">Статус</div>
-                        <div class="auction-data__table_header_td background-transparent"></div>
-                        <div class="auction-data__table_header_td background-transparent menu-button">
-                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+        <template>
+            <div class='images'></div>
+            <div class='body--padding_70px_100px'>
+                <div class="container--justify-content_space-between">
+                    <div class="wrapper__rules-manifest resze_none">
+                        <div class="table__fer-rules">
+                            <slot name="fer-table_2"></slot>
                         </div>
                     </div>
-                    <div class="auction-data__table_body"></div>
-                    <div class="auction-data__table_footer">
-                        <input class="auction-data__table_footer_td empty background-transparent" name="id"/>
-                        <input class="auction-data__table_footer_td" name="description"/>
-                        <input class="auction-data__table_footer_td" name="version_manifest"/>
-                        <input class="auction-data__table_footer_td" name="version_schema"/>
-                        <input class="auction-data__table_footer_td" name="region"/>
-                        <input class="auction-data__table_footer_td" name="status"/>
-                    </div>
                 </div>
             </div>
-        </fer-table>
+            <fer-table
+              data-services-path="rules"
+              data-template="table_2"
+              data-id="2"
+              data-to="2_0"
+              slot="fer-table_2"
+            >
+                <template>
+                    <div class="auction-data">
+                        <div class="auction-data__table">
+                            <div class="auction-data__table_header">
+                                <div class="auction-data__table_header_td">id</div>
+                                <div class="auction-data__table_header_td">Описание манифеста</div>
+                                <div class="auction-data__table_header_td">Версия манифеста</div>
+                                <div class="auction-data__table_header_td">Идентификатор схемы</div>
+                                <div class="auction-data__table_header_td">Название субъекта</div>
+                                <div class="auction-data__table_header_td">Статус манифеста</div>
+                                <div class="auction-data__table_header_td background-transparent"></div>
+                                <div class="auction-data__table_header_td background-transparent menu-button">
+                                    <img class="auction-data__table_header_img" src="/icons/table/plus.svg"/>
+                                </div>
+                            </div>
+                            <div class="auction-data__table_body"></div>
+                            <div class="auction-data__table_footer">
+                                <input class="auction-data__table_footer_td empty background-transparent" name="id"/>
+                                <input class="auction-data__table_footer_td" name="description"/>
+                                <input class="auction-data__table_footer_td" name="version_manifest"/>
+                                <input class="auction-data__table_footer_td" name="version_schema"/>
+                                <input class="auction-data__table_footer_td" name="region"/>
+                                <input class="auction-data__table_footer_td" name="status"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pagination">
+                        <slot name="table_2_pagination"></slot>
+                    </div>
+
+                    <fer-pagination
+                      data-services-path="rules"
+                      data-id="2"
+                      data-to="2_0"
+                      data-items-per-page="12"
+                      data-page="0"
+                      slot="table_2_pagination"
+                    >
+                        <template>
+                            <div class="pagination">
+                                <div class="first">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="12 6.414 19.293 13.707 20.707 12.293 12 3.586 3.293 12.293 4.707 13.707 12 6.414"/>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="previous">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="container"></div>
+                                <div class="next">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="last">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="12 6.414 19.293 13.707 20.707 12.293 12 3.586 3.293 12.293 4.707 13.707 12 6.414"/>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </template>
+                    </fer-pagination>
+                </template>
+            </fer-table>
+        </template>
     </welcome-section>
 
     <welcome-section
@@ -305,74 +464,32 @@
             data-css-shadow="rules_0_0"
             slot="welcome-section-3"
     >
-        <div class='images'></div>
-        <div class='body--padding_70px_100px'>
-            <div class="container">
-                <div>
-                    <slot name="fer-table_3"></slot>
-                </div>
-            </div>
-        </div>
-
-        <fer-table
-                data-services-path="rules"
-                data-template="table_3"
-                data-id="3"
-                data-to="3_0"
-                slot="fer-table_3"
-        >
-            <div class="auction-data">
-                <div class="auction-data__table">
-                    <div class="auction-data__table_header --table_3">
-                        <div class="auction-data__table_header_td">Название</div>
-                        <div class="auction-data__table_header_td">Описание</div>
-                        <div class="auction-data__table_header_td background-transparent"></div>
-                        <div class="auction-data__table_header_td background-transparent menu-button">
-                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
-                        </div>
-                    </div>
-                    <div class="auction-data__table_body"></div>
-                    <div class="auction-data__table_footer">
-                        <input class="auction-data__table_footer_td" name="name"/>
-                        <input class="auction-data__table_footer_td" name="description"/>
+        <template>
+            <div class='images'></div>
+            <div class='body--padding_70px_100px'>
+                <div class="container">
+                    <div>
+                        <slot name="fer-table_3"></slot>
                     </div>
                 </div>
             </div>
-        </fer-table>
-    </welcome-section>
 
-    <welcome-section
-            data-services-path="rules"
-            data-id="4"
-            data-to="_"
-            slot="welcome-section-4"
-            data-css-shadow="rules_0_0"
-    >
-
-                <div class='images'></div>
-                <div class='body--padding_70px_100px'>
-                    <div class="container">
-                        <div>
-                            <slot name="fer-table_4"></slot>
-                        </div>
-                    </div>
-                </div>
-
-                <fer-table
-                  data-services-path="rules"
-                  data-template="table_3"
-                  data-id="4"
-                  data-to="_"
-                  slot="fer-table_4"
-                >
+            <fer-table
+              data-services-path="rules"
+              data-template="table_3"
+              data-id="3"
+              data-to="3_0"
+              slot="fer-table_3"
+            >
+                <template>
                     <div class="auction-data">
                         <div class="auction-data__table">
                             <div class="auction-data__table_header --table_3">
-                                <div class="auction-data__table_header_td">Название</div>
-                                <div class="auction-data__table_header_td">Описание</div>
+                                <div class="auction-data__table_header_td">Название субъекта</div>
+                                <div class="auction-data__table_header_td">Описание субъекта</div>
                                 <div class="auction-data__table_header_td background-transparent"></div>
                                 <div class="auction-data__table_header_td background-transparent menu-button">
-                                    <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+                                    <img class="auction-data__table_header_img" src="/icons/table/plus.svg"/>
                                 </div>
                             </div>
                             <div class="auction-data__table_body"></div>
@@ -382,7 +499,56 @@
                             </div>
                         </div>
                     </div>
-                </fer-table>
+                </template>
+            </fer-table>
+        </template>
+    </welcome-section>
+
+    <welcome-section
+            data-services-path="rules"
+            data-id="4"
+            data-to="_"
+            slot="welcome-section-4"
+            data-css-shadow="rules_0_0"
+    >
+        <template>
+            <div class='images'></div>
+            <div class='body--padding_70px_100px'>
+                <div class="container">
+                    <div>
+                        <slot name="fer-table_4"></slot>
+                    </div>
+                </div>
+            </div>
+
+            <fer-table
+              data-services-path="rules"
+              data-template="table_3"
+              data-id="4"
+              data-to="_"
+              slot="fer-table_4"
+            >
+                <template>
+                    <div class="auction-data">
+                        <div class="auction-data__table">
+                            <div class="auction-data__table_header --table_3">
+                                <div class="auction-data__table_header_td">Название домена</div>
+                                <div class="auction-data__table_header_td">Описание домена</div>
+                                <div class="auction-data__table_header_td background-transparent"></div>
+                                <div class="auction-data__table_header_td background-transparent menu-button">
+                                    <img class="auction-data__table_header_img" src="/icons/table/plus.svg"/>
+                                </div>
+                            </div>
+                            <div class="auction-data__table_body"></div>
+                            <div class="auction-data__table_footer">
+                                <input class="auction-data__table_footer_td" name="name"/>
+                                <input class="auction-data__table_footer_td" name="description"/>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </fer-table>
+        </template>
     </welcome-section>
 
     <welcome-section
@@ -392,41 +558,93 @@
       slot="welcome-section-5"
       data-css-shadow="rules_0_0"
     >
-
-        <div class='images'></div>
-        <div class='body--padding_70px_100px'>
-            <div class="container">
-                <div>
-                    <slot name="fer-table_5"></slot>
+        <template>
+            <div class='images'></div>
+            <div class='body--padding_70px_100px'>
+                <div class="container">
+                    <div>
+                        <slot name="fer-table_5"></slot>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <fer-table
-          data-services-path="rules"
-          data-template="table_3"
-          data-id="5"
-          data-to="5_0"
-          slot="fer-table_5"
-        >
-            <div class="auction-data">
-                <div class="auction-data__table">
-                    <div class="auction-data__table_header --table_3">
-                        <div class="auction-data__table_header_td">Регион</div>
-                        <div class="auction-data__table_header_td">Версия схемы</div>
-                        <div class="auction-data__table_header_td background-transparent"></div>
-                        <div class="auction-data__table_header_td background-transparent menu-button">
-                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+            <fer-table
+              data-services-path="rules"
+              data-template="table_3"
+              data-id="5"
+              data-to="5_0"
+              slot="fer-table_5"
+            >
+                <template>
+                    <div class="auction-data">
+                        <div class="auction-data__table">
+                            <div class="auction-data__table_header --table_3">
+                                <div class="auction-data__table_header_td">Идентификатор схемы</div>
+                                <div class="auction-data__table_header_td">Название субъекта</div>
+                                <div class="auction-data__table_header_td background-transparent"></div>
+                                <div class="auction-data__table_header_td background-transparent menu-button">
+                                    <img class="auction-data__table_header_img" src="/icons/table/plus.svg"/>
+                                </div>
+                            </div>
+                            <div class="auction-data__table_body"></div>
+                            <div class="auction-data__table_footer">
+                                <input class="auction-data__table_footer_td" name="name"/>
+                                <input class="auction-data__table_footer_td" name="description"/>
+                            </div>
                         </div>
                     </div>
-                    <div class="auction-data__table_body"></div>
-                    <div class="auction-data__table_footer">
-                        <input class="auction-data__table_footer_td" name="name"/>
-                        <input class="auction-data__table_footer_td" name="description"/>
+
+                    <div class="pagination">
+                        <slot name="table_5_pagination"></slot>
                     </div>
-                </div>
-            </div>
-        </fer-table>
+
+                    <fer-pagination
+                      data-services-path="rules"
+                      data-id="5"
+                      data-to="5_0"
+                      data-items-per-page="10"
+                      data-page="0"
+                      slot="table_5_pagination"
+                    >
+                        <template>
+                            <div class="pagination">
+                                <div class="first">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="12 6.414 19.293 13.707 20.707 12.293 12 3.586 3.293 12.293 4.707 13.707 12 6.414"/>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="previous">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="container"></div>
+                                <div class="next">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="last">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g>
+                                            <polygon points="12 6.414 19.293 13.707 20.707 12.293 12 3.586 3.293 12.293 4.707 13.707 12 6.414"/>
+                                            <polygon points="3.293 18.293 4.707 19.707 12 12.414 19.293 19.707 20.707 18.293 12 9.586 3.293 18.293"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </template>
+                    </fer-pagination>
+                </template>
+            </fer-table>
+        </template>
     </welcome-section>
 
     <welcome-section
@@ -436,152 +654,163 @@
         data-to="0"
         slot="welcome-section_0_0"
     >
-        <div class='images'></div>
-        <div class='body--padding_70px_100px--gap_24px'>
-            <div class="data__fer-rules">
-                <slot name="fer-form_0_0"></slot>
-                <slot name="fer-region_0"></slot>
-            </div>
-            <div class="container--flex-direction_row--gap_24px">
-                <div class="main__fer-rules">
-                    <div class="textEditor--flex-grow_1">
-                        <slot name="fer-codemirror"></slot>
+        <template>
+            <div class='images'></div>
+            <div class='body--padding_70px_100px--gap_24px'>
+                <div class="data__fer-rules">
+                    <slot name="fer-form_0_0"></slot>
+                    <slot name="fer-region_0"></slot>
+                </div>
+                <div class="container--flex-direction_row--gap_24px">
+                    <div class="main__fer-rules">
+                        <div class="textEditor--flex-grow_1">
+                            <slot name="fer-codemirror"></slot>
+                        </div>
+                    </div>
+                    <div class="container__rules-front">
+                        <div class="textEditor-sidebar">
+                            <div class="wrapper__rules-front">
+                                <div class="fer-region">
+                                    <slot name="fer-region_1"></slot>
+                                </div>
+                                <div class="fer-region__table_list">
+                                    <slot name="fer-region-table"></slot>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrapper__button-fer-rules">
+                            <div
+                              class="button__fer-rules"
+                              slot="fer-button"
+                            >
+                                <slot name="fer-form__cancel"></slot>
+                            </div>
+                            <div
+                              class="button__fer-rules"
+                              slot="fer-button"
+                            >
+                                <slot name="fer-form__save"></slot>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="container__rules-front">
-                    <div class="textEditor-sidebar">
-                        <div class="wrapper__rules-front">
-                            <div class="fer-region">
-                                <slot name="fer-region_1"></slot>
-                            </div>
-                            <div class="fer-region__table_list">
+            </div>
+
+            <fer-form
+              data-services-path="rules"
+              data-css-shadow="rules_0_0"
+              slot="fer-form_0_0"
+            >
+                <template>
+                    <div class="container__schema">
+                        <div class="input">
+                            <label for="domain">Название домена</label>
+                            <input id="domain" readonly placeholder="" readonly/>
+                        </div>
+                        <div class="input">
+                            <label for="name">Название схемы</label>
+                            <input id="name" readonly placeholder="" readonly/>
+                        </div>
+                    </div>
+                </template>
+            </fer-form>
+
+            <fer-codemirror
+              slot="fer-codemirror"
+              data-services-path="rules"
+            >
+                <template>
+                    <div class="codemirror-editor">
+                        <p class="codemirror-title">Код схемы</p>
+                        <textarea class="fer-codemirror" id="fer-codemirror"></textarea>
+                    </div>
+                </template>
+            </fer-codemirror>
+
+            <fer-region class="fer-region_0" slot="fer-region_0">
+                <template>
+                    <div class="input" readonly>
+                        <label for="version">Версия схемы</label>
+                        <input id="version" placeholder="" readonly/>
+                    </div>
+                    <div class="input --flex-grow_1 --outline">
+                        <label for="title">Заголовок</label>
+                        <input id="title" placeholder=""/>
+                    </div>
+                </template>
+            </fer-region>
+
+            <fer-region slot="fer-region_1">
+                <template>
+                    <div class="textEditor">
+                        <label class="label_for_description" for="rules_schema">Описание схемы</label>
+                        <textarea
+                          id="rules_schema"
+                          placeholder=""
+                          class="fer-codemirror-description--margin-bottom_12px"
+                        ></textarea>
+                    </div>
+                </template>
+            </fer-region>
+
+            <fer-region slot="fer-region-table">
+                <template>
+                    <div class="welcome-section_5_0__fer-region">
+                        <h2 class="welcome-section_5_0__fer-region_title">Ошибки проверки полей</h2>
+                        <div class="welcome-section_5_0__fer-region_container">
+                            <div class="welcome-section_5_0__fer-region_table">
                                 <slot name="fer-region-table"></slot>
                             </div>
                         </div>
                     </div>
-                    <div class="wrapper__button-fer-rules">
-                        <div
-                          class="button__fer-rules"
-                          slot="fer-button"
-                        >
-                            <slot name="fer-form__cancel"></slot>
-                        </div>
-                        <div
-                          class="button__fer-rules"
-                          slot="fer-button"
-                        >
-                            <slot name="fer-form__save"></slot>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <fer-form
-                data-services-path="rules"
-                data-css-shadow="rules_0_0"
-                slot="fer-form_0_0"
-        >
-            <div class="container__schema">
-                <div class="input">
-                    <label for="domain">Домен</label>
-                    <input id="domain" readonly placeholder="" readonly/>
-                </div>
-                <div class="input">
-                    <label for="name">Название схемы</label>
-                    <input id="name" readonly placeholder="" readonly/>
-                </div>
-            </div>
-        </fer-form>
-
-        <fer-codemirror
-                slot="fer-codemirror"
-                data-services-path="rules"
-        >
-            <div class="codemirror-editor">
-                <p class="codemirror-title">Код</p>
-                <textarea class="fer-codemirror" id="fer-codemirror"></textarea>
-            </div>
-        </fer-codemirror>
-
-        <fer-region class="fer-region_0" slot="fer-region_0">
-            <div class="input" readonly>
-                <label for="version">Версия</label>
-                <input id="version" placeholder="" readonly/>
-            </div>
-            <div class="input --flex-grow_1 --outline">
-                <label for="title">Заголовок</label>
-                <input id="title" placeholder=""/>
-            </div>
-        </fer-region>
-
-        <fer-region slot="fer-region_1">
-            <div class="textEditor">
-                <label class="label_for_description" for="rules_schema">Описание</label>
-                <textarea
-                  id="rules_schema"
-                  placeholder=""
-                  class="fer-codemirror-description--margin-bottom_12px"
-                ></textarea>
-            </div>
-
-        </fer-region>
-
-        <fer-region slot="fer-region-table">
-            <div class="welcome-section_5_0__fer-region">
-                <h2 class="welcome-section_5_0__fer-region_title">Ошибки проверки полей</h2>
-                <div class="welcome-section_5_0__fer-region_container">
-                    <div class="welcome-section_5_0__fer-region_table">
-                        <slot name="fer-region-table"></slot>
-                    </div>
-                </div>
-            </div>
-
-            <fer-table
-              data-services-path="rules"
-              data-template="table_0"
-              data-event="region"
-              data-id="0_0"
-              slot="fer-region-table"
-            >
-                <div class="auction-data">
-                    <div class="auction-data__table --grid-template-rows_1.97917vw_1fr">
-                        <div class="auction-data__table_header">
-                            <div class="auction-data__table_header_td">Код</div>
-                            <div class="auction-data__table_header_td">Сообщение</div>
-                            <div class="auction-data__table_header_td">Как исправить</div>
-                            <div class="auction-data__table_header_td background-transparent"></div>
-                            <div  data-event="rules" class="auction-data__table_header_td background-transparent menu-button">
-                                <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+                    <fer-table
+                      data-services-path="rules"
+                      data-template="table_0"
+                      data-event="region"
+                      data-id="0_0"
+                      slot="fer-region-table"
+                    >
+                        <div class="auction-data">
+                            <div class="auction-data__table --grid-template-rows_1.97917vw_1fr">
+                                <div class="auction-data__table_header">
+                                    <div class="auction-data__table_header_td">Код ошибки</div>
+                                    <div class="auction-data__table_header_td">Сообщение</div>
+                                    <div class="auction-data__table_header_td">Как исправить</div>
+                                    <div class="auction-data__table_header_td background-transparent"></div>
+                                    <div  data-event="rules" class="auction-data__table_header_td background-transparent menu-button">
+                                        <img class="auction-data__table_header_img" src="/icons/table/plus.svg"/>
+                                    </div>
+                                </div>
+                                <div class="auction-data__table_body"></div>
                             </div>
                         </div>
-                        <div class="auction-data__table_body"></div>
-                    </div>
-                </div>
-            </fer-table>
-        </fer-region>
+                    </fer-table>
+                </template>
+            </fer-region>
 
-        <fer-button
-                data-css-shadow="rules"
-                data-services-path="rules"
-                data-type="fer-form"
-                data-id="cancel"
-                data-to="0"
-                slot="fer-form__cancel"
-        >
-            <p class="cancel">Отмена</p>
-        </fer-button>
+            <fer-button
+              data-css-shadow="rules"
+              data-services-path="rules"
+              data-type="fer-form"
+              data-id="cancel"
+              data-to="0"
+              slot="fer-form__cancel"
+            >
+                <p class="cancel">Отмена</p>
+            </fer-button>
 
-        <fer-button
-                data-css-shadow="rules"
-                data-services-path="rules"
-                data-type="fer-form"
-                data-id="0_0"
-                data-to="0"
-                slot="fer-form__save"
-        >
-            <p class="save">Сохранить</p>
-        </fer-button>
+            <fer-button
+              data-css-shadow="rules"
+              data-services-path="rules"
+              data-type="fer-form"
+              data-id="0_0"
+              data-to="0"
+              slot="fer-form__save"
+            >
+                <p class="save">Сохранить</p>
+            </fer-button>
+        </template>
     </welcome-section>
 
     <welcome-section
@@ -590,203 +819,190 @@
             data-id="1_0"
             slot="welcome-section_1_0"
     >
-        <div class='images'></div>
-        <div class='body--padding_70px_100px'>
-            <div class="container--flex-direction_row--gap_20px">
-                <div class="main__fer-rules--flex-grow_1">
-                    <div class="data__fer-rules">
-                        <slot name="fer-form_0_0"></slot>
-                    </div>
-                    <div class="wrapper__container">
-                        <slot name="fer-region_container"></slot>
-                    </div>
-                </div>
-                <div class="container__rules-front--width_20dvw">
-                    <div class="textEditor-sidebar">
-                        <div class="wrapper__rules-front">
-                            <div class="validator__rules-front--resize_vertical">
-                                <p class="title__fer-rules">Валидаторы</p>
-                                <slot name="fer-tree"></slot>
-                            </div>
-                            <div class="validator__rules-front--resize_vertical">
-                                <p class="title__fer-rules">Схема</p>
-                                <div class="data-rule-jsonSchema"></div>
-                            </div>
-                            <div class="schema__rules-front">
-                                <slot name="fer-codemirror__events"></slot>
-                            </div>
+        <template>
+            <div class='images'></div>
+            <div class='body--padding_70px_100px'>
+                <div class="container--flex-direction_row--gap_20px">
+                    <div class="main__fer-rules--flex-grow_1">
+                        <div class="data__fer-rules">
+                            <slot name="fer-form_0_0"></slot>
+                        </div>
+                        <div class="wrapper__container">
+                            <slot name="fer-region_container"></slot>
                         </div>
                     </div>
+                    <div class="container__rules-front--width_20dvw">
+                        <div class="textEditor-sidebar">
+                            <div class="wrapper__rules-front">
+                                <div class="validator__rules-front--resize_vertical">
+                                    <p class="title__fer-rules">Валидаторы</p>
+                                    <slot name="fer-tree"></slot>
+                                </div>
+                                <div class="validator__rules-front--resize_vertical">
+                                    <p class="title__fer-rules">Код схемы</p>
+                                    <div class="data-rule-jsonSchema"></div>
+                                </div>
+                                <div class="schema__rules-front">
+                                    <slot name="fer-codemirror__events"></slot>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="wrapper__button-fer-rules">
-                        <div
-                          class="button__fer-rules"
-                          slot="fer-button"
-                        >
-                            <slot name="fer-form__cancel"></slot>
-                        </div>
-                        <div
-                          class="button__fer-rules"
-                          slot="fer-button"
-                        >
-                            <slot name="fer-form__validate"></slot>
-                        </div>
-                        <div
-                          class="button__fer-rules"
-                          slot="fer-button"
-                        >
-                            <slot name="fer-form__save"></slot>
+                        <div class="wrapper__button-fer-rules">
+                            <div
+                              class="button__fer-rules"
+                              slot="fer-button"
+                            >
+                                <slot name="fer-form__cancel"></slot>
+                            </div>
+                            <div
+                              class="button__fer-rules"
+                              slot="fer-button"
+                            >
+                                <slot name="fer-form__validate"></slot>
+                            </div>
+                            <div
+                              class="button__fer-rules"
+                              slot="fer-button"
+                            >
+                                <slot name="fer-form__save"></slot>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <fer-form
-                data-services-path="rules"
-                data-css-shadow="rules_0_0"
-                slot="fer-form_0_0"
-        >
-            <div class="container">
-                <div class="container__schema">
-                    <div class="input --width_414px">
-                        <label for="name">Cхема</label>
-                        <input id="name" placeholder="Схема" readonly />
+            <fer-form
+              data-services-path="rules"
+              data-css-shadow="rules_0_0"
+              slot="fer-form_0_0"
+            >
+                <template>
+                    <div class="container">
+                        <div class="container__schema">
+                            <div class="input --width_414px">
+                                <label for="name">Идентификатор схемы</label>
+                                <input id="name" placeholder="Идентификатор схемы" readonly />
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </fer-form>
+                </template>
+            </fer-form>
 
-        <fer-region
-          data-css-shadow="rule_1_0"
-          slot="fer-region_container"
-        >
-            <div class="flex-container">
-                <div class="textEditor--min-height_10dvh">
+            <fer-region
+              data-css-shadow="rule_1_0"
+              slot="fer-region_container"
+            >
+                <template>
+                    <div class="flex-container">
+                        <div class="textEditor--min-height_10dvh">
 
-                    <label class="label_for_description" for="rules_label">Описание</label>
-                    <textarea
-                      id="rules_label"
-                      placeholder=""
-                      class="fer-codemirror-description--margin-bottom_12px"
-                    ></textarea>
-                </div>
-                <div class="textEditor--flex-grow_1--min-height_20dvh--codemirror">
-                    <slot name="fer-codemirror"></slot>
-                </div>
-                <div class="rules_error_table">
-                    <label class="rules_error_table_label">Ошибки</label>
-                    <slot name="fer-rules-table"></slot>
-                </div>
-            </div>
+                            <label class="label_for_description" for="rules_label">Описание правила</label>
+                            <textarea
+                              id="rules_label"
+                              placeholder=""
+                              class="fer-codemirror-description--margin-bottom_12px"
+                            ></textarea>
+                        </div>
+                        <div class="textEditor--flex-grow_1--min-height_20dvh--codemirror">
+                            <slot name="fer-codemirror"></slot>
+                        </div>
+                        <div class="rules_error_table">
+                            <label class="rules_error_table_label">Ошибки проверки полей</label>
+                            <slot name="fer-rules-table"></slot>
+                        </div>
+                    </div>
 
+
+                    <fer-codemirror
+                      slot="fer-codemirror"
+                      id="rule"
+                      data-services-path="rules"
+                    >
+                        <template>
+                            <div class="codemirror-editor">
+                                <p class="codemirror-title">Текст правила</p>
+                                <textarea class="fer-codemirror" id="fer-codemirror"></textarea>
+                            </div>
+                        </template>
+                    </fer-codemirror>
+
+                    <fer-table
+                      data-services-path="rules"
+                      data-template="table_0"
+                      data-id="1_0"
+                      slot="fer-rules-table"
+                    >
+                        <template>
+                            <div class="auction-data">
+                                <div class="auction-data__table --grid-template-rows_1.97917vw_1fr">
+                                    <div class="auction-data__table_header">
+                                        <div class="auction-data__table_header_td">Код ошибки</div>
+                                        <div class="auction-data__table_header_td">Сообщение</div>
+                                        <div class="auction-data__table_header_td">Как исправить</div>
+                                        <div class="auction-data__table_header_td background-transparent"></div>
+                                        <div class="auction-data__table_header_td background-transparent menu-button">
+                                            <img class="auction-data__table_header_img" src="/icons/table/plus.svg"/>
+                                        </div>
+                                    </div>
+                                    <div class="auction-data__table_body"></div>
+                                </div>
+                            </div>
+                        </template>
+                    </fer-table>
+                </template>
+            </fer-region>
 
             <fer-codemirror
-              slot="fer-codemirror"
-              id="rule"
+              slot="fer-codemirror__events"
+              id="theFact"
               data-services-path="rules"
             >
-                <div class="codemirror-editor">
-                    <p class="codemirror-title">Правило</p>
-                    <textarea class="fer-codemirror" id="fer-codemirror"></textarea>
-                </div>
+                <template>
+                    <div class="codemirror-editor">
+                        <p class="codemirror-title">Объект проверки</p>
+                        <textarea class="fer-codemirror" id="fer-codemirror__events"></textarea>
+                    </div>
+                </template>
             </fer-codemirror>
 
-            <fer-table
+            <fer-tree slot="fer-tree">
+                <div id="tree"></div>
+            </fer-tree>
+
+            <fer-button
+              data-css-shadow="rules"
               data-services-path="rules"
-              data-template="table_0"
-              data-id="1_0"
-              slot="fer-rules-table"
+              data-type="fer-form"
+              data-id="cancel"
+              data-to="1"
+              slot="fer-form__cancel"
             >
-                <div class="auction-data">
-                    <div class="auction-data__table --grid-template-rows_1.97917vw_1fr">
-                        <div class="auction-data__table_header">
-                            <div class="auction-data__table_header_td">Домен</div>
-                            <div class="auction-data__table_header_td">Название</div>
-                            <div class="auction-data__table_header_td">Версия схемы</div>
-                            <div class="auction-data__table_header_td background-transparent"></div>
-                            <div class="auction-data__table_header_td background-transparent menu-button">
-                                <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
-                            </div>
-                        </div>
-                        <div class="auction-data__table_body"></div>
-                    </div>
-                </div>
-            </fer-table>
-        </fer-region>
+                <p class="cancel">Отмена</p>
+            </fer-button>
 
-        <fer-codemirror
-          slot="fer-codemirror__events"
-          id="theFact"
-          data-services-path="rules"
-        >
-            <div class="codemirror-editor">
-                <p class="codemirror-title">Объект проверки</p>
-                <textarea class="fer-codemirror" id="fer-codemirror__events"></textarea>
-            </div>
-        </fer-codemirror>
+            <fer-button
+              data-css-shadow="rules"
+              data-services-path="rules"
+              data-type="fer-form"
+              data-id="1_0_validate_rules"
+              data-to="1"
+              slot="fer-form__validate"
+            >
+                <p class="validate">Проверить</p>
+            </fer-button>
 
-        <fer-tree slot="fer-tree">
-            <div
-                id="tree"
-            ></div>
-        </fer-tree>
-
-<!--        <fer-table-->
-<!--          data-services-path="rules"-->
-<!--          data-template="table_0"-->
-<!--          data-event="region"-->
-<!--          data-id="1_0"-->
-<!--          slot="fer-region-table"-->
-<!--        >-->
-<!--            <div class="auction-data">-->
-<!--                <div class="auction-data__table &#45;&#45;grid-template-rows_1.97917vw_1fr">-->
-<!--                    <div class="auction-data__table_header">-->
-<!--                        <div class="auction-data__table_header_td">Код</div>-->
-<!--                        <div class="auction-data__table_header_td">Сообщение</div>-->
-<!--                        <div class="auction-data__table_header_td">Как исправить</div>-->
-<!--                        <div class="auction-data__table_header_td background-transparent"></div>-->
-<!--                        <div  data-event="rules" class="auction-data__table_header_td background-transparent menu-button">-->
-<!--                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="auction-data__table_body"></div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </fer-table>-->
-
-        <fer-button
-                data-css-shadow="rules"
-                data-services-path="rules"
-                data-type="fer-form"
-                data-id="cancel"
-                data-to="1"
-                slot="fer-form__cancel"
-        >
-            <p class="cancel">Отмена</p>
-        </fer-button>
-
-        <fer-button
-          data-css-shadow="rules"
-          data-services-path="rules"
-          data-type="fer-form"
-          data-id="1_0_validate_rules"
-          data-to="1"
-          slot="fer-form__validate"
-        >
-            <p class="validate">Проверить</p>
-        </fer-button>
-
-        <fer-button
-                data-css-shadow="rules"
-                data-services-path="rules"
-                data-type="fer-form"
-                data-id="save_rules"
-                data-to="1"
-                slot="fer-form__save"
-        >
-            <p class="save">Сохранить</p>
-        </fer-button>
+            <fer-button
+              data-css-shadow="rules"
+              data-services-path="rules"
+              data-type="fer-form"
+              data-id="save_rules"
+              data-to="1"
+              slot="fer-form__save"
+            >
+                <p class="save">Сохранить</p>
+            </fer-button>
+        </template>
     </welcome-section>
 
     <welcome-section
@@ -795,303 +1011,311 @@
             data-id="2_0"
             slot="welcome-section_2_0"
     >
-        <div class='images'></div>
-        <div class='body--padding_70px_100px'>
-            <div class="conteiner__fer-manifest">
-                <div class="navigation">
-                    <slot name="welcome-menu_0_0"></slot>
+        <template>
+            <div class='images'></div>
+            <div class='body--padding_70px_100px'>
+                <div class="conteiner__fer-manifest">
+                    <div class="navigation">
+                        <slot name="welcome-menu_0_0"></slot>
+                    </div>
+                    <div class="description__manifest">
+                        <slot name="fer-form_input"></slot>
+                    </div>
                 </div>
-                <div class="description__manifest">
-                    <slot name="fer-form_input"></slot>
+                <div
+                  data-hash-content="#general"
+                  class="container--gap_20px--justify-content_space-between"
+                  style="display: none"
+                >
+                    <div class="wrapper__rules-manifest">
+                        <div class="editor__manifest">
+                            <label class="label_for_description" for="manifest_label">Описание манифеста</label>
+                            <textarea
+                              id="manifest_label"
+                              placeholder="Описание манифеста"
+                              class="fer-codemirror-description"
+                            ></textarea>
+                        </div>
+                        <div class="table__fer-rules_manifest">
+                            <slot name="fer-table_2_0"></slot>
+                        </div>
+                    </div>
+                    <div class="menu__fer-rules">
+                        <div class="button_cancel">
+                            <slot name="manifest-button__cancel"></slot>
+                        </div>
+                        <div class="button_save">
+                            <slot name="manifest-button__save"></slot>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                  data-hash-content="#verification"
+                  class="container--gap_20px--justify-content_space-between"
+                  style="display: none"
+                >
+                    <div class="wrapper__rules-manifest_verification">
+                        <div class="manifest__verification">
+                            <div class="theFact">
+                                <slot name="verification_theFact"></slot>
+                            </div>
+                            <div class="schema">
+                                <slot name="verification_schema"></slot>
+                            </div>
+                        </div>
+                        <div class="table__fer-rules_verification">
+                            <slot name="fer-table_2_1"></slot>
+                        </div>
+                    </div>
+
+                    <div class="menu__fer-rules_verification">
+                        <div class="button_cancel">
+                            <slot name="verification__cancel"></slot>
+                        </div>
+                        <div class="button_cancel">
+                            <slot name="manifest-button_verification__cancel"></slot>
+                        </div>
+                        <div class="button_save">
+                            <slot name="verification__button"></slot>
+                        </div>
+                        <div class="button_apply">
+                            <slot name="manifest-button_verification__apply"></slot>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div
-              data-hash-content="#general"
-              class="container--gap_20px--justify-content_space-between"
-              style="display: none"
+
+            <fer-codemirror
+              slot="verification_theFact"
+              id="theFact"
+              data-services-path="rules"
             >
-                <div class="wrapper__rules-manifest">
-                    <div class="editor__manifest">
-                        <label class="label_for_description" for="manifest_label">Описание</label>
-                        <textarea
-                                id="manifest_label"
-                                placeholder="Описание"
-                                class="fer-codemirror-description"
-                        ></textarea>
+                <template>
+                    <div class="codemirror-editor">
+                        <p class="codemirror-title">Объект проверки</p>
+                        <textarea class="fer-codemirror" id="fer-codemirror__verification_theFact"></textarea>
                     </div>
-                    <div class="table__fer-rules_manifest">
-                        <slot name="fer-table_2_0"></slot>
-                    </div>
-                </div>
-                <div class="menu__fer-rules">
-                    <div class="button_cancel">
-                        <slot name="manifest-button__cancel"></slot>
-                    </div>
-                    <div class="button_save">
-                        <slot name="manifest-button__save"></slot>
-                    </div>
-                </div>
-            </div>
-
-            <div
-              data-hash-content="#verification"
-              class="container--gap_20px--justify-content_space-between"
-              style="display: none"
+                </template>
+            </fer-codemirror>
+            <fer-codemirror
+              slot="verification_schema"
+              id="jsonSchema"
+              data-services-path="rules"
             >
-                <div class="wrapper__rules-manifest_verification">
-                    <div class="manifest__verification">
-                        <div class="theFact">
-                            <slot name="verification_theFact"></slot>
-                        </div>
-                        <div class="schema">
-                            <slot name="verification_schema"></slot>
-                        </div>
+                <template>
+                    <div class="codemirror-editor" disabled>
+                        <p class="codemirror-title" disabled>Код схемы</p>
+                        <textarea class="fer-codemirror" id="fer-codemirror__verification_schema"></textarea>
                     </div>
-                    <div class="table__fer-rules_verification">
-                        <slot name="fer-table_2_1"></slot>
-                    </div>
-                </div>
+                </template>
+            </fer-codemirror>
+            <fer-hash
+              data-services-path="rules"
+              data-id="h_0"
+              data-hash="general"
+              data-type="rules_0_0"
+              data-css-shadow="rules_0_0"
+              slot="welcome-menu_0_0"
+              class="active"
+            >
+                <p>Основное</p>
+            </fer-hash>
+            <fer-hash
+              data-services-path="rules"
+              data-id="h_1"
+              data-type="rules_0_0"
+              data-hash="verification"
+              data-css-shadow="rules_0_0"
+              slot="welcome-menu_0_0"
+            >
+                <p>Верификация</p>
+            </fer-hash>
 
-                <div class="menu__fer-rules_verification">
-                    <div class="button_cancel">
-                        <slot name="manifest-button_verification__cancel"></slot>
-                    </div>
-                    <div class="button_apply">
-                        <slot name="manifest-button_verification__apply"></slot>
-                    </div>
-                    <div class="button_save">
-                        <slot name="verification__button"></slot>
-                    </div>
-
-                    <!--                <div class="button_save">-->
-                    <!--                    <slot name="verification__button"></slot>-->
-                    <!--                </div>-->
-                    <!--                <div class="button_save">-->
-                    <!--                    <slot name="verification__button"></slot>-->
-                    <!--                </div>-->
-                </div>
-            </div>
-        </div>
-
-        <fer-codemirror
-          slot="verification_theFact"
-          id="theFact"
-          data-services-path="rules"
-        >
-            <div class="codemirror-editor">
-                <p class="codemirror-title">Объект проверки</p>
-                <textarea class="fer-codemirror" id="fer-codemirror__verification_theFact"></textarea>
-            </div>
-        </fer-codemirror>
-        <fer-codemirror
-          slot="verification_schema"
-          id="theFact"
-          data-services-path="rules"
-        >
-            <div class="codemirror-editor">
-                <p class="codemirror-title">Схема</p>
-                <textarea class="fer-codemirror" id="fer-codemirror__verification_schema"></textarea>
-            </div>
-        </fer-codemirror>
-        <fer-hash
-                data-services-path="rules"
-                data-id="h_0"
-                data-hash="general"
-                data-type="rules_0_0"
-                data-css-shadow="rules_0_0"
-                slot="welcome-menu_0_0"
-                class="active"
-        >
-            <p>Основное</p>
-        </fer-hash>
-        <fer-hash
-                data-services-path="rules"
-                data-id="h_1"
-                data-type="rules_0_0"
-                data-hash="verification"
-                data-css-shadow="rules_0_0"
-                slot="welcome-menu_0_0"
-        >
-            <p>Верификация</p>
-        </fer-hash>
-
-        <fer-form
-                data-services-path="rules"
-                data-css-shadow="rules_0_0"
-                slot="fer-form_input"
-        >
-            <div class="container__manifest">
-                <div class="info__fer-front">
-                    <div class="input --width_414px">
-                        <label for="schema">Схема</label>
-                        <input id="schema" placeholder="" readonly/>
-                    </div>
-                    <div class="input --width_414px">
-                        <label for="region">Субъект</label>
-                        <input id="region" placeholder="" readonly/>
-                    </div>
-                    <div class="input --width_414px">
-                        <label for="version">Версия</label>
-                        <input id="version" placeholder="" readonly/>
-                    </div>
-                    <div class="status input --width_414px">
-                        <label for="status">Статус</label>
-                        <input id="status" placeholder="" readonly/>
-                    </div>
-                </div>
-            </div>
-        </fer-form>
-
-        <fer-table
-                data-services-path="rules"
-                data-template="table_1_1"
-                data-id="2_0"
-                data-to="2"
-                slot="fer-table_2_0"
-        >
-            <div class="auction-data">
-                <div class="auction-data__table">
-                    <div class="auction-data__table_header">
-                        <div class="auction-data__table_header_td">id</div>
-                        <div class="auction-data__table_header_td">Описание</div>
-                        <div class="auction-data__table_header_td">Версия схемы</div>
-                        <div class="auction-data__table_header_td background-transparent"></div>
-                        <div class="auction-data__table_header_td background-transparent menu-button">
-                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
+            <fer-form
+              data-services-path="rules"
+              data-css-shadow="rules_0_0"
+              slot="fer-form_input"
+            >
+                <template>
+                    <div class="container__manifest">
+                        <div class="info__fer-front">
+                            <div class="input --width_414px">
+                                <label for="schema">Идентификатор схемы</label>
+                                <input id="schema" placeholder="" readonly/>
+                            </div>
+                            <div class="input --width_414px">
+                                <label for="region">Название субъекта</label>
+                                <input id="region" placeholder="" readonly/>
+                            </div>
+                            <div class="input --width_414px">
+                                <label for="version">Версия манифеста</label>
+                                <input id="version" placeholder="" readonly/>
+                            </div>
+                            <div class="status input --width_414px">
+                                <label for="status">Статус манифеста</label>
+                                <input id="status" placeholder="" readonly/>
+                            </div>
                         </div>
                     </div>
-                    <div class="auction-data__table_body"></div>
-                    <div class="auction-data__table_footer">
-                        <input class="auction-data__table_footer_td empty background-transparent" name="id"/>
-                        <input class="auction-data__table_footer_td" name="description"/>
-                        <input class="auction-data__table_footer_td" name="schema_version"/>
+                </template>
+            </fer-form>
+
+            <fer-table
+              data-services-path="rules"
+              data-template="table_3"
+              data-id="2_0"
+              data-to="2"
+              slot="fer-table_2_0"
+            >
+                <template>
+                    <div class="auction-data">
+                        <div class="auction-data__table">
+                            <div class="auction-data__table_header">
+                                <div class="auction-data__table_header_td">id правила</div>
+                                <div class="auction-data__table_header_td">Описание правила</div>
+                                <div class="auction-data__table_header_td background-transparent"></div>
+                                <div class="auction-data__table_header_td background-transparent menu-button">
+                                    <img class="auction-data__table_header_img" src="/icons/table/plus.svg"/>
+                                </div>
+                            </div>
+                            <div class="auction-data__table_body"></div>
+                            <div class="auction-data__table_footer">
+                                <input class="auction-data__table_footer_td empty background-transparent" name="id"/>
+                                <input class="auction-data__table_footer_td" name="description"/>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </fer-table>
+                </template>
+            </fer-table>
 
-        <fer-button
-                data-css-shadow="rules"
-                data-services-path="rules"
-                data-type="verification"
-                data-id="verification_manifest"
-                data-section="2_0"
-                slot="verification__button"
-        >
-            <p class="save">Верификация</p>
-        </fer-button>
+            <fer-button
+              data-css-shadow="rules"
+              data-services-path="rules"
+              data-type="cancel"
+              data-to="2"
+              data-id="cancel_rules"
+              data-section="2_0"
+              slot="verification__cancel"
+            >
+                <p class="cancel">Выход</p>
+            </fer-button>
 
-<!--        <fer-button-->
-<!--                data-css-shadow="rules"-->
-<!--                data-services-path="rules"-->
-<!--                data-type="add"-->
-<!--                data-id="add_rules"-->
-<!--                data-section="2_0"-->
-<!--                slot="manifest-button__add"-->
-<!--        >-->
-<!--            <p class="add">Добавить правило</p>-->
-<!--        </fer-button>-->
+            <fer-button
+              data-css-shadow="rules"
+              data-services-path="rules"
+              data-type="verification"
+              data-id="verification_manifest"
+              data-section="2_0"
+              slot="verification__button"
+            >
+                <p class="save">Верификация</p>
+            </fer-button>
 
+            <fer-button
+              data-css-shadow="rules"
+              data-services-path="rules"
+              data-type="apply"
+              data-to="2"
+              data-id="manifest_apply"
+              data-section="2_0"
+              slot="manifest-button_verification__apply"
+            >
+                <p class="apply">Применить</p>
+            </fer-button>
 
-        <fer-button
-          data-css-shadow="rules"
-          data-services-path="rules"
-          data-type="apply"
-          data-to="2"
-          data-id="apply_rules"
-          data-section="2_0"
-          slot="manifest-button_verification__apply"
-        >
-            <p class="apply">Применить</p>
-        </fer-button>
+            <fer-button
+              data-css-shadow="rules"
+              data-services-path="rules"
+              data-type="cancel"
+              data-to="2"
+              data-id="manifest_remove"
+              data-section="2_0"
+              slot="manifest-button_verification__cancel"
+            >
+                <p class="cancel">Отменить применение</p>
+            </fer-button>
 
-        <fer-button
-          data-css-shadow="rules"
-          data-services-path="rules"
-          data-type="cancel"
-          data-to="2"
-          data-id="cancel_rules"
-          data-section="2_0"
-          slot="manifest-button_verification__cancel"
-        >
-            <p class="cancel">Отменить применение</p>
-        </fer-button>
+            <fer-button
+              data-css-shadow="rules"
+              data-services-path="rules"
+              data-type="cancel"
+              data-to="2"
+              data-id="cancel_rules"
+              data-section="2_0"
+              slot="manifest-button__cancel"
+            >
+                <p class="cancel">Отмена</p>
+            </fer-button>
 
-        <fer-button
-                data-css-shadow="rules"
-                data-services-path="rules"
-                data-type="cancel"
-                data-to="2"
-                data-id="cancel_rules"
-                data-section="2_0"
-                slot="manifest-button__cancel"
-        >
-            <p class="cancel">Отмена</p>
-        </fer-button>
+            <fer-button
+              data-css-shadow="rules"
+              data-services-path="rules"
+              data-type="add"
+              data-id="save_manifest"
+              data-section="2_0"
+              slot="manifest-button__save"
+            >
+                <p class="save">Сохранить</p>
+            </fer-button>
 
-        <fer-button
-                data-css-shadow="rules"
-                data-services-path="rules"
-                data-type="add"
-                data-id="save_manifest"
-                data-section="2_0"
-                slot="manifest-button__save"
-        >
-            <p class="save">Сохранить</p>
-        </fer-button>
-
-        <fer-table
-                data-services-path="rules"
-                data-template="table_5"
-                data-id="2_1"
-                data-to="2_0"
-                slot="fer-table_2_1"
-        >
-            <div class="auction-data">
-                <div class="auction-data__table">
-                    <div class="auction-data__table_header">
-                        <div class="auction-data__table_header_td">Дата</div>
-                        <div class="auction-data__table_header_td">Версия валидатора</div>
-                        <div class="auction-data__table_header_td">Результаты верификаций</div>
-                        <div class="auction-data__table_header_td">Ошибки</div>
-<!--                        <div class="auction-data__table_header_td background-transparent"></div>-->
-<!--                        <div class="auction-data__table_header_td background-transparent menu-button">-->
-<!--                            <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>-->
-<!--                        </div>-->
+            <fer-table
+              data-services-path="rules"
+              data-template="table_5"
+              data-id="2_1"
+              data-to="2_0"
+              slot="fer-table_2_1"
+            >
+                <template>
+                    <div class="auction-data">
+                        <div class="auction-data__table">
+                            <div class="auction-data__table_header">
+                                <div class="auction-data__table_header_td">Дата верификации</div>
+                                <div class="auction-data__table_header_td">Версия валидатора</div>
+                                <div class="auction-data__table_header_td">Результаты верификаций</div>
+                                <div class="auction-data__table_header_td">Ошибки</div>
+                                <!--                        <div class="auction-data__table_header_td background-transparent"></div>-->
+                                <!--                        <div class="auction-data__table_header_td background-transparent menu-button">-->
+                                <!--                            <img class="auction-data__table_header_img" src="/icons/table/plus.svg"/>-->
+                                <!--                        </div>-->
+                            </div>
+                            <div class="auction-data__table_body"></div>
+                            <div class="auction-data__table_footer">
+                                <input class="auction-data__table_footer_td empty background-transparent" name="id"/>
+                                <input class="auction-data__table_footer_td" name="description"/>
+                                <input class="auction-data__table_footer_td" name="schema_version"/>
+                                <input class="auction-data__table_footer_td" name="rules_version"/>
+                            </div>
+                        </div>
                     </div>
-                    <div class="auction-data__table_body"></div>
-                    <div class="auction-data__table_footer">
-                        <input class="auction-data__table_footer_td empty background-transparent" name="id"/>
-                        <input class="auction-data__table_footer_td" name="description"/>
-                        <input class="auction-data__table_footer_td" name="schema_version"/>
-                        <input class="auction-data__table_footer_td" name="rules_version"/>
-                    </div>
-                </div>
-            </div>
-        </fer-table>
+                </template>
+            </fer-table>
 
-        <fer-table
-                data-services-path="rules"
-                data-template="table_6"
-                data-id="2_2"
-                data-to="2"
-                slot="fer-table_2_2"
-        >
-            <div class="auction-data">
-                <div class="auction-data__table --width_92.3%">
-                    <div class="auction-data__table_header">
-                        <div class="auction-data__table_header_td">IP</div>
-                        <div class="auction-data__table_header_td">Статус</div>
-                        <div class="auction-data__table_header_td background-transparent"></div>
+            <fer-table
+              data-services-path="rules"
+              data-template="table_6"
+              data-id="2_2"
+              data-to="2"
+              slot="fer-table_2_2"
+            >
+                <template>
+                    <div class="auction-data">
+                        <div class="auction-data__table --width_92.3%">
+                            <div class="auction-data__table_header">
+                                <div class="auction-data__table_header_td">IP</div>
+                                <div class="auction-data__table_header_td">Статус</div>
+                                <div class="auction-data__table_header_td background-transparent"></div>
+                            </div>
+                            <div class="auction-data__table_body"></div>
+                            <div class="auction-data__table_footer">
+                                <input class="auction-data__table_footer_td" name="name"/>
+                                <input class="auction-data__table_footer_td" name="description"/>
+                            </div>
+                        </div>
                     </div>
-                    <div class="auction-data__table_body"></div>
-                    <div class="auction-data__table_footer">
-                        <input class="auction-data__table_footer_td" name="name"/>
-                        <input class="auction-data__table_footer_td" name="description"/>
-                    </div>
-                </div>
-            </div>
-        </fer-table>
+                </template>
+            </fer-table>
+        </template>
     </welcome-section>
 
 
@@ -1101,142 +1325,150 @@
       data-id="5_0"
       slot="welcome-section_5_0"
     >
-        <div class='images'></div>
-        <div class='body--padding_70px_100px'>
-            <div class="container--flex-direction_row--gap_20px">
-                <div class="main__fer-rules">
-                    <div class="data__fer-rules">
-                        <slot name="fer-form_0_0"></slot>
+        <template>
+            <div class='images'></div>
+            <div class='body--padding_70px_100px'>
+                <div class="container--flex-direction_row--gap_20px">
+                    <div class="main__fer-rules">
+                        <div class="data__fer-rules">
+                            <slot name="fer-form_0_0"></slot>
+                        </div>
+                        <div class="textEditor --height_852px">
+                            <slot name="fer-codemirror"></slot>
+                        </div>
                     </div>
-                    <div class="textEditor --height_852px">
-                        <slot name="fer-codemirror"></slot>
-                    </div>
-                </div>
-                <div class="container__rules-front">
-                    <div class="textEditor-sidebar">
-                        <div class="wrapper__rules-front">
-                            <div class="fer-region">
-                                <slot name="fer-region"></slot>
+                    <div class="container__rules-front">
+                        <div class="textEditor-sidebar">
+                            <div class="wrapper__rules-front">
+                                <div class="fer-region">
+                                    <slot name="fer-region"></slot>
+                                </div>
+                                <!--                            <div class="fer-region__table_list">-->
+                                <!--                                <p class="title__fer-rules">Ошибки проверки полей</p>-->
+                                <!--                                <slot name="fer-region-table"></slot>-->
+                                <!--                            </div>-->
                             </div>
-<!--                            <div class="fer-region__table_list">-->
-<!--                                <p class="title__fer-rules">Ошибки проверки полей</p>-->
-<!--                                <slot name="fer-region-table"></slot>-->
-<!--                            </div>-->
                         </div>
-                    </div>
-                    <div class="wrapper__button-fer-rules">
-                        <div
-                          class="button__fer-rules"
-                          slot="fer-button"
-                        >
-                            <slot name="fer-form__cancel"></slot>
-                        </div>
-                        <div
-                          class="button__fer-rules"
-                          slot="fer-button"
-                        >
-                            <slot name="fer-form__save"></slot>
+                        <div class="wrapper__button-fer-rules">
+                            <div
+                              class="button__fer-rules"
+                              slot="fer-button"
+                            >
+                                <slot name="fer-form__cancel"></slot>
+                            </div>
+                            <div
+                              class="button__fer-rules"
+                              slot="fer-button"
+                            >
+                                <slot name="fer-form__save"></slot>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <fer-form
-          data-services-path="rules"
-          data-css-shadow="rules_0_0"
-          slot="fer-form_0_0"
-        >
-            <div class="container__schema">
-                <div class="input">
-                    <label for="schemaId">Идентификатор схемы</label>
-                    <input id="schemaId" placeholder="showcase.booking" readonly/>
-                </div>
-<!--                <div class="input">-->
-<!--                    <label for="version">Версия</label>-->
-<!--                    <input id="version" placeholder="1.0.0" readonly/>-->
-<!--                </div>-->
-            </div>
-        </fer-form>
-
-        <fer-codemirror
-          slot="fer-codemirror"
-          data-services-path="rules"
-        >
-            <div class="codemirror-editor">
-                <p class="codemirror-title">Код</p>
-                <textarea class="fer-codemirror" id="fer-codemirror"></textarea>
-            </div>
-        </fer-codemirror>
-
-        <fer-region slot="fer-region">
-            <div class="welcome-section_5_0__fer-region">
-                <h2 class="welcome-section_5_0__fer-region_title">Маппинг</h2>
-                <div class="welcome-section_5_0__fer-region_container">
-                    <div class="input welcome-section_5_0__table_source activeInput">
-                        <label for="title">Таблица источник</label>
-                        <input id="title" placeholder="" />
-                    </div>
-                    <div class="welcome-section_5_0__fer-region_table">
-                        <slot name="fer-table_5_0"></slot>
-                    </div>
-                </div>
-            </div>
-
-            <fer-table
+            <fer-form
               data-services-path="rules"
-              data-template="table_7"
+              data-css-shadow="rules_0_0"
+              slot="fer-form_0_0"
+            >
+                <template>
+                    <div class="container__schema">
+                        <div class="input">
+                            <label for="schemaId">Идентификатор схемы</label>
+                            <input id="schemaId" placeholder="showcase.booking" readonly/>
+                        </div>
+                        <!--                <div class="input">-->
+                        <!--                    <label for="version">Версия</label>-->
+                        <!--                    <input id="version" placeholder="1.0.0" readonly/>-->
+                        <!--                </div>-->
+                    </div>
+                </template>
+            </fer-form>
+
+            <fer-codemirror
+              slot="fer-codemirror"
+              data-services-path="rules"
+            >
+                <template>
+                    <div class="codemirror-editor" disabled>
+                        <p class="codemirror-title" disabled>Код схемы</p>
+                        <textarea class="fer-codemirror" id="fer-codemirror"></textarea>
+                    </div>
+                </template>
+            </fer-codemirror>
+
+            <fer-region slot="fer-region">
+                <template>
+                    <div class="welcome-section_5_0__fer-region">
+                        <h2 class="welcome-section_5_0__fer-region_title">Маппинг</h2>
+                        <div class="welcome-section_5_0__fer-region_container">
+                            <div class="input welcome-section_5_0__table_source activeInput">
+                                <label for="title">Таблица источник</label>
+                                <input id="title" placeholder="" />
+                            </div>
+                            <div class="welcome-section_5_0__fer-region_table">
+                                <slot name="fer-table_5_0"></slot>
+                            </div>
+                        </div>
+                    </div>
+
+                    <fer-table
+                      data-services-path="rules"
+                      data-template="table_7"
+                      data-id="5_0"
+                      data-to="5"
+                      slot="fer-table_5_0"
+                    >
+                        <div class="auction-data">
+                            <div class="auction-data__table --width_92.3%">
+                                <div class="auction-data__table_header">
+                                    <div class="auction-data__table_header_td">Поле источника</div>
+                                    <div class="auction-data__table_header_td">Тип поля источника</div>
+                                    <div class="auction-data__table_header_td">Поле назначения</div>
+                                    <div class="auction-data__table_header_td">Тип поля назначения</div>
+                                    <div class="auction-data__table_header_td background-transparent"></div>
+                                    <div class="auction-data__table_header_td background-transparent menu-button">
+                                        <img class="auction-data__table_header_img" src="/icons/table/plus.svg"/>
+                                    </div>
+                                </div>
+                                <div class="auction-data__table_body"></div>
+                                <!--                        <div class="auction-data__table_footer">-->
+                                <!--                            <input class="auction-data__table_footer_td" name="kind"/>-->
+                                <!--                            <input class="auction-data__table_footer_td" name="type"/>-->
+                                <!--                            <input class="auction-data__table_footer_td" name="source"/>-->
+                                <!--                            <input class="auction-data__table_footer_td" name="description"/>-->
+                                <!--                        </div>-->
+                            </div>
+                        </div>
+                    </fer-table>
+                </template>
+            </fer-region>
+
+
+            <fer-button
+              data-css-shadow="rules"
+              data-services-path="rules"
+              data-type="fer-form"
+              data-id="cancel"
               data-id="5_0"
               data-to="5"
-              slot="fer-table_5_0"
+              slot="fer-form__cancel"
             >
-                <div class="auction-data">
-                    <div class="auction-data__table --width_92.3%">
-                        <div class="auction-data__table_header">
-                            <div class="auction-data__table_header_td">Поле источника</div>
-                            <div class="auction-data__table_header_td">Тип поля источника</div>
-                            <div class="auction-data__table_header_td">Поле назначения</div>
-                            <div class="auction-data__table_header_td">Тип поля назначения</div>
-                            <div class="auction-data__table_header_td background-transparent"></div>
-                            <div class="auction-data__table_header_td background-transparent menu-button">
-                                <img class="auction-data__table_header_img" src="./this/icons/table/plus.svg"/>
-                            </div>
-                        </div>
-                        <div class="auction-data__table_body"></div>
-<!--                        <div class="auction-data__table_footer">-->
-<!--                            <input class="auction-data__table_footer_td" name="kind"/>-->
-<!--                            <input class="auction-data__table_footer_td" name="type"/>-->
-<!--                            <input class="auction-data__table_footer_td" name="source"/>-->
-<!--                            <input class="auction-data__table_footer_td" name="description"/>-->
-<!--                        </div>-->
-                    </div>
-                </div>
-            </fer-table>
-        </fer-region>
+                <p class="cancel">Отмена</p>
+            </fer-button>
 
-
-        <fer-button
-          data-css-shadow="rules"
-          data-services-path="rules"
-          data-type="fer-form"
-          data-id="cancel"
-          data-id="5_0"
-          data-to="5"
-          slot="fer-form__cancel"
-        >
-            <p class="cancel">Отмена</p>
-        </fer-button>
-
-        <fer-button
-          data-css-shadow="rules"
-          data-services-path="rules"
-          data-type="fer-form"
-          data-id="5_0"
-          data-to="5"
-          slot="fer-form__save"
-        >
-            <p class="save">Сохранить</p>
-        </fer-button>
+            <fer-button
+              data-css-shadow="rules"
+              data-services-path="rules"
+              data-type="fer-form"
+              data-id="5_0"
+              data-to="5"
+              slot="fer-form__save"
+            >
+                <p class="save">Сохранить</p>
+            </fer-button>
+        </template>
     </welcome-section>
     <div slot="welcome-animation" class="animation">
         <div class="item"></div>

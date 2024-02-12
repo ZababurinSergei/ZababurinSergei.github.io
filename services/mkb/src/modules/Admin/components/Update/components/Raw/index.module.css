@@ -1,7 +1,7 @@
 .container {
-  padding: 1.08342vw;
-  border-radius: 0.43337vw;
-  border: 0.05417vw dashed var(--black-15per);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px dashed var(--black-15per);
   background: var(--black-10per);
 }
 
@@ -14,7 +14,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 0.54171vw;
+  margin-bottom: 10px;
 }
 
 .item:last-child {
@@ -24,24 +24,24 @@
 .loading .title,
 .item .title {
   font-family: 'Golos 12pt Medium 12x18';
-  line-height: 1.08342vw;
+  line-height: 20px;
   color: var(--blue-100per);
-	width: 13.00108vw;
+	width: 240px;
 }
 
 .item .status {
   font-family: 'Golos 12pt Medium 12x18';
   font-weight: 400;
-  font-size: 0.65005vw;
-  line-height: 0.97508vw;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .actions {
   display: flex;
   font-family: 'Golos 12pt Medium 12x18';
-  font-size: 0.65005vw;
+  font-size: 12px;
   font-weight: 500;
-  line-height: 0.97508vw;
+  line-height: 18px;
 }
 
 .actions > div {
@@ -62,7 +62,7 @@
 }
 
 .actions > div:not(:last-child) {
-  margin-right: 0.86674vw;
+  margin-right: 16px;
 }
 
 .loading {
@@ -70,5 +70,5 @@
 }
 
 .loading .title {
-	padding-top: 0.3792vw;
+	padding-top: 7px;
 }

@@ -14,7 +14,7 @@
 }
 
 .treeViews::-webkit-scrollbar-button, .content::-webkit-scrollbar-button {
-    background-image:url('');
+    /*background-image:url();*/
     background-repeat:no-repeat;
     width:0.27086vw;
     height:0px
@@ -35,7 +35,7 @@
 }
 
 .treeViews::-webkit-resizer, .content::-webkit-resizer {
-    background-image:url('');
+    /*background-image:url('');*/
     background-repeat:no-repeat;
     width:0.3vw;
     height:0px

@@ -27,8 +27,6 @@ import {IconCopy} from "./Icons/Copy";
 import analytics from '@src/utilites/analytics'
 import { useLocalStorage } from '@src/hooks/useLocalStorage';
 import { UserContext } from '@src/App';
-import routes from '../../../../modules'
-import { renderToStaticMarkup } from 'react-dom/server';
 
 const HEIGHT_HEADER = 64
 const HEIGHT_FOOTER = 80
@@ -66,16 +64,13 @@ const getHeight = (conceptPage) => {
     return delta < 0 ? heightWindow - delta : heightWindow
 }
 
-
 export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleftmenu, isCodingPage = false, setCodingModal, codeDiseaseChoice }) => {
     const [isICDLatest, setICDLatest] = useState(false);
-    const [isMkb, setIsMkb] = useState(false);
     const [activeClass, setActiveClass] = useState(false);
     const location = useLocation();
     const dispatch = useDispatch();
     const conceptPage = useRef(null);
     const store = useStore();
-    const slotMain = useRef(null);
     const ROOT_ID = rootId(store.getState())
     const chapters = useSelector(state => state.icd.toc.chapter)
     const axisPostCoordination = useSelector(state => state.icd.coordination.post)
@@ -83,8 +78,8 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
     const [isDefaultPage, setIsDefaultPage] = useState(true)
     const [page, setPage] = useState({
         id: '',
-        title: '',
-        subTitle: '',
+        title: 'МКБ-11 для ведения статистики смертности и заболеваемости',
+        subTitle: 'Справочник МКБ-11 опубликован в ознакомительных целях и в настоящий момент не применяется на территории Российской Федерации.',
         definition: '',
         exclusion: '',
         ancestor: '',
@@ -102,9 +97,9 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
     const exclusionsFromAboveLevels = []
     const codingNoteFromAboveLevels = []
     const [isExclusionsFromAboveLevels, setExclusionsFromAboveLevels] = useState([]);
+    // const [userInfoStorage, setUserInfoStorage] = useLocalStorage('__userInfo', undefined);
     const [anonUser, setAnonUser] = useLocalStorage('__anon_id', undefined);
     const {userInfo} = useContext(UserContext);
-    // const dataContext = useContext(UserContext);
 
     const onClickHelpHandler = (event) => {
         const user = !isEmpty(userInfo) ? userInfo.email : anonUser
@@ -117,13 +112,11 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
         event.preventDefault()
         setModal(!isModal)
     }
-
     const onUpdateTocHandler = (item) => {
         setCurrentTocData({
             pathname: item.id
         })
     }
-
     const onRemoveCodeHandler = (item) => {
         dispatch(
             coordinationActions.changeCode({
@@ -138,7 +131,6 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                 }
             }))
     }
-
     const copyToClipBoard = async event => {
         try {
             await navigator.clipboard.writeText(new URL(event.currentTarget.querySelector('a').textContent).pathname);
@@ -146,7 +138,6 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
 
         }
     };
-
     const onResize = () => setHeight(getHeight(conceptPage))
 
     useEffect(() => {
@@ -167,118 +158,105 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
     }, [])
 
     useEffect(() => {
-        if(window.location.pathname.startsWith('/page')) {
-            setIsDefaultPage(false)
-            const pages = getPages(store)
-            let page = undefined
-            for(let key in pages) {
-                if(key === window.location.pathname) {
-                    page = pages[key]
-                    break
-                }
+        setIsDefaultPage(false)
+        const pages = getPages(store)
+        let page = undefined
+        for(let key in pages) {
+            if(key === window.location.pathname) {
+                page = pages[key]
+                break
             }
-            setActiveClass(false)
-            if ((window.location.pathname !== `${process.env.BASE_URL}` && window.location.pathname !== `${process.env.BASE_URL}testing/` && window.location.pathname !== '/' && window.location.pathname !== '/testing' && window.location.pathname !== '/testing/') && !page) {
-                let toc = globalToc(store)
+        }
+        setActiveClass(false)
+        if ((window.location.pathname !== `${process.env.BASE_URL}` && window.location.pathname !== `${process.env.BASE_URL}testing/` && window.location.pathname !== '/' && window.location.pathname !== '/testing' && window.location.pathname !== '/testing/') && !page) {
+            let toc = globalToc(store)
 
-                for(let axis in toc) {
-                    toc[axis].isModal = false
+            for(let axis in toc) {
+                toc[axis].isModal = false
+            }
+
+            dispatch(
+                globalActions.coordination.toc(toc)
+            )
+
+            let request = ''
+
+            let path = window.location.pathname[window.location.pathname.length -1].includes('/')
+                ? (window.location.pathname.replace(/.$/,""))
+                : window.location.pathname
+
+            if( window.location.pathname === '/coding'
+                || window.location.pathname === '/coding/'
+                || window.location.pathname === '/testing/coding'
+                || window.location.pathname === '/testing/coding/') {
+                request = uri
+            } else {
+                request = href.encode(path, window.location.pathname.includes('/coding') ? 'coding': 'page')
+            }
+
+            dispatch(
+                coordinationActions.getPage({
+                    pathname: request,
+                    root: ROOT_ID,
+                    cb: (error, content) => {
+                        if (error) {
+                            console.log('error', error)
+                            return;
+                        }
+                        if(!isEmpty(content.exclusionsFromAboveLevels)) {
+                            const array = Array(content.exclusionsFromAboveLevels.array.length).fill(false);
+                            setExclusionsFromAboveLevels( value => ([...array]))
+                        }
+
+                        dispatch(
+                            tocActions.setCurrent(`${window.location.origin}${content.id}`)
+                        )
+
+                        dispatch(
+                            tocActions.setPage(content, window.location.pathname.includes('/coding') ? 'coding': 'page')
+                        );
+
+                        setPage(prevState => ({
+                            ...content
+                        }));
+
+                        dispatch(
+                            tocActions.setLoading(false)
+                        );
+                    }
+                })
+            );
+        } else {
+            if(page) {
+                if(page.code) {
+                    dispatch(coordinationActions.setRoot(page.code))
                 }
 
                 dispatch(
-                    globalActions.coordination.toc(toc)
+                    tocActions.setCurrent(`${window.location.origin}${page.id}`)
                 )
 
-                let request = ''
+                dispatch(
+                    coordinationActions.changeCode({
+                        data: {
+                            type: 'reset'
+                        }
+                    }))
 
-                let path = window.location.pathname[window.location.pathname.length -1].includes('/')
-                    ? (window.location.pathname.replace(/.$/,""))
-                    : window.location.pathname
-
-                if(window.location.pathname.startsWith('/coding') || window.location.pathname.startsWith('/testing/coding')) {
-                    request = uri
-                } else {
-                    request = href.encode(path, window.location.pathname.startsWith('/coding') ? 'coding': 'page')
-                }
-
-                if(routes.some(item => item.path.startsWith(request) || request.startsWith('/v1/') || request.startsWith('/page') || request.startsWith('/coding/page'))) {
-                    dispatch(
-                        coordinationActions.getPage({
-                            pathname: request,
-                            root: ROOT_ID,
-                            cb: (error, content) => {
-                                if (error) {
-                                    console.log('error', error)
-                                    return;
-                                }
-                                if(!isEmpty(content.exclusionsFromAboveLevels)) {
-                                    const array = Array(content.exclusionsFromAboveLevels.array.length).fill(false);
-                                    setExclusionsFromAboveLevels( value => ([...array]))
-                                }
-
-                                dispatch(
-                                    tocActions.setCurrent(`${window.location.origin}${content.id}`)
-                                )
-
-                                dispatch(
-                                    tocActions.setPage(content, window.location.pathname.includes('/coding') ? 'coding': 'page')
-                                );
-
-                                setPage(prevState => ({
-                                    ...content
-                                }));
-
-                                dispatch(
-                                    tocActions.setLoading(false)
-                                );
-                            }
-                        })
-                    );
-                }
+                setPage(page)
             } else {
-                if(page) {
-                    if(page.code) {
-                        dispatch(coordinationActions.setRoot(page.code))
-                    }
-
-                    dispatch(
-                        tocActions.setCurrent(`${window.location.origin}${page.id}`)
-                    )
-
-                    dispatch(
-                        coordinationActions.changeCode({
-                            data: {
-                                type: 'reset'
-                            }
-                        }))
-
-                    setPage(page)
-                } else {
-                    setIsDefaultPage(true)
-                    setPage({
-                        id: '',
-                        title: 'МКБ-11 для ведения статистики смертности и заболеваемости',
-                        subTitle: 'Справочник МКБ-11 опубликован в ознакомительных целях и в настоящий момент не применяется на территории Российской Федерации.',
-                        definition: '',
-                        exclusion: '',
-                        ancestor: '',
-                        foundationChildElsewhere: undefined,
-                        postcoordinationScale: undefined
-                    })
-                }
+                setIsDefaultPage(true)
+                setPage({
+                    id: '',
+										title: 'МКБ-11 для ведения статистики смертности и заболеваемости',
+										subTitle: 'Справочник МКБ-11 опубликован в ознакомительных целях и в настоящий момент не применяется на территории Российской Федерации.',
+                    definition: '',
+                    exclusion: '',
+                    ancestor: '',
+                    foundationChildElsewhere: undefined,
+                    postcoordinationScale: undefined
+                })
             }
-        } else {
-            setIsDefaultPage(true)
-            setPage({
-                id: '',
-                title: 'МКБ-11 для ведения статистики смертности и заболеваемости',
-                subTitle: 'Справочник МКБ-11 опубликован в ознакомительных целях и в настоящий момент не применяется на территории Российской Федерации.',
-                definition: '',
-                exclusion: '',
-                ancestor: '',
-                foundationChildElsewhere: undefined,
-                postcoordinationScale: undefined
-            })
         }
     }, [location])
 
@@ -358,13 +336,6 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
         dispatch(codesActions.deleteCodes());
     }, [])
 
-    // useEffect(() => {
-    //     if(slotMain.current) {
-            // const main = slotMain.current.assignedNodes()[0]
-            // const shadowMain = slotMain.current.assignedNodes()[0].shadowRoot
-        // }
-    // }, [slotMain.current])
-
     useEffect(() => {
         dispatch(codesActions.setCodes(page.code));
     }, [page.code])
@@ -421,9 +392,31 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
         }, "4000")
     }
 
-    const renderPage = () => {
+    return (
+        <Layout
+            type={type}
+            uri={uri}
+            ismobileleftmenu={ismobileleftmenu}
+            setmobileleftmenu={setmobileleftmenu}
+            conceptPage={conceptPage}
+            updatePage={setUpdate}
+            className={className}
+            currentTocData={currentTocData}
+            setAncestor={setAncestor}
+        >
+            <div
+                className={style.banner}
+            >
+                {!!userInfo && !isEmpty(userInfo?.roles) && userInfo?.roles.includes('mkb_admin') && (process.env.REACT_APP_MAIN_THEME === 'true') && type !== 'window' && isICDLatest &&
+                    <Notification />}
+            </div>
+            <ModalWindow
+                setModal={setModal}
+                isModal={isModal}
+            >
+                <PostCoordination/>
+            </ModalWindow>
 
-        return(
             <div
                 ref={conceptPage}
                 className={style.content}
@@ -450,17 +443,17 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                         </a>
                     </p>}
 
-                {isCodingPage && <CopyLine setCodingModal={setCodingModal} codeDiseaseChoice={codeDiseaseChoice} />}
+					{isCodingPage && <CopyLine setCodingModal={setCodingModal} codeDiseaseChoice={codeDiseaseChoice} />}
 
                 {type !== 'window' &&
-                    <>
-                        <div className={style.titlePage}>
-                            {`${page.code ? page.code : ''} ${page.title}`}
-                        </div>
-                        <div className={style.subTitlePage}>
-                            {page.subTitle}
-                        </div>
-                    </>
+									<>
+										<div className={style.titlePage}>
+											{`${page.code ? page.code : ''} ${page.title}`}
+										</div>
+										<div className={style.subTitlePage}>
+											{page.subTitle}
+										</div>
+									</>
                 }
 
                 {page.ancestor &&
@@ -475,27 +468,27 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                                 <ul className={style.ul}>
                                     {page.ancestor.map((item, index) => {
                                         return (
-                                            <li
-                                                key={idKey()}
-                                                className={style.li}
-                                                style={{
-                                                    marginLeft: 8 * (index + 1)
+                                        <li
+                                            key={idKey()}
+                                            className={style.li}
+                                            style={{
+                                                marginLeft: 8 * (index + 1)
+                                            }}
+                                        >
+                                            <div
+                                                className={style.link}
+                                                onClick={() => {
+                                                    let data = item
+                                                    if(type === 'window') {
+                                                        data.id = data.id.replace('page/','')
+                                                    }
+                                                    onUpdateTocHandler(data)
                                                 }}
                                             >
-                                                <div
-                                                    className={style.link}
-                                                    onClick={() => {
-                                                        let data = item
-                                                        if(type === 'window') {
-                                                            data.id = data.id.replace('page/','')
-                                                        }
-                                                        onUpdateTocHandler(data)
-                                                    }}
-                                                >
-                                                    {item.title}
-                                                </div>
-                                            </li>
-                                        )})}
+                                                {item.title}
+                                            </div>
+                                        </li>
+                                    )})}
                                 </ul>
                                 <div
                                     className={`${style.title_ancessor}`}
@@ -528,9 +521,9 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                                             }
 
                                             onUpdateTocHandler({
-                                                    id: id
-                                                }
-                                            )}}
+                                                id: id
+                                            }
+                                        )}}
                                     >
                                         {page.ancestor[page.ancestor.length - 1].title}
                                     </div>
@@ -571,9 +564,9 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                         <ul className={style.ul}>
                             {page.exclusion.map(item => {
                                 return (
-                                    <li key={idKey()} className={style.li}>
-                                        {item.title}
-                                        <span className={style.link}>
+                                <li key={idKey()} className={style.li}>
+                                    {item.title}
+                                    <span className={style.link}>
                                         <Link
                                             to={href.transform(new URL(item.id).pathname, 'page')}
                                             className={style.link}
@@ -581,8 +574,8 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                                             ({item.code})
                                         </Link>
                                     </span>
-                                    </li>
-                                )})}
+                                </li>
+                            )})}
                         </ul>
                     </div>
                 ) : ''}
@@ -1149,78 +1142,7 @@ export const Main = ({ className, uri, id, type, ismobileleftmenu, setmobileleft
                         </div>
                     </>}
             </div>
-        )
-    }
-
-    useEffect(() => {
-        if(window.location.pathname === '/') {
-            // const node = ()
-            var content = renderToStaticMarkup(renderPage());
-            console.log('===================== $$$$$$$$$$$$$$$$$$$$$$ =====================',  content)
-            // console.log('@@@@@@ WINDOW LOCATION @@@@@@@@@@@', renderPage())
-            setIsMkb(true)
-        } else {
-            setIsMkb(false)
-        }
-    }, [window.location.pathname])
-
-    return (
-        <Layout
-            type={type}
-            uri={uri}
-            ismobileleftmenu={ismobileleftmenu}
-            setmobileleftmenu={setmobileleftmenu}
-            conceptPage={conceptPage}
-            updatePage={setUpdate}
-            className={className}
-            currentTocData={currentTocData}
-            setAncestor={setAncestor}
-        >
-            <div
-                className={style.banner}
-            >
-                {!!userInfo && !isEmpty(userInfo?.roles) && userInfo?.roles.includes('mkb_admin') && (process.env.REACT_APP_MAIN_THEME === 'true') && type !== 'window' && isICDLatest &&
-                    <Notification />}
-            </div>
-            <ModalWindow
-                setModal={setModal}
-                isModal={isModal}
-            >
-                <PostCoordination/>
-            </ModalWindow>
-            {!isMkb ? (
-                <>
-                    <slot
-                        ref={slotMain}
-                        name={'grid__main'}
-                    ></slot>
-                    {/*<slot*/}
-                    {/*    name="fer-default"*/}
-                    {/*></slot>*/}
-                    {/*<slot*/}
-                    {/*    name="domain-entity"*/}
-                    {/*></slot>*/}
-                    {/*<slot*/}
-                    {/*    ref={slotMain}*/}
-                    {/*    name="grid__body"*/}
-                    {/*></slot>*/}
-                </>
-            ):(
-                <slot
-                    ref={slotMain}
-                    name={'grid__main'}
-                ></slot>)}
-
-<slot name="grid__footer"></slot>
-{/*<slot name="system"></slot>*/}
-{/* <slot name="header_base"></slot> */}
-{/* <slot name="TabAccounts"></slot> */}
-{/* <slot name="TabSend"></slot> */}
-{/*  */}
-{/* <slot name="TabDapps"></slot> */}
-{/* <slot name="TabSharding"></slot> */}
-{/* <slot name="TabExplorer"></slot>  */}
-</Layout>)}
+        </Layout>)}
 
 
 export default Main;

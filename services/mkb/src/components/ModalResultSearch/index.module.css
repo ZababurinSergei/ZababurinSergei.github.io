@@ -1,54 +1,54 @@
 .mainWrapper {
-  width: 26.21885vw;
-  height: 21.93933vw;
-  padding: 0.43337vw 0 0.43337vw;
+  width: 484px;
+  height: 405px;
+  padding: 8px 0 8px;
   background: #ffffff;
-  box-shadow: 0px 0.10834vw 0.43337vw rgba(0, 31, 141, 0.14);
-  border-radius: 0.43337vw;
+  box-shadow: 0px 2px 8px rgba(0, 31, 141, 0.14);
+  border-radius: 8px;
   position: absolute;
-  top: 2.97941vw;
+  top: 55px;
   left: 0px;
   z-index: 12;
   overflow: auto;
 }
 
 .extendWrapper {
-  width: 22.53521vw;
-  height: 17.87649vw;
-  padding: 0.43337vw 0 0.43337vw;
+  width: 416px;
+  height: 330px;
+  padding: 8px 0 8px;
   background: #ffffff;
-  box-shadow: 0px 0.10834vw 0.43337vw rgba(0, 31, 141, 0.14);
-  border-radius: 0.43337vw;
+  box-shadow: 0px 2px 8px rgba(0, 31, 141, 0.14);
+  border-radius: 8px;
   position: absolute;
-  top: 2.97941vw;
+  top: 55px;
   left: 0px;
   z-index: 12;
   overflow: auto;
 }
 
 .extendWrapper {
-  width: 22.53521vw;
-  height: 17.87649vw;
-  padding: 0.43337vw 0 0.43337vw;
+  width: 416px;
+  height: 330px;
+  padding: 8px 0 8px;
   background: #ffffff;
-  box-shadow: 0px 0.10834vw 0.43337vw rgba(0, 31, 141, 0.14);
-  border-radius: 0.43337vw;
+  box-shadow: 0px 2px 8px rgba(0, 31, 141, 0.14);
+  border-radius: 8px;
   position: absolute;
-  top: 2.97941vw;
+  top: 55px;
   left: 0px;
   z-index: 12;
   overflow: auto;
 }
 
 .postcoordinationWrapper {
-  width: 22.53521vw;
-  height: 17.87649vw;
-  padding: 0.43337vw 0 0.43337vw;
+  width: 416px;
+  height: 330px;
+  padding: 8px 0 8px;
   background: #ffffff;
-  box-shadow: 0px 0.10834vw 0.43337vw rgba(0, 31, 141, 0.14);
-  border-radius: 0.43337vw;
+  box-shadow: 0px 2px 8px rgba(0, 31, 141, 0.14);
+  border-radius: 8px;
   position: absolute;
-  top: 22.21018vw;
+  top: 410px;
   left: 0px;
   z-index: 12;
   overflow: auto;
@@ -59,25 +59,25 @@
   font-family: 'Golos 14pt Regular 14x20';
   font-style: normal;
   font-weight: 400;
-  font-size: 0.65005vw;
-  line-height: 1.08342vw;
+  font-size: 12px;
+  line-height: 20px;
   letter-spacing: -0.01em;
-  margin-right: 0.48754vw;
-  width: 18.95991vw;
+  margin-right: 9px;
+  width: 350px;
   display: inline-block;
   align-items: start;
   background: rgba(221, 128, 0, 0.1);
-  border-radius: 0.21668vw;
-  border-bottom: 0.05417vw solid rgb(255, 255, 255);
-  padding-left: 1.08342vw;
+  border-radius: 4px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  padding-left: 20px;
 }
 
 .infoSearchText {
   font-family: 'Golos 11pt Regular 11x14';
   font-style: normal;
   font-weight: 400;
-  font-size: 0.59588vw;
-  line-height: 0.7584vw;
+  font-size: 11px;
+  line-height: 14px;
   display: flex;
   align-items: center;
   color: var(--red-100per);

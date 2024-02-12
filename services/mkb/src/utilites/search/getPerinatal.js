@@ -1,16 +1,5 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable no-prototype-builtins */
-/* eslint-disable prefer-const */
-/* eslint-disable prefer-template */
-/* eslint-disable arrow-body-style */
-/* eslint-disable no-else-return */
-/* eslint-disable consistent-return */
-/* eslint-disable no-param-reassign */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-cycle */
 import { search } from '.';
-import useLinks from './links';
-
+import * as links from './links';
 
 export async function getPerinatal(objects) {
 		const res = await Promise.all(objects.map(async (object) => {
@@ -37,7 +26,6 @@ export async function getPerinatal(objects) {
 
 // замена запроса для получения линейных ссылок
 function changeArrayUrlForGetLinearization(linksArray) {
-	const links = useLinks();
 	return linksArray.map((link) => {
 		const entityId = link.match(/\d{0,15}$/);
 		return `${links.URL_PREF_LINEAR}${entityId}`;
@@ -48,7 +36,6 @@ function changeArrayUrlForGetLinearization(linksArray) {
 // замена ссылки на содержание
 async function getEntitiesInPerinatal(array) {
 	try {
-		const links = useLinks();
 		const resultRequests = await Promise.allSettled(
 			array.map(
 						async link => {

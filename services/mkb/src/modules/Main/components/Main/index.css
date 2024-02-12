@@ -1,13 +1,13 @@
 summary {
-    margin-bottom: 0.65005vw;
+    margin-bottom: 12px;
     width: fit-content;
     width: -moz-fit-content;
     cursor: pointer;
     position: relative;
     font-style: normal;
     font-weight: 400;
-    font-size: 0.59588vw;
-    line-height: 0.7584vw;
+    font-size: 11px;
+    line-height: 14px;
 }
 
 details {
@@ -36,9 +36,9 @@ details > summary {
 details summary:before {
     content: '▴';
     position: absolute;
-    margin-right: 0.3792vw;
-    top: -0.10834vw;
-    left: -0.70423vw;
+    margin-right: 7px;
+    top: -2px;
+    left: -13px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,10 +49,10 @@ details summary:before {
 /* Добавляем собственный маркер для открытого состояния */
 details[open] summary:before {
     content: '▾';
-    margin-right: 0.3792vw;
+    margin-right: 7px;
     position: absolute;
     top: 0;
-    left: -0.86674vw;
+    left: -16px;
     display: flex;
     flex-direction: column;
     justify-content: center;

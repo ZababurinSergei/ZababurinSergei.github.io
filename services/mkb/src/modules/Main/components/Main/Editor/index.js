@@ -239,110 +239,110 @@ export const Editor = ({type, postcoordination, className, title, root, isRoot, 
                 <strong style={{ color: "blue"}}>{title}</strong>
             </div>
             {postcoordination.postcoordinationScale.map(axis => {
-                return (
-                    <React.Fragment key={idKey()} >
-                        {(isRoot || !additionalCodes.includes(axis.axisName)) &&
-                            <React.Fragment key={idKey()} >
+            return (
+                <React.Fragment key={idKey()} >
+                    {(isRoot || !additionalCodes.includes(axis.axisName)) &&
+                        <React.Fragment key={idKey()} >
+                            <div className={style.details}>
                                 <div className={style.details}>
-                                    <div className={style.details}>
-                                        <div className={style.detailsAgent}>
-                                            <p className={style.detailsAgentTitle}>{`${getAxisName(axis.axisName)}`}</p>
-                                            <p className={style.detailsAgentInfo}>{axis.requiredPostcoordination ? requiredPostcoordination[0] :requiredPostcoordination[1]}</p>
-                                        </div>
+                                    <div className={style.detailsAgent}>
+                                        <p className={style.detailsAgentTitle}>{`${getAxisName(axis.axisName)}`}</p>
+                                        <p className={style.detailsAgentInfo}>{axis.requiredPostcoordination ? requiredPostcoordination[0] :requiredPostcoordination[1]}</p>
                                     </div>
                                 </div>
-                                {axis.isVisible ? (
-                                    <React.Fragment key={idKey()} >
-                                        <div className={style.editor}>
-                                            {axis.scaleEntity.map(object => (
-                                                <React.Fragment key={idKey()}>
+                            </div>
+                            {axis.isVisible ? (
+                                <React.Fragment key={idKey()} >
+                                    <div className={style.editor}>
+                                        {axis.scaleEntity.map(object => (
+                                            <React.Fragment key={idKey()}>
+                                                <div
+                                                    onClick={() => {
+                                                        onSetCode(axis, object).catch(e => console.error(e))
+                                                    }}
+                                                    className={style.editorItem}
+                                                >
                                                     <div
-                                                        onClick={() => {
-                                                            onSetCode(axis, object).catch(e => console.error(e))
-                                                        }}
-                                                        className={style.editorItem}
+                                                        className={style.editorDescription}
                                                     >
-                                                        <div
-                                                            className={style.editorDescription}
-                                                        >
-                                                            <span>
-                                                                {`${object.code}`}
-                                                            </span>
-                                                            {`${object.title}`}
-                                                        </div>
+                                                        <span>
+                                                            {`${object.code}`}
+                                                        </span>
+                                                        {`${object.title}`}
                                                     </div>
-                                                    {object.child
-                                                        ? object.child.map(child => {
-                                                            return (
-                                                                <React.Fragment key={idKey()}>
-                                                                    <div
-                                                                        className={style.editorItemChild}
-                                                                        onClick={() => {
-                                                                            onSetCode(axis, child).catch(e => console.error(e))
-                                                                        }}
-                                                                    >
-                                                                        <div className={style.editorDescription}><span>{`${child.code}`}</span>{`${child.title}`}</div>
-                                                                    </div>
-                                                                    {child.child
-                                                                        ? child.child.map(data => {
-                                                                            return (
-                                                                            <React.Fragment key={idKey()}>
-                                                                                <div
-                                                                                    className={style.editorItemChildSecond}
-                                                                                    onClick={() => {
-                                                                                        onSetCode(axis, data).catch(e => console.error(e))
-                                                                                    }}
-                                                                                >
-                                                                                    <div className={style.editorDescription}><span>{`${data.code}`}</span>{`${data.title}`}</div>
-                                                                                </div>
-                                                                            </React.Fragment>
-                                                                        )}) : ''}
-                                                                </React.Fragment>)}) : ''}
-                                                </React.Fragment>
-                                            ))}
-                                        </div>
-                                    </React.Fragment>
-                                ) : ''}
-                                <div className={style.search}>
-                                    {!axis.isVisible ? (
-                                        <>
-                                            <InputSearchWrapper
-                                                className={style}
-                                                axis={axis}
-                                                onSetCode={onSetCode}
-                                            />
-                                            {!isMobile &&
-                                                <div onClick={onClickHelpHandler}>
-                                                    <CrossHelp className={style.crossHelp} />
                                                 </div>
-                                            }
-                                        </>
-                                    ) : ''}
-                                </div>
-                                {!axis.isVisible ? (
-                                    <div className={style.treeViews}>
-                                        <TreeViews
-                                            type={type}
-                                            className={style}
-                                            forceUpdate={forceUpdate}
-                                            setForceUpdate={setForceUpdate}
-                                            allToc={allToc}
-                                            setAllToc={setAllToc}
-                                            root={root}
-                                            axis={{
-                                                allowMultipleValues: axis.allowMultipleValues,
-                                                axisName: axis.axisName
-                                            }}
-                                            axisName={axis.axisName}
-                                            data={axis.toc}
-                                        />
+                                                {object.child
+                                                    ? object.child.map(child => {
+                                                        return (
+                                                            <React.Fragment key={idKey()}>
+                                                                <div
+                                                                    className={style.editorItemChild}
+                                                                    onClick={() => {
+                                                                        onSetCode(axis, child).catch(e => console.error(e))
+                                                                    }}
+                                                                >
+                                                                    <div className={style.editorDescription}><span>{`${child.code}`}</span>{`${child.title}`}</div>
+                                                                </div>
+                                                                {child.child
+                                                                    ? child.child.map(data => {
+                                                                        return (
+                                                                        <React.Fragment key={idKey()}>
+                                                                            <div
+                                                                                className={style.editorItemChildSecond}
+                                                                                onClick={() => {
+                                                                                    onSetCode(axis, data).catch(e => console.error(e))
+                                                                                }}
+                                                                            >
+                                                                                <div className={style.editorDescription}><span>{`${data.code}`}</span>{`${data.title}`}</div>
+                                                                            </div>
+                                                                        </React.Fragment>
+                                                                    )}) : ''}
+                                                            </React.Fragment>)}) : ''}
+                                            </React.Fragment>
+                                        ))}
                                     </div>
+                                </React.Fragment>
+                            ) : ''}
+                            <div className={style.search}>
+                                {!axis.isVisible ? (
+                                    <>
+                                        <InputSearchWrapper
+                                            className={style}
+                                            axis={axis}
+                                            onSetCode={onSetCode}
+                                        />
+                                        {!isMobile &&
+                                            <div onClick={onClickHelpHandler}>
+                                                <CrossHelp className={style.crossHelp} />
+                                            </div>
+                                        }
+                                    </>
                                 ) : ''}
-                            </React.Fragment>
-                        }
+                            </div>
+                            {!axis.isVisible ? (
+                                <div className={style.treeViews}>
+                                    <TreeViews
+                                        type={type}
+                                        className={style}
+                                        forceUpdate={forceUpdate}
+                                        setForceUpdate={setForceUpdate}
+                                        allToc={allToc}
+                                        setAllToc={setAllToc}
+                                        root={root}
+                                        axis={{
+                                            allowMultipleValues: axis.allowMultipleValues,
+                                            axisName: axis.axisName
+                                        }}
+                                        axisName={axis.axisName}
+                                        data={axis.toc}
+                                    />
+                                </div>
+                            ) : ''}
+                        </React.Fragment>
+                    }
 
-                    </React.Fragment>
-                )})}                                
+                </React.Fragment>
+            )})}
         </div>
     ) : (<div>Загружается</div>)}</>)
 }
