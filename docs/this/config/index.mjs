@@ -1,1 +1,0 @@
-export { config, taskProperty, link, eventsName, taskRelation } from './substrate/index.mjs'
